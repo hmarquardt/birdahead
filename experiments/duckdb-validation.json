@@ -1,0 +1,9 @@
+{
+  "scope": "Actual imported histogram rows only; not an EBD throughput benchmark",
+  "duckdb_version": "1.5.6",
+  "rows": 8400,
+  "input_json_bytes": 2285483,
+  "partitioned_parquet_bytes": 93414,
+  "seconds": 0.0305,
+  "ebd_histogram_parity_measured": false
+}

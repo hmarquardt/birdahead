@@ -47,3 +47,6 @@ test-results/
 *.safetensors
 *.h5
 *.keras
+
+# Owner-supplied raw eBird exports must remain private.
+ebird_*_barchart.txt

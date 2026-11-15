@@ -1,0 +1,72 @@
+{
+  "schema": "birdahead-geography-config-v1",
+  "snapshot": null,
+  "source_taxonomy_version": null,
+  "target_taxonomy_version": "2026",
+  "start_year": 2016,
+  "end_year": 2025,
+  "source_coverage": "all_taxa_and_complete_checklists",
+  "crosswalk_review_status": "pending",
+  "locations": [
+    {
+      "id": "US-IN-051",
+      "kind": "county",
+      "source_id": "US-IN-051",
+      "name": "Gibson"
+    },
+    {
+      "id": "US-IN-125",
+      "kind": "county",
+      "source_id": "US-IN-125",
+      "name": "Pike"
+    },
+    {
+      "id": "US-IN-055",
+      "kind": "county",
+      "source_id": "US-IN-055",
+      "name": "Greene"
+    },
+    {
+      "id": "US-IN-129",
+      "kind": "county",
+      "source_id": "US-IN-129",
+      "name": "Posey"
+    },
+    {
+      "id": "US-IN-083",
+      "kind": "county",
+      "source_id": "US-IN-083",
+      "name": "Knox"
+    },
+    {
+      "id": "US-IN-163",
+      "kind": "county",
+      "source_id": "US-IN-163",
+      "name": "Vanderburgh"
+    },
+    {
+      "id": "US-IN-173",
+      "kind": "county",
+      "source_id": "US-IN-173",
+      "name": "Warrick"
+    },
+    {
+      "id": "cane-ridge",
+      "kind": "hotspot",
+      "source_id": "L320465",
+      "name": "Cane Ridge WMA"
+    },
+    {
+      "id": "gibson-lake-habitat",
+      "kind": "hotspot",
+      "source_id": "L1872968",
+      "name": "Gibson Lake Wildlife Habitat, not entire lake"
+    },
+    {
+      "id": "snakey-point",
+      "kind": "hotspot",
+      "source_id": "L564337",
+      "name": "Patoka River NWR–Snakey Point Marsh"
+    }
+  ]
+}

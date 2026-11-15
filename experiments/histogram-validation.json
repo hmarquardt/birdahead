@@ -1,0 +1,3251 @@
+{
+  "schema": "birdahead-histogram-validation-v1",
+  "source": "Owner-supplied official eBird downloads; eBird/Cornell attribution and terms apply",
+  "reference_only": true,
+  "county_summaries": [
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-051",
+      "location_name": "Gibson",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-051",
+      "source_sha256": "b506126223926a85b94d67fb91a0c45bf6ca02bf146e2dbdf1b81ae1cd89b764",
+      "source_filename": "ebird_US-IN-051__2016_2025_1_12_barchart.txt",
+      "source_bytes": 124730,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 370,
+      "species_name_matches": 312,
+      "unresolved_or_non_species_taxa": 58,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        756,
+        340,
+        318,
+        575,
+        201,
+        271,
+        389,
+        208,
+        247,
+        275,
+        261,
+        473,
+        392,
+        409,
+        467,
+        790,
+        672,
+        461,
+        314,
+        434,
+        145,
+        108,
+        105,
+        220,
+        135,
+        156,
+        177,
+        263,
+        223,
+        213,
+        306,
+        367,
+        311,
+        246,
+        180,
+        211,
+        172,
+        229,
+        139,
+        231,
+        208,
+        164,
+        151,
+        246,
+        180,
+        231,
+        241,
+        427
+      ],
+      "checklist_total": 14238,
+      "anomalies_pilot": {
+        "possible_presence_marker": 5,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-055",
+      "location_name": "Greene",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-055",
+      "source_sha256": "7f2a8931394f4fa6c43a176f1ef02eb54ec65fe0155f4d6edc0f49d20d6dd7c1",
+      "source_filename": "ebird_US-IN-055__2016_2025_1_12_barchart.txt",
+      "source_bytes": 122233,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 357,
+      "species_name_matches": 299,
+      "unresolved_or_non_species_taxa": 58,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        433,
+        174,
+        288,
+        456,
+        439,
+        533,
+        796,
+        902,
+        917,
+        639,
+        495,
+        861,
+        547,
+        775,
+        725,
+        977,
+        754,
+        940,
+        571,
+        789,
+        407,
+        236,
+        261,
+        271,
+        263,
+        335,
+        273,
+        474,
+        284,
+        326,
+        333,
+        497,
+        356,
+        246,
+        260,
+        316,
+        289,
+        418,
+        368,
+        446,
+        267,
+        236,
+        212,
+        348,
+        132,
+        216,
+        562,
+        304
+      ],
+      "checklist_total": 21947,
+      "anomalies_pilot": {
+        "possible_presence_marker": 12,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-083",
+      "location_name": "Knox",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-083",
+      "source_sha256": "883302cc83909d812070bc7654fb44c81d9549374cf122bd7d5a0a166069c104",
+      "source_filename": "ebird_US-IN-083__2016_2025_1_12_barchart.txt",
+      "source_bytes": 87133,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 291,
+      "species_name_matches": 261,
+      "unresolved_or_non_species_taxa": 30,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        265,
+        61,
+        66,
+        81,
+        52,
+        67,
+        111,
+        50,
+        56,
+        57,
+        38,
+        82,
+        73,
+        109,
+        100,
+        165,
+        177,
+        117,
+        64,
+        74,
+        29,
+        53,
+        31,
+        41,
+        30,
+        30,
+        22,
+        52,
+        28,
+        28,
+        43,
+        51,
+        50,
+        61,
+        54,
+        59,
+        49,
+        33,
+        27,
+        60,
+        42,
+        43,
+        39,
+        57,
+        36,
+        26,
+        30,
+        105
+      ],
+      "checklist_total": 3074,
+      "anomalies_pilot": {
+        "possible_presence_marker": 18,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-125",
+      "location_name": "Pike",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-125",
+      "source_sha256": "7563cbbd78a67cc4b840d68ec149ad0da7a61b5ece96e5ba2e90e85e57159831",
+      "source_filename": "ebird_US-IN-125__2016_2025_1_12_barchart.txt",
+      "source_bytes": 95319,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 309,
+      "species_name_matches": 272,
+      "unresolved_or_non_species_taxa": 37,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        126,
+        54,
+        68,
+        64,
+        26,
+        22,
+        63,
+        46,
+        41,
+        36,
+        26,
+        46,
+        53,
+        86,
+        106,
+        169,
+        148,
+        83,
+        80,
+        97,
+        42,
+        70,
+        26,
+        35,
+        25,
+        29,
+        33,
+        62,
+        59,
+        51,
+        62,
+        77,
+        45,
+        34,
+        36,
+        41,
+        26,
+        48,
+        22,
+        32,
+        22,
+        17,
+        26,
+        21,
+        18,
+        13,
+        18,
+        154
+      ],
+      "checklist_total": 2584,
+      "anomalies_pilot": {
+        "possible_presence_marker": 13,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-129",
+      "location_name": "Posey",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-129",
+      "source_sha256": "0eb537dcc61ceed2342d5c9c5a8dd06020ea44997c0263cc87b09be79af09aca",
+      "source_filename": "ebird_US-IN-129__2016_2025_1_12_barchart.txt",
+      "source_bytes": 91529,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 292,
+      "species_name_matches": 256,
+      "unresolved_or_non_species_taxa": 36,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        61,
+        56,
+        35,
+        88,
+        48,
+        80,
+        103,
+        51,
+        61,
+        43,
+        56,
+        99,
+        62,
+        72,
+        73,
+        154,
+        150,
+        97,
+        69,
+        146,
+        79,
+        57,
+        48,
+        72,
+        52,
+        58,
+        48,
+        68,
+        51,
+        30,
+        57,
+        78,
+        34,
+        35,
+        37,
+        39,
+        33,
+        36,
+        42,
+        45,
+        31,
+        24,
+        23,
+        34,
+        25,
+        26,
+        33,
+        43
+      ],
+      "checklist_total": 2842,
+      "anomalies_pilot": {
+        "possible_presence_marker": 11,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-163",
+      "location_name": "Vanderburgh",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-163",
+      "source_sha256": "c358ffb4db70567fcb4f959b2e79064fb855906a9fe542b563f6a5b1230a90a4",
+      "source_filename": "ebird_US-IN-163__2016_2025_1_12_barchart.txt",
+      "source_bytes": 108205,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 329,
+      "species_name_matches": 278,
+      "unresolved_or_non_species_taxa": 51,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        924,
+        644,
+        497,
+        742,
+        399,
+        631,
+        887,
+        428,
+        452,
+        457,
+        437,
+        815,
+        642,
+        666,
+        775,
+        1226,
+        1065,
+        915,
+        586,
+        533,
+        312,
+        297,
+        254,
+        313,
+        267,
+        259,
+        202,
+        290,
+        234,
+        210,
+        229,
+        405,
+        374,
+        358,
+        372,
+        413,
+        374,
+        394,
+        299,
+        387,
+        284,
+        279,
+        218,
+        351,
+        250,
+        243,
+        302,
+        331
+      ],
+      "checklist_total": 22222,
+      "anomalies_pilot": {
+        "possible_presence_marker": 7,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    },
+    {
+      "schema": "birdahead-native-histogram-v1",
+      "location": "US-IN-173",
+      "location_name": "Warrick",
+      "source_url": "https://ebird.org/barchart?byr=2016&eyr=2025&bmo=1&emo=12&r=US-IN-173",
+      "source_sha256": "d5a2e8b4d3e9ed78673a63e056b0bcd4501fe712277f40568ae2cffdde3c8ddd",
+      "source_filename": "ebird_US-IN-173__2016_2025_1_12_barchart.txt",
+      "source_bytes": 108717,
+      "start_year": 2016,
+      "end_year": 2025,
+      "scope_evidence": "Owner supplied download; geography and years encoded in filename, not embedded in body",
+      "source_taxonomy_version": null,
+      "taxonomy_version": "2026",
+      "crosswalk": "Exact unique common-name lookup against cached authority, scientific-name agreement with versioned pilot; no split/lump inference",
+      "units": "fraction_of_complete_checklists",
+      "bin_definition": "ebird-48-month-periods: days 1-7,8-14,15-21,22-month-end",
+      "missing_semantics": "Missing row/value or zero support => null; suspicious 0.0015/noninteger cells retained raw but excluded from numeric ranking",
+      "source_taxa": 330,
+      "species_name_matches": 281,
+      "unresolved_or_non_species_taxa": 49,
+      "pilot_species_matched": 25,
+      "sample_sizes": [
+        545,
+        302,
+        288,
+        300,
+        291,
+        365,
+        467,
+        222,
+        288,
+        312,
+        326,
+        572,
+        446,
+        509,
+        474,
+        730,
+        666,
+        597,
+        315,
+        266,
+        150,
+        118,
+        130,
+        162,
+        129,
+        125,
+        85,
+        148,
+        102,
+        110,
+        138,
+        206,
+        213,
+        185,
+        192,
+        263,
+        261,
+        201,
+        161,
+        214,
+        221,
+        172,
+        155,
+        162,
+        152,
+        157,
+        171,
+        197
+      ],
+      "checklist_total": 12961,
+      "anomalies_pilot": {
+        "possible_presence_marker": 6,
+        "nonintegral_detection_count": 0,
+        "missing": 0
+      }
+    }
+  ],
+  "demonstrations": [
+    {
+      "location": "US-IN-051",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.4654088,
+            "future_14_28_day_max": 0.6368159,
+            "approaching_window_rise": 0.17140709999999998,
+            "learning_priority": 0.34780812,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3647799,
+            "future_14_28_day_max": 0.4243542,
+            "approaching_window_rise": 0.059574300000000024,
+            "learning_priority": 0.24269766,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "snogoo",
+            "current_reporting_frequency": 0.2987421,
+            "future_14_28_day_max": 0.4527363,
+            "approaching_window_rise": 0.15399419999999997,
+            "learning_priority": 0.24084294,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Snow Goose"
+          },
+          {
+            "species_code": "buffle",
+            "current_reporting_frequency": 0.2421384,
+            "future_14_28_day_max": 0.4129353,
+            "approaching_window_rise": 0.1707969,
+            "learning_priority": 0.2136018,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Bufflehead"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1446541,
+            "future_14_28_day_max": 0.4095941,
+            "approaching_window_rise": 0.26494,
+            "learning_priority": 0.19276846,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2138365,
+            "future_14_28_day_max": 0.2656827,
+            "approaching_window_rise": 0.05184619999999998,
+            "learning_priority": 0.14904038,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.1855346,
+            "future_14_28_day_max": 0.195572,
+            "approaching_window_rise": 0.010037400000000002,
+            "learning_priority": 0.11533572,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.1289308,
+            "future_14_28_day_max": 0.195572,
+            "approaching_window_rise": 0.06664119999999998,
+            "learning_priority": 0.10401496,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.5595238,
+            "future_14_28_day_max": 0.7793103,
+            "approaching_window_rise": 0.2197865,
+            "learning_priority": 0.42362888,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.3883929,
+            "future_14_28_day_max": 0.6758621,
+            "approaching_window_rise": 0.28746920000000004,
+            "learning_priority": 0.34802342,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3883929,
+            "future_14_28_day_max": 0.5586207,
+            "approaching_window_rise": 0.17022779999999998,
+            "learning_priority": 0.30112686,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.2797619,
+            "future_14_28_day_max": 0.5517241,
+            "approaching_window_rise": 0.27196220000000004,
+            "learning_priority": 0.27664202,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.28125,
+            "future_14_28_day_max": 0.4930876,
+            "approaching_window_rise": 0.21183760000000001,
+            "learning_priority": 0.25348504,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.2738095,
+            "future_14_28_day_max": 0.3862069,
+            "approaching_window_rise": 0.11239740000000004,
+            "learning_priority": 0.20924466,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2619048,
+            "future_14_28_day_max": 0.3655172,
+            "approaching_window_rise": 0.1036124,
+            "learning_priority": 0.19858784,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.2529762,
+            "future_14_28_day_max": 0.3387097,
+            "approaching_window_rise": 0.08573350000000002,
+            "learning_priority": 0.18607912,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.6440678,
+            "future_14_28_day_max": 0.6412556,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.38644068,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.5706215,
+            "future_14_28_day_max": 0.4030418,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.3423729,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3672316,
+            "future_14_28_day_max": 0.5070423,
+            "approaching_window_rise": 0.13981069999999995,
+            "learning_priority": 0.27626324,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.440678,
+            "future_14_28_day_max": 0.4573991,
+            "approaching_window_rise": 0.01672109999999999,
+            "learning_priority": 0.27109524,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3333333,
+            "future_14_28_day_max": 0.4394619,
+            "approaching_window_rise": 0.10612860000000002,
+            "learning_priority": 0.24245142,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.3615819,
+            "future_14_28_day_max": 0.3840304,
+            "approaching_window_rise": 0.022448499999999982,
+            "learning_priority": 0.22592854,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "lesyel",
+            "current_reporting_frequency": 0.3559322,
+            "future_14_28_day_max": 0.370892,
+            "approaching_window_rise": 0.014959800000000023,
+            "learning_priority": 0.21954324,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Lesser Yellowlegs"
+          },
+          {
+            "species_code": "greyel",
+            "current_reporting_frequency": 0.3559322,
+            "future_14_28_day_max": 0.3051643,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.21355932,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Greater Yellowlegs"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3252033,
+            "future_14_28_day_max": 0.5308057,
+            "approaching_window_rise": 0.20560240000000007,
+            "learning_priority": 0.27736294,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.4349593,
+            "future_14_28_day_max": 0.4104803,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.26097558,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.398374,
+            "future_14_28_day_max": 0.4123223,
+            "approaching_window_rise": 0.013948299999999969,
+            "learning_priority": 0.24460372,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.3577236,
+            "future_14_28_day_max": 0.4148472,
+            "approaching_window_rise": 0.05712360000000005,
+            "learning_priority": 0.2374836,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "greyel",
+            "current_reporting_frequency": 0.3821138,
+            "future_14_28_day_max": 0.2938389,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.22926828,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Greater Yellowlegs"
+          },
+          {
+            "species_code": "buwtea",
+            "current_reporting_frequency": 0.3780488,
+            "future_14_28_day_max": 0.2369668,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.22682928,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Blue-winged Teal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2113821,
+            "future_14_28_day_max": 0.4597156,
+            "approaching_window_rise": 0.2483335,
+            "learning_priority": 0.22616266,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "lesyel",
+            "current_reporting_frequency": 0.3658537,
+            "future_14_28_day_max": 0.2464455,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.21951222,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Lesser Yellowlegs"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.0076531,
+          "future_14_28_day_max": 0.3037975,
+          "approaching_window_rise": 0.2961444,
+          "learning_priority": 0.12304962,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.2151899,
+          "approaching_window_rise": 0.2151899,
+          "learning_priority": 0.08607596,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "amegfi",
+          "current_reporting_frequency": 0.1760204,
+          "future_14_28_day_max": 0.3696203,
+          "approaching_window_rise": 0.19359990000000002,
+          "learning_priority": 0.1830522,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "American Goldfinch"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.1836735,
+          "future_14_28_day_max": 0.3468354,
+          "approaching_window_rise": 0.16316190000000003,
+          "learning_priority": 0.17546886,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        },
+        {
+          "species_code": "lesyel",
+          "current_reporting_frequency": 0.2806122,
+          "future_14_28_day_max": 0.4025696,
+          "approaching_window_rise": 0.12195740000000005,
+          "learning_priority": 0.21715028,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Lesser Yellowlegs"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-055",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "sancra",
+            "current_reporting_frequency": 0.5902778,
+            "future_14_28_day_max": 0.6355353,
+            "approaching_window_rise": 0.04525750000000006,
+            "learning_priority": 0.37226968,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Sandhill Crane"
+          },
+          {
+            "species_code": "snogoo",
+            "current_reporting_frequency": 0.40625,
+            "future_14_28_day_max": 0.4715262,
+            "approaching_window_rise": 0.0652762,
+            "learning_priority": 0.26986048,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Snow Goose"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.2673611,
+            "future_14_28_day_max": 0.4009112,
+            "approaching_window_rise": 0.1335501,
+            "learning_priority": 0.2138367,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1631944,
+            "future_14_28_day_max": 0.3733583,
+            "approaching_window_rise": 0.2101639,
+            "learning_priority": 0.1819822,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.2708333,
+            "future_14_28_day_max": 0.2719298,
+            "approaching_window_rise": 0.0010965000000000003,
+            "learning_priority": 0.16293858,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.1493056,
+            "future_14_28_day_max": 0.1535088,
+            "approaching_window_rise": 0.00420319999999999,
+            "learning_priority": 0.09126464,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.1215278,
+            "future_14_28_day_max": 0.1219512,
+            "approaching_window_rise": 0.00042339999999999045,
+            "learning_priority": 0.07308604,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.0798611,
+            "future_14_28_day_max": 0.0986842,
+            "approaching_window_rise": 0.018823099999999995,
+            "learning_priority": 0.0554459,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.7267905,
+            "future_14_28_day_max": 0.8022814,
+            "approaching_window_rise": 0.07549090000000003,
+            "learning_priority": 0.46627066,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.3846154,
+            "future_14_28_day_max": 0.6289926,
+            "approaching_window_rise": 0.24437720000000002,
+            "learning_priority": 0.32852012,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.4376658,
+            "future_14_28_day_max": 0.3789607,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.26259948,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.3037135,
+            "future_14_28_day_max": 0.4131812,
+            "approaching_window_rise": 0.1094677,
+            "learning_priority": 0.22601518,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.2984085,
+            "future_14_28_day_max": 0.4078624,
+            "approaching_window_rise": 0.10945389999999999,
+            "learning_priority": 0.22282666,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3050398,
+            "future_14_28_day_max": 0.3029151,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.18302388,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "buwtea",
+            "current_reporting_frequency": 0.2931034,
+            "future_14_28_day_max": 0.1751313,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.17586204,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Blue-winged Teal"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.1485411,
+            "future_14_28_day_max": 0.3292383,
+            "approaching_window_rise": 0.18069719999999997,
+            "learning_priority": 0.16140354,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.6849817,
+            "future_14_28_day_max": 0.5548523,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.41098902,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.5934066,
+            "future_14_28_day_max": 0.6760563,
+            "approaching_window_rise": 0.08264970000000005,
+            "learning_priority": 0.38910384,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4322344,
+            "future_14_28_day_max": 0.5889571,
+            "approaching_window_rise": 0.1567227,
+            "learning_priority": 0.32202972,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.4102564,
+            "future_14_28_day_max": 0.4141104,
+            "approaching_window_rise": 0.0038539999999999686,
+            "learning_priority": 0.24769544,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3663004,
+            "future_14_28_day_max": 0.4156118,
+            "approaching_window_rise": 0.04931139999999995,
+            "learning_priority": 0.2395048,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.2454212,
+            "future_14_28_day_max": 0.2510549,
+            "approaching_window_rise": 0.005633700000000019,
+            "learning_priority": 0.1495062,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.2490842,
+            "future_14_28_day_max": 0.2341772,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.14945052,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.2197802,
+            "future_14_28_day_max": 0.2484663,
+            "approaching_window_rise": 0.028686099999999992,
+            "learning_priority": 0.14334256,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.300813,
+            "future_14_28_day_max": 0.6339713,
+            "approaching_window_rise": 0.3331583,
+            "learning_priority": 0.31375112,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4186992,
+            "future_14_28_day_max": 0.4401914,
+            "approaching_window_rise": 0.021492200000000017,
+            "learning_priority": 0.2598164,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "buwtea",
+            "current_reporting_frequency": 0.4065041,
+            "future_14_28_day_max": 0.3132911,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.24390246,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Blue-winged Teal"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.3902439,
+            "future_14_28_day_max": 0.3481013,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.23414634,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          },
+          {
+            "species_code": "lesyel",
+            "current_reporting_frequency": 0.3495935,
+            "future_14_28_day_max": 0.3037975,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.2097561,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Lesser Yellowlegs"
+          },
+          {
+            "species_code": "greyel",
+            "current_reporting_frequency": 0.3333333,
+            "future_14_28_day_max": 0.3037975,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.19999998,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Greater Yellowlegs"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.2845528,
+            "future_14_28_day_max": 0.3253589,
+            "approaching_window_rise": 0.04080610000000001,
+            "learning_priority": 0.18705412,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2398374,
+            "future_14_28_day_max": 0.3321799,
+            "approaching_window_rise": 0.09234249999999997,
+            "learning_priority": 0.18083944,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "lesyel",
+          "current_reporting_frequency": 0.2193784,
+          "future_14_28_day_max": 0.4510345,
+          "approaching_window_rise": 0.2316561,
+          "learning_priority": 0.22428948,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Lesser Yellowlegs"
+        },
+        {
+          "species_code": "amegfi",
+          "current_reporting_frequency": 0.0840951,
+          "future_14_28_day_max": 0.2886387,
+          "approaching_window_rise": 0.20454360000000002,
+          "learning_priority": 0.1322745,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "American Goldfinch"
+        },
+        {
+          "species_code": "greyel",
+          "current_reporting_frequency": 0.2595978,
+          "future_14_28_day_max": 0.462069,
+          "approaching_window_rise": 0.20247120000000002,
+          "learning_priority": 0.23674716,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Greater Yellowlegs"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.0658135,
+          "future_14_28_day_max": 0.1842375,
+          "approaching_window_rise": 0.118424,
+          "learning_priority": 0.0868577,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        },
+        {
+          "species_code": "buwtea",
+          "current_reporting_frequency": 0.5283364,
+          "future_14_28_day_max": 0.6455172,
+          "approaching_window_rise": 0.11718079999999997,
+          "learning_priority": 0.36387416,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Blue-winged Teal"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-083",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.6515152,
+            "future_14_28_day_max": 0.7014925,
+            "approaching_window_rise": 0.0499773,
+            "learning_priority": 0.41090004,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.6060606,
+            "future_14_28_day_max": 0.6268657,
+            "approaching_window_rise": 0.02080510000000002,
+            "learning_priority": 0.3719584,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.5151515,
+            "future_14_28_day_max": 0.5970149,
+            "approaching_window_rise": 0.08186340000000003,
+            "learning_priority": 0.34183626,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4242424,
+            "future_14_28_day_max": 0.5820896,
+            "approaching_window_rise": 0.15784719999999997,
+            "learning_priority": 0.31768432,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.3787879,
+            "future_14_28_day_max": 0.4776119,
+            "approaching_window_rise": 0.09882399999999997,
+            "learning_priority": 0.26680234,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.3181818,
+            "future_14_28_day_max": 0.4038462,
+            "approaching_window_rise": 0.08566439999999997,
+            "learning_priority": 0.22517484,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "snogoo",
+            "current_reporting_frequency": 0.1212121,
+            "future_14_28_day_max": 0.3269231,
+            "approaching_window_rise": 0.20571100000000003,
+            "learning_priority": 0.15501166,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Snow Goose"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.1212121,
+            "future_14_28_day_max": 0.2115385,
+            "approaching_window_rise": 0.09032639999999999,
+            "learning_priority": 0.10885782,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7118644,
+            "future_14_28_day_max": 0.640625,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.42711864,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.6610169,
+            "future_14_28_day_max": 0.7027027,
+            "approaching_window_rise": 0.041685799999999995,
+            "learning_priority": 0.41328446,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.4576271,
+            "future_14_28_day_max": 0.625,
+            "approaching_window_rise": 0.1673729,
+            "learning_priority": 0.34152542,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.4858757,
+            "future_14_28_day_max": 0.5862069,
+            "approaching_window_rise": 0.10033119999999995,
+            "learning_priority": 0.3316579,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4632768,
+            "future_14_28_day_max": 0.3783784,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.27796608,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.1186441,
+            "future_14_28_day_max": 0.5172414,
+            "approaching_window_rise": 0.39859729999999993,
+            "learning_priority": 0.23062538,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.3107345,
+            "future_14_28_day_max": 0.3103448,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.1864407,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2824859,
+            "future_14_28_day_max": 0.3243243,
+            "approaching_window_rise": 0.0418384,
+            "learning_priority": 0.1862269,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.8181818,
+            "future_14_28_day_max": 0.5714286,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.49090908,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.7272727,
+            "future_14_28_day_max": 0.5357143,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.43636362,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.7272727,
+            "future_14_28_day_max": 0.5714286,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.43636362,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.6363636,
+            "future_14_28_day_max": 0.6730769,
+            "approaching_window_rise": 0.03671329999999995,
+            "learning_priority": 0.39650348,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.5909091,
+            "future_14_28_day_max": 0.4230769,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.35454546,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4090909,
+            "future_14_28_day_max": 0.2857143,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.24545454,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.3181818,
+            "future_14_28_day_max": 0.2692308,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.19090908,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.2272727,
+            "future_14_28_day_max": 0.25,
+            "approaching_window_rise": 0.022727300000000006,
+            "learning_priority": 0.14545454,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.6229508,
+            "future_14_28_day_max": 0.7575758,
+            "approaching_window_rise": 0.134625,
+            "learning_priority": 0.42762048,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2786885,
+            "future_14_28_day_max": 0.4745763,
+            "approaching_window_rise": 0.1958878,
+            "learning_priority": 0.24556822,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3442623,
+            "future_14_28_day_max": 0.3939394,
+            "approaching_window_rise": 0.049677099999999974,
+            "learning_priority": 0.22642822,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.2131148,
+            "future_14_28_day_max": 0.4285714,
+            "approaching_window_rise": 0.2154566,
+            "learning_priority": 0.21405152,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.1967213,
+            "future_14_28_day_max": 0.3333333,
+            "approaching_window_rise": 0.136612,
+            "learning_priority": 0.17267758,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.0163934,
+            "future_14_28_day_max": 0.3265306,
+            "approaching_window_rise": 0.3101372,
+            "learning_priority": 0.13389092,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.0655738,
+            "future_14_28_day_max": 0.2727273,
+            "approaching_window_rise": 0.2071535,
+            "learning_priority": 0.12220568,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.0983607,
+            "future_14_28_day_max": 0.2542373,
+            "approaching_window_rise": 0.1558766,
+            "learning_priority": 0.12136706,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.1878788,
+          "approaching_window_rise": 0.1878788,
+          "learning_priority": 0.07515152,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.0958904,
+          "future_14_28_day_max": 0.2666667,
+          "approaching_window_rise": 0.1707763,
+          "learning_priority": 0.12584476,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        },
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.1333333,
+          "approaching_window_rise": 0.1333333,
+          "learning_priority": 0.05333332,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "greyel",
+          "current_reporting_frequency": 0.0684932,
+          "future_14_28_day_max": 0.18,
+          "approaching_window_rise": 0.11150679999999999,
+          "learning_priority": 0.08569864,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Greater Yellowlegs"
+        },
+        {
+          "species_code": "lesyel",
+          "current_reporting_frequency": 0.0821918,
+          "future_14_28_day_max": 0.18,
+          "approaching_window_rise": 0.0978082,
+          "learning_priority": 0.08843836,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Lesser Yellowlegs"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-125",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.4264706,
+            "future_14_28_day_max": 0.5769231,
+            "approaching_window_rise": 0.15045250000000004,
+            "learning_priority": 0.31606336,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.3970588,
+            "future_14_28_day_max": 0.46875,
+            "approaching_window_rise": 0.07169120000000001,
+            "learning_priority": 0.26691176,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.3088235,
+            "future_14_28_day_max": 0.5,
+            "approaching_window_rise": 0.19117650000000003,
+            "learning_priority": 0.2617647,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.3529412,
+            "future_14_28_day_max": 0.4545455,
+            "approaching_window_rise": 0.10160429999999998,
+            "learning_priority": 0.25240644,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.2941176,
+            "future_14_28_day_max": 0.4090909,
+            "approaching_window_rise": 0.1149733,
+            "learning_priority": 0.22245988,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.1323529,
+            "future_14_28_day_max": 0.3636364,
+            "approaching_window_rise": 0.23128350000000003,
+            "learning_priority": 0.17192514,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.2058824,
+            "future_14_28_day_max": 0.2727273,
+            "approaching_window_rise": 0.06684490000000001,
+            "learning_priority": 0.1502674,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.2352941,
+            "future_14_28_day_max": 0.203125,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.14117646,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.5540541,
+            "future_14_28_day_max": 0.6907216,
+            "approaching_window_rise": 0.13666750000000005,
+            "learning_priority": 0.38709946,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.5,
+            "future_14_28_day_max": 0.6190476,
+            "approaching_window_rise": 0.11904760000000003,
+            "learning_priority": 0.34761904,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "prowar",
+            "current_reporting_frequency": 0.4121622,
+            "future_14_28_day_max": 0.5238095,
+            "approaching_window_rise": 0.11164730000000006,
+            "learning_priority": 0.29195624,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Prothonotary Warbler"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.4527027,
+            "future_14_28_day_max": 0.4329897,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.27162162,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.3310811,
+            "future_14_28_day_max": 0.4047619,
+            "approaching_window_rise": 0.07368079999999999,
+            "learning_priority": 0.22812098,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.3243243,
+            "future_14_28_day_max": 0.3809524,
+            "approaching_window_rise": 0.056628100000000015,
+            "learning_priority": 0.21724582,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.1148649,
+            "future_14_28_day_max": 0.452381,
+            "approaching_window_rise": 0.3375161,
+            "learning_priority": 0.20392538,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.2905405,
+            "future_14_28_day_max": 0.3333333,
+            "approaching_window_rise": 0.04279280000000002,
+            "learning_priority": 0.19144142,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.4848485,
+            "future_14_28_day_max": 0.6779661,
+            "approaching_window_rise": 0.1931176,
+            "learning_priority": 0.36815614,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.4242424,
+            "future_14_28_day_max": 0.3728814,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.25454544,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3636364,
+            "future_14_28_day_max": 0.4067797,
+            "approaching_window_rise": 0.043143299999999996,
+            "learning_priority": 0.23543916,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2424242,
+            "future_14_28_day_max": 0.4237288,
+            "approaching_window_rise": 0.1813046,
+            "learning_priority": 0.21797636,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.3333333,
+            "future_14_28_day_max": 0.3709677,
+            "approaching_window_rise": 0.03763440000000001,
+            "learning_priority": 0.21505374,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "lesyel",
+            "current_reporting_frequency": 0.2727273,
+            "future_14_28_day_max": 0.254902,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.16363638,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Lesser Yellowlegs"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.1212121,
+            "future_14_28_day_max": 0.3064516,
+            "approaching_window_rise": 0.1852395,
+            "learning_priority": 0.14682306,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.2424242,
+            "future_14_28_day_max": 0.1451613,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.14545452,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.5294118,
+            "future_14_28_day_max": 0.8076923,
+            "approaching_window_rise": 0.27828050000000004,
+            "learning_priority": 0.42895928,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.6176471,
+            "future_14_28_day_max": 0.5625,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.37058826,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.4411765,
+            "future_14_28_day_max": 0.6538462,
+            "approaching_window_rise": 0.21266970000000002,
+            "learning_priority": 0.34977378,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4705882,
+            "future_14_28_day_max": 0.4375,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.28235292,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.0588235,
+            "future_14_28_day_max": 0.6041667,
+            "approaching_window_rise": 0.5453431999999999,
+            "learning_priority": 0.25343138,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.4117647,
+            "future_14_28_day_max": 0.2916667,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.24705882,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.0,
+            "future_14_28_day_max": 0.5416667,
+            "approaching_window_rise": 0.5416667,
+            "learning_priority": 0.21666668,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1176471,
+            "future_14_28_day_max": 0.3333333,
+            "approaching_window_rise": 0.2156862,
+            "learning_priority": 0.15686274,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.3668639,
+          "approaching_window_rise": 0.3668639,
+          "learning_priority": 0.14674556,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "whtspa",
+          "current_reporting_frequency": 0.1132075,
+          "future_14_28_day_max": 0.3679245,
+          "approaching_window_rise": 0.25471699999999997,
+          "learning_priority": 0.1698113,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "White-throated Sparrow"
+        },
+        {
+          "species_code": "amegfi",
+          "current_reporting_frequency": 0.0754717,
+          "future_14_28_day_max": 0.3301887,
+          "approaching_window_rise": 0.25471699999999997,
+          "learning_priority": 0.14716982,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "American Goldfinch"
+        },
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0188679,
+          "future_14_28_day_max": 0.2426036,
+          "approaching_window_rise": 0.2237357,
+          "learning_priority": 0.10081502,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "norcar",
+          "current_reporting_frequency": 0.3396226,
+          "future_14_28_day_max": 0.5377358,
+          "approaching_window_rise": 0.1981132,
+          "learning_priority": 0.28301884,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Northern Cardinal"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-129",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7142857,
+            "future_14_28_day_max": 0.8,
+            "approaching_window_rise": 0.08571430000000002,
+            "learning_priority": 0.46285714,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.5428571,
+            "future_14_28_day_max": 0.625,
+            "approaching_window_rise": 0.08214290000000002,
+            "learning_priority": 0.35857142,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.4,
+            "future_14_28_day_max": 0.6125,
+            "approaching_window_rise": 0.21250000000000002,
+            "learning_priority": 0.325,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.4285714,
+            "future_14_28_day_max": 0.5909091,
+            "approaching_window_rise": 0.16233769999999997,
+            "learning_priority": 0.32207792,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.2571429,
+            "future_14_28_day_max": 0.4204545,
+            "approaching_window_rise": 0.1633116,
+            "learning_priority": 0.21961038,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "haiwoo",
+            "current_reporting_frequency": 0.2857143,
+            "future_14_28_day_max": 0.3958333,
+            "approaching_window_rise": 0.11011900000000002,
+            "learning_priority": 0.21547618,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Hairy Woodpecker"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.1428571,
+            "future_14_28_day_max": 0.4625,
+            "approaching_window_rise": 0.31964290000000006,
+            "learning_priority": 0.21357142,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.1714286,
+            "future_14_28_day_max": 0.4166667,
+            "approaching_window_rise": 0.24523810000000001,
+            "learning_priority": 0.2009524,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.6266667,
+            "future_14_28_day_max": 0.7594937,
+            "approaching_window_rise": 0.13282700000000003,
+            "learning_priority": 0.42913082,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.68,
+            "future_14_28_day_max": 0.7088608,
+            "approaching_window_rise": 0.02886079999999991,
+            "learning_priority": 0.41954432,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.5533333,
+            "future_14_28_day_max": 0.5652174,
+            "approaching_window_rise": 0.011884099999999953,
+            "learning_priority": 0.33675362,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4466667,
+            "future_14_28_day_max": 0.4782609,
+            "approaching_window_rise": 0.03159419999999996,
+            "learning_priority": 0.2806377,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.42,
+            "future_14_28_day_max": 0.4492754,
+            "approaching_window_rise": 0.029275400000000007,
+            "learning_priority": 0.26371016,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "prowar",
+            "current_reporting_frequency": 0.3666667,
+            "future_14_28_day_max": 0.4303797,
+            "approaching_window_rise": 0.06371299999999996,
+            "learning_priority": 0.24548522,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Prothonotary Warbler"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.36,
+            "future_14_28_day_max": 0.4303797,
+            "approaching_window_rise": 0.07037969999999999,
+            "learning_priority": 0.24415188,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.3666667,
+            "future_14_28_day_max": 0.3623188,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.22000002,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.7083333,
+            "future_14_28_day_max": 0.7666667,
+            "approaching_window_rise": 0.05833339999999998,
+            "learning_priority": 0.44833334,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.5625,
+            "future_14_28_day_max": 0.7,
+            "approaching_window_rise": 0.13749999999999996,
+            "learning_priority": 0.3925,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3541667,
+            "future_14_28_day_max": 0.3529412,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.21250002,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.25,
+            "future_14_28_day_max": 0.4,
+            "approaching_window_rise": 0.15000000000000002,
+            "learning_priority": 0.21,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.2916667,
+            "future_14_28_day_max": 0.2205882,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.17500002,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2291667,
+            "future_14_28_day_max": 0.3,
+            "approaching_window_rise": 0.07083329999999999,
+            "learning_priority": 0.16583334,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.2291667,
+            "future_14_28_day_max": 0.1176471,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.13750002,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.1875,
+            "future_14_28_day_max": 0.2205882,
+            "approaching_window_rise": 0.03308820000000001,
+            "learning_priority": 0.12573528,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7714286,
+            "future_14_28_day_max": 0.5897436,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.46285716,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4571429,
+            "future_14_28_day_max": 0.5277778,
+            "approaching_window_rise": 0.07063489999999994,
+            "learning_priority": 0.3025397,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.4285714,
+            "future_14_28_day_max": 0.3846154,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.25714284,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.3714286,
+            "future_14_28_day_max": 0.3055556,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.22285716,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "haiwoo",
+            "current_reporting_frequency": 0.2285714,
+            "future_14_28_day_max": 0.3636364,
+            "approaching_window_rise": 0.13506500000000002,
+            "learning_priority": 0.19116884,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Hairy Woodpecker"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1714286,
+            "future_14_28_day_max": 0.3888889,
+            "approaching_window_rise": 0.2174603,
+            "learning_priority": 0.18984128,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.0,
+            "future_14_28_day_max": 0.4444444,
+            "approaching_window_rise": 0.4444444,
+            "learning_priority": 0.17777776,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.2571429,
+            "future_14_28_day_max": 0.1944444,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.15428574,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.016129,
+          "future_14_28_day_max": 0.3311688,
+          "approaching_window_rise": 0.3150398,
+          "learning_priority": 0.13569332,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.3116883,
+          "approaching_window_rise": 0.3116883,
+          "learning_priority": 0.12467532,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.1774194,
+          "future_14_28_day_max": 0.369863,
+          "approaching_window_rise": 0.1924436,
+          "learning_priority": 0.18342908,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        },
+        {
+          "species_code": "haiwoo",
+          "current_reporting_frequency": 0.2258065,
+          "future_14_28_day_max": 0.3150685,
+          "approaching_window_rise": 0.08926199999999998,
+          "learning_priority": 0.1711887,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Hairy Woodpecker"
+        },
+        {
+          "species_code": "greyel",
+          "current_reporting_frequency": 0.0806452,
+          "future_14_28_day_max": 0.1506849,
+          "approaching_window_rise": 0.07003970000000001,
+          "learning_priority": 0.076403,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Greater Yellowlegs"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-163",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.6418511,
+            "future_14_28_day_max": 0.7464342,
+            "approaching_window_rise": 0.10458310000000004,
+            "learning_priority": 0.4269439,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4647887,
+            "future_14_28_day_max": 0.5689223,
+            "approaching_window_rise": 0.10413359999999999,
+            "learning_priority": 0.32052666,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.416499,
+            "future_14_28_day_max": 0.5103011,
+            "approaching_window_rise": 0.09380209999999994,
+            "learning_priority": 0.28742024,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.3219316,
+            "future_14_28_day_max": 0.4366577,
+            "approaching_window_rise": 0.1147261,
+            "learning_priority": 0.2390494,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.3460765,
+            "future_14_28_day_max": 0.4160401,
+            "approaching_window_rise": 0.06996360000000001,
+            "learning_priority": 0.23563134,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1348089,
+            "future_14_28_day_max": 0.4310618,
+            "approaching_window_rise": 0.2962529,
+            "learning_priority": 0.1993865,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.2957746,
+            "future_14_28_day_max": 0.3167116,
+            "approaching_window_rise": 0.020936999999999983,
+            "learning_priority": 0.18583956,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.1710262,
+            "future_14_28_day_max": 0.318542,
+            "approaching_window_rise": 0.1475158,
+            "learning_priority": 0.16162204,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7539906,
+            "future_14_28_day_max": 0.7820513,
+            "approaching_window_rise": 0.02806070000000005,
+            "learning_priority": 0.46361864,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.6328638,
+            "future_14_28_day_max": 0.6587031,
+            "approaching_window_rise": 0.02583930000000001,
+            "learning_priority": 0.390054,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4751174,
+            "future_14_28_day_max": 0.4812287,
+            "approaching_window_rise": 0.006111299999999986,
+            "learning_priority": 0.28751496,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4769953,
+            "future_14_28_day_max": 0.3921201,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.28619718,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.4328638,
+            "future_14_28_day_max": 0.4283276,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.25971828,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.3408451,
+            "future_14_28_day_max": 0.3733583,
+            "approaching_window_rise": 0.032513199999999964,
+            "learning_priority": 0.21751234,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.3333333,
+            "future_14_28_day_max": 0.0221843,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.19999998,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.2929577,
+            "future_14_28_day_max": 0.0255973,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.17577462,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7376238,
+            "future_14_28_day_max": 0.8461538,
+            "approaching_window_rise": 0.1085299999999999,
+            "learning_priority": 0.48598628,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.480198,
+            "future_14_28_day_max": 0.5761905,
+            "approaching_window_rise": 0.09599250000000004,
+            "learning_priority": 0.3265158,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.4405941,
+            "future_14_28_day_max": 0.437931,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.26435646,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.3415842,
+            "future_14_28_day_max": 0.2952381,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.20495052,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2673267,
+            "future_14_28_day_max": 0.3761905,
+            "approaching_window_rise": 0.10886380000000001,
+            "learning_priority": 0.20394154,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.2128713,
+            "future_14_28_day_max": 0.1793103,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.12772278,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.1188119,
+            "future_14_28_day_max": 0.1761905,
+            "approaching_window_rise": 0.0573786,
+            "learning_priority": 0.09423858,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.1188119,
+            "future_14_28_day_max": 0.1551724,
+            "approaching_window_rise": 0.03636049999999999,
+            "learning_priority": 0.08583134,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.8435754,
+            "future_14_28_day_max": 0.8523002,
+            "approaching_window_rise": 0.008724799999999977,
+            "learning_priority": 0.50963516,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.5502793,
+            "future_14_28_day_max": 0.6015228,
+            "approaching_window_rise": 0.0512435,
+            "learning_priority": 0.35066498,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.5139665,
+            "future_14_28_day_max": 0.4697337,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.3083799,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.4608939,
+            "future_14_28_day_max": 0.5076142,
+            "approaching_window_rise": 0.04672029999999999,
+            "learning_priority": 0.29522446,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.0223464,
+            "future_14_28_day_max": 0.3807107,
+            "approaching_window_rise": 0.3583643,
+            "learning_priority": 0.15675356,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "haiwoo",
+            "current_reporting_frequency": 0.2122905,
+            "future_14_28_day_max": 0.2082324,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.1273743,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Hairy Woodpecker"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.1536313,
+            "future_14_28_day_max": 0.1684492,
+            "approaching_window_rise": 0.014817899999999995,
+            "learning_priority": 0.09810594,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.0446927,
+            "future_14_28_day_max": 0.2208122,
+            "approaching_window_rise": 0.17611949999999998,
+            "learning_priority": 0.09726342,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.3050571,
+          "approaching_window_rise": 0.3050571,
+          "learning_priority": 0.12202284,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.0109034,
+          "future_14_28_day_max": 0.2887439,
+          "approaching_window_rise": 0.2778405,
+          "learning_priority": 0.11767824,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "whtspa",
+          "current_reporting_frequency": 0.4314642,
+          "future_14_28_day_max": 0.5677419,
+          "approaching_window_rise": 0.1362777,
+          "learning_priority": 0.3133896,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "White-throated Sparrow"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.3676012,
+          "future_14_28_day_max": 0.4632258,
+          "approaching_window_rise": 0.0956246,
+          "learning_priority": 0.25881056,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        },
+        {
+          "species_code": "amegfi",
+          "current_reporting_frequency": 0.4906542,
+          "future_14_28_day_max": 0.5832258,
+          "approaching_window_rise": 0.09257160000000003,
+          "learning_priority": 0.33142116,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "American Goldfinch"
+        }
+      ]
+    },
+    {
+      "location": "US-IN-173",
+      "seasons": {
+        "winter": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.4965278,
+            "future_14_28_day_max": 0.5178082,
+            "approaching_window_rise": 0.021280400000000033,
+            "learning_priority": 0.30642884,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "mallar3",
+            "current_reporting_frequency": 0.4652778,
+            "future_14_28_day_max": 0.4733333,
+            "approaching_window_rise": 0.008055499999999993,
+            "learning_priority": 0.28238888,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Mallard"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.1979167,
+            "future_14_28_day_max": 0.4630137,
+            "approaching_window_rise": 0.26509699999999997,
+            "learning_priority": 0.22478882,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.3194444,
+            "future_14_28_day_max": 0.347079,
+            "approaching_window_rise": 0.02763460000000001,
+            "learning_priority": 0.20272048,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "whtspa",
+            "current_reporting_frequency": 0.2708333,
+            "future_14_28_day_max": 0.3161512,
+            "approaching_window_rise": 0.04531790000000002,
+            "learning_priority": 0.18062714,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "White-throated Sparrow"
+          },
+          {
+            "species_code": "daejun",
+            "current_reporting_frequency": 0.2604167,
+            "future_14_28_day_max": 0.3205479,
+            "approaching_window_rise": 0.060131199999999996,
+            "learning_priority": 0.1803025,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dark-eyed Junco"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.2708333,
+            "future_14_28_day_max": 0.3127148,
+            "approaching_window_rise": 0.041881500000000016,
+            "learning_priority": 0.17925258,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.1805556,
+            "future_14_28_day_max": 0.230137,
+            "approaching_window_rise": 0.0495814,
+            "learning_priority": 0.12816592,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          }
+        ],
+        "spring_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.6516517,
+            "future_14_28_day_max": 0.7744361,
+            "approaching_window_rise": 0.12278440000000002,
+            "learning_priority": 0.44010478,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.512012,
+            "future_14_28_day_max": 0.6733333,
+            "approaching_window_rise": 0.1613213,
+            "learning_priority": 0.37173572,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.4954955,
+            "future_14_28_day_max": 0.6031746,
+            "approaching_window_rise": 0.10767910000000003,
+            "learning_priority": 0.34036894,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.4429429,
+            "future_14_28_day_max": 0.62,
+            "approaching_window_rise": 0.17705710000000002,
+            "learning_priority": 0.33658858,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.503003,
+            "future_14_28_day_max": 0.5873016,
+            "approaching_window_rise": 0.0842986,
+            "learning_priority": 0.33552124,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.3198198,
+            "future_14_28_day_max": 0.4266667,
+            "approaching_window_rise": 0.10684690000000002,
+            "learning_priority": 0.23463064,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "prowar",
+            "current_reporting_frequency": 0.3243243,
+            "future_14_28_day_max": 0.3873016,
+            "approaching_window_rise": 0.06297730000000001,
+            "learning_priority": 0.2197855,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Prothonotary Warbler"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2747748,
+            "future_14_28_day_max": 0.3383459,
+            "approaching_window_rise": 0.06357109999999999,
+            "learning_priority": 0.19029332,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          }
+        ],
+        "summer": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7529412,
+            "future_14_28_day_max": 0.7,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.45176472,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.7411765,
+            "future_14_28_day_max": 0.754902,
+            "approaching_window_rise": 0.013725499999999946,
+            "learning_priority": 0.4501961,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.6941176,
+            "future_14_28_day_max": 0.754902,
+            "approaching_window_rise": 0.06078439999999996,
+            "learning_priority": 0.44078432,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.5411765,
+            "future_14_28_day_max": 0.4545455,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.3247059,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.4941176,
+            "future_14_28_day_max": 0.5608108,
+            "approaching_window_rise": 0.06669320000000006,
+            "learning_priority": 0.32314784,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.4470588,
+            "future_14_28_day_max": 0.4,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.26823528,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "dickci",
+            "current_reporting_frequency": 0.3176471,
+            "future_14_28_day_max": 0.3648649,
+            "approaching_window_rise": 0.047217799999999976,
+            "learning_priority": 0.20947538,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Dickcissel"
+          },
+          {
+            "species_code": "wooduc",
+            "current_reporting_frequency": 0.2117647,
+            "future_14_28_day_max": 0.2567568,
+            "approaching_window_rise": 0.04499210000000001,
+            "learning_priority": 0.14505566,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Wood Duck"
+          }
+        ],
+        "fall_migration": [
+          {
+            "species_code": "norcar",
+            "current_reporting_frequency": 0.7945946,
+            "future_14_28_day_max": 0.7718631,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.47675676,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Northern Cardinal"
+          },
+          {
+            "species_code": "amegfi",
+            "current_reporting_frequency": 0.7351351,
+            "future_14_28_day_max": 0.6197719,
+            "approaching_window_rise": 0,
+            "learning_priority": 0.44108106,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Goldfinch"
+          },
+          {
+            "species_code": "dowwoo",
+            "current_reporting_frequency": 0.6054054,
+            "future_14_28_day_max": 0.6616915,
+            "approaching_window_rise": 0.056286100000000006,
+            "learning_priority": 0.38575768,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Downy Woodpecker"
+          },
+          {
+            "species_code": "amerob",
+            "current_reporting_frequency": 0.5081081,
+            "future_14_28_day_max": 0.681592,
+            "approaching_window_rise": 0.17348390000000002,
+            "learning_priority": 0.37425842,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "American Robin"
+          },
+          {
+            "species_code": "indbun",
+            "current_reporting_frequency": 0.3513514,
+            "future_14_28_day_max": 0.418251,
+            "approaching_window_rise": 0.0668996,
+            "learning_priority": 0.23757068,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Indigo Bunting"
+          },
+          {
+            "species_code": "yerwar",
+            "current_reporting_frequency": 0.0162162,
+            "future_14_28_day_max": 0.5422886,
+            "approaching_window_rise": 0.5260724,
+            "learning_priority": 0.22015868,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Yellow-rumped Warbler"
+          },
+          {
+            "species_code": "rewbla",
+            "current_reporting_frequency": 0.2432432,
+            "future_14_28_day_max": 0.4278607,
+            "approaching_window_rise": 0.1846175,
+            "learning_priority": 0.21979292,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Red-winged Blackbird"
+          },
+          {
+            "species_code": "turvul",
+            "current_reporting_frequency": 0.2918919,
+            "future_14_28_day_max": 0.3764259,
+            "approaching_window_rise": 0.084534,
+            "learning_priority": 0.20894874,
+            "support": "sample sizes retained",
+            "meaning": "relative curriculum priority, not absolute encounter probability",
+            "name": "Turkey Vulture"
+          }
+        ]
+      },
+      "april_1_arriving_soon": [
+        {
+          "species_code": "prowar",
+          "current_reporting_frequency": 0.0089686,
+          "future_14_28_day_max": 0.360274,
+          "approaching_window_rise": 0.3513054,
+          "learning_priority": 0.14590332,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Prothonotary Warbler"
+        },
+        {
+          "species_code": "indbun",
+          "current_reporting_frequency": 0.0,
+          "future_14_28_day_max": 0.2561644,
+          "approaching_window_rise": 0.2561644,
+          "learning_priority": 0.10246576,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Indigo Bunting"
+        },
+        {
+          "species_code": "whtspa",
+          "current_reporting_frequency": 0.3116592,
+          "future_14_28_day_max": 0.5042194,
+          "approaching_window_rise": 0.19256019999999996,
+          "learning_priority": 0.2640196,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "White-throated Sparrow"
+        },
+        {
+          "species_code": "amegfi",
+          "current_reporting_frequency": 0.367713,
+          "future_14_28_day_max": 0.5379747,
+          "approaching_window_rise": 0.17026170000000002,
+          "learning_priority": 0.28873248,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "American Goldfinch"
+        },
+        {
+          "species_code": "yerwar",
+          "current_reporting_frequency": 0.2399103,
+          "future_14_28_day_max": 0.3797468,
+          "approaching_window_rise": 0.1398365,
+          "learning_priority": 0.19988078,
+          "support": "sample sizes retained",
+          "meaning": "relative curriculum priority, not absolute encounter probability",
+          "name": "Yellow-rumped Warbler"
+        }
+      ]
+    }
+  ],
+  "bulk_aggregation_validated_against_ebd": false
+}

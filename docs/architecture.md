@@ -1,6 +1,8 @@
-# Proposed architecture
+# Architecture — local implementation and proposed production
 
-November 15, 2026. The architecture direction is accepted; implementation remains proposed. No production runtime code or production resources exist. Local validation tooling is authorized under Phase 0.5.
+November 15, 2026. The architecture direction is accepted. A local learner is implemented under Phase One; production deployment/resources remain on hold.
+
+**Current local increment:** React/TypeScript/Vite + Hono on loopback Node, private SQLite learner state and a compiled private release are implemented. Python imports the seven bootstrap profiles; accepted media are served from private storage with checksum/range checks. There are no runtime third-party API calls. [Local MVP](local-mvp.md) and [scalable Python/DuckDB/Parquet geographic lane](geographic-acquisition.md) supersede earlier acquisition gaps. Workers/D1/R2, authentication and offline packs below remain future deployment architecture. Bulk access is independent of local delivery.
 
 ## Separation of responsibilities
 
@@ -20,7 +22,7 @@ flowchart TD
   W --> H
 ```
 
-Acquisition runs on an owner's computer initially. Avoid cron services, queues and persistent ingest infrastructure until refresh volume justifies them. Python adapters fetch only bounded source data and write normalized JSON/CSV plus a local SQLite catalog. Later analytical extracts may use Parquet; do not add that dependency before a real dataset needs it. D1 receives compact reviewed releases, not raw historical checklists or global rasters.
+Acquisition runs on an owner's computer initially. Avoid cron services, queues and persistent ingest infrastructure until refresh volume justifies them. Python adapters fetch only bounded source data and write normalized JSON/CSV plus a local SQLite catalog. The imported real annual profiles now validate small-data DuckDB/Parquet processing; regional EBD processing remains a separate measured-data gate. D1 receives compact reviewed releases, not raw historical checklists or global rasters.
 
 Serve the Vite build with Worker static assets and route `/api/*` through Hono on the same origin. R2 holds only permitted assets under immutable content hashes. A dedicated media hostname is a future option; correct CORS, range requests and cache controls are required. Private candidates never enter a public bucket. Avoid unnecessary KV/Durable Objects/queues and dependencies on other projects.
 
@@ -60,7 +62,7 @@ A shared session records separate attempts for each participant. Use event IDs f
 
 Workers+D1+R2 suits two users and compact relational metadata. SQLite files/static JSON alone could validate a local prototype first. A larger Postgres/geospatial service adds operational cost before there is evidence of need; reconsider only for complex spatial queries or scale beyond D1. Indexed geographic summaries avoid adding a spatial database now. Native mobile development could improve long background playback/downloads, but requires more maintenance; validate PWA constraints on actual devices first.
 
-Read-only inspection of Road Naturalist's architecture and deployment docs supports source-specific adapters, distinct evidence classes, immutable manifests, checksums, offline preparation and post-publish verification. Its raw GIS data and deployment resources are not dependencies. Deep Cuts was not found in the inspected local top-level project metadata; no reuse or compatibility assessment is claimed. Available shared skills were inspected; AWS/site-deployment skills are outside this task. No skill imposed an approval workflow.
+Read-only inspection of Road Naturalist's architecture and deployment docs supports source-specific adapters, distinct evidence classes, immutable manifests, checksums, offline preparation and post-publish verification. Its raw GIS data and deployment resources are not dependencies. Deep Cuts was not found in the inspected local top-level project metadata; no reuse or compatibility assessment is claimed. The Sites skill local-only workflow was used for the learner increment; no Site registration, cloud resources or publishing occurred.
 
 ## Cost model, in USD
 

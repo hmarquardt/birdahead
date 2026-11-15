@@ -88,17 +88,20 @@ def demonstrate(profiles):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['status','demo']);parser.add_argument('--directory',type=Path,default=PRIVATE/'occurrence/normalized')
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['status','demo']);parser.add_argument('--directory',type=Path,default=PRIVATE/'occurrence/profiles')
     args=parser.parse_args()
     if args.command=='status':
         incoming=PRIVATE/'occurrence/incoming'
-        print(json.dumps({'expected_counties':COUNTIES,'incoming_files':[p.name for p in incoming.glob('*') if p.is_file()],'instructions':'docs/manual-downloads.md'},indent=2));return
+        print(json.dumps({'expected_counties':COUNTIES,'incoming_files':[p.name for p in incoming.glob('*') if p.is_file()],'imported_profiles':len(list(args.directory.glob('US-IN-*.json'))),'instructions':'uv run python -m tooling.histograms; docs/geographic-acquisition.md'},indent=2));return
     selection=json.loads((ROOT/'experiments/poc-species.json').read_text());tax={r['ebird_species_code']:r['scientific_name'] for r in selection}
     profiles=[]
     for location in COUNTIES:
         path=args.directory/(location+'.csv');meta=args.directory/(location+'.json')
-        if not path.exists() or not meta.exists():raise SystemExit('Annual data unavailable for '+location+'; follow docs/manual-downloads.md. No synthetic demonstration generated.')
-        profiles.append(parse_long(path,json.loads(meta.read_text()),tax))
+        if not meta.exists():raise SystemExit('Missing private annual profile for '+location+'; run tooling.histograms with supplied bootstrap files. No recurring downloads required.')
+        body=json.loads(meta.read_text())
+        if body.get('metadata',{}).get('schema')=='birdahead-native-histogram-v1':profiles.append(body)
+        elif path.exists():profiles.append(parse_long(path,body,tax))
+        else:raise SystemExit('Unsupported annual profile layout; no synthetic demonstration generated.')
     save(PRIVATE/'occurrence/seasonal-demonstration.json',demonstrate(profiles));print('Saved seven-county actual-data demonstration in private occurrence storage')
 
 

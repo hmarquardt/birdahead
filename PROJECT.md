@@ -1,6 +1,6 @@
 # BirdAhead product specification
 
-Status: canonical scope, established November 15, 2026. Product capabilities below are requirements for future phases, not implemented behavior. Feasibility evidence belongs in docs/feasibility.md.
+Status: canonical scope, updated November 15, 2026. A bounded local learner MVP is now authorized and implemented; the broader product requirements below remain phased. Current evidence is in docs/phase-one.md; historical findings remain in docs/feasibility.md.
 
 ## Mission and audience
 
@@ -36,7 +36,7 @@ Separate candidates, rejected assets, quarantined assets and approved assets. Re
 
 Preferred stack: Python/uv ingestion; TypeScript/React/Vite PWA; Hono/Workers API; D1 relational metadata and learning progress; R2 approved media; IndexedDB plus service workers for selective offline packs. Runtime learning uses versioned approved content and does not depend on third-party media APIs. Favor low cost, reproducible exports and source-specific adapters.
 
-Future UX includes daily sessions, seasonal preparation, outing decks, personal life lists, offline packs, hands-free road-trip audio with spoken reveals, independent/shared two-person sessions, dashboards/mastery maps and confusion practice. These are design constraints; none is authorized for implementation during discovery. Audio playback must avoid encouraging unsafe interaction while driving.
+Future UX includes daily sessions, seasonal preparation, outing decks, personal life lists, offline packs, hands-free road-trip audio with spoken reveals, independent/shared two-person sessions, dashboards/mastery maps and confusion practice. The local MVP now implements bounded sight/sound sessions, outing-date county priorities, two learner profiles, progress and identification flags. The remaining horizons are future work. Audio playback must avoid encouraging unsafe interaction while driving.
 
 ## Phase 0.5 validation and automated curation
 
@@ -44,9 +44,19 @@ Phase Zero findings and architecture are accepted. The bounded extension authori
 
 Use local source-proxy tests and deliberately mislabeled/confusion-pair controls as preliminary operating-point evidence; they do not establish independently verified biological accuracy. Audit accepted samples without requiring every asset to be inspected. Account for correlated model/source errors, training-data overlap, class-list dependence and sparse per-species validation. The goal is a reliable, enjoyable recreational learning dataset, not scientific reference certification. Noncommercial-compatible licenses are permitted in the initial lane; separately record commercially compatible media and the distinct licensing of inference models.
 
-A future in-app “Flag possible misidentification” action must retain asset/release/derivative IDs, optional suggested species/reason and audio interval. Flags feed the review audit and can suppress disputed examples from new sessions. Revalidate or replace the example, publish corrections and repair affected learning attempts where warranted. This is a product requirement, not permission to implement the production app in this phase.
+A future in-app “Flag possible misidentification” action must retain asset/release/derivative IDs, optional suggested species/reason and audio interval. Flags feed the review audit and can suppress disputed examples from new sessions. Revalidate or replace the example, publish corrections and repair affected learning attempts where warranted. The local MVP implements flag capture, suppression and progress exclusion; integrated curation triage/correction remains future work.
 
-The workbench supports image/audio viewing, source/credit/license evidence, source identification support, model/technical results, separate rights/biology actions, reasons, timers, persistent audits, duplicate flags and deterministic approved-media export. Owner review is capped at 7,200 seconds in total for the initial regional dataset. Production development and deployment remain on hold at the Phase 0.5 review boundary.
+The workbench supports image/audio viewing, source/credit/license evidence, source identification support, model/technical results, separate rights/biology actions, reasons, timers, persistent audits, duplicate flags and deterministic approved-media export. Owner review is capped at 7,200 seconds in total for the initial regional dataset. The Phase One amendment below supersedes the Phase 0.5 hold for the local learner. Cloud deployment remains on hold.
+
+## Phase One — local use and scalable geography
+
+The owner supplied seven consistent annual histogram downloads. Discover, validate and import them, preserving originals under ignored private storage. They are bootstrap data and reference checks, never a recurring per-county operating requirement. Geographic expansion must use configuration and automated processing over coherent regional source coverage.
+
+Investigate regional EBD plus matching Sampling Event Data, the official Status and Trends Data Products API, and API v2 recent observations/taxonomy. Python/uv, DuckDB and private partitioned Parquet are the proposed historical processing lane; compact profiles feed runtime releases. Use complete eligible checklists, including target non-detections, as denominators. Preserve shared-event decisions, source/native time bins, integer sample support, taxonomy versions, missingness, geographic precision and provenance. Model products, reporting frequency and recent presence remain separate. Evaluate source size, access/redistribution terms, caching and refresh entitlement before large downloads; do not scrape websites or assume an undocumented EBD API.
+
+Use `EBIRD_ST_API_KEY` from the shared local convention if available, with environment overrides and URL/exception redaction. A working S&T key or eBird API key does not imply EBD project access. One broad approved regional snapshot can support many configured county/hotspot/area profiles; supported recurring delivery remains a provider question. No recurring owner county downloads are acceptable.
+
+Proceed concurrently with the previously authorized local MVP using bootstrap profiles and accepted media. Research is not a gate to usable learning. The local app may implement a five-minute practice flow, recognition/recall, two independent profiles, uncertainty, adaptive reinforcement, transparent progress/confusion and identification flags. Broader habitat/destination precision, coverage expansion, offline packs and cloud operations remain phased. No production deployment, paid infrastructure or large downloads are authorized by this amendment. Stop at the local delivery/research review boundary.
 
 ## Historical Phase Zero contract
 

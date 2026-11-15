@@ -1,40 +1,51 @@
-# Roadmap after the automated-curation amendment
+# Roadmap — local learner and scalable geography
 
-Production development and deployment remain on hold. Phase Zero architecture is accepted. The Phase 0.5 extension and amendment authorize only bounded local validation and repository publication.
+The Phase One amendment authorizes the local MVP concurrently with geographic data research. It supersedes the earlier Phase 0.5 application hold. Production deployment, paid infrastructure and large data acquisitions remain outside the boundary.
 
-## Phase 0.5 — validate automation and annual occurrence
+## Delivered local increment
 
-Delivered or in progress: verified GitHub identity/remote and Phase Zero push; authenticated Xeno-canto checks; bounded 25-species acquisition; local Apple Silicon benchmarks for BioCLIP, BioCLIP 2 and BirdNET; source-proxy calibration and deliberate wrong-label/confusion controls; automated rights/biology gates; local review workbench and deterministic export. See [current findings](docs/phase-05.md).
+- Imported all seven owner-supplied 2016–2025 eBird county exports. Original bytes remain private. Validated 48 native bins, sample rows, all 25 pilot species and ambiguous `0.0015` handling. Actual winter/spring/summer/fall and approaching-window demonstrations are recorded.
+- Built the local React/TypeScript/Vite learner with a Hono/Node loopback API and SQLite state. Implemented county/date preparation, Here Now/Arriving Soon/reinforcement, sight/audio multiple choice and recall, uncertainty, two independent profiles, session limits, persistent progress, directed confusion and identification flags with suppression/progress exclusion.
+- Practice uses existing automatically accepted media with at least two examples per species/modality: 14 photo species and three audio species. Missing difficult-pair coverage remains explicit; no new bulk ingestion or weakened acceptance was used to fill it.
+- Validated authenticated S&T listing with the distinct shared key, small real-data DuckDB/partitioned-Parquet processing and a bounded source-shaped EBD/SED denominator kernel. No real EBD/SED or modeled raster was downloaded.
+- Retained automated recreational curation, independent rights/biology gates, private reproducible manifests and the two-hour TOTAL owner-review constraint. Human/expert audit findings are still unavailable; source/model evidence is preliminary corroboration.
 
-Remaining acceptance gates:
+Acceptance evidence: Python tests, Hono API tests, TypeScript/build checks and real-media Chrome desktop/mobile smoke tests pass. The browser uses a disposable learner database; no owner practice or review was fabricated. [Current report](docs/phase-one.md), [local use](docs/local-mvp.md).
 
-- Import consistent official annual eBird histogram exports for all seven pilot counties. Follow [manual download instructions](docs/manual-downloads.md). Verify native bins, units, sample sizes, missingness and taxonomy before converting. Prefer exports to full EBD processing.
-- Demonstrate winter, spring migration, summer and fall priorities at the same location using those actual profiles; assess approaching windows independently of present reporting frequency. Unit fixtures are not evidence of real seasonality.
-- Preserve source evidence, exact rights, model/checkpoint/preprocessing versions, scores, operating thresholds and decision reasons. Preliminary source-proxy thresholds must remain labeled as such.
-- Audit a statistical sample and selected high-risk/gap cases within the **two-hour total owner-review cap**. Measure actual time/error findings; replace weak candidates or reduce scope rather than expanding mandatory human review.
-- Reconcile accepted coverage by species/modality/biological subtype and contributor. Retain the full 25-species benchmark even if the initial teaching collection is smaller.
-- Verify independent rights/biology gates, audit persistence/budget enforcement, deterministic exports, duplicate screening and browser image/audio behavior. Keep raw media, credentials and restricted data out of public commits.
+## Next local usability and reliability pass
 
-Do not require human approval of every asset. Automatically accepted assets may enter the local validation collection when gates pass; individual human/expert status stays separate. Production remains a separate authorization decision.
+The owners can use this local collection immediately; their field/use feedback will determine the next improvement. No access negotiation blocks use.
 
-## Proposed local MVP after validation
+Acceptance criteria:
 
-Start with species having multiple accepted, distinct photo examples and adequate seasonal support; use an audio subset with multiple source-consistent recordings. Do not force all 25 species into teaching decks if comparisons or recordings fail gates. Basic sight/audio practice, uncertainty answers, two independent profiles and transparent progress are sufficient initially. Do not infer mastery from repeated exposure to one photograph or recording.
+- Complete useful short sessions and county/date preparation with both learners; measure actual enjoyment, confusion and example repetition without calling this a mastery validation.
+- Audit a statistical sample and selected high-risk examples, record actual time/findings, staying within 7,200 total owner-review seconds for the initial regional collection. Prefer replacement or smaller coverage over mandatory per-asset review or weaker gates.
+- Connect learner flags to curation triage and versioned corrections. Preserve reports, revoke disputed examples, re-export content and exclude/repair affected attempts; flags are not automatic truth judgments.
+- Improve explicit low-support indicators and supported parent fallback, directed-confusion scheduling, diversity and held-out example evaluation. Keep unverified sex/age/plumage labels unknown.
 
-Acceptance: the owners can complete a useful five-minute session and outing preparation deck, attribution works, no third-party media API is needed during a session, and a possible-identification-error flag can be filed. Flags retain asset/release/variant context and support suppression, correction and progress repair. Authoring this production MVP still requires explicit authorization.
+## Independent geographic acquisition track
 
-## Proposed private production pilot
+Do not request recurring county/hotspot downloads. Use the seven exports only as bootstrap/reference data. [Scalable architecture and one-time access steps](docs/geographic-acquisition.md).
 
-After dataset review and separate deployment approval, create isolated BirdAhead Workers/D1/R2 resources, authentication, migrations/backups and bounded usage. Validate on the owners' phones, with selective offline packs after the basic learning flow is useful. Test interrupted downloads, retry/idempotent progress, independent profiles, stale/revoked packs and restored exports.
+Acceptance criteria:
 
-Acceptance: operational costs are measured, the exact deployed release is independently verified, content is portable, and rollback/recovery works. No implicit deployment authorization comes from this roadmap.
+- Establish one approved broad regional EBD **and matching SED** grant/snapshot, terms and file size/decompression preflight before a separately authorized large acquisition. Clarify provider-supported unattended refresh; do not assume an undocumented download API or scrape a portal.
+- Pin source/taxonomy/boundaries/filter configurations. Project raw columns into private year/coarse-region Parquet; deduplicate shared events consistently, retain valid zero-detection complete lists, record effort/coverage and retain integer numerators/denominators.
+- Compare 2016–2025 county/native-bin denominators against all seven references before comparing species rates. Diagnose scope/snapshot/protocol/group/taxonomy and ambiguous marker differences. Publish discrepancy metrics; no parity claim from synthetic tests.
+- Expand the bounded county/hotspot kernel into measured production ingestion only when a real source snapshot is available. Validate polygon precision, spatial adapter installation, sensitive locations, rolling calendars, sparse support and incremental snapshot reconciliation.
+- Use the authenticated official S&T API for a pinned-version inventory, size preflight and one budgeted coarse-product extraction after intended-use terms are established. Keep standardized modeled values, historical frequencies and API v2 recent presence separate. Do not turn listing success into a raster-processing claim.
+- Add regions through configuration/cache processing. A cached historical vintage is acceptable locally while provider delivery is unresolved; repetitive owner intervention is not.
 
-## Regional expansion
+## Private production pilot — separately authorized
 
-Derive the regular teaching universe from actual geography/annual support, separating exceptional historical records. Automate source selection, rights validation, inference, deduplication and contributor/biological coverage. Use sampled audits and replacement; **the initial regional owner's total review budget remains two hours**. If reliable coverage cannot fit that constraint, reduce species/challenge coverage or improve automation. Do not approve questionable examples or merely spend more owner hours.
+After separate deployment approval, create isolated BirdAhead Workers/D1/R2 resources, authentication, migrations/backups and bounded usage. Validate on the owners' phones, then add selective offline packs. Test interrupted downloads, retry/idempotent progress, independent profiles, stale/revoked content and restored exports. Measure costs, verify deployed release and rollback. Local `vite build` is a compilation check, not a deployment authorization.
 
-Add migration preparation, life-list import, offline packs, hands-free reveals, shared sessions and mastery/confusion maps incrementally after core practice proves useful. Geographic expansion adds region data and calibration rather than replacing the architecture.
+## Regional product expansion
 
-## Safe lower-cost delegation after authorization
+Derive the regular teaching universe from supported annual geography and habitat, separating unusual/exotic historical records. The current histogram union has 333 unique current species-name matches; the earlier all-time API list has a different scope. Neither automatically becomes a teaching target. Expand media through lawful automation, calibrated operating points, deduplication and contributor diversity while preserving the two-hour total initial owner-review cap.
 
-Well-scoped parsers after native-file inspection, deterministic manifests, adapters with fixed request budgets, duplicate reports, local workbench polish, tests and documented UI components are suitable coding tasks. Agents may execute evidence-backed automated policy gates; they must not fabricate human/expert approvals, statistical calibration or biological certainty. Keep policy/rights changes, sampled audit judgments, difficult remaining biology, purchases and deployments under owner control. No sub-agents were used in this run.
+Add precise destination preparation, life-list import, offline packs, shared sessions, hands-free audio and mastery/confusion maps only after the core learning loop proves useful. Keep specialized model scores separate from calibrated probabilities; avoid claims of scientific certification.
+
+## Suitable lower-cost coding tasks
+
+Well-specified source adapters after actual header inspection, fixed-budget API clients with credential-redaction tests, deterministic manifest/crosswalk validators, local progress/flag exports, accessible UI components, low-support indicators and fixture-based regression tests are suitable. Keep policy/rights interpretation, biological audit judgments, access-grant scope, purchases and deployment decisions with the owner/lead. One bounded research agent assisted the current geographic investigation under the local Sites workflow; no independent agents acquired bulk data or changed infrastructure.

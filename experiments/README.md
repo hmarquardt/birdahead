@@ -95,3 +95,22 @@ The initial pass targeted five photo/three audio candidates per species. One cap
 Private artifacts include `phase05/catalog.json`, per-source caches, media, checkpoint weights, per-asset inference/threshold/control records, `reviews.sqlite` and `approved-media.json`. Public `benchmark-*.json`, `xc-validation.json` and `phase05-results.json` contain aggregate evidence only. The initial benchmark snapshots are labeled separately from the replacement pass. Full original Cornell exports and normalized annual profiles remain private.
 
 Approved export does not certify biological truth. Automated/human/expert states and rights/biology gates stay separate. Artificially corrupted labels are private validation controls and never overwrite source records or enter accepted manifests. Human throughput is measured only from actual owner sessions; browser tests use an isolated fixture database and cannot be counted as owner review.
+
+## Phase One — local learner and geographic references
+
+All seven owner downloads are already private under `occurrence/incoming/`. Do not request recurring county exports. Reproduce their bounded offline import and the compiled local content:
+
+```sh
+uv run python -m tooling.histograms
+uv run python -m tooling.seasonal demo
+uv run python -m tooling.checklists bootstrap-benchmark
+uv run python -m tooling.local_release
+npm ci --prefix app --ignore-scripts
+npm run local --prefix app
+```
+
+The learner is http://127.0.0.1:8788, separate from the :8765 curation workbench. Private releases/profiles/media/state are intentionally absent from a fresh clone. Derived `histogram-validation.json`, `duckdb-validation.json`, `geographic-access.json` and `local-mvp-browser.json` record actual measurements with explicit limits; no raw exports/Parquet/SQLite/media or model weights are public.
+
+The [configurable geographic kernel](../tooling/checklists.py) reads source-shaped EBD/SED TSV and an explicit `scientific_name,species_code` crosswalk. The [pilot configuration](../config/geography/pilot.json) deliberately has null source release/taxonomy and pending crosswalk review; it must not run as though access or concepts were verified. Copy/configure it privately after an approved coherent snapshot arrives. Supply `--ebd`, `--sed`, `--crosswalk`, `--config` and a new private `--output` to `uv run python -m tooling.checklists aggregate`. The default input ceiling is 50 MB. This is a denominator prototype, not a downloader or production bulk adapter; polygons/effort standardization and real histogram parity remain unvalidated. Do not raise the ceiling or acquire archives before the [access/size preflight](../docs/geographic-acquisition.md).
+
+Status and Trends authenticated lists used `EBIRD_ST_API_KEY` programmatically, with no secret URLs/errors in evidence. Only two list requests were made; zero rasters. Current official API documentation includes credentials in query parameters, so any future adapter must redact URLs and exceptions, disable HTTP debug logs, restrict redirects and cache by public object identity. Do not reuse the generic public-query cache client for secret query strings.

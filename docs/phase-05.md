@@ -1,4 +1,6 @@
-# Phase 0.5 validation findings
+# Phase 0.5 validation findings — historical
+
+**Superseded scope/status:** The [Phase One report](phase-one.md) records completed seven-county import, real seasonal demonstrations, authenticated S&T listing and the implemented local learner. The media/model measurements below remain historical evidence. The former local-application hold and annual-export blocker no longer apply; deployment and large downloads remain unauthorized.
 
 November 15, 2026. **Local automated curation is feasible; hold production and broad regional ingestion. Annual occurrence validation remains blocked on official exports, and biological precision has not yet been independently audited.** The amendment rejects per-asset mandatory human review; the owner-review ceiling is two hours total for the initial regional collection.
 

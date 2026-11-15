@@ -1,0 +1,20 @@
+{
+  "scope": "Real approved local media; disposable learner DB; no owner review or practice fabricated",
+  "browser": "Chrome headless desktop and 390px mobile",
+  "checks": [
+    "seasonal change",
+    "independent approaching priorities",
+    "photo decode",
+    "uncertain answer",
+    "reload continuation",
+    "identification flag and suppression",
+    "independent profiles",
+    "real muted audio playback",
+    "audio byte ranges",
+    "recall reveal/self-rating",
+    "no mobile horizontal overflow",
+    "cross-origin mutation rejected"
+  ],
+  "console_errors": 0,
+  "passed": true
+}

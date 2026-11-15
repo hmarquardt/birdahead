@@ -1,0 +1,47 @@
+{
+  "observed_at": "2026-11-15T21:54:04.847656+00:00",
+  "scope": "Two bounded authenticated list requests; no raster or bulk data downloaded",
+  "credential_available": true,
+  "credential_source": "environment override or ~/.config/secrets/shared.env; values omitted",
+  "api_documentation": "https://ebird.github.io/ebirdst/articles/api.html",
+  "requested_documented_version": 2023,
+  "latest_version_verified": false,
+  "results": [
+    {
+      "endpoint": "list-obj",
+      "version_year": 2023,
+      "species_code": "norcar",
+      "http_status": 200,
+      "object_count": 157,
+      "bytes": 10545,
+      "response_sha256": "9f82f21f22b028d4a0aee62a618b35e776733dd72664d631f859e14a6b6df4c6",
+      "weekly_raster_object_count": 70,
+      "weekly_band_dates_available": true,
+      "weekly_occurrence_3km_available": true,
+      "weekly_abundance_3km_available": true,
+      "sizes_supplied": false,
+      "seconds": 0.419
+    },
+    {
+      "endpoint": "list-obj",
+      "version_year": 2023,
+      "species_code": "bkpwar",
+      "http_status": 200,
+      "object_count": 183,
+      "bytes": 12483,
+      "response_sha256": "d60bd4bf50c54c76349304dcf97b45c365c1851a2d9b167d8defa0056649a9ef",
+      "weekly_raster_object_count": 70,
+      "weekly_band_dates_available": true,
+      "weekly_occurrence_3km_available": true,
+      "weekly_abundance_3km_available": true,
+      "sizes_supplied": false,
+      "seconds": 0.231
+    }
+  ],
+  "ebd": {
+    "downloaded": false,
+    "approved_request_or_automated_refresh_entitlement_verified": false,
+    "download_portal": "browser-tool access challenge; not bypassed"
+  },
+  "raster_bytes_downloaded": 0
+}

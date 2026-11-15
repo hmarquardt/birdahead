@@ -1,6 +1,6 @@
 # Feasibility assessment and historical Phase Zero findings
 
-**Current assessment:** Phase Zero architecture/findings are accepted. The [Phase 0.5 report](phase-05.md) and [automated media policy](media-policy.md) supersede the per-asset human-review assumptions below. BioCLIP/BioCLIP 2/BirdNET were benchmarked locally, authenticated audio acquisition works, and automated acceptance plus sampled audits is implemented. The owner-review limit is two hours total for the initial regional dataset. Annual official county exports and independent sampled audit findings remain unavailable; production stays on hold.
+**Current assessment:** **Go for the implemented local recreational learner; continue scalable geography validation independently.** All seven owner-supplied annual exports are imported and real seasonal demonstrations are available. Authenticated Status and Trends listings work; EBD/SED access, supported unattended refresh, real bulk parity/throughput and raster extraction remain unverified. [Phase One findings](phase-one.md), [local use](local-mvp.md), [geographic architecture](geographic-acquisition.md). The [Phase 0.5 media/model report](phase-05.md) and [automated policy](media-policy.md) remain applicable; independent biological audits are still unavailable and owner review stays capped at two hours total. Cloud deployment and large downloads remain on hold.
 
 The remainder records Phase Zero evidence as of its original boundary. It does not impose mandatory human approval of every asset.
 
