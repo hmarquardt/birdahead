@@ -1,0 +1,660 @@
+{
+  "at": "2026-11-15T21:32:08.480253+00:00",
+  "policy": "recreational-tiered-v1-source-proxy",
+  "scope": "recreational noncommercial local validation; production remains on hold",
+  "candidates": 234,
+  "photo_candidates": 163,
+  "audio_candidates": 71,
+  "automatically_accepted": 55,
+  "human_approved": 0,
+  "expert_verified": 0,
+  "owner_review_seconds_recorded": 0,
+  "owner_total_review_limit_seconds": 7200,
+  "sampled_audit_queue": 12,
+  "rights_complete_candidates": 234,
+  "commercial_compatible_media": 32,
+  "candidate_media_bytes": 274349983,
+  "accepted_by_modality": {
+    "photo": 44,
+    "audio": 11
+  },
+  "supported_replacement_photos": 38,
+  "photo_upload_years": {
+    "2026": 126,
+    "2016": 2,
+    "2020": 6,
+    "2019": 4,
+    "2025": 3,
+    "2021": 9,
+    "2022": 6,
+    "2023": 6,
+    "2018": 1
+  },
+  "audio_upload_years": {
+    "2025": 21,
+    "2026": 21,
+    "2011": 1,
+    "2024": 9,
+    "2015": 1,
+    "2016": 1,
+    "2014": 4,
+    "2019": 4,
+    "2022": 1,
+    "2010": 1,
+    "2020": 2,
+    "2023": 3,
+    "2021": 2
+  },
+  "licenses": {
+    "cc-by-nc": 139,
+    "cc0": 5,
+    "cc-by": 16,
+    "cc-by-sa": 11,
+    "cc-by-nc-sa": 63
+  },
+  "photo_source_agreement": {
+    "bioclip": 112,
+    "bioclip2": 144,
+    "both": 108
+  },
+  "correlated_disagreements": 15,
+  "same_wrong_top_label": 4,
+  "mislabeled_controls": 3912,
+  "mislabeled_accepted": 0,
+  "heldout_mislabeled_controls": 1320,
+  "heldout_mislabeled_accepted": 0,
+  "confusion_pair_controls": 64,
+  "confusion_pair_mislabeled_accepted": 0,
+  "audio_mislabeled_controls": 1704,
+  "audio_mislabeled_accepted": 0,
+  "audio_confusion_pair_controls": 22,
+  "audio_confusion_pair_mislabeled_accepted": 0,
+  "calibration_limit": "Source-proxy labels, tiny per-species samples; no independently measured biological precision, no calibrated probabilities",
+  "coverage": [
+    {
+      "species": "Cooper's Hawk",
+      "code": "coohaw",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 1,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "alarm call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 8,
+        "uncertain": 2,
+        "Cannot Be Determined": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Sharp-shinned Hawk",
+      "code": "shshaw",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call, flight call, song, scream series, keek": 1,
+        "call": 2
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9,
+        "Male": 1,
+        "Female": 1
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Downy Woodpecker",
+      "code": "dowwoo",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "call, Whinny": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 3,
+        "Female": 4,
+        "uncertain": 1,
+        "male": 1,
+        "Cannot Be Determined": 1,
+        "Male": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Hairy Woodpecker",
+      "code": "haiwoo",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "flight call, Rattle made in flight, then Wik or Wik-a Series after it landed on distant telep": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 7,
+        "uncertain": 1,
+        "Male": 2,
+        "Female": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Turkey Vulture",
+      "code": "turvul",
+      "photo_candidates": 8,
+      "audio_candidates": 1,
+      "automatically_accepted_photos": 1,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 1,
+      "source_vocalization_types": {
+        "hiss": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Black Vulture",
+      "code": "blkvul",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 1,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "alarm call": 1,
+        "call": 1,
+        "wing noise": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 11
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Greater Yellowlegs",
+      "code": "greyel",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 7,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call, flight call": 1,
+        "flight call": 2
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9,
+        "uncertain": 2
+      },
+      "commercial_compatible_candidates": 4
+    },
+    {
+      "species": "Lesser Yellowlegs",
+      "code": "lesyel",
+      "photo_candidates": 8,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 8,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 1,
+        "song": 1,
+        "flight call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9,
+        "uncertain": 2
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Northern Cardinal",
+      "code": "norcar",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 2,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 7,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call, subsong": 1,
+        "call, song": 1,
+        "song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "Female": 3,
+        "unknown": 3,
+        "Male": 2,
+        "male": 2
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "American Robin",
+      "code": "amerob",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 7,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 2,
+        "uncertain": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 7,
+        "male": 1,
+        "uncertain": 1,
+        "Female": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "American Goldfinch",
+      "code": "amegfi",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 1,
+      "photo_contributors": 4,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call, flight call": 1,
+        "unknown": 1,
+        "song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 4,
+        "Male": 1,
+        "uncertain": 1,
+        "male": 2
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Mallard",
+      "code": "mallar3",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "flight call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "Male": 5,
+        "unknown": 2,
+        "male": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Wood Duck",
+      "code": "wooduc",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 1,
+      "photo_contributors": 6,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "begging call, call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 5,
+        "male": 1,
+        "female": 1,
+        "uncertain": 1,
+        "Male": 2
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Bufflehead",
+      "code": "buffle",
+      "photo_candidates": 7,
+      "audio_candidates": 1,
+      "automatically_accepted_photos": 2,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 7,
+      "audio_contributors": 1,
+      "source_vocalization_types": {
+        "call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 5,
+        "female": 1,
+        "Male": 2
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Snow Goose",
+      "code": "snogoo",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 0,
+      "automatically_accepted_audio": 3,
+      "photo_contributors": 7,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "alarm call, call, flight call": 1,
+        "nocturnal flight call": 1,
+        "flight call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9,
+        "female, male": 1
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Dark-eyed Junco",
+      "code": "daejun",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 2,
+        "alarm call, call, interaction calls, tew": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 6,
+        "male": 2
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "White-throated Sparrow",
+      "code": "whtspa",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 3,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 1,
+        "call, flight call, pink": 1,
+        "alarm call, call, song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 6,
+        "male": 1,
+        "uncertain": 1
+      },
+      "commercial_compatible_candidates": 1
+    },
+    {
+      "species": "Indigo Bunting",
+      "code": "indbun",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 4,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 1,
+        "unknown": 1,
+        "flight call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "Male": 2,
+        "unknown": 5,
+        "uncertain": 1
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Dickcissel",
+      "code": "dickci",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 4,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 3
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 4,
+        "Male": 1,
+        "male": 3
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Prothonotary Warbler",
+      "code": "prowar",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 2,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 4,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 2,
+        "call, song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 5,
+        "male": 3
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Yellow-rumped Warbler",
+      "code": "yerwar",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 2,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "song": 2,
+        "call, song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 6,
+        "male": 2
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Blackpoll Warbler",
+      "code": "bkpwar",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 4,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 4,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 1,
+        "song": 1,
+        "call, song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 5,
+        "Female": 1,
+        "male": 2
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Sandhill Crane",
+      "code": "sancra",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 1,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 7,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 2,
+        "flight call": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 9,
+        "male": 1
+      },
+      "commercial_compatible_candidates": 2
+    },
+    {
+      "species": "Red-winged Blackbird",
+      "code": "rewbla",
+      "photo_candidates": 5,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 3,
+      "automatically_accepted_audio": 0,
+      "photo_contributors": 5,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 1,
+        "song": 1,
+        "call, song": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "unknown": 6,
+        "uncertain": 1,
+        "male": 1
+      },
+      "commercial_compatible_candidates": 0
+    },
+    {
+      "species": "Blue-winged Teal",
+      "code": "buwtea",
+      "photo_candidates": 7,
+      "audio_candidates": 3,
+      "automatically_accepted_photos": 1,
+      "automatically_accepted_audio": 2,
+      "photo_contributors": 6,
+      "audio_contributors": 3,
+      "source_vocalization_types": {
+        "call": 1,
+        "call, song": 1,
+        "call, Female Long call, male Pseeps": 1
+      },
+      "verified_plumage_labels": 0,
+      "verified_sex_labels": 0,
+      "verified_age_labels": 0,
+      "source_sex_labels": {
+        "Male": 2,
+        "unknown": 6,
+        "male": 1,
+        "female, male": 1
+      },
+      "commercial_compatible_candidates": 3
+    }
+  ],
+  "approved_manifest": {
+    "approved_assets": 55,
+    "sha256": "a2834fb7cfe8e028bd2e0c18d95ce4b6518c79ebcbac26feba3acd5767bcc61a"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-15T20:40:51.178613+00:00",
+  "model": {
+    "model": "imageomics/bioclip",
+    "revision": "ce901ab3c6a913f9e9ef94ce6d27761069f4f01c",
+    "filename": "open_clip_pytorch_model.bin",
+    "bytes": 598599013,
+    "sha256": "e380384f0c30d425d8c6c40f24471f9dd497fbdfa734a89c461a94aee95f0ef4",
+    "license": [
+      "mit"
+    ],
+    "download_seconds": 105.141,
+    "source_url": "https://huggingface.co/imageomics/bioclip"
+  },
+  "packages": {
+    "torch": "2.15.0",
+    "torchvision": "0.29.2",
+    "open-clip-torch": "3.3.0"
+  },
+  "device": "mps",
+  "precision": "fp32",
+  "threads": 4,
+  "batch_size": 4,
+  "candidate_labels": 373,
+  "candidate_label_sha256": "d0d1fcc1b00ee0064328cd39bbf9a8e8bbdeee5b586527f870c4ea52e7c39391",
+  "image_count": 125,
+  "load_seconds": 2.258,
+  "text_embedding_seconds": 4.247,
+  "warmup_seconds": 0.264,
+  "image_processing_seconds": 4.652,
+  "images_per_second": 26.868,
+  "median_batch_seconds": 0.13,
+  "cpu_comparison_images": 8,
+  "cpu_comparison_seconds": 0.425,
+  "peak_process_rss_bytes": 989462528,
+  "peak_mps_driver_allocated_bytes": 1634254848,
+  "source_top1_agreement": 93,
+  "accuracy_claim": "Source-label agreement only. No independently adjudicated accuracy or calibrated probabilities.",
+  "prompts": "two common/scientific photo prompts; mean normalized text embeddings; center-crop source images"
+}

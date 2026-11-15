@@ -1,0 +1,15 @@
+[project]
+name = "birdahead-local-inference"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "open-clip-torch>=3,<4",
+  "torch>=2.7,<3",
+  "torchvision",
+  "birdnet-analyzer==2.4.0",
+  "psutil",
+  "soundfile",
+]
+
+[tool.uv]
+package = false

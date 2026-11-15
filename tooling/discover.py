@@ -155,8 +155,10 @@ def taxonomy(client):
                    taxonomy_authority="eBird/Clements", taxonomy_version=str(next(v["authorityVer"] for v in versions if v["latest"])),
                    crosswalk_status="name match; scientific identity requires review" if m["sciName"] != row["scientific_name"] else "scientific name agrees")
     save(ROOT / "experiments/poc-species.json", selected)
-    save(ROOT / "experiments/taxonomy-evidence.json", {"retrieved_at": now(), "versions": versions,
-          "selected_species": len(selected), "scope": "public taxonomy endpoint; full source response remains private"})
+    save(ROOT / "experiments/taxonomy-evidence.json", {"retrieved_at": now(),
+          "latest_authority_version": next(v["authorityVer"] for v in versions if v["latest"]),
+          "available_release_count": len(versions), "selected_species": len(selected),
+          "scope": "Derived taxonomy release summary; original version response remains private."})
 
 
 def ebird(client):

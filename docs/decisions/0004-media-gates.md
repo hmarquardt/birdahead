@@ -1,6 +1,6 @@
 # ADR 0004 — Human approval and explicit asset rights
 
-Date: 2026-11-15. Status: proposed implementation of required media integrity.
+Date: 2026-11-15. Status: **superseded** by [ADR 0006](0006-automated-curation.md). The following records the rejected Phase Zero per-asset human-review proposal; it is not current policy.
 
 Acquire candidates under documented rights, preferably CC0, CC BY and CC BY-SA with exact versions. Research Grade and automated screening help triage but never approve identification. Review difficult confusion pairs independently. Unknown or disputed identity/rights quarantines the asset.
 

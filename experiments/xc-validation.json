@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-15T20:33:40.620242+00:00",
+  "auth_success": true,
+  "page_1": 1,
+  "page_2": 2,
+  "num_pages": 10,
+  "recordings_total": "479",
+  "page_size": 50,
+  "page_ids_disjoint": true,
+  "all_in_requested_box": true,
+  "quality_counts": {
+    "A": 50
+  },
+  "identification_status_counts": {
+    "identified": 50
+  },
+  "vocalization_counts": {
+    "call, territorial Song?": 1,
+    "call, song": 2,
+    "song": 28,
+    "call": 7,
+    "dawn song, song": 3,
+    "alarm call, call, churr, rolled call": 1,
+    "call, flight call, psit": 1,
+    "alarm call, call, flight call, twitter and psit in flight": 1,
+    "dawn song, song, A \"snapping\" sound is included within the song. It comes after the first 2 or 3": 1,
+    "uncertain": 2,
+    "call, subsong": 1,
+    "dawn song": 2
+  },
+  "license_counts": {
+    "https://creativecommons.org/licenses/by-nc-nd/4.0/": 1,
+    "https://creativecommons.org/licenses/by-nc-sa/4.0/": 47,
+    "https://creativecommons.org/licenses/by-sa/4.0/": 2
+  },
+  "disputed_query_total": "1198",
+  "disputed_status_counts": {
+    "questioned": 49,
+    "unconfirmed": 1
+  },
+  "api_documentation": "https://xeno-canto.org/explore/api",
+  "search_documentation": "https://xeno-canto.org/help/search",
+  "scope": "Cardinal pagination/filter test and bounded disputed-record metadata query; no sensitive coordinates exported"
+}

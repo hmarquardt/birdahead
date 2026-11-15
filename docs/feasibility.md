@@ -1,4 +1,8 @@
-# Phase Zero findings and recommendation
+# Feasibility assessment and historical Phase Zero findings
+
+**Current assessment:** Phase Zero architecture/findings are accepted. The [Phase 0.5 report](phase-05.md) and [automated media policy](media-policy.md) supersede the per-asset human-review assumptions below. BioCLIP/BioCLIP 2/BirdNET were benchmarked locally, authenticated audio acquisition works, and automated acceptance plus sampled audits is implemented. The owner-review limit is two hours total for the initial regional dataset. Annual official county exports and independent sampled audit findings remain unavailable; production stays on hold.
+
+The remainder records Phase Zero evidence as of its original boundary. It does not impose mandatory human approval of every asset.
 
 November 15, 2026. **Conditional go for a bounded validation extension; hold production implementation and regional-scale ingestion.** The current evidence supports affordable candidate discovery and a plausible architecture. It does not yet establish a lawful, human-verified, seasonally complete teaching corpus at the proposed scale.
 
@@ -88,7 +92,7 @@ The Commons woodpecker samples are credited to Jonathon Jongsma with original XC
 
 Measured structured CLI logs contain 25 successful photo queries, approximately 4.00 MB of response data and 34.59 summed request-seconds (34.81 seconds wall span). This is about 2.9 candidate records/second for metadata retrieval, conditional on these small queries; it is not download, curation or production throughput. Commons logged 10 successes plus one 429. eBird logged 12 successful network requests including taxonomy/version discovery; cached taxonomy reuse made no new network call. Initial probes, the regional query, browser research, file transfers and domain calls are separately scoped and excluded from those totals.
 
-No provider API usage charge was observed for the discovery probes. Domain registration was the only billable action. Human review minutes, accepted yield, taxonomic error rate and specialist escalation cost are **not measured**. A scenario of 5,600 assets × 1–3 minutes is 93–280 hours before rejections and expertise; it must not be presented as a forecast. Time at least 30 stratified human reviews before approving expansion.
+No provider API usage charge was observed for the discovery probes. Domain registration was the only billable action. Human review minutes, accepted yield, taxonomic error rate and specialist escalation cost are **not measured**. A scenario of 5,600 assets × 1–3 minutes is 93–280 hours before rejections and expertise; it must not be presented as a forecast. This all-asset review approach was subsequently rejected; current review is sampled within a two-hour TOTAL owner budget.
 
 The proposed 3,000–4,200 photographs and 900–1,400 recordings translate to approximately 8.2–11.5 photos and 2.5–3.8 recordings per species for the observed 365-species universe. Actual required quantities depend on plumage/vocalization coverage, duplicate encounters, uncommon species and rights. One generic song clip per species is inadequate for the full product. Derive a gap matrix before increasing counts.
 
@@ -101,7 +105,7 @@ Hosting scenario: delivery media approximately 1.2–8.0 GB under stated size as
 | Annual local reporting profiles unavailable | Owner-authorized histogram exports for county and two destinations, or approved EBD+sampling-event subset | Inspect actual bins, support and missingness; validate weekly mapping/fallback |
 | Xeno-canto current docs/key/rights untested | Obtain XC key through owner and confirm official current docs/terms | Small authenticated metadata/audio test; measured eastern-US coverage and exact licenses |
 | Human verification absent | Owner/expert reviews easy/hard/ambiguous photo and audio strata | Diagnostic evidence, exact rights, acceptance yield and timed burden accepted |
-| Required biological coverage unknown | Build 25-species sex/age/plumage/view/vocalization gap matrix | Human-approved minimum set and explicit unfilled cells |
+| Required biological coverage unknown | Build 25-species sex/age/plumage/view/vocalization gap matrix | Accepted minimum set under current automated policy, sampled audits and explicit unfilled cells |
 | Commons throttling | Respect cooldown and test lower pace in a later authorized experiment | No repeated 429s; do not infer unlimited API access |
 | Taxonomy/hotspot edge cases | Review historical aliases, source-site grouping, Illinois/Kentucky scope and unusual species | Versioned mapping; regular/rare/exceptional criteria |
 | Cornell intended-use/redistribution scope | Confirm household pilot and future public/commercial use against actual grants | No restricted raw data or media distributed; written permission where required |

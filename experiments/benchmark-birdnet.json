@@ -1,0 +1,28 @@
+{
+  "at": "2026-11-15T20:56:52.735902+00:00",
+  "model": "BirdNET_GLOBAL_6K_V2.4_FP32",
+  "model_sha256": "55f3e4055b1a13bfa9a2452731d0d34f6a02d6b775a334362665892794165e4c",
+  "labels_sha256": "7399780d6743a806d79857f3dea16d8be2ecbd44b745f7e378555bdb7742e685",
+  "model_bytes": 51726412,
+  "model_license": "CC-BY-NC-SA-4.0",
+  "code_license": "MIT",
+  "packages": {
+    "birdnet-analyzer": "2.4.0",
+    "tensorflow": "2.21.0",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "backend": "TensorFlow Lite CPU, four threads; no Apple Metal delegate configured",
+  "load_seconds": 3.039,
+  "warmup_seconds": 0.093,
+  "audio_files": 71,
+  "total_audio_seconds": 2989.761,
+  "windows": 966,
+  "processing_seconds": 23.491,
+  "audio_seconds_per_wall_second": 127.27,
+  "peak_process_rss_bytes": 1242660864,
+  "label_count": 6522,
+  "geography_prior": false,
+  "restricted_species_list": false,
+  "scores": "BirdNET sigmoid activations; not calibrated probabilities"
+}

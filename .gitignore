@@ -38,3 +38,12 @@ experiments/phase05/
 *.tmp
 .playwright/
 test-results/
+# Model checkpoints belong in private cache storage.
+*.bin
+*.pth
+*.pt
+*.onnx
+*.tflite
+*.safetensors
+*.h5
+*.keras

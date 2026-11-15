@@ -6,8 +6,10 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-MEDIA = {'.jpg','.jpeg','.png','.webp','.mp3','.wav','.ogg','.flac','.m4a','.zip','.gz','.parquet','.sqlite','.db'}
+MEDIA = {'.jpg','.jpeg','.png','.webp','.gif','.mp3','.wav','.ogg','.flac','.m4a','.mp4','.mov','.zip','.gz','.parquet','.sqlite','.db','.bin','.pth','.pt','.onnx','.tflite','.safetensors','.h5','.keras'}
 PRIVATE_PARTS = {'private', '.venv', 'node_modules', '.wrangler', '__pycache__'}
+RESTRICTED_PREFIXES = ('experiments/photo-candidates/','experiments/commons-candidates/','experiments/request-logs/','experiments/phase05/')
+RESTRICTED_FILES = {'experiments/sample-assets.json','experiments/audio-samples.json'}
 
 
 def known_secrets():
@@ -33,7 +35,8 @@ def main():
     issues = []
     for name in filter(None, names):
         path = Path(name)
-        if PRIVATE_PARTS.intersection(path.parts) or path.suffix.lower() in MEDIA or path.name.startswith(('.env','.dev.vars')):
+        if (PRIVATE_PARTS.intersection(path.parts) or path.suffix.lower() in MEDIA or path.name.startswith(('.env','.dev.vars'))
+            or name.startswith(RESTRICTED_PREFIXES) or name in RESTRICTED_FILES):
             issues.append(f'restricted artifact: {name}')
             continue
         # Scan the index, which is exactly what a commit would publish.

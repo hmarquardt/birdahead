@@ -1,6 +1,6 @@
 # Proposed architecture
 
-November 15, 2026. Architecture is a proposal; no runtime code or production resources exist.
+November 15, 2026. The architecture direction is accepted; implementation remains proposed. No production runtime code or production resources exist. Local validation tooling is authorized under Phase 0.5.
 
 ## Separation of responsibilities
 
@@ -8,7 +8,8 @@ November 15, 2026. Architecture is a proposal; no runtime code or production res
 flowchart TD
   S[Source APIs and authorized exports] --> P[Local Python and uv pipeline]
   P --> C[Private candidates and provenance]
-  C --> R[Human rights and identification review]
+  C --> R[Automated rights and identification gates]
+  R --> A[Sampled audits within two owner hours]
   R --> B[Versioned approved content build]
   B --> D[D1 metadata and occurrence summaries]
   B --> O[R2 permitted media and derivatives]
@@ -45,7 +46,7 @@ Foreign keys and unique source IDs enforce idempotency. Index occurrence by geog
 
 Fingerprint source+query+adapter version, record retrieval time and raw content digest, retain private licensed captures, and checkpoint completed work. Retry transient errors with bounded backoff and respect Retry-After; stop on access challenges or unresolved rights. The current experiment CLI stops on HTTP errors and resumes completed species rather than implementing a production retry framework.
 
-Normalize independently from downloads. Deduplicate exact bytes and source IDs, then use perceptual/audio fingerprints to propose near-duplicates. Human review attaches evidence and explicit permissions. Content build accepts only approved, unquarantined, rights-complete records and exports a portable release manifest. Publish objects before switching a release pointer; rollback selects the previous manifest. Recheck disputed/taken-down assets, disable new selection and expire downloaded packs; offline revocation cannot be immediate on disconnected devices.
+Normalize independently from downloads. Deduplicate exact bytes and source IDs, then use perceptual/audio fingerprints to propose near-duplicates. Automated gates attach source/rights/model evidence; sampled human/expert audits attach separate findings. Content build accepts only approved, unquarantined, rights-complete records and exports a portable release manifest. Publish objects before switching a release pointer; rollback selects the previous manifest. Recheck disputed/taken-down assets, disable new selection and expire downloaded packs; offline revocation cannot be immediate on disconnected devices.
 
 Full source media, raster cubes and checklist archives stay in private portable local storage unless rights permit an R2 archive. Export D1 as SQLite/SQL and normalized JSON/CSV; export learner progress separately. R2 supports S3-compatible object access. Keep a second independent backup of irreplaceable review decisions; platform point-in-time recovery alone is not an archival strategy.
 
@@ -79,4 +80,4 @@ Assume 3,000–4,200 delivery photos at 0.25–0.9 MB and 900–1,400 recordings
 
 At 2 users × 30 sessions/month × 20 exercises, about 1,200 media deliveries plus manifests and small progress calls occur monthly. At 0.5–2 MB/exercise, budget 0.6–2.4 GB/month before cache reuse, separate from occasional offline packs. Even 10,000 object reads/month is $0.0036 at the raw Class B rate before allowances/rounding. Indexed progress and precomputed packs avoid large row scans. Target incremental hosting $0–$1/month on free/existing plans, or $5–$6/month with a new paid Workers subscription, plus domain amortization. No paid plan or bucket/database was created.
 
-Public API experiments incurred no known provider usage charge. Human review, permission negotiations, local disk/backup and optional licensing dominate uncertainty. Illustration: 5,600 assets × 1–3 minutes = 93–280 hours, before rejects and specialist review. This is a scenario, not a measured labor estimate. No assumption of free Cornell licensing or unlimited API access is built into the budget.
+Public API experiments incurred no known provider usage charge. Human review, permission negotiations, local disk/backup and optional licensing dominate uncertainty. The original 93–280-hour per-asset review scenario is rejected by the amendment. The initial regional collection has a hard two-hour TOTAL owner-review cap, using automated gates, statistical samples and replacement/reduced coverage. Actual owner throughput is not yet measured. No assumption of free Cornell licensing or unlimited API access is built into the budget.

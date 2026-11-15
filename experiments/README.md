@@ -60,3 +60,38 @@ Commons searches retrieve only two files per query, keyed by scientific name and
 The three CC0 photo samples were inspected by the assistant for visual issues only. A yellowlegs frame has multiple birds without a designated target and is quarantined. The other samples remain candidates. The two MP3s were verified against Commons byte size/SHA-1 and inspected with the local `afinfo` utility for container properties; this is not a listening/identity review. `afinfo` is not a required cross-platform dependency of the discovery CLI.
 
 Manual owner/expert review was not performed. Its duration, usable yield, error rate and full-year seasonal coverage remain unknown. No assets have a production-approved state.
+
+## Phase 0.5 commands and artifact handling
+
+The earlier sections describe historical Phase Zero sampling, not the current acceptance policy. The amendment allows noncommercial licenses, specialized model gates and automatic acceptance with sampled audits. Candidate metadata/sample manifests/request logs are now also excluded from Git; aggregate reports remain reviewable. A fresh clone does not include those ignored files.
+
+```sh
+# Bounded local acquisition; each command checkpoints and keeps source captures private.
+uv run python -m tooling.acquire xc-validate
+uv run python -m tooling.acquire photos
+uv run python -m tooling.acquire audio
+# Optional supported replacements for observed gaps; total candidate-file ceiling 240.
+uv run python -m tooling.acquire photo-alternates
+
+# Isolated local inference. Weights stay private; no fine-tuning.
+uv sync --project tooling/inference --locked
+uv run --project tooling/inference python tooling/inference/download_models.py
+uv run --project tooling/inference python tooling/inference/download_birdnet.py
+uv run --project tooling/inference python tooling/inference/benchmark_images.py bioclip
+uv run --project tooling/inference python tooling/inference/benchmark_images.py bioclip-2
+uv run --project tooling/inference python tooling/inference/benchmark_audio.py
+uv run --project tooling/inference python tooling/inference/screen_subjects.py
+
+# Recompute automated gates, metadata-only accepted export and aggregate findings.
+uv run python -m tooling.curation
+uv run python -m tooling.workbench.server
+uv run python -m tooling.seasonal status
+```
+
+Do not rerun acquisition simply to regenerate a report. The inference environment is locked separately; ordinary offline tests do not install Torch/TensorFlow. BioCLIP snapshots pin revisions/digests in private provenance files; BirdNET 2.4.0 bootstrap is version checked. Model packages and licenses are documented in the benchmark report. Object detection/localized classification is an additional target-clarity screen, not a biological authority.
+
+The initial pass targeted five photo/three audio candidates per species. One capped replacement pass used supported, popular observations for failed comparisons/basic coverage; it deliberately changes the sampling distribution and may increase training-data overlap. Record both initial and expanded benchmark summaries; do not present the selected replacement pass as an unbiased accuracy estimate. No more than 240 candidate files may enter this experiment catalog.
+
+Private artifacts include `phase05/catalog.json`, per-source caches, media, checkpoint weights, per-asset inference/threshold/control records, `reviews.sqlite` and `approved-media.json`. Public `benchmark-*.json`, `xc-validation.json` and `phase05-results.json` contain aggregate evidence only. The initial benchmark snapshots are labeled separately from the replacement pass. Full original Cornell exports and normalized annual profiles remain private.
+
+Approved export does not certify biological truth. Automated/human/expert states and rights/biology gates stay separate. Artificially corrupted labels are private validation controls and never overwrite source records or enter accepted manifests. Human throughput is measured only from actual owner sessions; browser tests use an isolated fixture database and cannot be counted as owner review.

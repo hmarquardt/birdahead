@@ -66,3 +66,11 @@ Category overlap is useful. A migrant can be Here Now and Passing Through; a res
 ## Pilot validation still required
 
 Obtain full-year frequency exports with support information or explicit denominator unknown; compare resident/winter/breeding/transient curves across county, wetland and woodland sites; test sparse-week fallback and wraparound; verify spring/fall plumage/call applicability; assess unusual-sighting caps against historical examples. Until then, pilot seasonal roles are test hypotheses, not validated local calendars.
+
+## Phase 0.5 parser and current acquisition status
+
+`tooling/seasonal.py` implements a strict deterministic long-format interchange parser and date-based ranking experiment. Its metadata requires source URL/digest, location, consistent years/taxonomy, explicit bin definition, units and missing-data semantics. Rows retain species code/scientific name, native start/end, reporting fraction and optional checklist count. Reject percent/fraction confusion, taxonomy mismatch, duplicate/gapped/overlapping bins and inconsistent scopes. Zero sample support becomes unknown rather than absence; blank/NA remains missing.
+
+Approaching-window priority uses the rise to the maximum reporting fraction 14, 21 and 28 days ahead, independently of whether the current fraction is zero. The combined demonstration score is explicitly a curriculum priority, never an absolute encounter probability. Calendar wraparound is deterministic; source-native boundaries must be established before normalization.
+
+The offline fixtures verify mechanics only. **No actual annual county exports have been imported, and no winter/spring/summer/fall demonstration with real frequencies is claimed.** A native eBird export adapter must be completed against the actual owner-supplied file format; the code does not guess its schema or convert an assumed 48-bin layout into ISO weeks. [Manual acquisition instructions](manual-downloads.md) select January–December 2016–2025 consistently for seven counties and optional hotspots. [Phase 0.5 status](phase-05.md).
