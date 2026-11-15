@@ -1,0 +1,2066 @@
+{
+  "retrieved_at": "2026-11-15T19:58:52.924024+00:00",
+  "url": "https://api.inaturalist.org/v1/observations/species_counts?taxon_id=3&quality_grade=research&captive=false&swlat=37.7&swlng=-88.3&nelat=39.2&nelng=-86.7&per_page=500",
+  "total_results": 294,
+  "scope": "all-time Research Grade wild bird observations; rectangular study envelope, not regional frequency",
+  "rows": [
+    {
+      "taxon_id": 12727,
+      "scientific_name": "Turdus migratorius",
+      "common_name": "American Robin",
+      "rank": "species",
+      "observation_count": 391
+    },
+    {
+      "taxon_id": 9083,
+      "scientific_name": "Cardinalis cardinalis",
+      "common_name": "Northern Cardinal",
+      "rank": "species",
+      "observation_count": 380
+    },
+    {
+      "taxon_id": 6930,
+      "scientific_name": "Anas platyrhynchos",
+      "common_name": "Mallard",
+      "rank": "species",
+      "observation_count": 222
+    },
+    {
+      "taxon_id": 792988,
+      "scientific_name": "Dryobates pubescens",
+      "common_name": "Downy Woodpecker",
+      "rank": "species",
+      "observation_count": 203
+    },
+    {
+      "taxon_id": 7089,
+      "scientific_name": "Branta canadensis",
+      "common_name": "Canada Goose",
+      "rank": "species",
+      "observation_count": 201
+    },
+    {
+      "taxon_id": 558426,
+      "scientific_name": "Anser caerulescens",
+      "common_name": "Snow Goose",
+      "rank": "species",
+      "observation_count": 186
+    },
+    {
+      "taxon_id": 145310,
+      "scientific_name": "Spinus tristis",
+      "common_name": "American Goldfinch",
+      "rank": "species",
+      "observation_count": 161
+    },
+    {
+      "taxon_id": 9744,
+      "scientific_name": "Agelaius phoeniceus",
+      "common_name": "Red-winged Blackbird",
+      "rank": "species",
+      "observation_count": 158
+    },
+    {
+      "taxon_id": 13858,
+      "scientific_name": "Passer domesticus",
+      "common_name": "House Sparrow",
+      "rank": "species",
+      "observation_count": 153
+    },
+    {
+      "taxon_id": 4956,
+      "scientific_name": "Ardea herodias",
+      "common_name": "Great Blue Heron",
+      "rank": "species",
+      "observation_count": 145
+    },
+    {
+      "taxon_id": 12942,
+      "scientific_name": "Sialia sialis",
+      "common_name": "Eastern Bluebird",
+      "rank": "species",
+      "observation_count": 143
+    },
+    {
+      "taxon_id": 14850,
+      "scientific_name": "Sturnus vulgaris",
+      "common_name": "European Starling",
+      "rank": "species",
+      "observation_count": 137
+    },
+    {
+      "taxon_id": 5206,
+      "scientific_name": "Buteo lineatus",
+      "common_name": "Red-shouldered Hawk",
+      "rank": "species",
+      "observation_count": 135
+    },
+    {
+      "taxon_id": 906,
+      "scientific_name": "Meleagris gallopavo",
+      "common_name": "Wild Turkey",
+      "rank": "species",
+      "observation_count": 133
+    },
+    {
+      "taxon_id": 13632,
+      "scientific_name": "Baeolophus bicolor",
+      "common_name": "Tufted Titmouse",
+      "rank": "species",
+      "observation_count": 129
+    },
+    {
+      "taxon_id": 3454,
+      "scientific_name": "Zenaida macroura",
+      "common_name": "Mourning Dove",
+      "rank": "species",
+      "observation_count": 127
+    },
+    {
+      "taxon_id": 5305,
+      "scientific_name": "Haliaeetus leucocephalus",
+      "common_name": "Bald Eagle",
+      "rank": "species",
+      "observation_count": 123
+    },
+    {
+      "taxon_id": 9100,
+      "scientific_name": "Melospiza melodia",
+      "common_name": "Song Sparrow",
+      "rank": "species",
+      "observation_count": 119
+    },
+    {
+      "taxon_id": 14886,
+      "scientific_name": "Mimus polyglottos",
+      "common_name": "Northern Mockingbird",
+      "rank": "species",
+      "observation_count": 116
+    },
+    {
+      "taxon_id": 199840,
+      "scientific_name": "Haemorhous mexicanus",
+      "common_name": "House Finch",
+      "rank": "species",
+      "observation_count": 110
+    },
+    {
+      "taxon_id": 4756,
+      "scientific_name": "Cathartes aura",
+      "common_name": "Turkey Vulture",
+      "rank": "species",
+      "observation_count": 109
+    },
+    {
+      "taxon_id": 144814,
+      "scientific_name": "Poecile carolinensis",
+      "common_name": "Carolina Chickadee",
+      "rank": "species",
+      "observation_count": 107
+    },
+    {
+      "taxon_id": 11935,
+      "scientific_name": "Tachycineta bicolor",
+      "common_name": "Tree Swallow",
+      "rank": "species",
+      "observation_count": 102
+    },
+    {
+      "taxon_id": 4793,
+      "scientific_name": "Charadrius vociferus",
+      "common_name": "Killdeer",
+      "rank": "species",
+      "observation_count": 101
+    },
+    {
+      "taxon_id": 5212,
+      "scientific_name": "Buteo jamaicensis",
+      "common_name": "Red-tailed Hawk",
+      "rank": "species",
+      "observation_count": 101
+    },
+    {
+      "taxon_id": 18205,
+      "scientific_name": "Melanerpes carolinus",
+      "common_name": "Red-bellied Woodpecker",
+      "rank": "species",
+      "observation_count": 100
+    },
+    {
+      "taxon_id": 6432,
+      "scientific_name": "Archilochus colubris",
+      "common_name": "Ruby-throated Hummingbird",
+      "rank": "species",
+      "observation_count": 93
+    },
+    {
+      "taxon_id": 7513,
+      "scientific_name": "Thryothorus ludovicianus",
+      "common_name": "Carolina Wren",
+      "rank": "species",
+      "observation_count": 91
+    },
+    {
+      "taxon_id": 9184,
+      "scientific_name": "Zonotrichia albicollis",
+      "common_name": "White-throated Sparrow",
+      "rank": "species",
+      "observation_count": 89
+    },
+    {
+      "taxon_id": 10094,
+      "scientific_name": "Junco hyemalis",
+      "common_name": "Dark-eyed Junco",
+      "rank": "species",
+      "observation_count": 88
+    },
+    {
+      "taxon_id": 19893,
+      "scientific_name": "Strix varia",
+      "common_name": "Barred Owl",
+      "rank": "species",
+      "observation_count": 88
+    },
+    {
+      "taxon_id": 10227,
+      "scientific_name": "Passerina cyanea",
+      "common_name": "Indigo Bunting",
+      "rank": "species",
+      "observation_count": 83
+    },
+    {
+      "taxon_id": 508048,
+      "scientific_name": "Antigone canadensis",
+      "common_name": "Sandhill Crane",
+      "rank": "species",
+      "observation_count": 82
+    },
+    {
+      "taxon_id": 558446,
+      "scientific_name": "Circus hudsonius",
+      "common_name": "Northern Harrier",
+      "rank": "species",
+      "observation_count": 78
+    },
+    {
+      "taxon_id": 9602,
+      "scientific_name": "Quiscalus quiscula",
+      "common_name": "Common Grackle",
+      "rank": "species",
+      "observation_count": 76
+    },
+    {
+      "taxon_id": 8229,
+      "scientific_name": "Cyanocitta cristata",
+      "common_name": "Blue Jay",
+      "rank": "species",
+      "observation_count": 75
+    },
+    {
+      "taxon_id": 14801,
+      "scientific_name": "Sitta carolinensis",
+      "common_name": "White-breasted Nuthatch",
+      "rank": "species",
+      "observation_count": 72
+    },
+    {
+      "taxon_id": 10373,
+      "scientific_name": "Molothrus ater",
+      "common_name": "Brown-headed Cowbird",
+      "rank": "species",
+      "observation_count": 70
+    },
+    {
+      "taxon_id": 9135,
+      "scientific_name": "Spizella passerina",
+      "common_name": "Chipping Sparrow",
+      "rank": "species",
+      "observation_count": 69
+    },
+    {
+      "taxon_id": 17008,
+      "scientific_name": "Sayornis phoebe",
+      "common_name": "Eastern Phoebe",
+      "rank": "species",
+      "observation_count": 67
+    },
+    {
+      "taxon_id": 144455,
+      "scientific_name": "Ardea alba",
+      "common_name": "Great Egret",
+      "rank": "species",
+      "observation_count": 67
+    },
+    {
+      "taxon_id": 7107,
+      "scientific_name": "Aix sponsa",
+      "common_name": "Wood Duck",
+      "rank": "species",
+      "observation_count": 64
+    },
+    {
+      "taxon_id": 18236,
+      "scientific_name": "Colaptes auratus",
+      "common_name": "Northern Flicker",
+      "rank": "species",
+      "observation_count": 64
+    },
+    {
+      "taxon_id": 10676,
+      "scientific_name": "Spiza americana",
+      "common_name": "Dickcissel",
+      "rank": "species",
+      "observation_count": 63
+    },
+    {
+      "taxon_id": 16782,
+      "scientific_name": "Tyrannus tyrannus",
+      "common_name": "Eastern Kingbird",
+      "rank": "species",
+      "observation_count": 63
+    },
+    {
+      "taxon_id": 17855,
+      "scientific_name": "Dryocopus pileatus",
+      "common_name": "Pileated Woodpecker",
+      "rank": "species",
+      "observation_count": 58
+    },
+    {
+      "taxon_id": 145245,
+      "scientific_name": "Setophaga coronata",
+      "common_name": "Yellow-rumped Warbler",
+      "rank": "species",
+      "observation_count": 58
+    },
+    {
+      "taxon_id": 1280,
+      "scientific_name": "Colinus virginianus",
+      "common_name": "Northern Bobwhite",
+      "rank": "species",
+      "observation_count": 56
+    },
+    {
+      "taxon_id": 9176,
+      "scientific_name": "Zonotrichia leucophrys",
+      "common_name": "White-crowned Sparrow",
+      "rank": "species",
+      "observation_count": 55
+    },
+    {
+      "taxon_id": 473,
+      "scientific_name": "Fulica americana",
+      "common_name": "American Coot",
+      "rank": "species",
+      "observation_count": 54
+    },
+    {
+      "taxon_id": 9424,
+      "scientific_name": "Pipilo erythrophthalmus",
+      "common_name": "Eastern Towhee",
+      "rank": "species",
+      "observation_count": 54
+    },
+    {
+      "taxon_id": 9721,
+      "scientific_name": "Geothlypis trichas",
+      "common_name": "Common Yellowthroat",
+      "rank": "species",
+      "observation_count": 53
+    },
+    {
+      "taxon_id": 5200,
+      "scientific_name": "Buteo lagopus",
+      "common_name": "Rough-legged Hawk",
+      "rank": "species",
+      "observation_count": 52
+    },
+    {
+      "taxon_id": 1066,
+      "scientific_name": "Tympanuchus cupido",
+      "common_name": "Greater Prairie-Chicken",
+      "rank": "species",
+      "observation_count": 51
+    },
+    {
+      "taxon_id": 5020,
+      "scientific_name": "Butorides virescens",
+      "common_name": "Green Heron",
+      "rank": "species",
+      "observation_count": 50
+    },
+    {
+      "taxon_id": 20315,
+      "scientific_name": "Asio flammeus",
+      "common_name": "Short-eared Owl",
+      "rank": "species",
+      "observation_count": 50
+    },
+    {
+      "taxon_id": 9152,
+      "scientific_name": "Spizella pusilla",
+      "common_name": "Field Sparrow",
+      "rank": "species",
+      "observation_count": 47
+    },
+    {
+      "taxon_id": 4334,
+      "scientific_name": "Pelecanus erythrorhynchos",
+      "common_name": "American White Pelican",
+      "rank": "species",
+      "observation_count": 44
+    },
+    {
+      "taxon_id": 10729,
+      "scientific_name": "Protonotaria citrea",
+      "common_name": "Prothonotary Warbler",
+      "rank": "species",
+      "observation_count": 44
+    },
+    {
+      "taxon_id": 14898,
+      "scientific_name": "Toxostoma rufum",
+      "common_name": "Brown Thrasher",
+      "rank": "species",
+      "observation_count": 44
+    },
+    {
+      "taxon_id": 34,
+      "scientific_name": "Grus americana",
+      "common_name": "Whooping Crane",
+      "rank": "species",
+      "observation_count": 43
+    },
+    {
+      "taxon_id": 16100,
+      "scientific_name": "Contopus virens",
+      "common_name": "Eastern Wood-Pewee",
+      "rank": "species",
+      "observation_count": 42
+    },
+    {
+      "taxon_id": 1579017,
+      "scientific_name": "Astur cooperii",
+      "common_name": "Cooper's Hawk",
+      "rank": "species",
+      "observation_count": 42
+    },
+    {
+      "taxon_id": 9096,
+      "scientific_name": "Melospiza georgiana",
+      "common_name": "Swamp Sparrow",
+      "rank": "species",
+      "observation_count": 39
+    },
+    {
+      "taxon_id": 558433,
+      "scientific_name": "Spatula discors",
+      "common_name": "Blue-winged Teal",
+      "rank": "species",
+      "observation_count": 39
+    },
+    {
+      "taxon_id": 7493,
+      "scientific_name": "Polioptila caerulea",
+      "common_name": "Blue-gray Gnatcatcher",
+      "rank": "species",
+      "observation_count": 38
+    },
+    {
+      "taxon_id": 9528,
+      "scientific_name": "Sturnella magna",
+      "common_name": "Eastern Meadowlark",
+      "rank": "species",
+      "observation_count": 38
+    },
+    {
+      "taxon_id": 9981,
+      "scientific_name": "Passerculus sandwichensis",
+      "common_name": "Savannah Sparrow",
+      "rank": "species",
+      "observation_count": 38
+    },
+    {
+      "taxon_id": 14823,
+      "scientific_name": "Sitta canadensis",
+      "common_name": "Red-breasted Nuthatch",
+      "rank": "species",
+      "observation_count": 38
+    },
+    {
+      "taxon_id": 18204,
+      "scientific_name": "Melanerpes erythrocephalus",
+      "common_name": "Red-headed Woodpecker",
+      "rank": "species",
+      "observation_count": 37
+    },
+    {
+      "taxon_id": 7019,
+      "scientific_name": "Anser albifrons",
+      "common_name": "Greater White-fronted Goose",
+      "rank": "species",
+      "observation_count": 36
+    },
+    {
+      "taxon_id": 7044,
+      "scientific_name": "Aythya collaris",
+      "common_name": "Ring-necked Duck",
+      "rank": "species",
+      "observation_count": 35
+    },
+    {
+      "taxon_id": 4836,
+      "scientific_name": "Himantopus mexicanus",
+      "common_name": "Black-necked Stilt",
+      "rank": "species",
+      "observation_count": 34
+    },
+    {
+      "taxon_id": 11901,
+      "scientific_name": "Hirundo rustica",
+      "common_name": "Barn Swallow",
+      "rank": "species",
+      "observation_count": 33
+    },
+    {
+      "taxon_id": 4364,
+      "scientific_name": "Larus delawarensis",
+      "common_name": "Ring-billed Gull",
+      "rank": "species",
+      "observation_count": 32
+    },
+    {
+      "taxon_id": 13270,
+      "scientific_name": "Hylocichla mustelina",
+      "common_name": "Wood Thrush",
+      "rank": "species",
+      "observation_count": 32
+    },
+    {
+      "taxon_id": 18463,
+      "scientific_name": "Sphyrapicus varius",
+      "common_name": "Yellow-bellied Sapsucker",
+      "rank": "species",
+      "observation_count": 32
+    },
+    {
+      "taxon_id": 9915,
+      "scientific_name": "Piranga rubra",
+      "common_name": "Summer Tanager",
+      "rank": "species",
+      "observation_count": 31
+    },
+    {
+      "taxon_id": 4665,
+      "scientific_name": "Falco sparverius",
+      "common_name": "American Kestrel",
+      "rank": "species",
+      "observation_count": 30
+    },
+    {
+      "taxon_id": 14995,
+      "scientific_name": "Dumetella carolinensis",
+      "common_name": "Gray Catbird",
+      "rank": "species",
+      "observation_count": 30
+    },
+    {
+      "taxon_id": 73155,
+      "scientific_name": "Passerina caerulea",
+      "common_name": "Blue Grosbeak",
+      "rank": "species",
+      "observation_count": 30
+    },
+    {
+      "taxon_id": 145242,
+      "scientific_name": "Setophaga palmarum",
+      "common_name": "Palm Warbler",
+      "rank": "species",
+      "observation_count": 29
+    },
+    {
+      "taxon_id": 3892,
+      "scientific_name": "Tringa melanoleuca",
+      "common_name": "Greater Yellowlegs",
+      "rank": "species",
+      "observation_count": 28
+    },
+    {
+      "taxon_id": 7428,
+      "scientific_name": "Bombycilla cedrorum",
+      "common_name": "Cedar Waxwing",
+      "rank": "species",
+      "observation_count": 28
+    },
+    {
+      "taxon_id": 4246,
+      "scientific_name": "Podilymbus podiceps",
+      "common_name": "Pied-billed Grebe",
+      "rank": "species",
+      "observation_count": 26
+    },
+    {
+      "taxon_id": 5416,
+      "scientific_name": "Ictinia mississippiensis",
+      "common_name": "Mississippi Kite",
+      "rank": "species",
+      "observation_count": 26
+    },
+    {
+      "taxon_id": 7294,
+      "scientific_name": "Eremophila alpestris",
+      "common_name": "Horned Lark",
+      "rank": "species",
+      "observation_count": 25
+    },
+    {
+      "taxon_id": 558438,
+      "scientific_name": "Spatula clypeata",
+      "common_name": "Northern Shoveler",
+      "rank": "species",
+      "observation_count": 25
+    },
+    {
+      "taxon_id": 3017,
+      "scientific_name": "Columba livia",
+      "common_name": "Rock Pigeon",
+      "rank": "species",
+      "observation_count": 24
+    },
+    {
+      "taxon_id": 8021,
+      "scientific_name": "Corvus brachyrhynchos",
+      "common_name": "American Crow",
+      "rank": "species",
+      "observation_count": 24
+    },
+    {
+      "taxon_id": 9346,
+      "scientific_name": "Icterus galbula",
+      "common_name": "Baltimore Oriole",
+      "rank": "species",
+      "observation_count": 24
+    },
+    {
+      "taxon_id": 558439,
+      "scientific_name": "Mareca strepera",
+      "common_name": "Gadwall",
+      "rank": "species",
+      "observation_count": 24
+    },
+    {
+      "taxon_id": 2548,
+      "scientific_name": "Megaceryle alcyon",
+      "common_name": "Belted Kingfisher",
+      "rank": "species",
+      "observation_count": 22
+    },
+    {
+      "taxon_id": 7562,
+      "scientific_name": "Troglodytes aedon",
+      "common_name": "Northern House Wren",
+      "rank": "species",
+      "observation_count": 22
+    },
+    {
+      "taxon_id": 10243,
+      "scientific_name": "Icteria virens",
+      "common_name": "Yellow-breasted Chat",
+      "rank": "species",
+      "observation_count": 22
+    },
+    {
+      "taxon_id": 11867,
+      "scientific_name": "Progne subis",
+      "common_name": "Purple Martin",
+      "rank": "species",
+      "observation_count": 22
+    },
+    {
+      "taxon_id": 16028,
+      "scientific_name": "Myiarchus crinitus",
+      "common_name": "Great Crested Flycatcher",
+      "rank": "species",
+      "observation_count": 22
+    },
+    {
+      "taxon_id": 12878,
+      "scientific_name": "Catharus ustulatus",
+      "common_name": "Swainson's Thrush",
+      "rank": "species",
+      "observation_count": 21
+    },
+    {
+      "taxon_id": 20044,
+      "scientific_name": "Bubo virginianus",
+      "common_name": "Great Horned Owl",
+      "rank": "species",
+      "observation_count": 21
+    },
+    {
+      "taxon_id": 474210,
+      "scientific_name": "Spizelloides arborea",
+      "common_name": "American Tree Sparrow",
+      "rank": "species",
+      "observation_count": 21
+    },
+    {
+      "taxon_id": 979756,
+      "scientific_name": "Leiothlypis peregrina",
+      "common_name": "Tennessee Warbler",
+      "rank": "species",
+      "observation_count": 21
+    },
+    {
+      "taxon_id": 3875,
+      "scientific_name": "Tringa solitaria",
+      "common_name": "Solitary Sandpiper",
+      "rank": "species",
+      "observation_count": 20
+    },
+    {
+      "taxon_id": 3893,
+      "scientific_name": "Tringa flavipes",
+      "common_name": "Lesser Yellowlegs",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 10271,
+      "scientific_name": "Pheucticus ludovicianus",
+      "common_name": "Rose-breasted Grosbeak",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 144479,
+      "scientific_name": "Gallinula galeata",
+      "common_name": "Common Gallinule",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 144496,
+      "scientific_name": "Gallinago delicata",
+      "common_name": "Wilson's Snipe",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 1188207,
+      "scientific_name": "Setophaga aestiva",
+      "common_name": "Northern Yellow Warbler",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 1289388,
+      "scientific_name": "Corthylio calendula",
+      "common_name": "Ruby-crowned Kinglet",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 1454382,
+      "scientific_name": "Nannopterum auritum",
+      "common_name": "Double-crested Cormorant",
+      "rank": "species",
+      "observation_count": 19
+    },
+    {
+      "taxon_id": 1965,
+      "scientific_name": "Coccyzus americanus",
+      "common_name": "Yellow-billed Cuckoo",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 6915,
+      "scientific_name": "Cygnus buccinator",
+      "common_name": "Trumpeter Swan",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 6917,
+      "scientific_name": "Cygnus columbianus",
+      "common_name": "Tundra Swan",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 6933,
+      "scientific_name": "Anas acuta",
+      "common_name": "Northern Pintail",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 11858,
+      "scientific_name": "Petrochelidon pyrrhonota",
+      "common_name": "Cliff Swallow",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 12890,
+      "scientific_name": "Catharus guttatus",
+      "common_name": "Hermit Thrush",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 1651487,
+      "scientific_name": "Leuconotopicus villosus",
+      "common_name": "Hairy Woodpecker",
+      "rank": "species",
+      "observation_count": 18
+    },
+    {
+      "taxon_id": 6893,
+      "scientific_name": "Dendrocygna autumnalis",
+      "common_name": "Black-bellied Whistling-Duck",
+      "rank": "species",
+      "observation_count": 17
+    },
+    {
+      "taxon_id": 7109,
+      "scientific_name": "Lophodytes cucullatus",
+      "common_name": "Hooded Merganser",
+      "rank": "species",
+      "observation_count": 17
+    },
+    {
+      "taxon_id": 17356,
+      "scientific_name": "Vireo bellii",
+      "common_name": "Bell's Vireo",
+      "rank": "species",
+      "observation_count": 17
+    },
+    {
+      "taxon_id": 3936,
+      "scientific_name": "Scolopax minor",
+      "common_name": "American Woodcock",
+      "rank": "species",
+      "observation_count": 16
+    },
+    {
+      "taxon_id": 9325,
+      "scientific_name": "Icterus spurius",
+      "common_name": "Orchard Oriole",
+      "rank": "species",
+      "observation_count": 16
+    },
+    {
+      "taxon_id": 10322,
+      "scientific_name": "Euphagus carolinus",
+      "common_name": "Rusty Blackbird",
+      "rank": "species",
+      "observation_count": 16
+    },
+    {
+      "taxon_id": 145233,
+      "scientific_name": "Setophaga americana",
+      "common_name": "Northern Parula",
+      "rank": "species",
+      "observation_count": 16
+    },
+    {
+      "taxon_id": 6571,
+      "scientific_name": "Chaetura pelagica",
+      "common_name": "Chimney Swift",
+      "rank": "species",
+      "observation_count": 15
+    },
+    {
+      "taxon_id": 7458,
+      "scientific_name": "Certhia americana",
+      "common_name": "Brown Creeper",
+      "rank": "species",
+      "observation_count": 15
+    },
+    {
+      "taxon_id": 11970,
+      "scientific_name": "Stelgidopteryx serripennis",
+      "common_name": "Northern Rough-winged Swallow",
+      "rank": "species",
+      "observation_count": 15
+    },
+    {
+      "taxon_id": 117100,
+      "scientific_name": "Regulus satrapa",
+      "common_name": "Golden-crowned Kinglet",
+      "rank": "species",
+      "observation_count": 15
+    },
+    {
+      "taxon_id": 3865,
+      "scientific_name": "Calidris melanotos",
+      "common_name": "Pectoral Sandpiper",
+      "rank": "species",
+      "observation_count": 14
+    },
+    {
+      "taxon_id": 4672,
+      "scientific_name": "Falco columbarius",
+      "common_name": "Merlin",
+      "rank": "species",
+      "observation_count": 14
+    },
+    {
+      "taxon_id": 6993,
+      "scientific_name": "Bucephala albeola",
+      "common_name": "Bufflehead",
+      "rank": "species",
+      "observation_count": 13
+    },
+    {
+      "taxon_id": 7056,
+      "scientific_name": "Aythya americana",
+      "common_name": "Redhead",
+      "rank": "species",
+      "observation_count": 13
+    },
+    {
+      "taxon_id": 10247,
+      "scientific_name": "Setophaga ruticilla",
+      "common_name": "American Redstart",
+      "rank": "species",
+      "observation_count": 13
+    },
+    {
+      "taxon_id": 17408,
+      "scientific_name": "Vireo griseus",
+      "common_name": "White-eyed Vireo",
+      "rank": "species",
+      "observation_count": 13
+    },
+    {
+      "taxon_id": 4626,
+      "scientific_name": "Gavia immer",
+      "common_name": "Common Loon",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 7120,
+      "scientific_name": "Cairina moschata",
+      "common_name": "Muscovy Duck",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 8001,
+      "scientific_name": "Corvus ossifragus",
+      "common_name": "Fish Crow",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 9156,
+      "scientific_name": "Passerella iliaca",
+      "common_name": "Fox Sparrow",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 10286,
+      "scientific_name": "Mniotilta varia",
+      "common_name": "Black-and-white Warbler",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 19577,
+      "scientific_name": "Chordeiles minor",
+      "common_name": "Common Nighthawk",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 199841,
+      "scientific_name": "Haemorhous purpureus",
+      "common_name": "Purple Finch",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 558427,
+      "scientific_name": "Anser rossii",
+      "common_name": "Ross's Goose",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 891704,
+      "scientific_name": "Vireo olivaceus",
+      "common_name": "Red-eyed Vireo",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 1578502,
+      "scientific_name": "Tyto furcata",
+      "common_name": "American Barn Owl",
+      "rank": "species",
+      "observation_count": 12
+    },
+    {
+      "taxon_id": 7,
+      "scientific_name": "Aramus guarauna",
+      "common_name": "Limpkin",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 162,
+      "scientific_name": "Porzana carolina",
+      "common_name": "Sora",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 4765,
+      "scientific_name": "Coragyps atratus",
+      "common_name": "Black Vulture",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 4937,
+      "scientific_name": "Egretta caerulea",
+      "common_name": "Little Blue Heron",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 7057,
+      "scientific_name": "Aythya valisineria",
+      "common_name": "Canvasback",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 11941,
+      "scientific_name": "Riparia riparia",
+      "common_name": "Bank Swallow",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 116999,
+      "scientific_name": "Pandion haliaetus",
+      "common_name": "Osprey",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 145229,
+      "scientific_name": "Setophaga citrina",
+      "common_name": "Hooded Warbler",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 145258,
+      "scientific_name": "Setophaga virens",
+      "common_name": "Black-throated Green Warbler",
+      "rank": "species",
+      "observation_count": 11
+    },
+    {
+      "taxon_id": 4571,
+      "scientific_name": "Xema sabini",
+      "common_name": "Sabine's Gull",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 9921,
+      "scientific_name": "Piranga olivacea",
+      "common_name": "Scarlet Tanager",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 19765,
+      "scientific_name": "Megascops asio",
+      "common_name": "Eastern Screech-Owl",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 145239,
+      "scientific_name": "Setophaga pensylvanica",
+      "common_name": "Chestnut-sided Warbler",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 145244,
+      "scientific_name": "Setophaga pinus",
+      "common_name": "Pine Warbler",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 367715,
+      "scientific_name": "Rallus elegans",
+      "common_name": "King Rail",
+      "rank": "species",
+      "observation_count": 10
+    },
+    {
+      "taxon_id": 4512,
+      "scientific_name": "Chlidonias niger",
+      "common_name": "Black Tern",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 9092,
+      "scientific_name": "Melospiza lincolnii",
+      "common_name": "Lincoln's Sparrow",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 10487,
+      "scientific_name": "Dolichonyx oryzivorus",
+      "common_name": "Bobolink",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 62550,
+      "scientific_name": "Seiurus aurocapilla",
+      "common_name": "Ovenbird",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 73149,
+      "scientific_name": "Parkesia noveboracensis",
+      "common_name": "Northern Waterthrush",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 144530,
+      "scientific_name": "Sternula antillarum",
+      "common_name": "Least Tern",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 144537,
+      "scientific_name": "Hydroprogne caspia",
+      "common_name": "Caspian Tern",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 145235,
+      "scientific_name": "Setophaga magnolia",
+      "common_name": "Magnolia Warbler",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 485176,
+      "scientific_name": "Mareca americana",
+      "common_name": "American Wigeon",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 793285,
+      "scientific_name": "Centronyx henslowii",
+      "common_name": "Henslow's Sparrow",
+      "rank": "species",
+      "observation_count": 9
+    },
+    {
+      "taxon_id": 3864,
+      "scientific_name": "Calidris minutilla",
+      "common_name": "Least Sandpiper",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 4940,
+      "scientific_name": "Egretta thula",
+      "common_name": "Snowy Egret",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 7054,
+      "scientific_name": "Aythya affinis",
+      "common_name": "Lesser Scaup",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 10479,
+      "scientific_name": "Chondestes grammacus",
+      "common_name": "Lark Sparrow",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 16638,
+      "scientific_name": "Empidonax virescens",
+      "common_name": "Acadian Flycatcher",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 145236,
+      "scientific_name": "Setophaga castanea",
+      "common_name": "Bay-breasted Warbler",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 145249,
+      "scientific_name": "Setophaga discolor",
+      "common_name": "Prairie Warbler",
+      "rank": "species",
+      "observation_count": 8
+    },
+    {
+      "taxon_id": 3850,
+      "scientific_name": "Calidris himantopus",
+      "common_name": "Stilt Sandpiper",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 5181,
+      "scientific_name": "Buteo regalis",
+      "common_name": "Ferruginous Hawk",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 6937,
+      "scientific_name": "Anas crecca",
+      "common_name": "Green-winged Teal",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 10139,
+      "scientific_name": "Ammodramus savannarum",
+      "common_name": "Grasshopper Sparrow",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 12901,
+      "scientific_name": "Catharus fuscescens",
+      "common_name": "Veery",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 17394,
+      "scientific_name": "Vireo gilvus",
+      "common_name": "Eastern Warbling Vireo",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 73148,
+      "scientific_name": "Parkesia motacilla",
+      "common_name": "Louisiana Waterthrush",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 116840,
+      "scientific_name": "Calcarius lapponicus",
+      "common_name": "Lapland Longspur",
+      "rank": "species",
+      "observation_count": 7
+    },
+    {
+      "taxon_id": 1204,
+      "scientific_name": "Pavo cristatus",
+      "common_name": "Indian Peafowl",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 4817,
+      "scientific_name": "Charadrius semipalmatus",
+      "common_name": "Semipalmated Plover",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 4893,
+      "scientific_name": "Pluvialis dominica",
+      "common_name": "American Golden-Plover",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 5227,
+      "scientific_name": "Buteo platypterus",
+      "common_name": "Broad-winged Hawk",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 72458,
+      "scientific_name": "Actitis macularius",
+      "common_name": "Spotted Sandpiper",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 144502,
+      "scientific_name": "Chroicocephalus philadelphia",
+      "common_name": "Bonaparte's Gull",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 145225,
+      "scientific_name": "Geothlypis formosa",
+      "common_name": "Kentucky Warbler",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 411086,
+      "scientific_name": "Ardea ibis",
+      "common_name": "Western Cattle-Egret",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 472287,
+      "scientific_name": "Anser anser \u00d7 cygnoides",
+      "common_name": "Greylag \u00d7 Swan Goose",
+      "rank": "hybrid",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 979753,
+      "scientific_name": "Leiothlypis ruficapilla",
+      "common_name": "Nashville Warbler",
+      "rank": "species",
+      "observation_count": 6
+    },
+    {
+      "taxon_id": 6924,
+      "scientific_name": "Anas rubripes",
+      "common_name": "American Black Duck",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 12883,
+      "scientific_name": "Catharus minimus",
+      "common_name": "Gray-cheeked Thrush",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 13732,
+      "scientific_name": "Anthus rubescens",
+      "common_name": "American Pipit",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 16611,
+      "scientific_name": "Empidonax traillii",
+      "common_name": "Willow Flycatcher",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 16791,
+      "scientific_name": "Tyrannus verticalis",
+      "common_name": "Western Kingbird",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 17365,
+      "scientific_name": "Vireo flavifrons",
+      "common_name": "Yellow-throated Vireo",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 144491,
+      "scientific_name": "Tringa semipalmata",
+      "common_name": "Willet",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 145240,
+      "scientific_name": "Setophaga striata",
+      "common_name": "Blackpoll Warbler",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 145246,
+      "scientific_name": "Setophaga dominica",
+      "common_name": "Yellow-throated Warbler",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 339596,
+      "scientific_name": "Calidris subruficollis",
+      "common_name": "Buff-breasted Sandpiper",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 437602,
+      "scientific_name": "Ammospiza leconteii",
+      "common_name": "LeConte's Sparrow",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 850859,
+      "scientific_name": "Oxyura jamaicensis",
+      "common_name": "Ruddy Duck",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 1286843,
+      "scientific_name": "Cistothorus stellaris",
+      "common_name": "Sedge Wren",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 1578960,
+      "scientific_name": "Botaurus exilis",
+      "common_name": "Least Bittern",
+      "rank": "species",
+      "observation_count": 5
+    },
+    {
+      "taxon_id": 2969,
+      "scientific_name": "Streptopelia decaocto",
+      "common_name": "Eurasian Collared-Dove",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3751,
+      "scientific_name": "Eudocimus albus",
+      "common_name": "White Ibis",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3756,
+      "scientific_name": "Plegadis falcinellus",
+      "common_name": "Glossy Ibis",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3857,
+      "scientific_name": "Calidris alpina",
+      "common_name": "Dunlin",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3873,
+      "scientific_name": "Limnodromus scolopaceus",
+      "common_name": "Long-billed Dowitcher",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3950,
+      "scientific_name": "Limosa haemastica",
+      "common_name": "Hudsonian Godwit",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 4885,
+      "scientific_name": "Recurvirostra americana",
+      "common_name": "American Avocet",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 6921,
+      "scientific_name": "Cygnus olor",
+      "common_name": "Mute Swan",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 6990,
+      "scientific_name": "Bucephala clangula",
+      "common_name": "Common Goldeneye",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 7018,
+      "scientific_name": "Anser anser",
+      "common_name": "Greylag Goose",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 17402,
+      "scientific_name": "Vireo solitarius",
+      "common_name": "Blue-headed Vireo",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 145237,
+      "scientific_name": "Setophaga fusca",
+      "common_name": "Blackburnian Warbler",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 145276,
+      "scientific_name": "Cardellina pusilla",
+      "common_name": "Wilson's Warbler",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 558512,
+      "scientific_name": "Lanius borealis",
+      "common_name": "Northern Shrike",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 979757,
+      "scientific_name": "Leiothlypis celata",
+      "common_name": "Orange-crowned Warbler",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 1720022,
+      "scientific_name": "Nannus hiemalis",
+      "common_name": "Winter Wren",
+      "rank": "species",
+      "observation_count": 4
+    },
+    {
+      "taxon_id": 3851,
+      "scientific_name": "Calidris bairdii",
+      "common_name": "Baird's Sandpiper",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 3862,
+      "scientific_name": "Calidris pusilla",
+      "common_name": "Semipalmated Sandpiper",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 3869,
+      "scientific_name": "Limnodromus griseus",
+      "common_name": "Short-billed Dowitcher",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 3947,
+      "scientific_name": "Limosa limosa",
+      "common_name": "Black-tailed Godwit",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 3959,
+      "scientific_name": "Phalaropus lobatus",
+      "common_name": "Red-necked Phalarope",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 4235,
+      "scientific_name": "Aechmophorus occidentalis",
+      "common_name": "Western Grebe",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 4457,
+      "scientific_name": "Sterna forsteri",
+      "common_name": "Forster's Tern",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 4644,
+      "scientific_name": "Falco mexicanus",
+      "common_name": "Prairie Falcon",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 5097,
+      "scientific_name": "Accipiter striatus",
+      "common_name": "Sharp-shinned Hawk",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 7004,
+      "scientific_name": "Mergus merganser",
+      "common_name": "Common Merganser",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 7014,
+      "scientific_name": "Anser cygnoides",
+      "common_name": "Swan Goose",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 10168,
+      "scientific_name": "Pooecetes gramineus",
+      "common_name": "Vesper Sparrow",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 10470,
+      "scientific_name": "Xanthocephalus xanthocephalus",
+      "common_name": "Yellow-headed Blackbird",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 59220,
+      "scientific_name": "Branta hutchinsii",
+      "common_name": "Cackling Goose",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 72912,
+      "scientific_name": "Helmitheros vermivorum",
+      "common_name": "Worm-eating Warbler",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 73553,
+      "scientific_name": "Vermivora cyanoptera",
+      "common_name": "Blue-winged Warbler",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 116841,
+      "scientific_name": "Calcarius pictus",
+      "common_name": "Smith's Longspur",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 144594,
+      "scientific_name": "Bubo scandiacus",
+      "common_name": "Snowy Owl",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 145232,
+      "scientific_name": "Setophaga cerulea",
+      "common_name": "Cerulean Warbler",
+      "rank": "species",
+      "observation_count": 3
+    },
+    {
+      "taxon_id": 3962,
+      "scientific_name": "Bartramia longicauda",
+      "common_name": "Upland Sandpiper",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4209,
+      "scientific_name": "Podiceps auritus",
+      "common_name": "Horned Grebe",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4647,
+      "scientific_name": "Falco peregrinus",
+      "common_name": "Peregrine Falcon",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4742,
+      "scientific_name": "Mycteria americana",
+      "common_name": "Wood Stork",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4892,
+      "scientific_name": "Pluvialis squatarola",
+      "common_name": "Black-bellied Plover",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4981,
+      "scientific_name": "Nycticorax nycticorax",
+      "common_name": "Black-crowned Night Heron",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 4999,
+      "scientific_name": "Nyctanassa violacea",
+      "common_name": "Yellow-crowned Night Heron",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 5301,
+      "scientific_name": "Elanoides forficatus",
+      "common_name": "Swallow-tailed Kite",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 7047,
+      "scientific_name": "Aythya marila",
+      "common_name": "Greater Scaup",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 7601,
+      "scientific_name": "Cistothorus palustris",
+      "common_name": "Eastern Marsh Wren",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 9807,
+      "scientific_name": "Vermivora chrysoptera",
+      "common_name": "Golden-winged Warbler",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 12024,
+      "scientific_name": "Lanius ludovicianus",
+      "common_name": "Loggerhead Shrike",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 12822,
+      "scientific_name": "Oenanthe oenanthe",
+      "common_name": "Northern Wheatear",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 16602,
+      "scientific_name": "Empidonax minimus",
+      "common_name": "Least Flycatcher",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 144515,
+      "scientific_name": "Leucophaeus pipixcan",
+      "common_name": "Franklin's Gull",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 145231,
+      "scientific_name": "Setophaga tigrina",
+      "common_name": "Cape May Warbler",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 145304,
+      "scientific_name": "Spinus pinus",
+      "common_name": "Pine Siskin",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 793286,
+      "scientific_name": "Ammospiza nelsoni",
+      "common_name": "Nelson's Sparrow",
+      "rank": "species",
+      "observation_count": 2
+    },
+    {
+      "taxon_id": 1428,
+      "scientific_name": "Numida meleagris",
+      "common_name": "Helmeted Guineafowl",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3460,
+      "scientific_name": "Zenaida asiatica",
+      "common_name": "White-winged Dove",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3759,
+      "scientific_name": "Plegadis chihi",
+      "common_name": "White-faced Ibis",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3854,
+      "scientific_name": "Calidris ruficollis",
+      "common_name": "Red-necked Stint",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3855,
+      "scientific_name": "Calidris mauri",
+      "common_name": "Western Sandpiper",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3863,
+      "scientific_name": "Calidris ferruginea",
+      "common_name": "Curlew Sandpiper",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3866,
+      "scientific_name": "Calidris fuscicollis",
+      "common_name": "White-rumped Sandpiper",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 3882,
+      "scientific_name": "Tringa erythropus",
+      "common_name": "Spotted Redshank",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 4381,
+      "scientific_name": "Larus fuscus",
+      "common_name": "Lesser Black-backed Gull",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 4450,
+      "scientific_name": "Sterna hirundo",
+      "common_name": "Common Tern",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 4798,
+      "scientific_name": "Charadrius melodus",
+      "common_name": "Piping Plover",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 6916,
+      "scientific_name": "Cygnus cygnus",
+      "common_name": "Whooper Swan",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 6951,
+      "scientific_name": "Anas bahamensis",
+      "common_name": "White-cheeked Pintail",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 6996,
+      "scientific_name": "Mergus serrator",
+      "common_name": "Red-breasted Merganser",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 7170,
+      "scientific_name": "Clangula hyemalis",
+      "common_name": "Long-tailed Duck",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 10325,
+      "scientific_name": "Euphagus cyanocephalus",
+      "common_name": "Brewer's Blackbird",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 10442,
+      "scientific_name": "Limnothlypis swainsonii",
+      "common_name": "Swainson's Warbler",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 16447,
+      "scientific_name": "Pyrocephalus rubinus",
+      "common_name": "Vermilion Flycatcher",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 16620,
+      "scientific_name": "Empidonax alnorum",
+      "common_name": "Alder Flycatcher",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 16783,
+      "scientific_name": "Tyrannus forficatus",
+      "common_name": "Scissor-tailed Flycatcher",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 17364,
+      "scientific_name": "Vireo philadelphicus",
+      "common_name": "Philadelphia Vireo",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 62529,
+      "scientific_name": "Platalea ajaja",
+      "common_name": "Roseate Spoonbill",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 144497,
+      "scientific_name": "Phalaropus tricolor",
+      "common_name": "Wilson's Phalarope",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 145088,
+      "scientific_name": "Ixoreus naevius",
+      "common_name": "Varied Thrush",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 145224,
+      "scientific_name": "Geothlypis philadelphia",
+      "common_name": "Mourning Warbler",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 199833,
+      "scientific_name": "Antrostomus carolinensis",
+      "common_name": "Chuck-will's-widow",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 199837,
+      "scientific_name": "Antrostomus vociferus",
+      "common_name": "Eastern Whip-poor-will",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 199916,
+      "scientific_name": "Setophaga caerulescens",
+      "common_name": "Black-throated Blue Warbler",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 339593,
+      "scientific_name": "Calidris pugnax",
+      "common_name": "Ruff",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 558441,
+      "scientific_name": "Mareca penelope",
+      "common_name": "Eurasian Wigeon",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 1188213,
+      "scientific_name": "Numenius hudsonicus",
+      "common_name": "Hudsonian Whimbrel",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 1289601,
+      "scientific_name": "Nannopterum brasilianum",
+      "common_name": "Neotropic Cormorant",
+      "rank": "species",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 1455250,
+      "scientific_name": "Buteo jamaicensis \u00d7 lagopus",
+      "common_name": "Red-tailed \u00d7 Rough-legged Hawk",
+      "rank": "hybrid",
+      "observation_count": 1
+    },
+    {
+      "taxon_id": 1578489,
+      "scientific_name": "Larus smithsonianus",
+      "common_name": "American Herring Gull",
+      "rank": "species",
+      "observation_count": 1
+    }
+  ]
+}

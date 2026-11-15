@@ -1,0 +1,99 @@
+{
+  "retrieved_at": "2026-11-15T20:07:09.610979+00:00",
+  "county_counts": {
+    "US-IN-051": {
+      "name": "Gibson",
+      "reported_taxa": 352
+    },
+    "US-IN-125": {
+      "name": "Pike",
+      "reported_taxa": 286
+    },
+    "US-IN-055": {
+      "name": "Greene",
+      "reported_taxa": 319
+    },
+    "US-IN-129": {
+      "name": "Posey",
+      "reported_taxa": 269
+    },
+    "US-IN-083": {
+      "name": "Knox",
+      "reported_taxa": 285
+    },
+    "US-IN-163": {
+      "name": "Vanderburgh",
+      "reported_taxa": 293
+    },
+    "US-IN-173": {
+      "name": "Warrick",
+      "reported_taxa": 295
+    }
+  },
+  "union_reported_taxa": 382,
+  "union_species_only": 365,
+  "poc_species_in_union": 25,
+  "gibson_hotspot_count": 29,
+  "recent_records_returned": 30,
+  "recent_request_cap": 30,
+  "historic_date": "2026-05-10",
+  "historic_records_returned": 25,
+  "historic_request_cap": 25,
+  "weekly_frequency_acquired": false,
+  "scope": "all-time county species lists; recent and historic presence samples, not complete checklists or reporting frequency",
+  "target_hotspot_name_matches": [
+    {
+      "name": "Cane Ridge WMA",
+      "id": "L320465"
+    },
+    {
+      "name": "Gibson County Rd. 450 S",
+      "id": "L2516208"
+    },
+    {
+      "name": "Gibson County Rd. 525 S",
+      "id": "L844747"
+    },
+    {
+      "name": "Gibson Generating Station",
+      "id": "L157768"
+    },
+    {
+      "name": "Gibson Generating Station--East Perimeter County Roads",
+      "id": "L1722141"
+    },
+    {
+      "name": "Gibson Generating Station--West Perimeter County Roads",
+      "id": "L1828847"
+    },
+    {
+      "name": "Gibson Lake Wildlife Habitat",
+      "id": "L1872968"
+    },
+    {
+      "name": "Gibson Lake--SW Borrow Pits (View Only From Road)",
+      "id": "L7760271"
+    },
+    {
+      "name": "Grayville Boat Launch--Kingdom Island (Gibson Co. Indiana)",
+      "id": "L36014540"
+    },
+    {
+      "name": "Patoka River (Gibson Co.)",
+      "id": "L521825"
+    },
+    {
+      "name": "Patoka River NWR (Gibson Co.)",
+      "id": "L387713"
+    },
+    {
+      "name": "Patoka River NWR--Oatsville Bottoms (Gibson Co.)",
+      "id": "L1241098"
+    },
+    {
+      "name": "Patoka River NWR--Snakey Point Marsh",
+      "id": "L564337"
+    }
+  ],
+  "sensitive_location_policy": "raw responses private; precise coordinates excluded from derived evidence"
+}

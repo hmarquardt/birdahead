@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-15",
+  "probes": [
+    {
+      "source": "iNaturalist observation metadata",
+      "status": 200,
+      "outcome": "JSON metadata; initial two-observation probe"
+    },
+    {
+      "source": "eBird regional species list without key",
+      "status": 403,
+      "outcome": "No data; subsequently succeeded using shared credential"
+    },
+    {
+      "source": "eBird Gibson bar chart",
+      "status": 200,
+      "outcome": "Bot challenge, not data; no bypass"
+    },
+    {
+      "source": "Xeno-canto v3 without key",
+      "status": 401,
+      "outcome": "JSON error requiring key"
+    },
+    {
+      "source": "Xeno-canto official API/search/terms via research browser",
+      "status": null,
+      "outcome": "Access challenge; official content unavailable"
+    },
+    {
+      "source": "Wikimedia initial two-result photo query",
+      "status": 200,
+      "outcome": "JSON metadata"
+    }
+  ]
+}

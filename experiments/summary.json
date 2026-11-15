@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-11-15T20:14:46.666555+00:00",
+  "species_count_results": 294,
+  "species_rank_only": 292,
+  "photo_species_queried": 25,
+  "photo_species_with_candidates": 25,
+  "sampled_observations": 75,
+  "photo_candidates": 102,
+  "eligible_candidates": 101,
+  "quarantined_candidates": 1,
+  "license_counts": {
+    "cc-by": 75,
+    "cc-by-sa": 5,
+    "cc0": 22
+  },
+  "metadata_present": {
+    "creator": 102,
+    "attribution": 102,
+    "license_code": 102,
+    "license_url": 22,
+    "observed_on": 102,
+    "sex": 0,
+    "age": 0,
+    "plumage": 0,
+    "pose": 0,
+    "sha256": 0
+  },
+  "human_verified_assets": 0,
+  "audio_coverage": "not established; Xeno-canto unauthenticated request returned 401"
+}

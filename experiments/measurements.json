@@ -1,0 +1,43 @@
+{
+  "at": "2026-11-15T20:14:46.596263+00:00",
+  "scope": "Structured CLI logs only; excludes initial source probes, regional discovery query, documentation browsing, domain requests and file transfers",
+  "source_metrics": {
+    "inaturalist": {
+      "requests": 25,
+      "successful_requests": 25,
+      "response_bytes": 4003898,
+      "summed_request_seconds": 34.595,
+      "median_request_seconds": 1.334,
+      "status_counts": {
+        "200": 25
+      }
+    },
+    "wikimedia": {
+      "requests": 11,
+      "successful_requests": 10,
+      "response_bytes": 62890,
+      "summed_request_seconds": 5.564,
+      "median_request_seconds": 0.533,
+      "status_counts": {
+        "200": 10,
+        "429": 1
+      }
+    },
+    "ebird": {
+      "requests": 12,
+      "successful_requests": 12,
+      "response_bytes": 3563157,
+      "summed_request_seconds": 5.36,
+      "median_request_seconds": 0.222,
+      "status_counts": {
+        "200": 12
+      }
+    }
+  },
+  "downloaded_photos": 3,
+  "photo_bytes": 2059912,
+  "downloaded_audio": 2,
+  "audio_bytes": 3312292,
+  "human_review_seconds": null,
+  "human_approved_assets": 0
+}
