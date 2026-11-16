@@ -1,6 +1,6 @@
 {
   "schema": "birdahead-public-smoke-v1",
-  "at": "2026-11-16T18:43:32.678902+00:00",
+  "at": "2026-11-16T19:10:55.671273+00:00",
   "base": "https://birdahead.com",
   "browser": false,
   "checks": [
@@ -61,6 +61,16 @@
     },
     {
       "name": "offline shell preserves pack cache",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "road-trip narration manifest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "road-trip narration audio",
       "passed": true,
       "detail": ""
     },

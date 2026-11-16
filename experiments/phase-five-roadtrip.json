@@ -63,5 +63,26 @@
     "public_audio_assets": 205,
     "narration_files": 114,
     "narration_bytes": 1360634
+  },
+  "production": {
+    "public_smoke_passed": 23,
+    "public_smoke_total": 23,
+    "private_smoke_passed": 23,
+    "private_smoke_total": 23,
+    "narration_manifest_bytes": 20088,
+    "narration_name_http": "200 audio/mp4"
+  },
+  "production_roadtrip_browser": {
+    "passed": true,
+    "at": "2026-11-16T19:12:24.735846+00:00",
+    "base": "https://birdahead.com",
+    "checks": [
+      "download session",
+      "media session metadata",
+      "pause/resume",
+      "automatic completion",
+      "separate listening record"
+    ],
+    "note": "Tiny intercepted public catalog; production media and narration assets."
   }
 }

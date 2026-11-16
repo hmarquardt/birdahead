@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "public-noncommercial-release-verified",
-  "generated_at": "2026-11-16T18:44:26.710031+00:00",
+  "generated_at": "2026-11-16T19:11:18.281831+00:00",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "eff3bc95ef2cac107afdc1a3d84dc6e1c0d09106",
+    "revision": "4597ecae3f71c750d5f80de02f1c0c361e310224",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "c61b2bab-47ee-491c-80e1-ec7f81d96fa0",
-    "deployed_revision": "eff3bc95ef2cac107afdc1a3d84dc6e1c0d09106",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43931400101",
+    "version_id": "40a2ab79-87ed-4378-86a8-b6fb0b43d479",
+    "deployed_revision": "4597ecae3f71c750d5f80de02f1c0c361e310224",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43935940247",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
@@ -92,8 +92,8 @@
     "authenticated_audio_range": true,
     "unauthorized_admin_rejected": true,
     "public_smoke_evidence": "experiments/phase-three-public.json",
-    "public_checks_passed": 20,
-    "public_checks_total": 20,
+    "public_checks_passed": 23,
+    "public_checks_total": 23,
     "private_checks_passed": 23,
     "private_checks_total": 23,
     "analytics_pageview_verified": true,
@@ -188,5 +188,12 @@
     "physical_device_tested": false,
     "automated_browser": true,
     "evidence": "experiments/phase-four-offline.json"
+  },
+  "roadtrip": {
+    "narration_files": 114,
+    "narration_bytes": 1360634,
+    "physical_device_tested": false,
+    "automated_browser": true,
+    "evidence": "experiments/phase-five-roadtrip.json"
   }
 }
