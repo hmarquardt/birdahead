@@ -58,5 +58,19 @@
     "Physical iPhone/Android install, OS storage eviction, background audio and long-duration downloads were not tested.",
     "The browser fixture used a one-photo/one-audio catalog; production complete-pack download was not downloaded in full.",
     "Signed-in sync is covered by local server tests and code path checks; production household sync requires a real session."
-  ]
+  ],
+  "production_browser": {
+    "passed": true,
+    "at": "2026-11-16T18:44:01.984145+00:00",
+    "base": "https://birdahead.com",
+    "checks": [
+      "production service-worker install",
+      "small catalog download",
+      "airplane-mode reload",
+      "cached photo decode",
+      "guest attempt persistence",
+      "pack deletion and cache reclamation"
+    ],
+    "note": "A tiny synthetic public library was intercepted in the test browser; downloaded bytes came from the production Worker/R2 path. Production public smoke passed 20/20 and private smoke 23/23."
+  }
 }

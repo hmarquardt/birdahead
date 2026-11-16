@@ -42,7 +42,7 @@ The client removes accepted, duplicate and permanently rejected events from the 
 
 ## Verification
 
-Automated browser verification (local fixture server with a small synthetic public catalog) covered complete offline reload, photo and audio practice, guest history, interrupted/resumed downloads, deduplication, deletion/reclamation, and service-worker shell preservation. The full record is in [Phase Four offline evidence](../experiments/phase-four-offline.json). Physical iPhone/Android install, background audio, storage eviction by the OS, and long-running downloads remain device-owner checks. See the Phase Four verification note in `docs/phase-three.md` and the repository smoke outputs.
+Automated browser verification (local fixture server with a small synthetic public catalog) covered complete offline reload, photo and audio practice, guest history, interrupted/resumed downloads, deduplication, deletion/reclamation, and service-worker shell preservation. The same flow was repeated against production with a tiny intercepted catalog, including real media bytes; production public smoke passed 20/20 and private smoke 23/23. The full record is in [Phase Four offline evidence](../experiments/phase-four-offline.json). Physical iPhone/Android install, background audio, storage eviction by the OS, and long-running downloads remain device-owner checks. See the Phase Four verification note in `docs/phase-three.md` and the repository smoke outputs.
 
 ## Hands-free groundwork
 

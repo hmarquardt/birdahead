@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "public-noncommercial-release-verified",
-  "generated_at": "2026-11-16T16:45:00Z",
+  "generated_at": "2026-11-16T18:44:26.710031+00:00",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "02f75770752145993a94b8efd3b132cb1dcbaf6b",
+    "revision": "eff3bc95ef2cac107afdc1a3d84dc6e1c0d09106",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "f161f2b9-b6aa-4e78-ac86-8794c07b621d",
-    "deployed_revision": "02f75770752145993a94b8efd3b132cb1dcbaf6b",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43909699258",
+    "version_id": "c61b2bab-47ee-491c-80e1-ec7f81d96fa0",
+    "deployed_revision": "eff3bc95ef2cac107afdc1a3d84dc6e1c0d09106",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43931400101",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
@@ -92,14 +92,14 @@
     "authenticated_audio_range": true,
     "unauthorized_admin_rejected": true,
     "public_smoke_evidence": "experiments/phase-three-public.json",
-    "public_checks_passed": 18,
-    "public_checks_total": 18,
+    "public_checks_passed": 20,
+    "public_checks_total": 20,
     "private_checks_passed": 23,
     "private_checks_total": 23,
     "analytics_pageview_verified": true,
     "public_media_private_r2": true,
     "guest_local_history_verified": true,
-    "browser_evidence_note": "The earlier browser-inclusive run passed 19/19 public and 25/25 private checks; the latest release smoke was non-browser."
+    "browser_evidence_note": "The earlier browser-inclusive run passed 19/19 public and 25/25 private checks; the latest release smoke was non-browser, while a separate automated Chrome offline flow passed against production."
   },
   "costs": {
     "currency": "USD",
@@ -182,5 +182,11 @@
     "queries": 0,
     "pages": 0,
     "evidence": "experiments/phase-three-gsc.json"
+  },
+  "offline": {
+    "packs": 6,
+    "physical_device_tested": false,
+    "automated_browser": true,
+    "evidence": "experiments/phase-four-offline.json"
   }
 }

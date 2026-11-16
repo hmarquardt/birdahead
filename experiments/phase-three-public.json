@@ -1,6 +1,6 @@
 {
   "schema": "birdahead-public-smoke-v1",
-  "at": "2026-11-16T16:41:42.912837+00:00",
+  "at": "2026-11-16T18:43:32.678902+00:00",
   "base": "https://birdahead.com",
   "browser": false,
   "checks": [
@@ -51,6 +51,16 @@
     },
     {
       "name": "anonymous eligible media library",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "offline download metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "offline shell preserves pack cache",
       "passed": true,
       "detail": ""
     },
