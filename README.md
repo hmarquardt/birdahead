@@ -51,7 +51,8 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Search Console](docs/search-console.md) | Sitemap and owner verification handoff |
 | [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |
-| [Production evidence](experiments/phase-three-production.json) | Live smoke results and deployed health/release |
+| [Public evidence](experiments/phase-three-public.json) | Anonymous exploration, guest practice, SEO and private-boundary checks |
+| [Production evidence](experiments/phase-three-production.json) | Authenticated household smoke results and deployed health/release |
 | [Production inventory](experiments/phase-three-inventory.json) | Dedicated resources, release, costs, security and backups |
 | [Rollback check](experiments/phase-three-rollback.json) | Same-release D1 pointer rollback evidence |
 | [Phase 2.1 report](docs/phase-two-1.md) | Breadth/replacement completion, delivery, R2 and audit queue |

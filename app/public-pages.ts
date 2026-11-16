@@ -24,7 +24,7 @@ export interface PublicPageSpecies {
 }
 
 function shell(origin: string, title: string, description: string, canonical: string, body: string, image?: string, structured?: unknown) {
-  const imageUrl = image ? origin + image : origin + "/og-birdahead.png";
+  const imageUrl = origin + "/og-birdahead.png";
   return `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">

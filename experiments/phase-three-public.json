@@ -1,7 +1,7 @@
 {
   "schema": "birdahead-public-smoke-v1",
-  "at": "2026-11-16T15:11:56.818284+00:00",
-  "base": "http://127.0.0.1:8788",
+  "at": "2026-11-16T15:16:08.546352+00:00",
+  "base": "https://birdahead.com",
   "browser": true,
   "checks": [
     {
@@ -53,6 +53,21 @@
       "name": "anonymous guest practice",
       "passed": true,
       "detail": ""
+    },
+    {
+      "name": "private boundary /api/bootstrap",
+      "passed": true,
+      "detail": "401"
+    },
+    {
+      "name": "private boundary /api/admin/releases",
+      "passed": true,
+      "detail": "401"
+    },
+    {
+      "name": "private boundary /media/inat-152058977",
+      "passed": true,
+      "detail": "401"
     },
     {
       "name": "crawlable species page",

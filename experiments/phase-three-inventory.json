@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
-  "status": "private-production-release-verified",
-  "generated_at": "2026-11-16T02:22:30Z",
+  "status": "public-noncommercial-release-verified",
+  "generated_at": "2026-11-16T15:16:30Z",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "b17f906ad3fa48994016fb0e20e925f0058d5648",
+    "revision": "301fc2f4a901dd14c1fe63034131ed35e638891f",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "a8909674-bfcf-45ff-ba50-6be076499467",
-    "deployed_revision": "b17f906ad3fa48994016fb0e20e925f0058d5648",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43791278009",
+    "version_id": "02a15f65-69b8-42bf-8cd5-52d5e8fd4cf5",
+    "deployed_revision": "301fc2f4a901dd14c1fe63034131ed35e638891f",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43894070552",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
@@ -23,7 +23,18 @@
     "canonical_redirect": "www -> https://birdahead.com (308)",
     "workers_dev": false,
     "preview_urls": false,
-    "push_deploy_enabled": true
+    "push_deploy_enabled": true,
+    "public_surfaces": [
+      "/",
+      "/birds/:code",
+      "/regions/:county",
+      "/sources",
+      "/privacy",
+      "/robots.txt",
+      "/sitemap.xml",
+      "/api/public/*",
+      "/media/public/*"
+    ]
   },
   "d1": {
     "name": "birdahead",
@@ -42,14 +53,20 @@
     "objects": 589,
     "bytes": 436400934,
     "catalog_key": "releases/5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a/catalog.json",
-    "catalog_sha256": "adbda8c56c9dc180664e414a87a974a02d0b9aec124f6d56ec1eef02ef4a7e75"
+    "catalog_sha256": "3ec2efea2e607f3b57f0e7a91e899b6363f6f966862af37e05045833e027417e",
+    "catalog_bytes": 8140479
   },
   "release": {
     "id": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "active": true,
     "objects": 589,
     "bytes": 436400934,
-    "scope": "Private household noncommercial; authenticated media only"
+    "scope": "Public noncommercial educational delivery with optional authenticated household progress; raw source data and private administration remain protected.",
+    "public_delivery_objects": 589,
+    "public_photo_objects": 384,
+    "public_audio_objects": 205,
+    "public_photo_species": 94,
+    "public_audio_species": 69
   },
   "verification": {
     "smoke_evidence": "experiments/phase-three-production.json",
@@ -73,12 +90,19 @@
       "evidence": "experiments/phase-three-rollback.json"
     },
     "authenticated_audio_range": true,
-    "unauthorized_admin_rejected": true
+    "unauthorized_admin_rejected": true,
+    "public_smoke_evidence": "experiments/phase-three-public.json",
+    "public_checks_passed": 18,
+    "public_checks_total": 18,
+    "private_checks_passed": 25,
+    "private_checks_total": 25,
+    "analytics_pageview_verified": true,
+    "public_media_private_r2": true
   },
   "costs": {
     "currency": "USD",
     "incremental_monthly_estimate": 0,
-    "worker": "free dynamic/static allowance for two household users; no paid plan change",
+    "worker": "$0 under free dynamic/static allowance; public traffic and egress are not claimed as zero beyond the allowance; 300 public requests/minute/IP rate limit and edge cache are configured",
     "d1": "free tier; no paid plan change",
     "r2": "0.406 GB stored under the 10 GB-month free allowance; raw storage would be about $0.006/month if billed",
     "domain": "birdahead.com already registered through 2027-11-15 at $11.17; auto-renew off",
@@ -102,7 +126,8 @@
     "r2": "immutable release media plus versioned catalogs; private source/manifest backup still required",
     "content_rollback": "D1 active-release pointer exercised with a same-release rollback (HTTP 200, active true); previous releases remain eligible after separate upload.",
     "local_d1_export_exercised": true,
-    "production_restore_drill": "not performed"
+    "production_restore_drill": "not performed",
+    "production_export": "experiments/phase-three-backup.json"
   },
   "owner_review": {
     "cap_seconds": 7200,
@@ -116,5 +141,24 @@
     "scheduled D1 export and restore drill",
     "least-privilege Cloudflare token rotation",
     "commercial licensing"
+  ],
+  "analytics": {
+    "site_id": 10,
+    "public_id": "as_Bq4kGnf2EkSW3dS0HZAddF",
+    "domains": [
+      "birdahead.com",
+      "www.birdahead.com"
+    ],
+    "evidence": "experiments/phase-three-analytics.json",
+    "search_console": "blocked pending owner verification"
+  },
+  "scope": "Public, noncommercial educational exploration and guest practice; optional private household profiles; no public registration, advertising, monetization or paid infrastructure.",
+  "known_limitations": [
+    "No public account registration or guest server history.",
+    "Guest history is browser-local and can be cleared by the user.",
+    "Google Search Console verification/sitemap submission and the eBird derived-product notification remain owner actions.",
+    "A production D1 restore drill remains deferred.",
+    "The deployment token is likely account-scoped; least-privilege rotation is an owner action.",
+    "No full offline media packs, additional geography/media, commercial clearance or expert biological audit."
   ]
 }

@@ -64,7 +64,7 @@ uv run python -m tooling.production_smoke --base https://birdahead.com --resolve
 uv run python tooling/repo_check.py
 ```
 
-The production smoke checks HTTPS health/revision, unauthorized private API/media/admin rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo/audio ranges, PWA assets and mobile browser rendering. A separate public smoke checks guest exploration, public field-guide media and guest practice. It never prints credentials or records private media.
+The production smoke checks HTTPS health/revision, unauthorized private API/media/admin rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo/audio ranges, PWA assets and mobile browser rendering. A separate public smoke checks anonymous exploration, public field-guide media, guest practice, SEO pages, robots/sitemap and private endpoint rejection. It never prints credentials or records private media.
 
 ## Analytics and Search Console
 

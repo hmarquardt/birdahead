@@ -35,7 +35,7 @@ interface Env {
   PUBLIC_LIMIT?: { limit(options: { key: string }): Promise<{ success: boolean }> };
 }
 type AppEnv = { Bindings: Env; Variables: { profile: string } };
-interface Bin { species_code: string; start: string; end: string; frequency: number | null; sample_size: number | null; }
+interface Bin { species_code: string; start: string; end: string; frequency: number | null; sample_size: number | null; value_status?: string | null; }
 interface Asset { id: string; kind: "photo" | "audio"; species_code: string; r2_key?: string; [key: string]: any; }
 interface Release {
   id: string; schema: string; compatibility_key?: string; species: Row[]; counties: Record<string,string>;
@@ -139,7 +139,7 @@ function publicRanked(release: Release, location: string, day: string, visible: 
 function publicSeasonality(release: Release, location: string, code: string): Row { const profile=release.profiles[location];
   if(!profile) throw new HTTPException(400,{message:'Choose a supported county.'}); const species=release.species.find((s)=>s.ebird_species_code===code);
   if(!species) throw new HTTPException(404,{message:'Species not found.'}); return { code, name:species.common_name, scientific_name:species.scientific_name,
-    bins: profile.rows.filter((r)=>r.species_code===code), metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null} }; }
+    bins: profile.rows.filter((r)=>r.species_code===code).map((r)=>({start:r.start,end:r.end,frequency:r.frequency,sample_size:r.sample_size,value_status:r.value_status??null})), metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null} }; }
 async function dbRows(db: D1Database, sql: string, ...bind: any[]): Promise<Row[]> {
   return (await db.prepare(sql).bind(...bind).all()).results;
 }
@@ -535,5 +535,5 @@ app.get("/sitemap.xml", async (c) => { const release=await activeRelease(c.env);
   return c.body(renderSitemap(c.env.APP_ORIGIN,release.species.map((s)=>({code:s.ebird_species_code})),release.counties,new Date().toISOString().slice(0,10))); });
 app.all("/api/*", (c) => c.json({error:"Not found"},404));
 app.all("/media/*", (c) => c.json({error:"Not found"},404));
-app.all("*", async (c) => { const response=await c.env.ASSETS.fetch(c.req.raw); if(c.req.path==="/"||c.req.path==="/sw.js"){const h=new Headers(response.headers);h.set("Cache-Control","no-store");return new Response(response.body,{status:response.status,headers:h});} return response; });
+app.all("*", async (c) => { const response=await c.env.ASSETS.fetch(c.req.raw); if(c.req.path==="/sw.js"){const h=new Headers(response.headers);h.set("Cache-Control","no-store");return new Response(response.body,{status:response.status,headers:h});} if(c.req.path==="/"){const h=new Headers(response.headers);h.set("Cache-Control","public, max-age=300, stale-while-revalidate=3600");return new Response(response.body,{status:response.status,headers:h});} return response; });
 export default app;

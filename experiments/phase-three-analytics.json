@@ -2,10 +2,52 @@
   "schema": "birdahead-analytics-verification-v1",
   "at": "2026-11-16T15:10:00Z",
   "provider": "existing CFLab analytics Worker",
-  "site": {"site_id": 10, "name": "BirdAhead", "public_id": "as_Bq4kGnf2EkSW3dS0HZAddF", "slug": "birdahead", "timezone": "America/Indiana/Indianapolis", "domains": ["birdahead.com", "www.birdahead.com"], "raw_retention_days": 90, "respect_dnt": true, "respect_gpc": true},
-  "registration": {"method": "additive Site/Domain/owner-membership rows in cflab-analytics", "time_travel_before": "00000949-00000000-00005125-60e20eaf755bd64cc8d27669079febde", "time_travel_after": "00000949-00000006-00005125-df75984ec470b3cdc4d5f6f4c87624bd", "existing_rows_changed": false},
-  "collector_probe": {"endpoint": "https://analytics.aismallbizguru.com/collect", "origin": "https://birdahead.com", "http_status": 204, "events_observed": 2, "pathnames": ["/__birdahead_verification", "/__birdahead_verification2"]},
-  "policy": {"cookies": false, "persistent_visitor_id": false, "session_storage_only": true, "dnt_gpc_honored": true, "private_data_sent": false},
+  "site": {
+    "site_id": 10,
+    "name": "BirdAhead",
+    "public_id": "as_Bq4kGnf2EkSW3dS0HZAddF",
+    "slug": "birdahead",
+    "timezone": "America/Indiana/Indianapolis",
+    "domains": [
+      "birdahead.com",
+      "www.birdahead.com"
+    ],
+    "raw_retention_days": 90,
+    "respect_dnt": true,
+    "respect_gpc": true
+  },
+  "registration": {
+    "method": "additive Site/Domain/owner-membership rows in cflab-analytics",
+    "time_travel_before": "00000949-00000000-00005125-60e20eaf755bd64cc8d27669079febde",
+    "time_travel_after": "00000949-00000006-00005125-df75984ec470b3cdc4d5f6f4c87624bd",
+    "existing_rows_changed": false
+  },
+  "collector_probe": {
+    "endpoint": "https://analytics.aismallbizguru.com/collect",
+    "origin": "https://birdahead.com",
+    "http_status": 204,
+    "events_observed": 2,
+    "pathnames": [
+      "/__birdahead_verification",
+      "/__birdahead_verification2"
+    ],
+    "browser_pageview_observed": true,
+    "browser_pageview_paths": [
+      "/"
+    ],
+    "browser_pageview_count_observed": 2
+  },
+  "policy": {
+    "cookies": false,
+    "persistent_visitor_id": false,
+    "session_storage_only": true,
+    "dnt_gpc_honored": true,
+    "private_data_sent": false,
+    "headless_browser_dropped_as_bot": true
+  },
   "csp": "script-src and connect-src allow only self and https://analytics.aismallbizguru.com",
-  "search_console": {"status": "blocked", "reason": "sc-domain:birdahead.com is not verified and is absent from the existing CFLab reviewed GSC property list; no write-capable Search Console credential available"}
+  "search_console": {
+    "status": "blocked",
+    "reason": "sc-domain:birdahead.com is not verified and is absent from the existing CFLab reviewed GSC property list; no write-capable Search Console credential available"
+  }
 }

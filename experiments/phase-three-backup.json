@@ -8,5 +8,7 @@
   "bytes": 5346,
   "sha256": "13fea34494e7001cf6ee3f1a3f3166769c6f9986c3ff67ce3c16fcdf771d0f93",
   "scope": "Private learner/session/flag/release-pointer data; never committed or served publicly.",
-  "restore_drill": "not performed; restore only into an isolated database after owner review."
+  "restore_drill": "not performed; restore only into an isolated database after owner review.",
+  "file_mode": "0600",
+  "directory_mode": "0700"
 }
