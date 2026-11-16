@@ -72,5 +72,31 @@
       "pack deletion and cache reclamation"
     ],
     "note": "A tiny synthetic public library was intercepted in the test browser; downloaded bytes came from the production Worker/R2 path. Production public smoke passed 20/20 and private smoke 23/23."
+  },
+  "production_catalog_sizes": {
+    "county_day": {
+      "assets": 498,
+      "bytes": 377913950
+    },
+    "here_now": {
+      "assets": 489,
+      "bytes": 373271289
+    },
+    "arriving_soon": {
+      "assets": 363,
+      "bytes": 269836022
+    },
+    "photos": {
+      "assets": 384,
+      "bytes": 155322075
+    },
+    "audio": {
+      "assets": 205,
+      "bytes": 281078859
+    },
+    "complete": {
+      "assets": 589,
+      "bytes": 436400934
+    }
   }
 }
