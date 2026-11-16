@@ -2,7 +2,7 @@
 
 **Learn the birds you're about to meet.**
 
-A local, mobile-first learning app for two recreational birders in southwestern Indiana. Prepare for an outing with seasonal priorities, photo and audio practice, recall reveals and independent progress.
+A public, mobile-first birding resource for southwestern Indiana. Prepare for an outing with seasonal priorities, a licensed field guide, photo/audio practice and independent progress; household sign-in is optional.
 
 **Status: public, noncommercial educational release live at https://birdahead.com.** Seasonal exploration, Here Now/Arriving Soon, historical seasonal signals, the public field guide, eligible photos/recordings, photo/audio practice and guest summaries work without an account. Optional household sign-in preserves private D1 progress for Hank and Heather. The **589 accepted assets** remain behind the private R2 binding and public eligibility gate. No paid subscription, advertising, additional media acquisition or geographic expansion was undertaken.
 
@@ -35,7 +35,7 @@ The local app binds only to loopback for development. The deployed PWA is at **h
 - Phase 2.1 completed the breadth pass: **100/100 species processed**, **589 accepted assets** (384 photographs, 205 recordings), **83 species sight-ready** and **57 sound-ready**. Forty-one species meet the five-photo target, 37 meet the three-recording target and 18 meet both. Only **7 explicit gaps** remain. The incremental 5 GB budget used ~640 MB; 116 GiB free was verified before acquisition.
 - Verified audio clips are real intervals with parent provenance, never synthetic calls; 97 clips passed curation. Automated acceptance remains preliminary source/model corroboration, not biological certification. Owner/expert audits and biological-subtype coverage remain gaps; the two-hour total owner-review cap is unchanged and recorded owner-review time remains zero. The **117-asset sampled audit queue** (about 56 minutes at stated assumptions) is not a completed audit. The private delivery manifest covers 589 objects / 0.406 GB with R2 free-tier storage projected at $0; NC/SA licenses limit delivery to a private noncommercial household.
 
-- Production: HTTPS at birdahead.com, `www` 308 redirect, dedicated D1/R2, authenticated sessions/APIs/media and an installable PWA. Unauthenticated API/media requests are rejected; both learner identities are independent; real media and byte ranges were verified. Incremental infrastructure cost is $0 under current free allowances; domain renewal remains $11.17/year.
+- Production: HTTPS at birdahead.com, `www` 308 redirect, dedicated D1/private R2 and an installable PWA. Public exploration, eligible media and guest practice work anonymously; private APIs/media/admin remain rejected without authentication. Both household identities are independent, real media/ranges were verified, public pages are crawlable and CFLab analytics ingestion was observed. Incremental infrastructure cost is $0 under current free allowances; public traffic/egress beyond those allowances is not claimed as zero; domain renewal remains $11.17/year.
 
 See the [Phase Three report](docs/phase-three.md), [production operations](docs/production.md), [Phase 2.1 report](docs/phase-two-1.md), [Phase Two report](docs/phase-two.md), [media coverage evidence](experiments/phase-two-media.json), [teaching universe](config/geography/teaching-universe.json), [acquisition checkpoint evidence](experiments/phase-two-acquisition.json), [geographic acquisition architecture](docs/geographic-acquisition.md) and [derived histogram evidence](experiments/histogram-validation.json).
 
@@ -80,8 +80,8 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 ## Development and credentials
 
 ```sh
-uv run python -m unittest discover -s tests          # 52 tests
-npm test --prefix app                                  # 9 tests
+uv run python -m unittest discover -s tests          # 55 tests
+npm test --prefix app                                  # 10 tests
 npm run build --prefix app
 uv run --with playwright python -m tooling.learner_browser_smoke
 uv run --with playwright python -m tooling.production_smoke --base https://birdahead.com --browser
