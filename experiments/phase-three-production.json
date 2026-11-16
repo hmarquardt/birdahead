@@ -1,11 +1,11 @@
 {
   "schema": "birdahead-production-smoke-v1",
-  "at": "2026-11-16T15:21:40.316550+00:00",
+  "at": "2026-11-16T15:24:48.369938+00:00",
   "base": "https://birdahead.com",
   "health": {
     "ok": true,
     "app": "birdahead",
-    "revision": "0b7a45223aff20a945f8e08606820fd12ee459d9",
+    "revision": "9a4cce9630e16c34f6d9ee544466f5f6cb8f93ea",
     "release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
