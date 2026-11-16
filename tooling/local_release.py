@@ -91,7 +91,7 @@ def build():
     keys = ['id', 'species_code', 'kind', 'local_path', 'sha256', 'creator', 'source_url', 'license_url',
             'license_code', 'license_version', 'attribution', 'source', 'source_record_id', 'source_url',
             'vocalization', 'sex', 'age', 'plumage', 'target_bbox_xyxy', 'original_dimensions',
-            'automated_decision', 'review_state', 'permitted_modification', 'permitted_delivery', 'permitted_storage',
+            'automated_decision', 'review_state', 'permitted_modification', 'permitted_delivery', 'permitted_storage', 'bytes',
             'permitted_offline', 'permitted_scope', 'share_alike', 'presentation_modification_notice',
             'derivative_of', 'derivative_recipe', 'media_format', 'technical_metrics', 'commercial_compatible',
             'acquisition_pass', 'source_verified', 'machine_screened', 'human_approved', 'expert_verified',

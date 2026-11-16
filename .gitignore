@@ -50,3 +50,8 @@ test-results/
 
 # Owner-supplied raw eBird exports must remain private.
 ebird_*_barchart.txt
+.production/
+wrangler.production.generated.jsonc
+
+# PWA application icons are source assets, not bird media.
+!app/public/*.png

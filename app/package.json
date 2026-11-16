@@ -10,7 +10,10 @@
     "build": "tsc --noEmit && vite build",
     "start": "tsx server.ts",
     "local": "npm run build && npm start",
-    "test": "tsx --test server.test.ts"
+    "test": "tsx --test server.test.ts",
+    "worker:dry": "wrangler deploy --dry-run --config ../wrangler.production.jsonc --no-x-provision --no-x-auto-create",
+    "worker:dev": "wrangler dev --config ../wrangler.local.jsonc --ip 127.0.0.1 --port 8788",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local --config ../wrangler.local.jsonc"
   },
   "dependencies": {
     "@hono/node-server": "^2.1.8",
@@ -24,6 +27,7 @@
     "@types/react-dom": "^19.2.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.0",
-    "vite": "^7.3.0"
+    "vite": "^7.3.0",
+    "wrangler": "^4.153.0"
   }
 }

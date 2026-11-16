@@ -8,6 +8,7 @@
   "total_gb": 0.40643,
   "objects": [
     {
+      "asset_id": "inat-100016819",
       "key": "media/inat-100016819.jpeg",
       "content_type": "image/jpeg",
       "bytes": 338852,
@@ -28,6 +29,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-105182808",
       "key": "media/inat-105182808.jpeg",
       "content_type": "image/jpeg",
       "bytes": 376266,
@@ -48,6 +50,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-105604420",
       "key": "media/inat-105604420.jpeg",
       "content_type": "image/jpeg",
       "bytes": 216253,
@@ -68,6 +71,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-107303890",
       "key": "media/inat-107303890.jpeg",
       "content_type": "image/jpeg",
       "bytes": 209525,
@@ -88,6 +92,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-107395752",
       "key": "media/inat-107395752.jpg",
       "content_type": "image/jpeg",
       "bytes": 710049,
@@ -108,6 +113,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-110812374",
       "key": "media/inat-110812374.jpeg",
       "content_type": "image/jpeg",
       "bytes": 260231,
@@ -128,6 +134,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-111629526",
       "key": "media/inat-111629526.jpeg",
       "content_type": "image/jpeg",
       "bytes": 195861,
@@ -148,6 +155,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-111760942",
       "key": "media/inat-111760942.jpg",
       "content_type": "image/jpeg",
       "bytes": 853890,
@@ -168,6 +176,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-11230588",
       "key": "media/inat-11230588.jpeg",
       "content_type": "image/jpeg",
       "bytes": 904608,
@@ -188,6 +197,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-113277172",
       "key": "media/inat-113277172.jpeg",
       "content_type": "image/jpeg",
       "bytes": 140390,
@@ -208,6 +218,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-11332440",
       "key": "media/inat-11332440.jpg",
       "content_type": "image/jpeg",
       "bytes": 260894,
@@ -228,6 +239,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-113715541",
       "key": "media/inat-113715541.jpeg",
       "content_type": "image/jpeg",
       "bytes": 691215,
@@ -248,6 +260,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-114104450",
       "key": "media/inat-114104450.jpg",
       "content_type": "image/jpeg",
       "bytes": 96440,
@@ -268,6 +281,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-114659044",
       "key": "media/inat-114659044.jpeg",
       "content_type": "image/jpeg",
       "bytes": 416753,
@@ -288,6 +302,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-116092130",
       "key": "media/inat-116092130.jpeg",
       "content_type": "image/jpeg",
       "bytes": 299041,
@@ -308,6 +323,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-116848463",
       "key": "media/inat-116848463.jpeg",
       "content_type": "image/jpeg",
       "bytes": 362034,
@@ -328,6 +344,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-119694001",
       "key": "media/inat-119694001.jpg",
       "content_type": "image/jpeg",
       "bytes": 559186,
@@ -348,6 +365,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-120333671",
       "key": "media/inat-120333671.jpeg",
       "content_type": "image/jpeg",
       "bytes": 175424,
@@ -368,6 +386,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-120359919",
       "key": "media/inat-120359919.jpg",
       "content_type": "image/jpeg",
       "bytes": 1493875,
@@ -388,6 +407,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-12068303",
       "key": "media/inat-12068303.jpg",
       "content_type": "image/jpeg",
       "bytes": 19526,
@@ -408,6 +428,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-122263457",
       "key": "media/inat-122263457.jpg",
       "content_type": "image/jpeg",
       "bytes": 641087,
@@ -428,6 +449,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-123858685",
       "key": "media/inat-123858685.jpg",
       "content_type": "image/jpeg",
       "bytes": 518557,
@@ -448,6 +470,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-123908815",
       "key": "media/inat-123908815.jpg",
       "content_type": "image/jpeg",
       "bytes": 196776,
@@ -468,6 +491,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-124792110",
       "key": "media/inat-124792110.jpg",
       "content_type": "image/jpeg",
       "bytes": 106864,
@@ -488,6 +512,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-12486363",
       "key": "media/inat-12486363.jpeg",
       "content_type": "image/jpeg",
       "bytes": 713130,
@@ -508,6 +533,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-12847335",
       "key": "media/inat-12847335.jpg",
       "content_type": "image/jpeg",
       "bytes": 65398,
@@ -528,6 +554,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-128519246",
       "key": "media/inat-128519246.jpg",
       "content_type": "image/jpeg",
       "bytes": 264300,
@@ -548,6 +575,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-129376982",
       "key": "media/inat-129376982.jpg",
       "content_type": "image/jpeg",
       "bytes": 187775,
@@ -568,6 +596,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-13159056",
       "key": "media/inat-13159056.jpeg",
       "content_type": "image/jpeg",
       "bytes": 169995,
@@ -588,6 +617,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-133042426",
       "key": "media/inat-133042426.jpg",
       "content_type": "image/jpeg",
       "bytes": 955104,
@@ -608,6 +638,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-13319942",
       "key": "media/inat-13319942.jpeg",
       "content_type": "image/jpeg",
       "bytes": 77371,
@@ -628,6 +659,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-133630117",
       "key": "media/inat-133630117.jpeg",
       "content_type": "image/jpeg",
       "bytes": 71568,
@@ -648,6 +680,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-14657071",
       "key": "media/inat-14657071.jpeg",
       "content_type": "image/jpeg",
       "bytes": 736046,
@@ -668,6 +701,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-14999547",
       "key": "media/inat-14999547.jpeg",
       "content_type": "image/jpeg",
       "bytes": 305534,
@@ -688,6 +722,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-152058977",
       "key": "media/inat-152058977.jpeg",
       "content_type": "image/jpeg",
       "bytes": 236761,
@@ -708,6 +743,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-15396027",
       "key": "media/inat-15396027.jpg",
       "content_type": "image/jpeg",
       "bytes": 285134,
@@ -728,6 +764,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-164386122",
       "key": "media/inat-164386122.jpeg",
       "content_type": "image/jpeg",
       "bytes": 487610,
@@ -748,6 +785,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-167710676",
       "key": "media/inat-167710676.jpg",
       "content_type": "image/jpeg",
       "bytes": 515304,
@@ -768,6 +806,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-169296519",
       "key": "media/inat-169296519.jpeg",
       "content_type": "image/jpeg",
       "bytes": 600356,
@@ -788,6 +827,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-170522394",
       "key": "media/inat-170522394.jpeg",
       "content_type": "image/jpeg",
       "bytes": 351372,
@@ -808,6 +848,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-170917741",
       "key": "media/inat-170917741.jpeg",
       "content_type": "image/jpeg",
       "bytes": 480348,
@@ -828,6 +869,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-170984937",
       "key": "media/inat-170984937.jpg",
       "content_type": "image/jpeg",
       "bytes": 193083,
@@ -848,6 +890,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-171626978",
       "key": "media/inat-171626978.jpg",
       "content_type": "image/jpeg",
       "bytes": 861980,
@@ -868,6 +911,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-171782181",
       "key": "media/inat-171782181.jpg",
       "content_type": "image/jpeg",
       "bytes": 104888,
@@ -888,6 +932,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-1719073",
       "key": "media/inat-1719073.jpg",
       "content_type": "image/jpeg",
       "bytes": 136656,
@@ -908,6 +953,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-173016156",
       "key": "media/inat-173016156.jpg",
       "content_type": "image/jpeg",
       "bytes": 105109,
@@ -928,6 +974,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-174579605",
       "key": "media/inat-174579605.jpg",
       "content_type": "image/jpeg",
       "bytes": 233229,
@@ -948,6 +995,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-175065697",
       "key": "media/inat-175065697.jpg",
       "content_type": "image/jpeg",
       "bytes": 144670,
@@ -968,6 +1016,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-175425662",
       "key": "media/inat-175425662.jpeg",
       "content_type": "image/jpeg",
       "bytes": 105118,
@@ -988,6 +1037,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-176723110",
       "key": "media/inat-176723110.jpg",
       "content_type": "image/jpeg",
       "bytes": 597685,
@@ -1008,6 +1058,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-176925603",
       "key": "media/inat-176925603.jpeg",
       "content_type": "image/jpeg",
       "bytes": 194042,
@@ -1028,6 +1079,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-177590771",
       "key": "media/inat-177590771.jpg",
       "content_type": "image/jpeg",
       "bytes": 341719,
@@ -1048,6 +1100,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-178234093",
       "key": "media/inat-178234093.jpeg",
       "content_type": "image/jpeg",
       "bytes": 368750,
@@ -1068,6 +1121,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-178984323",
       "key": "media/inat-178984323.jpeg",
       "content_type": "image/jpeg",
       "bytes": 428257,
@@ -1088,6 +1142,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-179400135",
       "key": "media/inat-179400135.jpeg",
       "content_type": "image/jpeg",
       "bytes": 346516,
@@ -1108,6 +1163,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-180295374",
       "key": "media/inat-180295374.jpeg",
       "content_type": "image/jpeg",
       "bytes": 318481,
@@ -1128,6 +1184,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-181319529",
       "key": "media/inat-181319529.jpg",
       "content_type": "image/jpeg",
       "bytes": 294265,
@@ -1148,6 +1205,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-18251397",
       "key": "media/inat-18251397.jpeg",
       "content_type": "image/jpeg",
       "bytes": 581902,
@@ -1168,6 +1226,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-183608114",
       "key": "media/inat-183608114.jpeg",
       "content_type": "image/jpeg",
       "bytes": 903181,
@@ -1188,6 +1247,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-18382003",
       "key": "media/inat-18382003.jpeg",
       "content_type": "image/jpeg",
       "bytes": 150276,
@@ -1208,6 +1268,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-184819192",
       "key": "media/inat-184819192.jpeg",
       "content_type": "image/jpeg",
       "bytes": 153946,
@@ -1228,6 +1289,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-186399629",
       "key": "media/inat-186399629.jpg",
       "content_type": "image/jpeg",
       "bytes": 360444,
@@ -1248,6 +1310,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-186483298",
       "key": "media/inat-186483298.jpg",
       "content_type": "image/jpeg",
       "bytes": 331382,
@@ -1268,6 +1331,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-186497184",
       "key": "media/inat-186497184.jpg",
       "content_type": "image/jpeg",
       "bytes": 574502,
@@ -1288,6 +1352,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-186561540",
       "key": "media/inat-186561540.jpeg",
       "content_type": "image/jpeg",
       "bytes": 359745,
@@ -1308,6 +1373,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-187055185",
       "key": "media/inat-187055185.jpg",
       "content_type": "image/jpeg",
       "bytes": 278010,
@@ -1328,6 +1394,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-187128344",
       "key": "media/inat-187128344.jpg",
       "content_type": "image/jpeg",
       "bytes": 103414,
@@ -1348,6 +1415,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-187697132",
       "key": "media/inat-187697132.jpeg",
       "content_type": "image/jpeg",
       "bytes": 434588,
@@ -1368,6 +1436,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-18795557",
       "key": "media/inat-18795557.jpg",
       "content_type": "image/jpeg",
       "bytes": 235926,
@@ -1388,6 +1457,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-188920524",
       "key": "media/inat-188920524.jpg",
       "content_type": "image/jpeg",
       "bytes": 1021568,
@@ -1408,6 +1478,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-188937245",
       "key": "media/inat-188937245.jpeg",
       "content_type": "image/jpeg",
       "bytes": 392042,
@@ -1428,6 +1499,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-189543472",
       "key": "media/inat-189543472.jpg",
       "content_type": "image/jpeg",
       "bytes": 562982,
@@ -1448,6 +1520,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-191194754",
       "key": "media/inat-191194754.jpg",
       "content_type": "image/jpeg",
       "bytes": 1087078,
@@ -1468,6 +1541,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-191207722",
       "key": "media/inat-191207722.jpg",
       "content_type": "image/jpeg",
       "bytes": 210753,
@@ -1488,6 +1562,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-194749425",
       "key": "media/inat-194749425.jpeg",
       "content_type": "image/jpeg",
       "bytes": 557201,
@@ -1508,6 +1583,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-195517487",
       "key": "media/inat-195517487.jpeg",
       "content_type": "image/jpeg",
       "bytes": 541075,
@@ -1528,6 +1604,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-195969728",
       "key": "media/inat-195969728.jpg",
       "content_type": "image/jpeg",
       "bytes": 100485,
@@ -1548,6 +1625,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-196885341",
       "key": "media/inat-196885341.jpeg",
       "content_type": "image/jpeg",
       "bytes": 361742,
@@ -1568,6 +1646,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-198927460",
       "key": "media/inat-198927460.jpeg",
       "content_type": "image/jpeg",
       "bytes": 318443,
@@ -1588,6 +1667,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-199703350",
       "key": "media/inat-199703350.jpeg",
       "content_type": "image/jpeg",
       "bytes": 452986,
@@ -1608,6 +1688,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-200596100",
       "key": "media/inat-200596100.jpeg",
       "content_type": "image/jpeg",
       "bytes": 129112,
@@ -1628,6 +1709,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-20497431",
       "key": "media/inat-20497431.jpeg",
       "content_type": "image/jpeg",
       "bytes": 503709,
@@ -1648,6 +1730,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-206149012",
       "key": "media/inat-206149012.jpg",
       "content_type": "image/jpeg",
       "bytes": 409443,
@@ -1668,6 +1751,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-206921532",
       "key": "media/inat-206921532.jpg",
       "content_type": "image/jpeg",
       "bytes": 214822,
@@ -1688,6 +1772,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-207642643",
       "key": "media/inat-207642643.jpg",
       "content_type": "image/jpeg",
       "bytes": 451980,
@@ -1708,6 +1793,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-212296336",
       "key": "media/inat-212296336.jpg",
       "content_type": "image/jpeg",
       "bytes": 195616,
@@ -1728,6 +1814,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-213626110",
       "key": "media/inat-213626110.jpeg",
       "content_type": "image/jpeg",
       "bytes": 540510,
@@ -1748,6 +1835,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-213934896",
       "key": "media/inat-213934896.jpg",
       "content_type": "image/jpeg",
       "bytes": 862547,
@@ -1768,6 +1856,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-21701960",
       "key": "media/inat-21701960.jpg",
       "content_type": "image/jpeg",
       "bytes": 879826,
@@ -1788,6 +1877,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-217108429",
       "key": "media/inat-217108429.jpg",
       "content_type": "image/jpeg",
       "bytes": 96626,
@@ -1808,6 +1898,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-221321124",
       "key": "media/inat-221321124.jpg",
       "content_type": "image/jpeg",
       "bytes": 852523,
@@ -1828,6 +1919,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-223980498",
       "key": "media/inat-223980498.jpg",
       "content_type": "image/jpeg",
       "bytes": 197806,
@@ -1848,6 +1940,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-2258747",
       "key": "media/inat-2258747.jpg",
       "content_type": "image/jpeg",
       "bytes": 149549,
@@ -1868,6 +1961,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-227343082",
       "key": "media/inat-227343082.jpg",
       "content_type": "image/jpeg",
       "bytes": 193533,
@@ -1888,6 +1982,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-227743727",
       "key": "media/inat-227743727.jpg",
       "content_type": "image/jpeg",
       "bytes": 217718,
@@ -1908,6 +2003,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-232641738",
       "key": "media/inat-232641738.jpg",
       "content_type": "image/jpeg",
       "bytes": 241205,
@@ -1928,6 +2024,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-23524935",
       "key": "media/inat-23524935.jpg",
       "content_type": "image/jpeg",
       "bytes": 376213,
@@ -1948,6 +2045,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-235904291",
       "key": "media/inat-235904291.jpg",
       "content_type": "image/jpeg",
       "bytes": 250049,
@@ -1968,6 +2066,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-235958003",
       "key": "media/inat-235958003.jpg",
       "content_type": "image/jpeg",
       "bytes": 572052,
@@ -1988,6 +2087,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-237748383",
       "key": "media/inat-237748383.jpg",
       "content_type": "image/jpeg",
       "bytes": 564297,
@@ -2008,6 +2108,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-238307091",
       "key": "media/inat-238307091.jpg",
       "content_type": "image/jpeg",
       "bytes": 161879,
@@ -2028,6 +2129,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-238568988",
       "key": "media/inat-238568988.jpeg",
       "content_type": "image/jpeg",
       "bytes": 278783,
@@ -2048,6 +2150,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-240636185",
       "key": "media/inat-240636185.jpg",
       "content_type": "image/jpeg",
       "bytes": 644928,
@@ -2068,6 +2171,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-242453618",
       "key": "media/inat-242453618.jpg",
       "content_type": "image/jpeg",
       "bytes": 313824,
@@ -2088,6 +2192,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-243113560",
       "key": "media/inat-243113560.jpeg",
       "content_type": "image/jpeg",
       "bytes": 562184,
@@ -2108,6 +2213,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-243292510",
       "key": "media/inat-243292510.jpg",
       "content_type": "image/jpeg",
       "bytes": 733877,
@@ -2128,6 +2234,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-244397174",
       "key": "media/inat-244397174.jpg",
       "content_type": "image/jpeg",
       "bytes": 236594,
@@ -2148,6 +2255,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-246382738",
       "key": "media/inat-246382738.jpeg",
       "content_type": "image/jpeg",
       "bytes": 262449,
@@ -2168,6 +2276,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-246426557",
       "key": "media/inat-246426557.jpg",
       "content_type": "image/jpeg",
       "bytes": 230074,
@@ -2188,6 +2297,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-247452262",
       "key": "media/inat-247452262.jpeg",
       "content_type": "image/jpeg",
       "bytes": 450571,
@@ -2208,6 +2318,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-248099403",
       "key": "media/inat-248099403.jpg",
       "content_type": "image/jpeg",
       "bytes": 753439,
@@ -2228,6 +2339,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-248210123",
       "key": "media/inat-248210123.jpg",
       "content_type": "image/jpeg",
       "bytes": 949088,
@@ -2248,6 +2360,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-251050332",
       "key": "media/inat-251050332.jpg",
       "content_type": "image/jpeg",
       "bytes": 334903,
@@ -2268,6 +2381,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-251380037",
       "key": "media/inat-251380037.jpeg",
       "content_type": "image/jpeg",
       "bytes": 110035,
@@ -2288,6 +2402,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-251616357",
       "key": "media/inat-251616357.jpg",
       "content_type": "image/jpeg",
       "bytes": 167972,
@@ -2308,6 +2423,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-252470699",
       "key": "media/inat-252470699.jpg",
       "content_type": "image/jpeg",
       "bytes": 287695,
@@ -2328,6 +2444,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-252998062",
       "key": "media/inat-252998062.jpeg",
       "content_type": "image/jpeg",
       "bytes": 563478,
@@ -2348,6 +2465,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-253108235",
       "key": "media/inat-253108235.jpeg",
       "content_type": "image/jpeg",
       "bytes": 619610,
@@ -2368,6 +2486,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-254528743",
       "key": "media/inat-254528743.jpeg",
       "content_type": "image/jpeg",
       "bytes": 96935,
@@ -2388,6 +2507,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-255189374",
       "key": "media/inat-255189374.jpeg",
       "content_type": "image/jpeg",
       "bytes": 524598,
@@ -2408,6 +2528,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-255274022",
       "key": "media/inat-255274022.jpg",
       "content_type": "image/jpeg",
       "bytes": 407401,
@@ -2428,6 +2549,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-256956794",
       "key": "media/inat-256956794.jpg",
       "content_type": "image/jpeg",
       "bytes": 292607,
@@ -2448,6 +2570,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-258492127",
       "key": "media/inat-258492127.jpeg",
       "content_type": "image/jpeg",
       "bytes": 561246,
@@ -2468,6 +2591,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-259590215",
       "key": "media/inat-259590215.jpg",
       "content_type": "image/jpeg",
       "bytes": 236296,
@@ -2488,6 +2612,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-261736616",
       "key": "media/inat-261736616.jpg",
       "content_type": "image/jpeg",
       "bytes": 689072,
@@ -2508,6 +2633,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-262317962",
       "key": "media/inat-262317962.jpeg",
       "content_type": "image/jpeg",
       "bytes": 315478,
@@ -2528,6 +2654,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-262482326",
       "key": "media/inat-262482326.jpg",
       "content_type": "image/jpeg",
       "bytes": 158715,
@@ -2548,6 +2675,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-263740132",
       "key": "media/inat-263740132.jpg",
       "content_type": "image/jpeg",
       "bytes": 1255808,
@@ -2568,6 +2696,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-265296529",
       "key": "media/inat-265296529.jpg",
       "content_type": "image/jpeg",
       "bytes": 146763,
@@ -2588,6 +2717,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-265563572",
       "key": "media/inat-265563572.jpg",
       "content_type": "image/jpeg",
       "bytes": 95337,
@@ -2608,6 +2738,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-2668670",
       "key": "media/inat-2668670.jpg",
       "content_type": "image/jpeg",
       "bytes": 557822,
@@ -2628,6 +2759,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-270945016",
       "key": "media/inat-270945016.jpg",
       "content_type": "image/jpeg",
       "bytes": 316398,
@@ -2648,6 +2780,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-272545712",
       "key": "media/inat-272545712.jpeg",
       "content_type": "image/jpeg",
       "bytes": 421386,
@@ -2668,6 +2801,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-2728337",
       "key": "media/inat-2728337.jpg",
       "content_type": "image/jpeg",
       "bytes": 363197,
@@ -2688,6 +2822,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-27291377",
       "key": "media/inat-27291377.jpg",
       "content_type": "image/jpeg",
       "bytes": 161124,
@@ -2708,6 +2843,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-27391381",
       "key": "media/inat-27391381.jpg",
       "content_type": "image/jpeg",
       "bytes": 131678,
@@ -2728,6 +2864,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-274629689",
       "key": "media/inat-274629689.jpeg",
       "content_type": "image/jpeg",
       "bytes": 244964,
@@ -2748,6 +2885,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-274670802",
       "key": "media/inat-274670802.jpeg",
       "content_type": "image/jpeg",
       "bytes": 140272,
@@ -2768,6 +2906,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-275473119",
       "key": "media/inat-275473119.jpg",
       "content_type": "image/jpeg",
       "bytes": 141923,
@@ -2788,6 +2927,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-275474519",
       "key": "media/inat-275474519.jpg",
       "content_type": "image/jpeg",
       "bytes": 109215,
@@ -2808,6 +2948,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-275660484",
       "key": "media/inat-275660484.jpeg",
       "content_type": "image/jpeg",
       "bytes": 459718,
@@ -2828,6 +2969,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-277464314",
       "key": "media/inat-277464314.jpeg",
       "content_type": "image/jpeg",
       "bytes": 219722,
@@ -2848,6 +2990,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-277554690",
       "key": "media/inat-277554690.jpeg",
       "content_type": "image/jpeg",
       "bytes": 168379,
@@ -2868,6 +3011,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-278246194",
       "key": "media/inat-278246194.jpg",
       "content_type": "image/jpeg",
       "bytes": 321077,
@@ -2888,6 +3032,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-279850731",
       "key": "media/inat-279850731.jpg",
       "content_type": "image/jpeg",
       "bytes": 120451,
@@ -2908,6 +3053,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-280967890",
       "key": "media/inat-280967890.jpeg",
       "content_type": "image/jpeg",
       "bytes": 546706,
@@ -2928,6 +3074,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-282450733",
       "key": "media/inat-282450733.jpg",
       "content_type": "image/jpeg",
       "bytes": 145508,
@@ -2948,6 +3095,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-283943696",
       "key": "media/inat-283943696.jpg",
       "content_type": "image/jpeg",
       "bytes": 929639,
@@ -2968,6 +3116,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-286291798",
       "key": "media/inat-286291798.jpeg",
       "content_type": "image/jpeg",
       "bytes": 203446,
@@ -2988,6 +3137,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-28635206",
       "key": "media/inat-28635206.jpg",
       "content_type": "image/jpeg",
       "bytes": 178676,
@@ -3008,6 +3158,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-287031775",
       "key": "media/inat-287031775.jpeg",
       "content_type": "image/jpeg",
       "bytes": 258769,
@@ -3028,6 +3179,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-288034385",
       "key": "media/inat-288034385.jpeg",
       "content_type": "image/jpeg",
       "bytes": 286210,
@@ -3048,6 +3200,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-288412484",
       "key": "media/inat-288412484.jpg",
       "content_type": "image/jpeg",
       "bytes": 154624,
@@ -3068,6 +3221,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-28929530",
       "key": "media/inat-28929530.jpg",
       "content_type": "image/jpeg",
       "bytes": 441306,
@@ -3088,6 +3242,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-29233325",
       "key": "media/inat-29233325.jpg",
       "content_type": "image/jpeg",
       "bytes": 992539,
@@ -3108,6 +3263,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-293007936",
       "key": "media/inat-293007936.jpeg",
       "content_type": "image/jpeg",
       "bytes": 866679,
@@ -3128,6 +3284,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-29510488",
       "key": "media/inat-29510488.jpg",
       "content_type": "image/jpeg",
       "bytes": 72062,
@@ -3148,6 +3305,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-29872259",
       "key": "media/inat-29872259.jpg",
       "content_type": "image/jpeg",
       "bytes": 291881,
@@ -3168,6 +3326,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-300247624",
       "key": "media/inat-300247624.jpg",
       "content_type": "image/jpeg",
       "bytes": 725070,
@@ -3188,6 +3347,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-30210841",
       "key": "media/inat-30210841.jpeg",
       "content_type": "image/jpeg",
       "bytes": 566020,
@@ -3208,6 +3368,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-30245884",
       "key": "media/inat-30245884.jpg",
       "content_type": "image/jpeg",
       "bytes": 706195,
@@ -3228,6 +3389,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-30832380",
       "key": "media/inat-30832380.jpg",
       "content_type": "image/jpeg",
       "bytes": 182081,
@@ -3248,6 +3410,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-30897328",
       "key": "media/inat-30897328.jpg",
       "content_type": "image/jpeg",
       "bytes": 162895,
@@ -3268,6 +3431,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-31057462",
       "key": "media/inat-31057462.jpeg",
       "content_type": "image/jpeg",
       "bytes": 267506,
@@ -3288,6 +3452,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-310877400",
       "key": "media/inat-310877400.jpeg",
       "content_type": "image/jpeg",
       "bytes": 107643,
@@ -3308,6 +3473,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-31966870",
       "key": "media/inat-31966870.jpeg",
       "content_type": "image/jpeg",
       "bytes": 326406,
@@ -3328,6 +3494,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-32209619",
       "key": "media/inat-32209619.jpg",
       "content_type": "image/jpeg",
       "bytes": 596966,
@@ -3348,6 +3515,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-323538305",
       "key": "media/inat-323538305.jpg",
       "content_type": "image/jpeg",
       "bytes": 1352427,
@@ -3368,6 +3536,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-323891112",
       "key": "media/inat-323891112.jpg",
       "content_type": "image/jpeg",
       "bytes": 87828,
@@ -3388,6 +3557,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-325410502",
       "key": "media/inat-325410502.jpg",
       "content_type": "image/jpeg",
       "bytes": 433395,
@@ -3408,6 +3578,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-326150557",
       "key": "media/inat-326150557.jpg",
       "content_type": "image/jpeg",
       "bytes": 971336,
@@ -3428,6 +3599,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-3264549",
       "key": "media/inat-3264549.jpg",
       "content_type": "image/jpeg",
       "bytes": 302521,
@@ -3448,6 +3620,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-326606761",
       "key": "media/inat-326606761.jpeg",
       "content_type": "image/jpeg",
       "bytes": 673291,
@@ -3468,6 +3641,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-32763494",
       "key": "media/inat-32763494.jpeg",
       "content_type": "image/jpeg",
       "bytes": 184517,
@@ -3488,6 +3662,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-32822810",
       "key": "media/inat-32822810.jpg",
       "content_type": "image/jpeg",
       "bytes": 291425,
@@ -3508,6 +3683,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-329830474",
       "key": "media/inat-329830474.jpeg",
       "content_type": "image/jpeg",
       "bytes": 310239,
@@ -3528,6 +3704,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-335546943",
       "key": "media/inat-335546943.jpg",
       "content_type": "image/jpeg",
       "bytes": 322273,
@@ -3548,6 +3725,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-335549371",
       "key": "media/inat-335549371.jpg",
       "content_type": "image/jpeg",
       "bytes": 248867,
@@ -3568,6 +3746,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-336985385",
       "key": "media/inat-336985385.jpg",
       "content_type": "image/jpeg",
       "bytes": 187764,
@@ -3588,6 +3767,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-337015124",
       "key": "media/inat-337015124.jpg",
       "content_type": "image/jpeg",
       "bytes": 598556,
@@ -3608,6 +3788,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-337936480",
       "key": "media/inat-337936480.jpeg",
       "content_type": "image/jpeg",
       "bytes": 450044,
@@ -3628,6 +3809,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-347073181",
       "key": "media/inat-347073181.jpeg",
       "content_type": "image/jpeg",
       "bytes": 166594,
@@ -3648,6 +3830,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-347339568",
       "key": "media/inat-347339568.jpeg",
       "content_type": "image/jpeg",
       "bytes": 602139,
@@ -3668,6 +3851,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-348613177",
       "key": "media/inat-348613177.jpeg",
       "content_type": "image/jpeg",
       "bytes": 421799,
@@ -3688,6 +3872,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-34895416",
       "key": "media/inat-34895416.jpeg",
       "content_type": "image/jpeg",
       "bytes": 257569,
@@ -3708,6 +3893,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-349952461",
       "key": "media/inat-349952461.jpeg",
       "content_type": "image/jpeg",
       "bytes": 149224,
@@ -3728,6 +3914,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-351073669",
       "key": "media/inat-351073669.jpg",
       "content_type": "image/jpeg",
       "bytes": 382400,
@@ -3748,6 +3935,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-35263943",
       "key": "media/inat-35263943.jpeg",
       "content_type": "image/jpeg",
       "bytes": 387720,
@@ -3768,6 +3956,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-353005120",
       "key": "media/inat-353005120.jpg",
       "content_type": "image/jpeg",
       "bytes": 563439,
@@ -3788,6 +3977,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-353014667",
       "key": "media/inat-353014667.jpg",
       "content_type": "image/jpeg",
       "bytes": 775809,
@@ -3808,6 +3998,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-353707135",
       "key": "media/inat-353707135.jpg",
       "content_type": "image/jpeg",
       "bytes": 101272,
@@ -3828,6 +4019,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-354319132",
       "key": "media/inat-354319132.jpeg",
       "content_type": "image/jpeg",
       "bytes": 379769,
@@ -3848,6 +4040,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-354323482",
       "key": "media/inat-354323482.jpg",
       "content_type": "image/jpeg",
       "bytes": 157613,
@@ -3868,6 +4061,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-354616320",
       "key": "media/inat-354616320.jpg",
       "content_type": "image/jpeg",
       "bytes": 249992,
@@ -3888,6 +4082,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-35471866",
       "key": "media/inat-35471866.jpeg",
       "content_type": "image/jpeg",
       "bytes": 360705,
@@ -3908,6 +4103,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-35732072",
       "key": "media/inat-35732072.jpg",
       "content_type": "image/jpeg",
       "bytes": 242684,
@@ -3928,6 +4124,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-360302512",
       "key": "media/inat-360302512.jpg",
       "content_type": "image/jpeg",
       "bytes": 1156315,
@@ -3948,6 +4145,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-362347156",
       "key": "media/inat-362347156.jpeg",
       "content_type": "image/jpeg",
       "bytes": 117416,
@@ -3968,6 +4166,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-365544882",
       "key": "media/inat-365544882.jpg",
       "content_type": "image/jpeg",
       "bytes": 218054,
@@ -3988,6 +4187,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-365554138",
       "key": "media/inat-365554138.jpeg",
       "content_type": "image/jpeg",
       "bytes": 360275,
@@ -4008,6 +4208,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-367233110",
       "key": "media/inat-367233110.jpeg",
       "content_type": "image/jpeg",
       "bytes": 76885,
@@ -4028,6 +4229,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-367244066",
       "key": "media/inat-367244066.jpg",
       "content_type": "image/jpeg",
       "bytes": 781157,
@@ -4048,6 +4250,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-367646611",
       "key": "media/inat-367646611.jpeg",
       "content_type": "image/jpeg",
       "bytes": 523198,
@@ -4068,6 +4271,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-368662946",
       "key": "media/inat-368662946.jpg",
       "content_type": "image/jpeg",
       "bytes": 288389,
@@ -4088,6 +4292,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-370429295",
       "key": "media/inat-370429295.jpeg",
       "content_type": "image/jpeg",
       "bytes": 547501,
@@ -4108,6 +4313,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-371492310",
       "key": "media/inat-371492310.jpg",
       "content_type": "image/jpeg",
       "bytes": 274491,
@@ -4128,6 +4334,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-3726211",
       "key": "media/inat-3726211.jpg",
       "content_type": "image/jpeg",
       "bytes": 206905,
@@ -4148,6 +4355,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-377765315",
       "key": "media/inat-377765315.jpeg",
       "content_type": "image/jpeg",
       "bytes": 312517,
@@ -4168,6 +4376,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-379123610",
       "key": "media/inat-379123610.jpeg",
       "content_type": "image/jpeg",
       "bytes": 895145,
@@ -4188,6 +4397,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-381943906",
       "key": "media/inat-381943906.jpg",
       "content_type": "image/jpeg",
       "bytes": 266380,
@@ -4208,6 +4418,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-3868932",
       "key": "media/inat-3868932.jpg",
       "content_type": "image/jpeg",
       "bytes": 139410,
@@ -4228,6 +4439,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-390973667",
       "key": "media/inat-390973667.jpeg",
       "content_type": "image/jpeg",
       "bytes": 314964,
@@ -4248,6 +4460,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-39119725",
       "key": "media/inat-39119725.jpeg",
       "content_type": "image/jpeg",
       "bytes": 383717,
@@ -4268,6 +4481,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-40397549",
       "key": "media/inat-40397549.jpg",
       "content_type": "image/jpeg",
       "bytes": 501048,
@@ -4288,6 +4502,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-40469726",
       "key": "media/inat-40469726.jpeg",
       "content_type": "image/jpeg",
       "bytes": 187555,
@@ -4308,6 +4523,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-407780368",
       "key": "media/inat-407780368.jpeg",
       "content_type": "image/jpeg",
       "bytes": 282936,
@@ -4328,6 +4544,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-41116646",
       "key": "media/inat-41116646.jpeg",
       "content_type": "image/jpeg",
       "bytes": 187262,
@@ -4348,6 +4565,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-435307566",
       "key": "media/inat-435307566.jpeg",
       "content_type": "image/jpeg",
       "bytes": 90978,
@@ -4368,6 +4586,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-446634323",
       "key": "media/inat-446634323.jpeg",
       "content_type": "image/jpeg",
       "bytes": 519553,
@@ -4388,6 +4607,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-449158965",
       "key": "media/inat-449158965.jpeg",
       "content_type": "image/jpeg",
       "bytes": 381351,
@@ -4408,6 +4628,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-450146514",
       "key": "media/inat-450146514.jpeg",
       "content_type": "image/jpeg",
       "bytes": 151747,
@@ -4428,6 +4649,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-450605115",
       "key": "media/inat-450605115.jpeg",
       "content_type": "image/jpeg",
       "bytes": 256324,
@@ -4448,6 +4670,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-451942870",
       "key": "media/inat-451942870.jpeg",
       "content_type": "image/jpeg",
       "bytes": 129683,
@@ -4468,6 +4691,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-451960756",
       "key": "media/inat-451960756.jpg",
       "content_type": "image/jpeg",
       "bytes": 474250,
@@ -4488,6 +4712,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-452316256",
       "key": "media/inat-452316256.jpg",
       "content_type": "image/jpeg",
       "bytes": 724208,
@@ -4508,6 +4733,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-452768258",
       "key": "media/inat-452768258.jpg",
       "content_type": "image/jpeg",
       "bytes": 97319,
@@ -4528,6 +4754,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-452775585",
       "key": "media/inat-452775585.jpg",
       "content_type": "image/jpeg",
       "bytes": 151601,
@@ -4548,6 +4775,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-455223343",
       "key": "media/inat-455223343.jpeg",
       "content_type": "image/jpeg",
       "bytes": 226898,
@@ -4568,6 +4796,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-45587602",
       "key": "media/inat-45587602.jpg",
       "content_type": "image/jpeg",
       "bytes": 532526,
@@ -4588,6 +4817,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-456336922",
       "key": "media/inat-456336922.jpeg",
       "content_type": "image/jpeg",
       "bytes": 249656,
@@ -4608,6 +4838,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-461470826",
       "key": "media/inat-461470826.jpg",
       "content_type": "image/jpeg",
       "bytes": 1045837,
@@ -4628,6 +4859,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-464466268",
       "key": "media/inat-464466268.jpg",
       "content_type": "image/jpeg",
       "bytes": 300139,
@@ -4648,6 +4880,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-467051532",
       "key": "media/inat-467051532.jpg",
       "content_type": "image/jpeg",
       "bytes": 470656,
@@ -4668,6 +4901,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-4680803",
       "key": "media/inat-4680803.jpg",
       "content_type": "image/jpeg",
       "bytes": 131177,
@@ -4688,6 +4922,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-469213287",
       "key": "media/inat-469213287.jpeg",
       "content_type": "image/jpeg",
       "bytes": 428577,
@@ -4708,6 +4943,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-469789258",
       "key": "media/inat-469789258.jpg",
       "content_type": "image/jpeg",
       "bytes": 310333,
@@ -4728,6 +4964,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-470110771",
       "key": "media/inat-470110771.jpg",
       "content_type": "image/jpeg",
       "bytes": 461158,
@@ -4748,6 +4985,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-473227273",
       "key": "media/inat-473227273.jpeg",
       "content_type": "image/jpeg",
       "bytes": 153626,
@@ -4768,6 +5006,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-473362823",
       "key": "media/inat-473362823.jpg",
       "content_type": "image/jpeg",
       "bytes": 706119,
@@ -4788,6 +5027,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-4962141",
       "key": "media/inat-4962141.jpg",
       "content_type": "image/jpeg",
       "bytes": 764575,
@@ -4808,6 +5048,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-497063258",
       "key": "media/inat-497063258.jpg",
       "content_type": "image/jpeg",
       "bytes": 263691,
@@ -4828,6 +5069,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-497740606",
       "key": "media/inat-497740606.jpeg",
       "content_type": "image/jpeg",
       "bytes": 222948,
@@ -4848,6 +5090,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-507422703",
       "key": "media/inat-507422703.jpg",
       "content_type": "image/jpeg",
       "bytes": 845118,
@@ -4868,6 +5111,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-510242054",
       "key": "media/inat-510242054.jpg",
       "content_type": "image/jpeg",
       "bytes": 194705,
@@ -4888,6 +5132,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-515446864",
       "key": "media/inat-515446864.jpg",
       "content_type": "image/jpeg",
       "bytes": 687042,
@@ -4908,6 +5153,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-521361070",
       "key": "media/inat-521361070.jpg",
       "content_type": "image/jpeg",
       "bytes": 351649,
@@ -4928,6 +5174,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-52312105",
       "key": "media/inat-52312105.jpg",
       "content_type": "image/jpeg",
       "bytes": 246475,
@@ -4948,6 +5195,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-523976264",
       "key": "media/inat-523976264.jpg",
       "content_type": "image/jpeg",
       "bytes": 561979,
@@ -4968,6 +5216,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-538036179",
       "key": "media/inat-538036179.jpg",
       "content_type": "image/jpeg",
       "bytes": 546294,
@@ -4988,6 +5237,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-53899170",
       "key": "media/inat-53899170.jpeg",
       "content_type": "image/jpeg",
       "bytes": 565850,
@@ -5008,6 +5258,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-54581893",
       "key": "media/inat-54581893.png",
       "content_type": "image/png",
       "bytes": 1626523,
@@ -5028,6 +5279,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-54668734",
       "key": "media/inat-54668734.jpeg",
       "content_type": "image/jpeg",
       "bytes": 212423,
@@ -5048,6 +5300,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-555651213",
       "key": "media/inat-555651213.jpg",
       "content_type": "image/jpeg",
       "bytes": 594021,
@@ -5068,6 +5321,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-56430554",
       "key": "media/inat-56430554.jpeg",
       "content_type": "image/jpeg",
       "bytes": 107267,
@@ -5088,6 +5342,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-570190954",
       "key": "media/inat-570190954.jpg",
       "content_type": "image/jpeg",
       "bytes": 208614,
@@ -5108,6 +5363,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-57363926",
       "key": "media/inat-57363926.jpg",
       "content_type": "image/jpeg",
       "bytes": 126904,
@@ -5128,6 +5384,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-57625057",
       "key": "media/inat-57625057.jpg",
       "content_type": "image/jpeg",
       "bytes": 144042,
@@ -5148,6 +5405,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-578388369",
       "key": "media/inat-578388369.jpg",
       "content_type": "image/jpeg",
       "bytes": 577075,
@@ -5168,6 +5426,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-578414518",
       "key": "media/inat-578414518.jpg",
       "content_type": "image/jpeg",
       "bytes": 225044,
@@ -5188,6 +5447,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-578604961",
       "key": "media/inat-578604961.jpg",
       "content_type": "image/jpeg",
       "bytes": 826071,
@@ -5208,6 +5468,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-5799515",
       "key": "media/inat-5799515.jpg",
       "content_type": "image/jpeg",
       "bytes": 879309,
@@ -5228,6 +5489,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-5821756",
       "key": "media/inat-5821756.jpg",
       "content_type": "image/jpeg",
       "bytes": 217059,
@@ -5248,6 +5510,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-585812732",
       "key": "media/inat-585812732.jpg",
       "content_type": "image/jpeg",
       "bytes": 166118,
@@ -5268,6 +5531,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-5869408",
       "key": "media/inat-5869408.jpeg",
       "content_type": "image/jpeg",
       "bytes": 310217,
@@ -5288,6 +5552,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-587760838",
       "key": "media/inat-587760838.jpg",
       "content_type": "image/jpeg",
       "bytes": 286930,
@@ -5308,6 +5573,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-588193277",
       "key": "media/inat-588193277.jpg",
       "content_type": "image/jpeg",
       "bytes": 145312,
@@ -5328,6 +5594,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-5897973",
       "key": "media/inat-5897973.jpeg",
       "content_type": "image/jpeg",
       "bytes": 288472,
@@ -5348,6 +5615,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-59053809",
       "key": "media/inat-59053809.jpg",
       "content_type": "image/jpeg",
       "bytes": 145843,
@@ -5368,6 +5636,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-591162737",
       "key": "media/inat-591162737.jpg",
       "content_type": "image/jpeg",
       "bytes": 320538,
@@ -5388,6 +5657,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-593652739",
       "key": "media/inat-593652739.jpg",
       "content_type": "image/jpeg",
       "bytes": 240627,
@@ -5408,6 +5678,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-59391481",
       "key": "media/inat-59391481.jpg",
       "content_type": "image/jpeg",
       "bytes": 285990,
@@ -5428,6 +5699,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-598891594",
       "key": "media/inat-598891594.jpg",
       "content_type": "image/jpeg",
       "bytes": 702762,
@@ -5448,6 +5720,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-599545253",
       "key": "media/inat-599545253.jpg",
       "content_type": "image/jpeg",
       "bytes": 639383,
@@ -5468,6 +5741,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-600351838",
       "key": "media/inat-600351838.jpg",
       "content_type": "image/jpeg",
       "bytes": 83783,
@@ -5488,6 +5762,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-601638468",
       "key": "media/inat-601638468.jpg",
       "content_type": "image/jpeg",
       "bytes": 479084,
@@ -5508,6 +5783,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-602069350",
       "key": "media/inat-602069350.jpg",
       "content_type": "image/jpeg",
       "bytes": 132439,
@@ -5528,6 +5804,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-60319773",
       "key": "media/inat-60319773.jpg",
       "content_type": "image/jpeg",
       "bytes": 86648,
@@ -5548,6 +5825,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-603804532",
       "key": "media/inat-603804532.jpg",
       "content_type": "image/jpeg",
       "bytes": 198069,
@@ -5568,6 +5846,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-605659063",
       "key": "media/inat-605659063.jpg",
       "content_type": "image/jpeg",
       "bytes": 312662,
@@ -5588,6 +5867,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-606144085",
       "key": "media/inat-606144085.jpg",
       "content_type": "image/jpeg",
       "bytes": 446740,
@@ -5608,6 +5888,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-6113487",
       "key": "media/inat-6113487.jpeg",
       "content_type": "image/jpeg",
       "bytes": 888776,
@@ -5628,6 +5909,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-612542017",
       "key": "media/inat-612542017.jpg",
       "content_type": "image/jpeg",
       "bytes": 908524,
@@ -5648,6 +5930,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-6149726",
       "key": "media/inat-6149726.jpg",
       "content_type": "image/jpeg",
       "bytes": 226712,
@@ -5668,6 +5951,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-616425154",
       "key": "media/inat-616425154.jpg",
       "content_type": "image/jpeg",
       "bytes": 192603,
@@ -5688,6 +5972,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-61858851",
       "key": "media/inat-61858851.jpg",
       "content_type": "image/jpeg",
       "bytes": 112823,
@@ -5708,6 +5993,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-622261665",
       "key": "media/inat-622261665.jpg",
       "content_type": "image/jpeg",
       "bytes": 123879,
@@ -5728,6 +6014,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-62301367",
       "key": "media/inat-62301367.jpg",
       "content_type": "image/jpeg",
       "bytes": 851709,
@@ -5748,6 +6035,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-62310832",
       "key": "media/inat-62310832.jpeg",
       "content_type": "image/jpeg",
       "bytes": 140329,
@@ -5768,6 +6056,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-62819454",
       "key": "media/inat-62819454.jpeg",
       "content_type": "image/jpeg",
       "bytes": 680855,
@@ -5788,6 +6077,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-629266106",
       "key": "media/inat-629266106.jpg",
       "content_type": "image/jpeg",
       "bytes": 402337,
@@ -5808,6 +6098,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-629423408",
       "key": "media/inat-629423408.jpg",
       "content_type": "image/jpeg",
       "bytes": 126313,
@@ -5828,6 +6119,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-63051080",
       "key": "media/inat-63051080.jpg",
       "content_type": "image/jpeg",
       "bytes": 64769,
@@ -5848,6 +6140,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-632196632",
       "key": "media/inat-632196632.jpg",
       "content_type": "image/jpeg",
       "bytes": 209191,
@@ -5868,6 +6161,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-63365480",
       "key": "media/inat-63365480.jpg",
       "content_type": "image/jpeg",
       "bytes": 284106,
@@ -5888,6 +6182,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-635011644",
       "key": "media/inat-635011644.jpg",
       "content_type": "image/jpeg",
       "bytes": 738649,
@@ -5908,6 +6203,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-635864859",
       "key": "media/inat-635864859.jpg",
       "content_type": "image/jpeg",
       "bytes": 742318,
@@ -5928,6 +6224,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-640263643",
       "key": "media/inat-640263643.jpg",
       "content_type": "image/jpeg",
       "bytes": 293978,
@@ -5948,6 +6245,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-643938541",
       "key": "media/inat-643938541.jpg",
       "content_type": "image/jpeg",
       "bytes": 446456,
@@ -5968,6 +6266,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-64616776",
       "key": "media/inat-64616776.jpg",
       "content_type": "image/jpeg",
       "bytes": 293064,
@@ -5988,6 +6287,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-65060931",
       "key": "media/inat-65060931.jpg",
       "content_type": "image/jpeg",
       "bytes": 267830,
@@ -6008,6 +6308,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-65452443",
       "key": "media/inat-65452443.jpeg",
       "content_type": "image/jpeg",
       "bytes": 497378,
@@ -6028,6 +6329,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-660441686",
       "key": "media/inat-660441686.jpg",
       "content_type": "image/jpeg",
       "bytes": 673949,
@@ -6048,6 +6350,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-660973837",
       "key": "media/inat-660973837.jpg",
       "content_type": "image/jpeg",
       "bytes": 284010,
@@ -6068,6 +6371,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-665112466",
       "key": "media/inat-665112466.jpg",
       "content_type": "image/jpeg",
       "bytes": 248562,
@@ -6088,6 +6392,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-666159747",
       "key": "media/inat-666159747.jpg",
       "content_type": "image/jpeg",
       "bytes": 159624,
@@ -6108,6 +6413,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-67200172",
       "key": "media/inat-67200172.jpg",
       "content_type": "image/jpeg",
       "bytes": 518814,
@@ -6128,6 +6434,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-672912853",
       "key": "media/inat-672912853.jpg",
       "content_type": "image/jpeg",
       "bytes": 191690,
@@ -6148,6 +6455,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-673597092",
       "key": "media/inat-673597092.jpg",
       "content_type": "image/jpeg",
       "bytes": 510227,
@@ -6168,6 +6476,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-675693170",
       "key": "media/inat-675693170.jpg",
       "content_type": "image/jpeg",
       "bytes": 333813,
@@ -6188,6 +6497,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-679275911",
       "key": "media/inat-679275911.jpg",
       "content_type": "image/jpeg",
       "bytes": 513078,
@@ -6208,6 +6518,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-680074615",
       "key": "media/inat-680074615.jpg",
       "content_type": "image/jpeg",
       "bytes": 438730,
@@ -6228,6 +6539,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-684377",
       "key": "media/inat-684377.jpg",
       "content_type": "image/jpeg",
       "bytes": 162153,
@@ -6248,6 +6560,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-6881861",
       "key": "media/inat-6881861.jpg",
       "content_type": "image/jpeg",
       "bytes": 202090,
@@ -6268,6 +6581,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-695945466",
       "key": "media/inat-695945466.jpg",
       "content_type": "image/jpeg",
       "bytes": 94957,
@@ -6288,6 +6602,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-72686727",
       "key": "media/inat-72686727.jpg",
       "content_type": "image/jpeg",
       "bytes": 430766,
@@ -6308,6 +6623,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-7275325",
       "key": "media/inat-7275325.jpg",
       "content_type": "image/jpeg",
       "bytes": 155275,
@@ -6328,6 +6644,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-73226733",
       "key": "media/inat-73226733.jpg",
       "content_type": "image/jpeg",
       "bytes": 552037,
@@ -6348,6 +6665,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-733511872",
       "key": "media/inat-733511872.jpg",
       "content_type": "image/jpeg",
       "bytes": 706283,
@@ -6368,6 +6686,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-743103736",
       "key": "media/inat-743103736.jpg",
       "content_type": "image/jpeg",
       "bytes": 669801,
@@ -6388,6 +6707,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-755062981",
       "key": "media/inat-755062981.jpg",
       "content_type": "image/jpeg",
       "bytes": 738287,
@@ -6408,6 +6728,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-755977622",
       "key": "media/inat-755977622.jpg",
       "content_type": "image/jpeg",
       "bytes": 747429,
@@ -6428,6 +6749,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-757735315",
       "key": "media/inat-757735315.jpg",
       "content_type": "image/jpeg",
       "bytes": 508330,
@@ -6448,6 +6770,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-760981783",
       "key": "media/inat-760981783.jpg",
       "content_type": "image/jpeg",
       "bytes": 180464,
@@ -6468,6 +6791,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-761744890",
       "key": "media/inat-761744890.jpg",
       "content_type": "image/jpeg",
       "bytes": 726765,
@@ -6488,6 +6812,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-762213600",
       "key": "media/inat-762213600.jpg",
       "content_type": "image/jpeg",
       "bytes": 205563,
@@ -6508,6 +6833,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-762275858",
       "key": "media/inat-762275858.jpg",
       "content_type": "image/jpeg",
       "bytes": 161028,
@@ -6528,6 +6854,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-762571993",
       "key": "media/inat-762571993.jpg",
       "content_type": "image/jpeg",
       "bytes": 223797,
@@ -6548,6 +6875,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-762807278",
       "key": "media/inat-762807278.jpg",
       "content_type": "image/jpeg",
       "bytes": 308497,
@@ -6568,6 +6896,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763178710",
       "key": "media/inat-763178710.jpg",
       "content_type": "image/jpeg",
       "bytes": 818632,
@@ -6588,6 +6917,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763226395",
       "key": "media/inat-763226395.jpg",
       "content_type": "image/jpeg",
       "bytes": 328754,
@@ -6608,6 +6938,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763257758",
       "key": "media/inat-763257758.jpg",
       "content_type": "image/jpeg",
       "bytes": 291198,
@@ -6628,6 +6959,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763265107",
       "key": "media/inat-763265107.jpg",
       "content_type": "image/jpeg",
       "bytes": 189824,
@@ -6648,6 +6980,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763569506",
       "key": "media/inat-763569506.jpg",
       "content_type": "image/jpeg",
       "bytes": 328831,
@@ -6668,6 +7001,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763661436",
       "key": "media/inat-763661436.jpg",
       "content_type": "image/jpeg",
       "bytes": 271520,
@@ -6688,6 +7022,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763665132",
       "key": "media/inat-763665132.jpg",
       "content_type": "image/jpeg",
       "bytes": 267885,
@@ -6708,6 +7043,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763665567",
       "key": "media/inat-763665567.jpg",
       "content_type": "image/jpeg",
       "bytes": 190035,
@@ -6728,6 +7064,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763713553",
       "key": "media/inat-763713553.jpg",
       "content_type": "image/jpeg",
       "bytes": 422050,
@@ -6748,6 +7085,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763757802",
       "key": "media/inat-763757802.jpg",
       "content_type": "image/jpeg",
       "bytes": 493280,
@@ -6768,6 +7106,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763770890",
       "key": "media/inat-763770890.jpg",
       "content_type": "image/jpeg",
       "bytes": 218978,
@@ -6788,6 +7127,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763850591",
       "key": "media/inat-763850591.jpg",
       "content_type": "image/jpeg",
       "bytes": 239851,
@@ -6808,6 +7148,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763851254",
       "key": "media/inat-763851254.jpg",
       "content_type": "image/jpeg",
       "bytes": 288174,
@@ -6828,6 +7169,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763875315",
       "key": "media/inat-763875315.jpg",
       "content_type": "image/jpeg",
       "bytes": 300013,
@@ -6848,6 +7190,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763915280",
       "key": "media/inat-763915280.jpg",
       "content_type": "image/jpeg",
       "bytes": 387127,
@@ -6868,6 +7211,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763928052",
       "key": "media/inat-763928052.jpg",
       "content_type": "image/jpeg",
       "bytes": 103333,
@@ -6888,6 +7232,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763931935",
       "key": "media/inat-763931935.jpg",
       "content_type": "image/jpeg",
       "bytes": 410070,
@@ -6908,6 +7253,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763940583",
       "key": "media/inat-763940583.jpg",
       "content_type": "image/jpeg",
       "bytes": 303602,
@@ -6928,6 +7274,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763955635",
       "key": "media/inat-763955635.jpg",
       "content_type": "image/jpeg",
       "bytes": 604324,
@@ -6948,6 +7295,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763957016",
       "key": "media/inat-763957016.jpg",
       "content_type": "image/jpeg",
       "bytes": 566390,
@@ -6968,6 +7316,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763967221",
       "key": "media/inat-763967221.jpg",
       "content_type": "image/jpeg",
       "bytes": 445871,
@@ -6988,6 +7337,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763972598",
       "key": "media/inat-763972598.jpg",
       "content_type": "image/jpeg",
       "bytes": 916154,
@@ -7008,6 +7358,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763972621",
       "key": "media/inat-763972621.jpg",
       "content_type": "image/jpeg",
       "bytes": 563941,
@@ -7028,6 +7379,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763972805",
       "key": "media/inat-763972805.jpg",
       "content_type": "image/jpeg",
       "bytes": 703062,
@@ -7048,6 +7400,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763973267",
       "key": "media/inat-763973267.jpg",
       "content_type": "image/jpeg",
       "bytes": 775465,
@@ -7068,6 +7421,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763973916",
       "key": "media/inat-763973916.jpg",
       "content_type": "image/jpeg",
       "bytes": 770200,
@@ -7088,6 +7442,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763973931",
       "key": "media/inat-763973931.jpg",
       "content_type": "image/jpeg",
       "bytes": 760391,
@@ -7108,6 +7463,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763977837",
       "key": "media/inat-763977837.jpg",
       "content_type": "image/jpeg",
       "bytes": 249838,
@@ -7128,6 +7484,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763977966",
       "key": "media/inat-763977966.jpg",
       "content_type": "image/jpeg",
       "bytes": 146112,
@@ -7148,6 +7505,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763978133",
       "key": "media/inat-763978133.jpg",
       "content_type": "image/jpeg",
       "bytes": 642206,
@@ -7168,6 +7526,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763978572",
       "key": "media/inat-763978572.jpg",
       "content_type": "image/jpeg",
       "bytes": 1194811,
@@ -7188,6 +7547,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763978823",
       "key": "media/inat-763978823.jpg",
       "content_type": "image/jpeg",
       "bytes": 333983,
@@ -7208,6 +7568,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763983380",
       "key": "media/inat-763983380.jpg",
       "content_type": "image/jpeg",
       "bytes": 1132947,
@@ -7228,6 +7589,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763983801",
       "key": "media/inat-763983801.jpg",
       "content_type": "image/jpeg",
       "bytes": 493960,
@@ -7248,6 +7610,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763983962",
       "key": "media/inat-763983962.jpg",
       "content_type": "image/jpeg",
       "bytes": 636071,
@@ -7268,6 +7631,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763984009",
       "key": "media/inat-763984009.jpg",
       "content_type": "image/jpeg",
       "bytes": 116177,
@@ -7288,6 +7652,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763987720",
       "key": "media/inat-763987720.jpg",
       "content_type": "image/jpeg",
       "bytes": 914532,
@@ -7308,6 +7673,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763989429",
       "key": "media/inat-763989429.jpg",
       "content_type": "image/jpeg",
       "bytes": 397256,
@@ -7328,6 +7694,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763991326",
       "key": "media/inat-763991326.jpg",
       "content_type": "image/jpeg",
       "bytes": 1040112,
@@ -7348,6 +7715,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763991448",
       "key": "media/inat-763991448.jpg",
       "content_type": "image/jpeg",
       "bytes": 507019,
@@ -7368,6 +7736,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763992777",
       "key": "media/inat-763992777.jpg",
       "content_type": "image/jpeg",
       "bytes": 955964,
@@ -7388,6 +7757,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763994481",
       "key": "media/inat-763994481.jpg",
       "content_type": "image/jpeg",
       "bytes": 162512,
@@ -7408,6 +7778,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-763995057",
       "key": "media/inat-763995057.jpg",
       "content_type": "image/jpeg",
       "bytes": 213489,
@@ -7428,6 +7799,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763996351",
       "key": "media/inat-763996351.jpg",
       "content_type": "image/jpeg",
       "bytes": 269900,
@@ -7448,6 +7820,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763996399",
       "key": "media/inat-763996399.jpg",
       "content_type": "image/jpeg",
       "bytes": 215081,
@@ -7468,6 +7841,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763997472",
       "key": "media/inat-763997472.jpg",
       "content_type": "image/jpeg",
       "bytes": 314969,
@@ -7488,6 +7862,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-763998514",
       "key": "media/inat-763998514.jpg",
       "content_type": "image/jpeg",
       "bytes": 477147,
@@ -7508,6 +7883,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-764001933",
       "key": "media/inat-764001933.jpg",
       "content_type": "image/jpeg",
       "bytes": 696149,
@@ -7528,6 +7904,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-764002613",
       "key": "media/inat-764002613.jpg",
       "content_type": "image/jpeg",
       "bytes": 42624,
@@ -7548,6 +7925,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-79301180",
       "key": "media/inat-79301180.jpg",
       "content_type": "image/jpeg",
       "bytes": 510307,
@@ -7568,6 +7946,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-8197721",
       "key": "media/inat-8197721.jpeg",
       "content_type": "image/jpeg",
       "bytes": 551479,
@@ -7588,6 +7967,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-82183468",
       "key": "media/inat-82183468.jpg",
       "content_type": "image/jpeg",
       "bytes": 754259,
@@ -7608,6 +7988,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-84007288",
       "key": "media/inat-84007288.jpeg",
       "content_type": "image/jpeg",
       "bytes": 916470,
@@ -7628,6 +8009,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-84579952",
       "key": "media/inat-84579952.jpeg",
       "content_type": "image/jpeg",
       "bytes": 202815,
@@ -7648,6 +8030,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "inat-8566047",
       "key": "media/inat-8566047.png",
       "content_type": "image/png",
       "bytes": 876160,
@@ -7668,6 +8051,7 @@
       "presentation_modification_notice": "Downloaded source rendition; no local pixel modifications."
     },
     {
+      "asset_id": "inat-97419775",
       "key": "media/inat-97419775.jpg",
       "content_type": "image/jpeg",
       "bytes": 743661,
@@ -7688,6 +8072,7 @@
       "presentation_modification_notice": "BirdAhead target box overlay; downloaded source image pixels unchanged."
     },
     {
+      "asset_id": "xc-1012888",
       "key": "media/xc-1012888.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2241704,
@@ -7708,6 +8093,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1012915-clip-0175-0245",
       "key": "media/xc-1012915-clip-0175-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 268983,
@@ -7735,6 +8121,7 @@
       "presentation_modification_notice": "Derived clip 17.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1013381",
       "key": "media/xc-1013381.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2475036,
@@ -7755,6 +8142,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1013578",
       "key": "media/xc-1013578.mp3",
       "content_type": "audio/mpeg",
       "bytes": 6173756,
@@ -7775,6 +8163,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1014353-clip-0000-0125",
       "key": "media/xc-1014353-clip-0000-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 487884,
@@ -7802,6 +8191,7 @@
       "presentation_modification_notice": "Derived clip 0.0-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1014353",
       "key": "media/xc-1014353.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2782172,
@@ -7822,6 +8212,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1014494-clip-0000-0095",
       "key": "media/xc-1014494-clip-0000-0095.flac",
       "content_type": "audio/x-flac",
       "bytes": 347785,
@@ -7849,6 +8240,7 @@
       "presentation_modification_notice": "Derived clip 0.0-9.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1014494",
       "key": "media/xc-1014494.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1963920,
@@ -7869,6 +8261,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1014816",
       "key": "media/xc-1014816.mp3",
       "content_type": "audio/mpeg",
       "bytes": 3137688,
@@ -7889,6 +8282,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1014943-clip-0115-0365",
       "key": "media/xc-1014943-clip-0115-0365.flac",
       "content_type": "audio/x-flac",
       "bytes": 860938,
@@ -7916,6 +8310,7 @@
       "presentation_modification_notice": "Derived clip 11.5-36.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1014943",
       "key": "media/xc-1014943.mp3",
       "content_type": "audio/mpeg",
       "bytes": 7477292,
@@ -7936,6 +8331,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1015074-clip-0000-0065",
       "key": "media/xc-1015074-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 179537,
@@ -7963,6 +8359,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1015145",
       "key": "media/xc-1015145.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1082854,
@@ -7983,6 +8380,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-1019956",
       "key": "media/xc-1019956.mp3",
       "content_type": "audio/mpeg",
       "bytes": 827206,
@@ -8003,6 +8401,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1019968-clip-0055-0125",
       "key": "media/xc-1019968-clip-0055-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 276846,
@@ -8030,6 +8429,7 @@
       "presentation_modification_notice": "Derived clip 5.5-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1019968",
       "key": "media/xc-1019968.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1202056,
@@ -8050,6 +8450,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1020250",
       "key": "media/xc-1020250.mp3",
       "content_type": "audio/mpeg",
       "bytes": 9672748,
@@ -8070,6 +8471,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-1020451-clip-0355-0425",
       "key": "media/xc-1020451-clip-0355-0425.flac",
       "content_type": "audio/x-flac",
       "bytes": 257694,
@@ -8097,6 +8499,7 @@
       "presentation_modification_notice": "Derived clip 35.5-42.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1023080",
       "key": "media/xc-1023080.mp3",
       "content_type": "audio/mpeg",
       "bytes": 3322574,
@@ -8117,6 +8520,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-1029334-clip-0115-0215",
       "key": "media/xc-1029334-clip-0115-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 501177,
@@ -8144,6 +8548,7 @@
       "presentation_modification_notice": "Derived clip 11.5-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1029334",
       "key": "media/xc-1029334.mp3",
       "content_type": "audio/mpeg",
       "bytes": 3762482,
@@ -8164,6 +8569,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1034479-clip-0145-0215",
       "key": "media/xc-1034479-clip-0145-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 354919,
@@ -8191,6 +8597,7 @@
       "presentation_modification_notice": "Derived clip 14.5-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1051616",
       "key": "media/xc-1051616.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2021894,
@@ -8211,6 +8618,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-1059662-clip-0055-0125",
       "key": "media/xc-1059662-clip-0055-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 284001,
@@ -8238,6 +8646,7 @@
       "presentation_modification_notice": "Derived clip 5.5-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1059662",
       "key": "media/xc-1059662.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2315261,
@@ -8258,6 +8667,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1077973-clip-0000-0065",
       "key": "media/xc-1077973-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 428733,
@@ -8285,6 +8695,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1077973",
       "key": "media/xc-1077973.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1206556,
@@ -8305,6 +8716,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-109033-clip-0295-0395",
       "key": "media/xc-109033-clip-0295-0395.flac",
       "content_type": "audio/x-flac",
       "bytes": 315545,
@@ -8332,6 +8744,7 @@
       "presentation_modification_notice": "Derived clip 29.5-39.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1101449-clip-0115-0305",
       "key": "media/xc-1101449-clip-0115-0305.flac",
       "content_type": "audio/x-flac",
       "bytes": 1058243,
@@ -8359,6 +8772,7 @@
       "presentation_modification_notice": "Derived clip 11.5-30.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1101449",
       "key": "media/xc-1101449.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2055214,
@@ -8379,6 +8793,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-111490",
       "key": "media/xc-111490.mp3",
       "content_type": "audio/mpeg",
       "bytes": 294299,
@@ -8399,6 +8814,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1135218",
       "key": "media/xc-1135218.mp3",
       "content_type": "audio/mpeg",
       "bytes": 5570108,
@@ -8419,6 +8835,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1136435",
       "key": "media/xc-1136435.mp3",
       "content_type": "audio/mpeg",
       "bytes": 4820784,
@@ -8439,6 +8856,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1165181",
       "key": "media/xc-1165181.mp3",
       "content_type": "audio/mpeg",
       "bytes": 6078198,
@@ -8459,6 +8877,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-1181044-clip-0000-0065",
       "key": "media/xc-1181044-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 304144,
@@ -8486,6 +8905,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1181044",
       "key": "media/xc-1181044.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2863992,
@@ -8506,6 +8926,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1182530",
       "key": "media/xc-1182530.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2232252,
@@ -8526,6 +8947,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1185026-clip-0000-0065",
       "key": "media/xc-1185026-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 197099,
@@ -8553,6 +8975,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-1185026",
       "key": "media/xc-1185026.mp3",
       "content_type": "audio/mpeg",
       "bytes": 6875642,
@@ -8573,6 +8996,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-1190325",
       "key": "media/xc-1190325.mp3",
       "content_type": "audio/mpeg",
       "bytes": 4000534,
@@ -8593,6 +9017,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-121042",
       "key": "media/xc-121042.mp3",
       "content_type": "audio/mpeg",
       "bytes": 3007999,
@@ -8613,6 +9038,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-123367-clip-0000-0065",
       "key": "media/xc-123367-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 319142,
@@ -8640,6 +9066,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-123367",
       "key": "media/xc-123367.mp3",
       "content_type": "audio/mpeg",
       "bytes": 136138,
@@ -8660,6 +9087,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-128001-clip-0085-0185",
       "key": "media/xc-128001-clip-0085-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 384471,
@@ -8687,6 +9115,7 @@
       "presentation_modification_notice": "Derived clip 8.5-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-128001",
       "key": "media/xc-128001.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2684664,
@@ -8707,6 +9136,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-132866",
       "key": "media/xc-132866.mp3",
       "content_type": "audio/mpeg",
       "bytes": 440122,
@@ -8727,6 +9157,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-132870-clip-0565-0725",
       "key": "media/xc-132870-clip-0565-0725.flac",
       "content_type": "audio/x-flac",
       "bytes": 676987,
@@ -8754,6 +9185,7 @@
       "presentation_modification_notice": "Derived clip 56.5-72.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-132870",
       "key": "media/xc-132870.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2481702,
@@ -8774,6 +9206,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-132873-clip-0625-0695",
       "key": "media/xc-132873-clip-0625-0695.flac",
       "content_type": "audio/x-flac",
       "bytes": 317527,
@@ -8801,6 +9234,7 @@
       "presentation_modification_notice": "Derived clip 62.5-69.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-134156-clip-0625-0925",
       "key": "media/xc-134156-clip-0625-0925.flac",
       "content_type": "audio/x-flac",
       "bytes": 1218115,
@@ -8828,6 +9262,7 @@
       "presentation_modification_notice": "Derived clip 62.5-92.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-134156",
       "key": "media/xc-134156.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2779571,
@@ -8848,6 +9283,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-138626-clip-0000-0215",
       "key": "media/xc-138626-clip-0000-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 872235,
@@ -8875,6 +9311,7 @@
       "presentation_modification_notice": "Derived clip 0.0-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-138626",
       "key": "media/xc-138626.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2159888,
@@ -8895,6 +9332,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142622-clip-0235-0365",
       "key": "media/xc-142622-clip-0235-0365.flac",
       "content_type": "audio/x-flac",
       "bytes": 601706,
@@ -8922,6 +9360,7 @@
       "presentation_modification_notice": "Derived clip 23.5-36.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-142622",
       "key": "media/xc-142622.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1165512,
@@ -8942,6 +9381,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142653",
       "key": "media/xc-142653.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1286534,
@@ -8962,6 +9402,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142654-clip-0265-0335",
       "key": "media/xc-142654-clip-0265-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 244890,
@@ -8989,6 +9430,7 @@
       "presentation_modification_notice": "Derived clip 26.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-142654",
       "key": "media/xc-142654.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1779038,
@@ -9009,6 +9451,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142655-clip-0205-0455",
       "key": "media/xc-142655-clip-0205-0455.flac",
       "content_type": "audio/x-flac",
       "bytes": 934613,
@@ -9036,6 +9479,7 @@
       "presentation_modification_notice": "Derived clip 20.5-45.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-142655",
       "key": "media/xc-142655.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1909350,
@@ -9056,6 +9500,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142656-clip-0445-0605",
       "key": "media/xc-142656-clip-0445-0605.flac",
       "content_type": "audio/x-flac",
       "bytes": 604664,
@@ -9083,6 +9528,7 @@
       "presentation_modification_notice": "Derived clip 44.5-60.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-142656",
       "key": "media/xc-142656.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2384507,
@@ -9103,6 +9549,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-142657-clip-0000-0095",
       "key": "media/xc-142657-clip-0000-0095.flac",
       "content_type": "audio/x-flac",
       "bytes": 339683,
@@ -9130,6 +9577,7 @@
       "presentation_modification_notice": "Derived clip 0.0-9.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-142657",
       "key": "media/xc-142657.mp3",
       "content_type": "audio/mpeg",
       "bytes": 328678,
@@ -9150,6 +9598,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-143183-clip-0325-0625",
       "key": "media/xc-143183-clip-0325-0625.flac",
       "content_type": "audio/x-flac",
       "bytes": 1288882,
@@ -9177,6 +9626,7 @@
       "presentation_modification_notice": "Derived clip 32.5-62.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-143183",
       "key": "media/xc-143183.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1546361,
@@ -9197,6 +9647,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-161349-clip-0295-0595",
       "key": "media/xc-161349-clip-0295-0595.flac",
       "content_type": "audio/x-flac",
       "bytes": 1199052,
@@ -9224,6 +9675,7 @@
       "presentation_modification_notice": "Derived clip 29.5-59.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-161349",
       "key": "media/xc-161349.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2110421,
@@ -9244,6 +9696,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-161578-clip-0000-0300",
       "key": "media/xc-161578-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 1168133,
@@ -9271,6 +9724,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-161578",
       "key": "media/xc-161578.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1252078,
@@ -9291,6 +9745,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-161579-clip-0115-0245",
       "key": "media/xc-161579-clip-0115-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 553379,
@@ -9318,6 +9773,7 @@
       "presentation_modification_notice": "Derived clip 11.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-161579",
       "key": "media/xc-161579.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1405337,
@@ -9338,6 +9794,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-171662-clip-0000-0275",
       "key": "media/xc-171662-clip-0000-0275.flac",
       "content_type": "audio/x-flac",
       "bytes": 1341974,
@@ -9365,6 +9822,7 @@
       "presentation_modification_notice": "Derived clip 0.0-27.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-171662",
       "key": "media/xc-171662.mp3",
       "content_type": "audio/mpeg",
       "bytes": 724614,
@@ -9385,6 +9843,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-175094-clip-0000-0185",
       "key": "media/xc-175094-clip-0000-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 742707,
@@ -9412,6 +9871,7 @@
       "presentation_modification_notice": "Derived clip 0.0-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-175095-clip-0000-0065",
       "key": "media/xc-175095-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 267446,
@@ -9439,6 +9899,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-175095",
       "key": "media/xc-175095.mp3",
       "content_type": "audio/mpeg",
       "bytes": 263472,
@@ -9459,6 +9920,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-175228-clip-0355-0455",
       "key": "media/xc-175228-clip-0355-0455.flac",
       "content_type": "audio/x-flac",
       "bytes": 392347,
@@ -9486,6 +9948,7 @@
       "presentation_modification_notice": "Derived clip 35.5-45.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-175231-clip-0000-0300",
       "key": "media/xc-175231-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 1243281,
@@ -9513,6 +9976,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-175231",
       "key": "media/xc-175231.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2741694,
@@ -9533,6 +9997,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-175244",
       "key": "media/xc-175244.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2440247,
@@ -9553,6 +10018,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-177728",
       "key": "media/xc-177728.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1235697,
@@ -9573,6 +10039,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-178126-clip-0000-0300",
       "key": "media/xc-178126-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 1217148,
@@ -9600,6 +10067,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-178126",
       "key": "media/xc-178126.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1681622,
@@ -9620,6 +10088,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-178138",
       "key": "media/xc-178138.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2200644,
@@ -9640,6 +10109,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-179673",
       "key": "media/xc-179673.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2023768,
@@ -9660,6 +10130,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-179707-clip-0055-0125",
       "key": "media/xc-179707-clip-0055-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 250017,
@@ -9687,6 +10158,7 @@
       "presentation_modification_notice": "Derived clip 5.5-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-179707",
       "key": "media/xc-179707.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1469636,
@@ -9707,6 +10179,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-191961-clip-0025-0125",
       "key": "media/xc-191961-clip-0025-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 415447,
@@ -9734,6 +10207,7 @@
       "presentation_modification_notice": "Derived clip 2.5-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-191961",
       "key": "media/xc-191961.mp3",
       "content_type": "audio/mpeg",
       "bytes": 214884,
@@ -9754,6 +10228,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-205553-clip-0235-0365",
       "key": "media/xc-205553-clip-0235-0365.flac",
       "content_type": "audio/x-flac",
       "bytes": 650974,
@@ -9781,6 +10256,7 @@
       "presentation_modification_notice": "Derived clip 23.5-36.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-210986-clip-0000-0300",
       "key": "media/xc-210986-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 1738760,
@@ -9808,6 +10284,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-210986",
       "key": "media/xc-210986.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1930331,
@@ -9828,6 +10305,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-212480-clip-0325-0485",
       "key": "media/xc-212480-clip-0325-0485.flac",
       "content_type": "audio/x-flac",
       "bytes": 576375,
@@ -9855,6 +10333,7 @@
       "presentation_modification_notice": "Derived clip 32.5-48.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-239633-clip-0115-0335",
       "key": "media/xc-239633-clip-0115-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 1086076,
@@ -9882,6 +10361,7 @@
       "presentation_modification_notice": "Derived clip 11.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-239633",
       "key": "media/xc-239633.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1081551,
@@ -9902,6 +10382,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-28264-clip-0055-0185",
       "key": "media/xc-28264-clip-0055-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 682928,
@@ -9929,6 +10410,7 @@
       "presentation_modification_notice": "Derived clip 5.5-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-320440",
       "key": "media/xc-320440.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1837797,
@@ -9949,6 +10431,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-326731-clip-0355-0425",
       "key": "media/xc-326731-clip-0355-0425.flac",
       "content_type": "audio/x-flac",
       "bytes": 367799,
@@ -9976,6 +10459,7 @@
       "presentation_modification_notice": "Derived clip 35.5-42.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-326731",
       "key": "media/xc-326731.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1848566,
@@ -9996,6 +10480,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-361770-clip-0000-0095",
       "key": "media/xc-361770-clip-0000-0095.flac",
       "content_type": "audio/x-flac",
       "bytes": 490207,
@@ -10023,6 +10508,7 @@
       "presentation_modification_notice": "Derived clip 0.0-9.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-371803-clip-0175-0455",
       "key": "media/xc-371803-clip-0175-0455.flac",
       "content_type": "audio/x-flac",
       "bytes": 825272,
@@ -10050,6 +10536,7 @@
       "presentation_modification_notice": "Derived clip 17.5-45.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-371803",
       "key": "media/xc-371803.mp3",
       "content_type": "audio/mpeg",
       "bytes": 973169,
@@ -10070,6 +10557,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-428425-clip-0000-0125",
       "key": "media/xc-428425-clip-0000-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 664662,
@@ -10097,6 +10585,7 @@
       "presentation_modification_notice": "Derived clip 0.0-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-428425",
       "key": "media/xc-428425.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1775275,
@@ -10117,6 +10606,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-430781",
       "key": "media/xc-430781.mp3",
       "content_type": "audio/mpeg",
       "bytes": 399180,
@@ -10137,6 +10627,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-433095-clip-0115-0185",
       "key": "media/xc-433095-clip-0115-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 218814,
@@ -10164,6 +10655,7 @@
       "presentation_modification_notice": "Derived clip 11.5-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-433095",
       "key": "media/xc-433095.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1581710,
@@ -10184,6 +10676,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-445084-clip-0355-0545",
       "key": "media/xc-445084-clip-0355-0545.flac",
       "content_type": "audio/x-flac",
       "bytes": 1090518,
@@ -10211,6 +10704,7 @@
       "presentation_modification_notice": "Derived clip 35.5-54.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-445084",
       "key": "media/xc-445084.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1448419,
@@ -10231,6 +10725,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-454671",
       "key": "media/xc-454671.mp3",
       "content_type": "audio/mpeg",
       "bytes": 706444,
@@ -10251,6 +10746,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-455506",
       "key": "media/xc-455506.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1456355,
@@ -10271,6 +10767,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-460854-clip-0000-0300",
       "key": "media/xc-460854-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 994848,
@@ -10298,6 +10795,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-460854",
       "key": "media/xc-460854.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1085440,
@@ -10318,6 +10816,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-476498-clip-0085-0215",
       "key": "media/xc-476498-clip-0085-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 452225,
@@ -10345,6 +10844,7 @@
       "presentation_modification_notice": "Derived clip 8.5-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-476498",
       "key": "media/xc-476498.mp3",
       "content_type": "audio/mpeg",
       "bytes": 598499,
@@ -10365,6 +10865,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-476933-clip-0000-0065",
       "key": "media/xc-476933-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 202011,
@@ -10392,6 +10893,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-476933",
       "key": "media/xc-476933.mp3",
       "content_type": "audio/mpeg",
       "bytes": 240790,
@@ -10412,6 +10914,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-477560-clip-0415-0515",
       "key": "media/xc-477560-clip-0415-0515.flac",
       "content_type": "audio/x-flac",
       "bytes": 437612,
@@ -10439,6 +10942,7 @@
       "presentation_modification_notice": "Derived clip 41.5-51.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-477560",
       "key": "media/xc-477560.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2984214,
@@ -10459,6 +10963,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-499563-clip-0055-0355",
       "key": "media/xc-499563-clip-0055-0355.flac",
       "content_type": "audio/x-flac",
       "bytes": 1470087,
@@ -10486,6 +10991,7 @@
       "presentation_modification_notice": "Derived clip 5.5-35.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-499563",
       "key": "media/xc-499563.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2059970,
@@ -10506,6 +11012,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-510713",
       "key": "media/xc-510713.mp3",
       "content_type": "audio/mpeg",
       "bytes": 582438,
@@ -10526,6 +11033,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-560754-clip-0745-0845",
       "key": "media/xc-560754-clip-0745-0845.flac",
       "content_type": "audio/x-flac",
       "bytes": 422114,
@@ -10553,6 +11061,7 @@
       "presentation_modification_notice": "Derived clip 74.5-84.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-567239-clip-0000-0215",
       "key": "media/xc-567239-clip-0000-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 855509,
@@ -10580,6 +11089,7 @@
       "presentation_modification_notice": "Derived clip 0.0-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-567239",
       "key": "media/xc-567239.mp3",
       "content_type": "audio/mpeg",
       "bytes": 332785,
@@ -10600,6 +11110,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-578523-clip-0175-0275",
       "key": "media/xc-578523-clip-0175-0275.flac",
       "content_type": "audio/x-flac",
       "bytes": 411234,
@@ -10627,6 +11138,7 @@
       "presentation_modification_notice": "Derived clip 17.5-27.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-578523",
       "key": "media/xc-578523.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1367148,
@@ -10647,6 +11159,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-579016-clip-0295-0455",
       "key": "media/xc-579016-clip-0295-0455.flac",
       "content_type": "audio/x-flac",
       "bytes": 757055,
@@ -10674,6 +11187,7 @@
       "presentation_modification_notice": "Derived clip 29.5-45.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-579016",
       "key": "media/xc-579016.mp3",
       "content_type": "audio/mpeg",
       "bytes": 583141,
@@ -10694,6 +11208,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-58491-clip-0145-0215",
       "key": "media/xc-58491-clip-0145-0215.flac",
       "content_type": "audio/x-flac",
       "bytes": 434919,
@@ -10721,6 +11236,7 @@
       "presentation_modification_notice": "Derived clip 14.5-21.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-58491",
       "key": "media/xc-58491.mp3",
       "content_type": "audio/mpeg",
       "bytes": 419789,
@@ -10741,6 +11257,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-590595-clip-0205-0335",
       "key": "media/xc-590595-clip-0205-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 630556,
@@ -10768,6 +11285,7 @@
       "presentation_modification_notice": "Derived clip 20.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-590595",
       "key": "media/xc-590595.mp3",
       "content_type": "audio/mpeg",
       "bytes": 436335,
@@ -10788,6 +11306,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-600081-clip-0000-0065",
       "key": "media/xc-600081-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 240003,
@@ -10815,6 +11334,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-601503-clip-0355-0485",
       "key": "media/xc-601503-clip-0355-0485.flac",
       "content_type": "audio/x-flac",
       "bytes": 673821,
@@ -10842,6 +11362,7 @@
       "presentation_modification_notice": "Derived clip 35.5-48.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-601503",
       "key": "media/xc-601503.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1916093,
@@ -10862,6 +11383,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-609706-clip-1195-1265",
       "key": "media/xc-609706-clip-1195-1265.flac",
       "content_type": "audio/x-flac",
       "bytes": 324045,
@@ -10889,6 +11411,7 @@
       "presentation_modification_notice": "Derived clip 119.5-126.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-614738-clip-0085-0275",
       "key": "media/xc-614738-clip-0085-0275.flac",
       "content_type": "audio/x-flac",
       "bytes": 782406,
@@ -10916,6 +11439,7 @@
       "presentation_modification_notice": "Derived clip 8.5-27.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-614738",
       "key": "media/xc-614738.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1051878,
@@ -10936,6 +11460,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-62259-clip-0000-0300",
       "key": "media/xc-62259-clip-0000-0300.flac",
       "content_type": "audio/x-flac",
       "bytes": 1017802,
@@ -10963,6 +11488,7 @@
       "presentation_modification_notice": "Derived clip 0.0-30.0s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-62259",
       "key": "media/xc-62259.mp3",
       "content_type": "audio/mpeg",
       "bytes": 616928,
@@ -10983,6 +11509,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-624505-clip-0025-0125",
       "key": "media/xc-624505-clip-0025-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 537338,
@@ -11010,6 +11537,7 @@
       "presentation_modification_notice": "Derived clip 2.5-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-624505",
       "key": "media/xc-624505.mp3",
       "content_type": "audio/mpeg",
       "bytes": 3178593,
@@ -11030,6 +11558,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-636461-clip-0385-0485",
       "key": "media/xc-636461-clip-0385-0485.flac",
       "content_type": "audio/x-flac",
       "bytes": 417880,
@@ -11057,6 +11586,7 @@
       "presentation_modification_notice": "Derived clip 38.5-48.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-636461",
       "key": "media/xc-636461.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2371442,
@@ -11077,6 +11607,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-642029-clip-0000-0065",
       "key": "media/xc-642029-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 225124,
@@ -11104,6 +11635,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-642029",
       "key": "media/xc-642029.mp3",
       "content_type": "audio/mpeg",
       "bytes": 159584,
@@ -11124,6 +11656,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-645989-clip-0205-0275",
       "key": "media/xc-645989-clip-0205-0275.flac",
       "content_type": "audio/x-flac",
       "bytes": 208037,
@@ -11151,6 +11684,7 @@
       "presentation_modification_notice": "Derived clip 20.5-27.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-648457-clip-0385-0515",
       "key": "media/xc-648457-clip-0385-0515.flac",
       "content_type": "audio/x-flac",
       "bytes": 512601,
@@ -11178,6 +11712,7 @@
       "presentation_modification_notice": "Derived clip 38.5-51.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-648457",
       "key": "media/xc-648457.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2761853,
@@ -11198,6 +11733,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-650977-clip-0025-0325",
       "key": "media/xc-650977-clip-0025-0325.flac",
       "content_type": "audio/x-flac",
       "bytes": 1226964,
@@ -11225,6 +11761,7 @@
       "presentation_modification_notice": "Derived clip 2.5-32.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-650977",
       "key": "media/xc-650977.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1567673,
@@ -11245,6 +11782,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-677300-clip-0115-0415",
       "key": "media/xc-677300-clip-0115-0415.flac",
       "content_type": "audio/x-flac",
       "bytes": 1181909,
@@ -11272,6 +11810,7 @@
       "presentation_modification_notice": "Derived clip 11.5-41.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-677300",
       "key": "media/xc-677300.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1420926,
@@ -11292,6 +11831,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-682428",
       "key": "media/xc-682428.mp3",
       "content_type": "audio/mpeg",
       "bytes": 255527,
@@ -11312,6 +11852,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-682551-clip-0055-0185",
       "key": "media/xc-682551-clip-0055-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 697823,
@@ -11339,6 +11880,7 @@
       "presentation_modification_notice": "Derived clip 5.5-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-682551",
       "key": "media/xc-682551.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1353759,
@@ -11359,6 +11901,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-691623-clip-0025-0095",
       "key": "media/xc-691623-clip-0025-0095.flac",
       "content_type": "audio/x-flac",
       "bytes": 211616,
@@ -11386,6 +11929,7 @@
       "presentation_modification_notice": "Derived clip 2.5-9.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-720922",
       "key": "media/xc-720922.mp3",
       "content_type": "audio/mpeg",
       "bytes": 760267,
@@ -11406,6 +11950,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-729870-clip-0475-0635",
       "key": "media/xc-729870-clip-0475-0635.flac",
       "content_type": "audio/x-flac",
       "bytes": 614786,
@@ -11433,6 +11978,7 @@
       "presentation_modification_notice": "Derived clip 47.5-63.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-732601-clip-0775-0875",
       "key": "media/xc-732601-clip-0775-0875.flac",
       "content_type": "audio/x-flac",
       "bytes": 523828,
@@ -11460,6 +12006,7 @@
       "presentation_modification_notice": "Derived clip 77.5-87.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-733937-clip-0000-0185",
       "key": "media/xc-733937-clip-0000-0185.flac",
       "content_type": "audio/x-flac",
       "bytes": 835981,
@@ -11487,6 +12034,7 @@
       "presentation_modification_notice": "Derived clip 0.0-18.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-733937",
       "key": "media/xc-733937.mp3",
       "content_type": "audio/mpeg",
       "bytes": 427097,
@@ -11507,6 +12055,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-756861-clip-0745-0965",
       "key": "media/xc-756861-clip-0745-0965.flac",
       "content_type": "audio/x-flac",
       "bytes": 817612,
@@ -11534,6 +12083,7 @@
       "presentation_modification_notice": "Derived clip 74.5-96.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-757868-clip-0055-0155",
       "key": "media/xc-757868-clip-0055-0155.flac",
       "content_type": "audio/x-flac",
       "bytes": 448884,
@@ -11561,6 +12111,7 @@
       "presentation_modification_notice": "Derived clip 5.5-15.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-757868",
       "key": "media/xc-757868.mp3",
       "content_type": "audio/mpeg",
       "bytes": 444684,
@@ -11581,6 +12132,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-778671-clip-0025-0155",
       "key": "media/xc-778671-clip-0025-0155.flac",
       "content_type": "audio/x-flac",
       "bytes": 681252,
@@ -11608,6 +12160,7 @@
       "presentation_modification_notice": "Derived clip 2.5-15.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-786109-clip-0145-0335",
       "key": "media/xc-786109-clip-0145-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 552938,
@@ -11635,6 +12188,7 @@
       "presentation_modification_notice": "Derived clip 14.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-786109",
       "key": "media/xc-786109.mp3",
       "content_type": "audio/mpeg",
       "bytes": 930830,
@@ -11655,6 +12209,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-786561-clip-0175-0245",
       "key": "media/xc-786561-clip-0175-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 255700,
@@ -11682,6 +12237,7 @@
       "presentation_modification_notice": "Derived clip 17.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-786561",
       "key": "media/xc-786561.mp3",
       "content_type": "audio/mpeg",
       "bytes": 740763,
@@ -11702,6 +12258,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-795949",
       "key": "media/xc-795949.mp3",
       "content_type": "audio/mpeg",
       "bytes": 5419711,
@@ -11722,6 +12279,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-797998-clip-0000-0125",
       "key": "media/xc-797998-clip-0000-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 448958,
@@ -11749,6 +12307,7 @@
       "presentation_modification_notice": "Derived clip 0.0-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-797998",
       "key": "media/xc-797998.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1809324,
@@ -11769,6 +12328,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-799650-clip-0205-0275",
       "key": "media/xc-799650-clip-0205-0275.flac",
       "content_type": "audio/x-flac",
       "bytes": 322528,
@@ -11796,6 +12356,7 @@
       "presentation_modification_notice": "Derived clip 20.5-27.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-799650",
       "key": "media/xc-799650.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2463306,
@@ -11816,6 +12377,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-817783-clip-0175-0245",
       "key": "media/xc-817783-clip-0175-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 500498,
@@ -11843,6 +12405,7 @@
       "presentation_modification_notice": "Derived clip 17.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-818911-clip-0000-0065",
       "key": "media/xc-818911-clip-0000-0065.flac",
       "content_type": "audio/x-flac",
       "bytes": 243841,
@@ -11870,6 +12433,7 @@
       "presentation_modification_notice": "Derived clip 0.0-6.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-818911",
       "key": "media/xc-818911.mp3",
       "content_type": "audio/mpeg",
       "bytes": 6805852,
@@ -11890,6 +12454,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-819785",
       "key": "media/xc-819785.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1239278,
@@ -11910,6 +12475,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-821698",
       "key": "media/xc-821698.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2156886,
@@ -11930,6 +12496,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-827249-clip-0205-0335",
       "key": "media/xc-827249-clip-0205-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 488524,
@@ -11957,6 +12524,7 @@
       "presentation_modification_notice": "Derived clip 20.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-827249",
       "key": "media/xc-827249.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1399189,
@@ -11977,6 +12545,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-828427-clip-0205-0395",
       "key": "media/xc-828427-clip-0205-0395.flac",
       "content_type": "audio/x-flac",
       "bytes": 668375,
@@ -12004,6 +12573,7 @@
       "presentation_modification_notice": "Derived clip 20.5-39.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-828427",
       "key": "media/xc-828427.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1709702,
@@ -12024,6 +12594,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-829402-clip-0000-0125",
       "key": "media/xc-829402-clip-0000-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 446499,
@@ -12051,6 +12622,7 @@
       "presentation_modification_notice": "Derived clip 0.0-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-859371",
       "key": "media/xc-859371.mp3",
       "content_type": "audio/mpeg",
       "bytes": 265649,
@@ -12071,6 +12643,7 @@
       "presentation_modification_notice": null
     },
     {
+      "asset_id": "xc-884282",
       "key": "media/xc-884282.mp3",
       "content_type": "audio/mpeg",
       "bytes": 4850240,
@@ -12091,6 +12664,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-884698-clip-0175-0245",
       "key": "media/xc-884698-clip-0175-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 299760,
@@ -12118,6 +12692,7 @@
       "presentation_modification_notice": "Derived clip 17.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-884698",
       "key": "media/xc-884698.mp3",
       "content_type": "audio/mpeg",
       "bytes": 1039786,
@@ -12138,6 +12713,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-890146",
       "key": "media/xc-890146.mp3",
       "content_type": "audio/mpeg",
       "bytes": 5531390,
@@ -12158,6 +12734,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-907204",
       "key": "media/xc-907204.mp3",
       "content_type": "audio/mpeg",
       "bytes": 7608470,
@@ -12178,6 +12755,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-918482-clip-0000-0095",
       "key": "media/xc-918482-clip-0000-0095.flac",
       "content_type": "audio/x-flac",
       "bytes": 302740,
@@ -12205,6 +12783,7 @@
       "presentation_modification_notice": "Derived clip 0.0-9.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-918482",
       "key": "media/xc-918482.mp3",
       "content_type": "audio/mpeg",
       "bytes": 532660,
@@ -12225,6 +12804,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-933584-clip-0235-0335",
       "key": "media/xc-933584-clip-0235-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 531392,
@@ -12252,6 +12832,7 @@
       "presentation_modification_notice": "Derived clip 23.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-938797-clip-0235-0335",
       "key": "media/xc-938797-clip-0235-0335.flac",
       "content_type": "audio/x-flac",
       "bytes": 502791,
@@ -12279,6 +12860,7 @@
       "presentation_modification_notice": "Derived clip 23.5-33.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-938797",
       "key": "media/xc-938797.mp3",
       "content_type": "audio/mpeg",
       "bytes": 565290,
@@ -12299,6 +12881,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-955584-clip-0145-0305",
       "key": "media/xc-955584-clip-0145-0305.flac",
       "content_type": "audio/x-flac",
       "bytes": 740982,
@@ -12326,6 +12909,7 @@
       "presentation_modification_notice": "Derived clip 14.5-30.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-955584",
       "key": "media/xc-955584.mp3",
       "content_type": "audio/mpeg",
       "bytes": 2320801,
@@ -12346,6 +12930,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-96532-clip-0000-0125",
       "key": "media/xc-96532-clip-0000-0125.flac",
       "content_type": "audio/x-flac",
       "bytes": 605850,
@@ -12373,6 +12958,7 @@
       "presentation_modification_notice": "Derived clip 0.0-12.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-96532",
       "key": "media/xc-96532.mp3",
       "content_type": "audio/mpeg",
       "bytes": 386921,
@@ -12393,6 +12979,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-99544-clip-0055-0245",
       "key": "media/xc-99544-clip-0055-0245.flac",
       "content_type": "audio/x-flac",
       "bytes": 972187,
@@ -12420,6 +13007,7 @@
       "presentation_modification_notice": "Derived clip 5.5-24.5s of the original recording; source file unchanged."
     },
     {
+      "asset_id": "xc-99544",
       "key": "media/xc-99544.mp3",
       "content_type": "audio/mpeg",
       "bytes": 401478,
@@ -12440,6 +13028,7 @@
       "presentation_modification_notice": "Downloaded source recording; no local audio modification."
     },
     {
+      "asset_id": "xc-99546-clip-0085-0155",
       "key": "media/xc-99546-clip-0085-0155.flac",
       "content_type": "audio/x-flac",
       "bytes": 334079,

@@ -48,7 +48,7 @@ def build(release_path=RELEASE, output=OUTPUT):
         derivative = isinstance(asset.get('derivative_of'), dict)
         restrictions[(asset.get('license_code') or 'unknown', asset.get('source') or 'unknown', derivative)] += 1
         objects.append({
-            'key': key, 'content_type': content_type, 'bytes': len(raw), 'sha256': asset['sha256'],
+            'asset_id': asset['id'], 'key': key, 'content_type': content_type, 'bytes': len(raw), 'sha256': asset['sha256'],
             'kind': asset['kind'], 'species_code': asset['species_code'], 'creator': asset['creator'],
             'license_code': asset.get('license_code'), 'license_url': asset.get('license_url'),
             'attribution': asset.get('attribution'), 'source': asset.get('source'),

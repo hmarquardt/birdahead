@@ -35,9 +35,10 @@ def main():
     issues = []
     for name in filter(None, names):
         path = Path(name)
-        if (PRIVATE_PARTS.intersection(path.parts) or path.suffix.lower() in MEDIA or path.name.startswith(('.env','.dev.vars'))
+        public_icon = name.startswith('app/public/') and path.suffix.lower() == '.png'
+        if ((not public_icon) and (PRIVATE_PARTS.intersection(path.parts) or path.suffix.lower() in MEDIA or path.name.startswith(('.env','.dev.vars'))
             or path.name.endswith('_barchart.txt') or path.name.startswith(('ebd_', 'ebd_sampling_'))
-            or name.startswith(RESTRICTED_PREFIXES) or name in RESTRICTED_FILES):
+            or name.startswith(RESTRICTED_PREFIXES) or name in RESTRICTED_FILES)):
             issues.append(f'restricted artifact: {name}')
             continue
         # Scan the index, which is exactly what a commit would publish.

@@ -1,0 +1,10 @@
+{
+  "schema": "birdahead-learner-export-v1",
+  "source_database": "learning.sqlite",
+  "attempts": 0,
+  "flags": 0,
+  "sessions_available": 0,
+  "import_sql_private": "/Users/hmarquardt/birdahead/experiments/private/production/learner-export/learner-progress.sql",
+  "import_statement": "wrangler d1 execute DB --remote --file <private-sql>",
+  "note": "Profiles are seeded by migration. Only idempotent attempts/flags are imported; active local sessions are not resumed."
+}

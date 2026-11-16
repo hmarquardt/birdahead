@@ -1354,3 +1354,27 @@ footer > span {
     overflow-x: hidden;
   }
 }
+
+/* Production household sign-in and connection status. */
+.login-shell { min-height: 100svh; display: grid; place-items: center; padding: 24px; background: radial-gradient(circle at 20% 0%, #e7eed8, transparent 55%), var(--bg, #f8f7f2); }
+.login-card { width: min(560px, 100%); background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: clamp(24px, 5vw, 48px); box-shadow: 0 22px 70px rgba(35,58,51,.10); }
+.login-card .brandmark { width: 56px; height: 56px; margin-bottom: 24px; background: var(--forest); color: var(--lime); }
+.login-card h1 { font-size: clamp(40px, 8vw, 64px); }
+.login-form { display: grid; gap: 16px; margin-top: 24px; }
+.login-form label { display: grid; gap: 7px; font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.login-form input { min-height: 50px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; font-size: 16px; background: #fff; }
+.login-form .primary { min-height: 52px; }
+.profile { align-items: center; }
+.profile-name { font-size: 13px; }
+.sign-out { font-size: 11px; color: var(--muted); }
+.connection { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.connection::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #9aa79b; }
+.connection.online::before { background: #6f9d55; }
+.connection.offline::before { background: #b47e2a; }
+@media (max-width: 750px) {
+  .login-shell { padding: max(16px, env(safe-area-inset-top)) 14px max(16px, env(safe-area-inset-bottom)); }
+  .login-card { border-radius: 18px; }
+  .profile { gap: 8px; }
+  .profile-name { max-width: 80px; overflow: hidden; text-overflow: ellipsis; }
+  .sign-out { min-height: 44px; }
+}

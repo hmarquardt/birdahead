@@ -4,18 +4,27 @@ import "./style.css";
 
 type Row = Record<string, any>;
 async function api(path: string, body?: Row) {
-  const response = await fetch(
-    "/api/" + path,
-    body
+  const response = await fetch("/api/" + path, {
+    credentials: "same-origin",
+    ...(body
       ? {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "X-BirdAhead-Request": "1",
+          },
           body: JSON.stringify(body),
         }
-      : undefined,
-  );
-  const data = await response.json();
-  if (!response.ok) throw Error(data.error ?? "Request failed");
+      : {}),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    if (response.status === 401 && path !== "login")
+      window.dispatchEvent(new Event("birdahead-auth-expired"));
+    const error = Error(data.error ?? "Request failed") as Error & { status?: number };
+    error.status = response.status;
+    throw error;
+  }
   return data;
 }
 const pct = (n: number | null) =>
@@ -317,10 +326,61 @@ function CoverageView({ data }: { data: Row | null }) {
   );
 }
 
+
+function Login({ onLogin }: { onLogin: (id: string, name: string) => void }) {
+  const [who, setWho] = useState<"hank" | "heather">("hank");
+  const [key, setKey] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+  async function submit(event: React.FormEvent) {
+    event.preventDefault();
+    if (busy) return;
+    setBusy(true); setMessage("");
+    try {
+      const result = await api("login", { profile: who, key });
+      setKey("");
+      onLogin(result.profile_id, result.name);
+    } catch (error) {
+      setMessage((error as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <main className="login-shell">
+      <section className="login-card">
+        <div className="brandmark"><Icon type="bird" /></div>
+        <span className="eyebrow">PRIVATE HOUSEHOLD BIRD PRACTICE</span>
+        <h1>Welcome to<br /><em>BirdAhead.</em></h1>
+        <p>Sign in with your household access key. Progress stays with your own profile.</p>
+        <form className="login-form" onSubmit={submit}>
+          <div className="segmented" aria-label="Learner access">
+            {(["hank", "heather"] as const).map((id) => (
+              <button key={id} type="button" className={who === id ? "selected" : ""} onClick={() => setWho(id)} aria-pressed={who === id}>
+                {id === "hank" ? "Hank" : "Heather"}
+              </button>
+            ))}
+          </div>
+          <label>
+            Access key
+            <input type="password" value={key} onChange={(event) => setKey(event.target.value)} autoComplete="current-password" required minLength={16} maxLength={256} placeholder="Your private household key" />
+          </label>
+          {message && <p className="error" role="alert">{message}</p>}
+          <button className="primary" disabled={busy}>{busy ? "Checking…" : "Sign in"} <Icon type="arrow" /></button>
+        </form>
+        <p className="fine">No public registration, email recovery or third-party identity provider. Keys are stored only as Cloudflare Worker secrets.</p>
+      </section>
+    </main>
+  );
+}
+
 function App() {
   const [boot, setBoot] = useState<Row | null>(null),
     [error, setError] = useState(""),
     [tab, setTab] = useState("prepare");
+  const [auth, setAuth] = useState<"checking" | "in" | "out" | "local">("checking");
+  const [authName, setAuthName] = useState("");
+  const [online, setOnline] = useState(navigator.onLine);
   const [profile, setProfile] = useState(
     localStorage.getItem("birdahead-profile") ?? "birder-1",
   );
@@ -357,6 +417,31 @@ function App() {
       setBusy(false);
     }
   }
+  useEffect(() => {
+    let active = true;
+    fetch("/api/session", { credentials: "same-origin" })
+      .then(async (response) => {
+        if (!active) return;
+        if (response.status === 404) { setAuth("local"); return; }
+        if (!response.ok) { setAuth("out"); return; }
+        const data = await response.json();
+        setAuth("in");
+        setAuthName(data.name ?? data.profile_id ?? "Learner");
+        setProfile(data.profile_id ?? "hank");
+      })
+      .catch(() => active && setAuth("out"));
+    const expired = () => setAuth("out");
+    window.addEventListener("birdahead-auth-expired", expired);
+    const updateOnline = () => setOnline(navigator.onLine);
+    window.addEventListener("online", updateOnline);
+    window.addEventListener("offline", updateOnline);
+    return () => {
+      active = false;
+      window.removeEventListener("birdahead-auth-expired", expired);
+      window.removeEventListener("online", updateOnline);
+      window.removeEventListener("offline", updateOnline);
+    };
+  }, []);
   async function refresh() {
     const [b, r, p, cv] = await Promise.all([
       api("bootstrap"),
@@ -370,6 +455,7 @@ function App() {
     setCoverage(cv);
   }
   useEffect(() => {
+    if (auth === "checking" || auth === "out") return;
     let active = true;
     Promise.all([
       api("bootstrap"),
@@ -391,8 +477,9 @@ function App() {
     return () => {
       active = false;
     };
-  }, [profile, location, day]);
+  }, [auth, profile, location, day]);
   useEffect(() => {
+    if (auth === "checking" || auth === "out") return;
     const id = localStorage.getItem(`birdahead-session-${profile}`);
     if (id)
       api(`sessions/${id}`)
@@ -405,7 +492,7 @@ function App() {
     else setSession(null);
     setReveal(null);
     setRecall(null);
-  }, [profile]);
+  }, [auth, profile]);
   useEffect(() => {
     if (!session || session.done) return;
     const timer = setInterval(() => setSeconds((s) => s + 1), 1000);
@@ -494,6 +581,19 @@ function App() {
       await refresh();
     });
   }
+  async function signOut() {
+    await run(async () => {
+      try { await api("logout", {}); } finally {
+        setAuth("out"); setAuthName(""); setBoot(null); setSession(null);
+        setReveal(null); setRecall(null);
+        localStorage.removeItem(`birdahead-session-${profile}`);
+      }
+    });
+  }
+  if (auth === "checking")
+    return <main className="login-shell"><p className="loading">Opening the field notebook…</p></main>;
+  if (auth === "out")
+    return <Login onLogin={(id, name) => { setProfile(id); setAuthName(name); setAuth("in"); setBoot(null); setTab("prepare"); localStorage.setItem("birdahead-profile", id); }} />;
   const q = session?.question,
     shown = reveal ?? recall;
   const ready = boot !== null;
@@ -516,26 +616,25 @@ function App() {
           </span>
         </a>
         <div className="profile">
-          <span className="avatar">{profile === "birder-1" ? "01" : "02"}</span>
-          <label className="sr-only" htmlFor="learner">
-            Learner
-          </label>
-          <select
-            id="learner"
-            value={profile}
-            onChange={(e) => setProfile(e.target.value)}
-          >
-            {(
-              boot?.profiles ?? [
-                { id: "birder-1", name: "Birder 1" },
-                { id: "birder-2", name: "Birder 2" },
-              ]
-            ).map((p: Row) => (
-              <option key={p.id} value={p.id}>
-                {p.name}
-              </option>
-            ))}
-          </select>
+          <span className={`connection ${online ? "online" : "offline"}`} aria-live="polite">
+            {online ? "Online" : "Offline"}
+          </span>
+          <span className="avatar">{auth === "local" ? (profile === "birder-1" ? "01" : "02") : (profile === "heather" ? "02" : "01")}</span>
+          {auth === "local" ? (
+            <>
+              <label className="sr-only" htmlFor="learner">Learner</label>
+              <select id="learner" value={profile} onChange={(e) => setProfile(e.target.value)}>
+                {(boot?.profiles ?? [{ id: "birder-1", name: "Birder 1" }, { id: "birder-2", name: "Birder 2" }]).map((p: Row) => (
+                  <option key={p.id} value={p.id}>{p.name}</option>
+                ))}
+              </select>
+            </>
+          ) : (
+            <>
+              <strong className="profile-name">{authName || profile}</strong>
+              <button className="text-button sign-out" onClick={signOut}>Sign out</button>
+            </>
+          )}
         </div>
       </header>
       <main>
@@ -1263,3 +1362,7 @@ function App() {
   );
 }
 createRoot(document.getElementById("root")!).render(<App />);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => { navigator.serviceWorker.register("/sw.js").catch(() => undefined); });
+}
