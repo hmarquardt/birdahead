@@ -1,15 +1,15 @@
 {
   "schema": "birdahead-production-smoke-v1",
-  "at": "2026-11-16T15:24:48.369938+00:00",
+  "at": "2026-11-16T16:40:59.968095+00:00",
   "base": "https://birdahead.com",
   "health": {
     "ok": true,
     "app": "birdahead",
-    "revision": "9a4cce9630e16c34f6d9ee544466f5f6cb8f93ea",
+    "revision": "02f75770752145993a94b8efd3b132cb1dcbaf6b",
     "release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
-  "browser": true,
+  "browser": false,
   "checks": [
     {
       "name": "health",
@@ -125,16 +125,6 @@
       "name": "www canonical redirect",
       "passed": true,
       "detail": "308"
-    },
-    {
-      "name": "browser image decode",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "name": "no mobile horizontal overflow",
-      "passed": true,
-      "detail": ""
     }
   ],
   "passed": true

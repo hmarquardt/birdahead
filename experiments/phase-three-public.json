@@ -1,8 +1,8 @@
 {
   "schema": "birdahead-public-smoke-v1",
-  "at": "2026-11-16T15:25:28.705727+00:00",
+  "at": "2026-11-16T16:41:42.912837+00:00",
   "base": "https://birdahead.com",
-  "browser": true,
+  "browser": false,
   "checks": [
     {
       "name": "public homepage",
@@ -11,6 +11,16 @@
     },
     {
       "name": "indexable metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "inline SVG favicon",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "standard tagline",
       "passed": true,
       "detail": ""
     },
@@ -83,21 +93,6 @@
       "name": "privacy page",
       "passed": true,
       "detail": ""
-    },
-    {
-      "name": "guest browser image decode",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "name": "guest browser practice flow",
-      "passed": true,
-      "detail": "1"
-    },
-    {
-      "name": "guest local history persists",
-      "passed": true,
-      "detail": "1"
     }
   ],
   "passed": true
