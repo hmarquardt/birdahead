@@ -55,6 +55,11 @@ def main():
                 page.get_by_role('button',name='Flag and hide this example').click();expect(page.locator('.flag-status')).to_contain_text('Locally hidden')
                 page.get_by_role('button',name='Continue practice').click()
                 page.get_by_role('button',name='Your progress',exact=True).click();expect(page.get_by_role('heading',name='A growing sense of recognition.')).to_be_visible()
+                page.get_by_role('button',name='Field guide',exact=True).click();expect(page.get_by_role('heading',name='Your regional reference shelf.')).to_be_visible()
+                page.get_by_label('Search a bird').fill('Mallard');expect(page.locator('.species-card').first).to_be_visible()
+                page.locator('.species-card').first.locator('.species-head').click();expect(page.locator('.asset-gallery img').first).to_be_visible()
+                page.get_by_role('button',name='Coverage',exact=True).click();expect(page.get_by_role('heading',name='Coverage you can actually see.')).to_be_visible()
+                page.get_by_role('button',name='Your progress',exact=True).click()
                 page.locator('#learner').select_option('birder-2');expect(page.get_by_text('A clean page in your field notebook.')).to_be_visible()
                 page.get_by_role('button',name='Your next outing',exact=True).click()
                 page.get_by_role('button',name='01 Here now',exact=False).click();page.locator('#outing-day').fill('2026-01-15')
@@ -80,7 +85,7 @@ def main():
             summary={'scope':'Real approved local media; disposable learner DB; no owner review or practice fabricated',
                      'browser':'Chrome headless desktop and 390px mobile','checks':['seasonal change','independent approaching priorities','photo decode',
                      'uncertain answer','reload continuation','identification flag and suppression','independent profiles','real muted audio playback',
-                     'audio byte ranges','recall reveal/self-rating','no mobile horizontal overflow','cross-origin mutation rejected'],
+                     'audio byte ranges','recall reveal/self-rating','field guide search/gallery','seasonal coverage view','no mobile horizontal overflow','cross-origin mutation rejected'],
                      'console_errors':0,'passed':True}
             save(ROOT/'experiments/local-mvp-browser.json',summary);print(json.dumps(summary,indent=2))
         finally:

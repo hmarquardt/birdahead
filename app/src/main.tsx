@@ -95,6 +95,228 @@ function Credit({ data }: { data: Row }) {
   );
 }
 
+
+function CoverageStrip({ coverage, vintage }: { coverage: Row; vintage: Row | null }) {
+  return (
+    <div className="coverage-strip" aria-label="Media coverage and data vintage">
+      <div>
+        <b>{coverage.photo}</b>
+        <span>species sight-ready</span>
+      </div>
+      <div>
+        <b>{coverage.audio}</b>
+        <span>species sound-ready</span>
+      </div>
+      <div>
+        <b>{coverage.photo_target}</b>
+        <span>with 5+ photos</span>
+      </div>
+      <div>
+        <b>{coverage.gaps}</b>
+        <span>explicit media gaps</span>
+      </div>
+      <p>
+        {vintage
+          ? `${vintage.start_year}–${vintage.end_year} eBird checklists · ${coverage.species} teaching species · source taxonomy unknown`
+          : `${coverage.species} teaching species`}
+      </p>
+    </div>
+  );
+}
+
+function Library({ location, day }: { location: string; day: string }) {
+  const [data, setData] = useState<Row | null>(null);
+  const [query, setQuery] = useState("");
+  const [kind, setKind] = useState("all");
+  const [open, setOpen] = useState("");
+  const [error, setError] = useState("");
+  useEffect(() => {
+    let active = true;
+    const timer = setTimeout(() => {
+      api(`library?location=${location}&day=${day}&kind=${kind}&q=${encodeURIComponent(query)}`)
+        .then((result) => active && setData(result))
+        .catch((e) => active && setError(e.message));
+    }, query ? 220 : 0);
+    return () => {
+      active = false;
+      clearTimeout(timer);
+    };
+  }, [location, day, kind, query]);
+  if (error) return <p className="error">{error}</p>;
+  if (!data) return <p className="loading">Opening the field guide…</p>;
+  return (
+    <section className="library">
+      <span className="eyebrow">ACCEPTED MEDIA, BROWSABLE</span>
+      <h1>
+        Your regional
+        <br />
+        <em>reference shelf.</em>
+      </h1>
+      <p>
+        {data.species.length} species from the 100-species teaching universe.
+        Every example is an accepted, licensed source photograph or recording.
+        Gaps stay visible rather than being filled with weak media.
+      </p>
+      <div className="library-controls">
+        <label>
+          Search a bird
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Name, scientific name or code"
+          />
+        </label>
+        <div className="segmented" aria-label="Reference media type">
+          {[
+            ["all", "Everything"],
+            ["photo", "Photos"],
+            ["audio", "Sounds"],
+          ].map(([value, label]) => (
+            <button
+              key={value}
+              className={kind === value ? "selected" : ""}
+              onClick={() => setKind(value)}
+              aria-pressed={kind === value}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="library-grid">
+        {data.species.map((row: Row) => (
+          <article className={`species-card ${open === row.code ? "open" : ""}`} key={row.code}>
+            <button
+              className="species-head"
+              onClick={() => setOpen(open === row.code ? "" : row.code)}
+              aria-expanded={open === row.code}
+            >
+              <span>
+                <strong>{row.name}</strong>
+                <i>{row.scientific_name}</i>
+              </span>
+              <span className="species-badges">
+                <span className={row.photo_practice_ready ? "good" : "gap"}>
+                  {row.photos} photo{row.photos === 1 ? "" : "s"}
+                </span>
+                <span className={row.audio_practice_ready ? "good" : "gap"}>
+                  {row.recordings} sound{row.recordings === 1 ? "" : "s"}
+                </span>
+                {row.photo_target_met && row.audio_target_met && (
+                  <span className="target">target</span>
+                )}
+              </span>
+            </button>
+            <div className="species-meta">
+              {row.pilot && <span className="pill">Pilot comparison</span>}
+              {row.confusion_pair && (
+                <span className="pill">Compare with {row.confusion_pair.common_name}</span>
+              )}
+              {row.coverage_gap ? (
+                <span className="gap-label">More accepted media needed</span>
+              ) : (
+                <span className="fine">
+                  {row.current_reporting_frequency === null
+                    ? "Reporting frequency unknown for this date"
+                    : `${pct(row.current_reporting_frequency)} of complete checklists · ${row.sample_size ?? "—"} checklists in this bin`}
+                </span>
+              )}
+            </div>
+            {open === row.code && (
+              <div className="asset-gallery">
+                {row.assets.length === 0 && <p>No accepted example in this filter.</p>}
+                {row.assets.map((asset: Row) => (
+                  <figure key={asset.id}>
+                    {asset.kind === "photo" ? (
+                      <img src={asset.media_url} alt={`${row.name} accepted reference photograph`} loading="lazy" />
+                    ) : (
+                      <audio src={asset.media_url} controls preload="none" />
+                    )}
+                    <figcaption>
+                      <span>
+                        © {asset.creator}
+                        {asset.vocalization ? ` · ${asset.vocalization}` : ""}
+                        {asset.derivative_of ? " · verified clip" : ""}
+                      </span>
+                      <span>
+                        <a href={asset.source_url} target="_blank" rel="noreferrer">
+                          Source ↗
+                        </a>{" "}
+                        <a href={asset.license_url} target="_blank" rel="noreferrer">
+                          License ↗
+                        </a>
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CoverageView({ data }: { data: Row | null }) {
+  if (!data) return <p className="loading">Measuring seasonal coverage…</p>;
+  const labels: Record<string, string> = {
+    winter: "Winter",
+    spring_migration: "Spring migration",
+    summer: "Summer",
+    fall_migration: "Fall migration",
+    now: "Your date",
+  };
+  return (
+    <section className="coverage-view">
+      <span className="eyebrow">WHAT THE COLLECTION CAN TEACH</span>
+      <h1>
+        Coverage you can
+        <br />
+        <em>actually see.</em>
+      </h1>
+      <p>
+        Each seasonal deck is the top 25 supported species for the reference
+        county and date. “Sight-ready” and “sound-ready” mean at least two
+        accepted examples. Target means five photos and three recordings.
+      </p>
+      <div className="deck-coverage">
+        {Object.entries(data.decks).map(([key, value]) => {
+          const deck = value as Row;
+          return (
+          <article key={key}>
+            <span className="eyebrow">{labels[key] ?? key}</span>
+            <h2>{deck.deck_size} supported species</h2>
+            <div className="stats">
+              <div><b>{deck.photo_practice_ready}</b><span>sight-ready</span></div>
+              <div><b>{deck.audio_practice_ready}</b><span>sound-ready</span></div>
+              <div><b>{deck.photo_and_audio_target}</b><span>target</span></div>
+            </div>
+            {deck.photo_gaps.length > 0 && (
+              <p className="fine">
+                Still needing photo coverage:{" "}
+                {deck.photo_gaps.map((gap: Row) => gap.name).join(", ")}
+              </p>
+            )}
+          </article>
+          );
+        })}
+      </div>
+      <h2>Arriving soon now</h2>
+      <p>
+        {data.arriving_soon.deck_size} species have a supported 14–28 day rise;{" "}
+        {data.arriving_soon.photo_practice_ready} are sight-ready and{" "}
+        {data.arriving_soon.audio_practice_ready} sound-ready.
+      </p>
+      <p className="fine">
+        Coverage counts accepted examples only. A reporting rise is a preparation
+        signal, not a forecast of a particular outing.
+      </p>
+    </section>
+  );
+}
+
 function App() {
   const [boot, setBoot] = useState<Row | null>(null),
     [error, setError] = useState(""),
@@ -111,6 +333,7 @@ function App() {
     [focus, setFocus] = useState("now");
   const [ranking, setRanking] = useState<Row[]>([]),
     [progress, setProgress] = useState<Row | null>(null),
+    [coverage, setCoverage] = useState<Row | null>(null),
     [session, setSession] = useState<Row | null>(null);
   const [reveal, setReveal] = useState<Row | null>(null),
     [recall, setRecall] = useState<Row | null>(null),
@@ -135,14 +358,16 @@ function App() {
     }
   }
   async function refresh() {
-    const [b, r, p] = await Promise.all([
+    const [b, r, p, cv] = await Promise.all([
       api("bootstrap"),
       api(`curriculum?profile=${profile}&location=${location}&day=${day}`),
       api(`progress?profile=${profile}`),
+      api(`coverage?location=${location}`),
     ]);
     setBoot(b);
     setRanking(r.priorities);
     setProgress(p);
+    setCoverage(cv);
   }
   useEffect(() => {
     let active = true;
@@ -150,12 +375,14 @@ function App() {
       api("bootstrap"),
       api(`curriculum?profile=${profile}&location=${location}&day=${day}`),
       api(`progress?profile=${profile}`),
+      api(`coverage?location=${location}`),
     ])
-      .then(([b, r, p]) => {
+      .then(([b, r, p, cv]) => {
         if (active) {
           setBoot(b);
           setRanking(r.priorities);
           setProgress(p);
+          setCoverage(cv);
         }
       })
       .catch((e) => active && setError(e.message));
@@ -316,6 +543,8 @@ function App() {
           {[
             ["prepare", "Your next outing"],
             ["practice", "Practice"],
+            ["library", "Field guide"],
+            ["coverage", "Coverage"],
             ["progress", "Your progress"],
           ].map(([id, label]) => (
             <button
@@ -384,13 +613,16 @@ function App() {
                     <br />A whole year of birds.
                   </span>
                 </section>
+                <CoverageStrip coverage={boot.coverage} vintage={boot.data_vintage} />
                 <div className="section-title">
                   <div>
                     <span className="eyebrow">YOUR FIELD NOTES</span>
                     <h2>Ahead of your outing</h2>
                   </div>
                   <span className="subtle">
-                    Based on 2016–2025 eBird checklists
+                    {boot.data_vintage
+                      ? `${boot.data_vintage.start_year}–${boot.data_vintage.end_year} eBird checklists · ${boot.coverage.species} species`
+                      : "Historical eBird checklists"}
                   </span>
                 </div>
                 <div className="focus-grid">
@@ -452,14 +684,14 @@ function App() {
                         onClick={() => setKind("photo")}
                       >
                         <Icon type="photo" />
-                        By sight <small>{boot.coverage.photo} species</small>
+                        By sight <small>{boot.coverage.photo} species · ≥2 examples</small>
                       </button>
                       <button
                         className={kind === "audio" ? "selected" : ""}
                         onClick={() => setKind("audio")}
                       >
                         <Icon type="audio" />
-                        By sound <small>{boot.coverage.audio} species</small>
+                        By sound <small>{boot.coverage.audio} species · ≥2 examples</small>
                       </button>
                     </div>
                     <label className="practice-mode">
@@ -516,19 +748,24 @@ function App() {
                     </span>
                   </div>
                   <p>
-                    All 25 pilot species remain visible here. Practice includes
-                    species with at least two accepted examples in the selected
-                    modality.
+                    The 100-species teaching universe remains visible here. Practice
+                    includes species with at least two accepted examples in the
+                    selected modality; gaps are labeled rather than filled with weak
+                    media.
                   </p>
                   <div className="bird-list">
-                    {ordered.slice(0, showAll ? 25 : 10).map((r) => (
+                    {ordered.slice(0, showAll ? 100 : 14).map((r) => (
                       <div className="bird-row" key={r.species_code}>
                         <div>
                           <strong>{r.name}</strong>
                           <small>
-                            {r[kind === "photo" ? "photo" : "audio"]
-                              ? "In this practice collection"
-                              : "More media needed"}
+                            {r.photos} photo{r.photos === 1 ? "" : "s"} ·{" "}
+                            {r.recordings} sound{r.recordings === 1 ? "" : "s"}
+                            {r.coverage_gap
+                              ? " · more media needed"
+                              : r.photo_target_met && r.audio_target_met
+                                ? " · coverage target met"
+                                : " · partial coverage"}
                           </small>
                         </div>
                         <div className="frequency">
@@ -544,6 +781,11 @@ function App() {
                         <div className="support">
                           <span>{r.sample_size ?? "—"} checklists</span>
                           <small>{period(r)} · reporting period</small>
+                          <small className="vintage-tag">
+                            {boot.data_vintage
+                              ? `${boot.data_vintage.start_year}–${boot.data_vintage.end_year} · source taxonomy unknown`
+                              : "Historical frequency"}
+                          </small>
                         </div>
                         {r.approaching_window_rise > 0.05 && (
                           <span className="arrival">↗ Ahead</span>
@@ -557,7 +799,7 @@ function App() {
                   >
                     {showAll
                       ? "Show fewer birds"
-                      : "Show all 25 pilot species →"}
+                      : "Show all 100 teaching species →"}
                   </button>
                   <p className="fine">
                     {boot.limitations} Unknown values stay unknown. A reporting
@@ -607,9 +849,30 @@ function App() {
                         <span>To revisit</span>
                       </div>
                     </div>
+                    {session.summary.missed?.length > 0 && (
+                      <div className="summary-list">
+                        <h2>Worth another look</h2>
+                        {session.summary.missed.map((row: Row, index: number) => (
+                          <p key={index}>
+                            <strong>{row.name}</strong> · {row.kind}
+                            {row.choice ? ` · you chose ${row.choice}` : ""}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                    {session.summary.uncertain_species?.length > 0 && (
+                      <div className="summary-list">
+                        <h2>Left uncertain</h2>
+                        {session.summary.uncertain_species.map((row: Row, index: number) => (
+                          <p key={index}>
+                            <strong>{row.name}</strong> · {row.kind}
+                          </p>
+                        ))}
+                      </div>
+                    )}
                     <p>
-                      These are practice results, not a mastery claim. Different
-                      examples help build a transferable skill.
+                      {session.summary.coverage_note ??
+                        "These are practice results, not a mastery claim. Different examples help build a transferable skill."}
                     </p>
                     <button
                       className="primary"
@@ -782,6 +1045,30 @@ function App() {
                               )}
                               <Credit data={shown.credit} />
                               {shown.note && <p>{shown.note}</p>}
+                              {shown.feedback && (
+                                <p className="feedback">{shown.feedback}</p>
+                              )}
+                              {shown.coverage && (
+                                <p className="fine">
+                                  Collection coverage: {shown.coverage.photos} accepted photo
+                                  {shown.coverage.photos === 1 ? "" : "s"} ·{" "}
+                                  {shown.coverage.audio} accepted recording
+                                  {shown.coverage.audio === 1 ? "" : "s"}.
+                                  {shown.coverage.photo_target_met &&
+                                  shown.coverage.audio_target_met
+                                    ? " The five-photo / three-recording target is met."
+                                    : " Coverage remains partial and is shown explicitly."}
+                                </p>
+                              )}
+                              {shown.comparison_pair && (
+                                <p className="comparison">
+                                  Commonly compared with{" "}
+                                  <strong>{shown.comparison_pair.name}</strong> (
+                                  {shown.comparison_pair.photos} photos,{" "}
+                                  {shown.comparison_pair.audio} recordings). Browse
+                                  both in the field guide.
+                                </p>
+                              )}
                               {recall && !reveal ? (
                                 <>
                                   <p>How did your recall go?</p>
@@ -870,6 +1157,10 @@ function App() {
                 )}
               </section>
             )}
+            {tab === "library" && (
+              <Library location={location} day={day} />
+            )}
+            {tab === "coverage" && <CoverageView data={coverage} />}
             {tab === "progress" && (
               <section className="progress">
                 <span className="eyebrow">YOUR OWN PACE</span>

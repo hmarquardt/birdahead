@@ -2,7 +2,7 @@
 
 November 15, 2026. The architecture direction is accepted. A local learner is implemented under Phase One; production deployment/resources remain on hold.
 
-**Current local increment:** React/TypeScript/Vite + Hono on loopback Node, private SQLite learner state and a compiled private release are implemented. Python imports the seven bootstrap profiles; accepted media are served from private storage with checksum/range checks. There are no runtime third-party API calls. [Local MVP](local-mvp.md) and [scalable Python/DuckDB/Parquet geographic lane](geographic-acquisition.md) supersede earlier acquisition gaps. Workers/D1/R2, authentication and offline packs below remain future deployment architecture. Bulk access is independent of local delivery.
+**Current local increment:** React/TypeScript/Vite + Hono on loopback Node, private SQLite learner state and a compiled private release v2 are implemented. Python derives a 100-species teaching universe, imports the seven bootstrap profiles, expands accepted media through checkpointed batches and compiles a deterministic release containing data vintage, coverage tiers, priority ranks and a compatibility key. Accepted media are served from private storage with checksum/range checks. There are no runtime third-party API calls. [Local MVP](local-mvp.md), [Phase Two](phase-two.md) and [scalable Python/DuckDB/Parquet geographic lane](geographic-acquisition.md) supersede earlier acquisition gaps. Workers/D1/R2, authentication and offline packs below remain future deployment architecture. Bulk access is independent of local delivery.
 
 ## Separation of responsibilities
 
@@ -37,7 +37,7 @@ Serve the Vite build with Worker static assets and route `/api/*` through Hono o
 | Media asset | Source ID/URL, canonical/source taxa, creator, rights evidence, quality/biological attributes, review state, checksum; see media policy |
 | Derivative | Parent checksum, transformation recipe/tool version, bounds or clip interval, output checksum, resulting license and attribution |
 | Review event | Asset, reviewer, evidence, decisions, reason, timestamps, duration, dispute/escalation; append-only |
-| Content release/pack | Taxonomy/occurrence/media versions, approved IDs, checksums, geographic/time scope, attribution manifest, expiry/revocation policy |
+| Content release/pack | Taxonomy/occurrence/media versions, data vintage/support, coverage tiers/gaps, priority ranks, compatibility key, approved IDs, checksums, geographic/time scope, attribution manifest, expiry/revocation policy |
 | Learner/profile | Independent identity and settings; household sharing never merges mastery implicitly |
 | Attempt | Globally unique event ID, profile/session, release/asset, species/challenge, response/confidence, information sufficiency, timestamp |
 | Mastery/confusion | Profile × taxon × modality × challenge; scheduling state; directed true/answered species counts with context and uncertainty |

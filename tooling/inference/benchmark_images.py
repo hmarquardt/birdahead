@@ -39,9 +39,16 @@ def sync(device):
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('model',choices=['bioclip','bioclip-2']);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('model',choices=['bioclip','bioclip-2']);parser.add_argument('--incremental',action='store_true',help='Reuse existing predictions and process only new catalog assets');args=parser.parse_args()
     torch.manual_seed(0);torch.set_num_threads(4)
-    dataset=[r for r in json.loads((WORK/'catalog.json').read_text()) if r['kind']=='photo']
+    all_images=[r for r in json.loads((WORK/'catalog.json').read_text()) if r['kind']=='photo']
+    prior=None;done=set()
+    report_path=WORK/'inference'/(args.model+'.json')
+    if args.incremental and report_path.exists():
+        prior=json.loads(report_path.read_text());done={p['asset_id'] for p in prior.get('predictions',[])}
+    dataset=[r for r in all_images if r['id'] not in done]
+    if not dataset:
+        print(json.dumps({'model':args.model,'new_images':0,'message':'No new photo assets to infer'},indent=2));return
     candidates=labels();codes=[r['code'] for r in candidates];index={v:i for i,v in enumerate(codes)}
     directory=WORK/'models'/args.model
     provenance=json.loads((directory/'provenance.json').read_text())
@@ -102,10 +109,13 @@ def main():
     with torch.inference_mode():model.encode_image(torch.stack(cpu_images))
     cpu_seconds=time.monotonic()-started
     stop.set();thread.join()
+    predictions=(prior.get('predictions',[]) if prior else [])+predictions
+    provenance=prior.get('model',provenance) if prior else provenance
     report={'at':now(),'model':provenance,'packages':{p:importlib.metadata.version(p) for p in ['torch','torchvision','open-clip-torch']},
         'device':device,'precision':'fp32','threads':4,'batch_size':4,'candidate_labels':len(candidates),
         'candidate_label_sha256':hashlib.sha256(json.dumps(candidates,sort_keys=True).encode()).hexdigest(),
-        'image_count':len(dataset),'load_seconds':round(load_seconds,3),'text_embedding_seconds':round(text_seconds,3),
+        'image_count':len(predictions),'new_images':len(dataset),'incremental':bool(prior),
+        'load_seconds':round(load_seconds,3),'text_embedding_seconds':round(text_seconds,3),
         'warmup_seconds':round(warmup_seconds,3),'image_processing_seconds':round(elapsed,3),
         'images_per_second':round(len(dataset)/elapsed,3),'median_batch_seconds':round(float(np.median(batch_times)),3),
         'cpu_comparison_images':len(cpu_images),'cpu_comparison_seconds':round(cpu_seconds,3),
@@ -114,7 +124,7 @@ def main():
         'accuracy_claim':'Source-label agreement only. No independently adjudicated accuracy or calibrated probabilities.',
         'prompts':'two common/scientific photo prompts; mean normalized text embeddings; center-crop source images',
         'predictions':predictions}
-    save(WORK/'inference'/(args.model+'.json'),report)
+    save(report_path,report)
     print(json.dumps({k:v for k,v in report.items() if k!='predictions'},indent=2),flush=True)
 
 

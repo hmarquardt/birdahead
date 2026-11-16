@@ -2,6 +2,7 @@
 from __future__ import annotations
 from collections import Counter
 from datetime import datetime,timezone
+from functools import lru_cache
 import hashlib
 import json
 import math
@@ -14,6 +15,7 @@ POLICY='recreational-tiered-v1-source-proxy'
 PAIR_NAMES=[("Cooper's Hawk","Sharp-shinned Hawk"),('Downy Woodpecker','Hairy Woodpecker'),('Turkey Vulture','Black Vulture'),('Greater Yellowlegs','Lesser Yellowlegs')]
 
 
+@lru_cache(maxsize=1)
 def pair_codes():
     species=json.loads((ROOT/'experiments/poc-species.json').read_text());names={r['common_name']:r['ebird_species_code'] for r in species};pairs={}
     for a,b in PAIR_NAMES:pairs[names[a]]=names[b];pairs[names[b]]=names[a]
@@ -207,16 +209,25 @@ def run():
                 'known_background_species':other['scientific_name'] in a.get('source_evidence',{}).get('background_species',[])})
     save(WORK/'audio-mislabeled-controls.json',audio_controls)
     coverage=[]
-    for s in json.loads((ROOT/'experiments/poc-species.json').read_text()):
-        rows=[a for a in assets if a['species_code']==s['ebird_species_code']]
-        coverage.append({'species':s['common_name'],'code':s['ebird_species_code'],'photo_candidates':sum(a['kind']=='photo' for a in rows),
-            'audio_candidates':sum(a['kind']=='audio' for a in rows),'automatically_accepted_photos':sum(a['kind']=='photo' and a['biology_approved'] and a['rights_approved'] for a in rows),
-            'automatically_accepted_audio':sum(a['kind']=='audio' and a['biology_approved'] and a['rights_approved'] for a in rows),
-            'photo_contributors':len({a['contributor_id'] for a in rows if a['kind']=='photo'}),'audio_contributors':len({a['contributor_id'] for a in rows if a['kind']=='audio'}),
-            'source_vocalization_types':dict(Counter(a.get('vocalization') or 'unknown' for a in rows if a['kind']=='audio')),
-            'verified_plumage_labels':0,'verified_sex_labels':0,'verified_age_labels':0,
-            'source_sex_labels':dict(Counter(a.get('sex') or 'unknown' for a in rows)),
-            'commercial_compatible_candidates':sum(bool(a.get('commercial_compatible')) for a in rows)})
+    universe_path=ROOT/'config/geography/teaching-universe.json'
+    universe=json.loads(universe_path.read_text())['species'] if universe_path.exists() else json.loads((ROOT/'experiments/poc-species.json').read_text())
+    for s in universe:
+        code=s.get('ebird_species_code') or s.get('code')
+        rows=[a for a in assets if a['species_code']==code]
+        accepted_photo_count=sum(a['kind']=='photo' and a['biology_approved'] and a['rights_approved'] for a in rows)
+        accepted_audio_count=sum(a['kind']=='audio' and a['biology_approved'] and a['rights_approved'] for a in rows)
+        tier=('target' if accepted_photo_count>=5 and accepted_audio_count>=3 else 'practice_partial' if accepted_photo_count>=2 or accepted_audio_count>=2 else 'gap')
+        coverage.append({'species':s.get('common_name') or s.get('species'),'code':code,'pilot':bool(s.get('pilot')),
+            'priority_rank':s.get('priority_rank'),'photo_candidates':sum(a['kind']=='photo' for a in rows),
+            'audio_candidates':sum(a['kind']=='audio' for a in rows),'automatically_accepted_photos':accepted_photo_count,
+            'automatically_accepted_audio':accepted_audio_count,'photo_contributors':len({a['contributor_id'] for a in rows if a['kind']=='photo'}),
+            'audio_contributors':len({a['contributor_id'] for a in rows if a['kind']=='audio'}),
+            'coverage_tier':tier,'photo_target_met':accepted_photo_count>=5,'audio_target_met':accepted_audio_count>=3})
+    rejection_reasons=Counter()
+    for a in assets:
+        for reason in a.get('automated_decision',{}).get('reasons',[]):rejection_reasons[reason]+=1
+    screen_modes=Counter((r.get('screen_mode') or 'legacy') for r in (subjects or {}).get('predictions',[]))
+    tiers=Counter(row['coverage_tier'] for row in coverage)
     heldout=[t for t in tests if t['split']=='heldout'];pair_tests=[t for t in tests if t['confusion_pair']]
     summary={'at':datetime.now(timezone.utc).isoformat(),'policy':POLICY,'scope':'recreational noncommercial local validation; production remains on hold',
         'candidates':len(assets),'photo_candidates':len(photos),'audio_candidates':len(assets)-len(photos),
@@ -225,6 +236,18 @@ def run():
         'commercial_compatible_media':sum(bool(a.get('commercial_compatible')) for a in assets),
         'candidate_media_bytes':sum(a['bytes'] for a in assets),
         'accepted_by_modality':dict(Counter(a['kind'] for a in accepted)),
+        'accepted_by_species':dict(Counter(a['species_code'] for a in accepted)),
+        'rejection_reasons':dict(rejection_reasons.most_common()),
+        'coverage_tiers':dict(tiers),'species_with_photo_target':sum(row['photo_target_met'] for row in coverage),
+        'species_with_audio_target':sum(row['audio_target_met'] for row in coverage),
+        'species_with_photo_practice':sum(row['automatically_accepted_photos']>=2 for row in coverage),
+        'species_with_audio_practice':sum(row['automatically_accepted_audio']>=2 for row in coverage),
+        'accepted_derivative_clips':sum(a['kind']=='audio' and isinstance(a.get('derivative_of'),dict) for a in accepted),
+        'photo_screen_modes':dict(screen_modes),
+        'source_vocalization_types':dict(Counter(a.get('vocalization') or 'unknown' for a in assets if a['kind']=='audio')),
+        'verified_plumage_labels':0,'verified_sex_labels':0,'verified_age_labels':0,
+        'source_sex_labels':dict(Counter(a.get('sex') or 'unknown' for a in assets)),
+        'commercial_compatible_candidates':sum(bool(a.get('commercial_compatible')) for a in assets),
         'supported_replacement_photos':sum(a.get('acquisition_pass')=='supported replacement' for a in assets),
         'photo_upload_years':dict(Counter((a.get('uploaded') or 'unknown')[:4] for a in photos)),
         'audio_upload_years':dict(Counter((a.get('uploaded') or 'unknown')[:4] for a in assets if a['kind']=='audio')),

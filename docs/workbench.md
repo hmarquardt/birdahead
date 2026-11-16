@@ -17,6 +17,10 @@ Enter a reviewer name and role, select a candidate and start its timer. Decide s
 
 There is no requirement to inspect every accepted asset. Automated decisions are distinct from human/expert decisions. Prefer stronger replacements for uncertain cases. The server enforces a total 7,200-second owner-review budget for the initial regional collection; it blocks further approvals after the cap but permits deferral/quarantine.
 
+## Learner-report intake
+
+Run `uv run python -m tooling.flag_sync --apply` after learner reports exist. Each new report is mapped to its catalog asset and appended once as a deferral event with the reviewer role `learner-report`; repeated flags for the same asset are recorded as reports without duplicating the event. Unmapped assets are reported without changing curation state. The workbench queue has a **Learner reports** filter and shows the intake status. Reports do not consume the timed owner-review budget and are not biological proof; they simply move a disputed example out of accepted export until triage. Preview without writing by omitting `--apply`.
+
 ## Persistence and export
 
 Review state resides in `experiments/private/phase05/reviews.sqlite`. Events are append-only with a hash chain. Approval evidence binds to media checksum, taxon and rights context, preventing old approvals from silently carrying to changed media/licenses. Re-running acquisition/inference does not erase review events or rejection/quarantine decisions.

@@ -1,0 +1,1046 @@
+{
+  "schema": "birdahead-phase-two-acquisition-v1",
+  "at": "2026-11-16T00:00:51.720164+00:00",
+  "scope": "Bounded local recreational acquisition; no bulk geographic or restricted-media download",
+  "candidate_targets": {
+    "photos": 8,
+    "audio": 5
+  },
+  "accepted_targets": {
+    "photos": 5,
+    "audio": 3
+  },
+  "budgets": {
+    "requests": 450,
+    "media_bytes": 1200000000,
+    "retries": 2,
+    "max_assets": 900
+  },
+  "counters": {
+    "requests": 62,
+    "downloads": 186,
+    "media_bytes": 187817080,
+    "retries": 18,
+    "assets_added": 186,
+    "elapsed_seconds": 795.5
+  },
+  "universe_species": 100,
+  "checkpoint_cursor": 23,
+  "checkpoint_complete": false,
+  "species_with_any_photo_candidate": 40,
+  "species_with_any_audio_candidate": 39,
+  "species_with_five_accepted_photos": 16,
+  "species_with_three_accepted_audio": 10,
+  "candidate_media_bytes_retained": 513525756,
+  "failure_reasons": {
+    "Media transfer failed; URL and exception withheld": 6
+  },
+  "per_species": [
+    {
+      "priority_rank": 1,
+      "ebird_species_code": "mallar3",
+      "common_name": "Mallard",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 2,
+      "ebird_species_code": "norcar",
+      "common_name": "Northern Cardinal",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 6,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 3,
+      "ebird_species_code": "dowwoo",
+      "common_name": "Downy Woodpecker",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 4,
+      "ebird_species_code": "blujay",
+      "common_name": "Blue Jay",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 6,
+      "audio_candidates": 7,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 5,
+      "ebird_species_code": "amecro",
+      "common_name": "American Crow",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 7,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 6,
+      "ebird_species_code": "grbher3",
+      "common_name": "Great Blue Heron",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 4,
+      "audio_candidates": 7,
+      "audio_accepted": 3
+    },
+    {
+      "priority_rank": 7,
+      "ebird_species_code": "amegfi",
+      "common_name": "American Goldfinch",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 7,
+      "audio_candidates": 7,
+      "audio_accepted": 4
+    },
+    {
+      "priority_rank": 8,
+      "ebird_species_code": "rewbla",
+      "common_name": "Red-winged Blackbird",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 9,
+      "ebird_species_code": "amerob",
+      "common_name": "American Robin",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 10,
+      "ebird_species_code": "turvul",
+      "common_name": "Turkey Vulture",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 1,
+      "audio_candidates": 1,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 11,
+      "ebird_species_code": "sonspa",
+      "common_name": "Song Sparrow",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 7,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 12,
+      "ebird_species_code": "rebwoo",
+      "common_name": "Red-bellied Woodpecker",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 7,
+      "audio_accepted": 3
+    },
+    {
+      "priority_rank": 13,
+      "ebird_species_code": "cangoo",
+      "common_name": "Canada Goose",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 3,
+      "audio_candidates": 7,
+      "audio_accepted": 4
+    },
+    {
+      "priority_rank": 14,
+      "ebird_species_code": "snogoo",
+      "common_name": "Snow Goose",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 3,
+      "audio_accepted": 3
+    },
+    {
+      "priority_rank": 15,
+      "ebird_species_code": "moudov",
+      "common_name": "Mourning Dove",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 4,
+      "audio_candidates": 9,
+      "audio_accepted": 4
+    },
+    {
+      "priority_rank": 16,
+      "ebird_species_code": "carchi",
+      "common_name": "Carolina Chickadee",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 7,
+      "audio_candidates": 6,
+      "audio_accepted": 1
+    },
+    {
+      "priority_rank": 17,
+      "ebird_species_code": "rethaw",
+      "common_name": "Red-tailed Hawk",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 2,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 18,
+      "ebird_species_code": "eursta",
+      "common_name": "European Starling",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 4,
+      "audio_candidates": 7,
+      "audio_accepted": 3
+    },
+    {
+      "priority_rank": 19,
+      "ebird_species_code": "whtspa",
+      "common_name": "White-throated Sparrow",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 3,
+      "audio_accepted": 3
+    },
+    {
+      "priority_rank": 20,
+      "ebird_species_code": "killde",
+      "common_name": "Killdeer",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 4,
+      "audio_candidates": 8,
+      "audio_accepted": 5
+    },
+    {
+      "priority_rank": 21,
+      "ebird_species_code": "norfli",
+      "common_name": "Northern Flicker",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 4,
+      "audio_candidates": 5,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 22,
+      "ebird_species_code": "baleag",
+      "common_name": "Bald Eagle",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 5,
+      "audio_candidates": 7,
+      "audio_accepted": 4
+    },
+    {
+      "priority_rank": 23,
+      "ebird_species_code": "carwre",
+      "common_name": "Carolina Wren",
+      "pilot": false,
+      "photo_candidates": 8,
+      "photo_accepted": 6,
+      "audio_candidates": 6,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 24,
+      "ebird_species_code": "tuftit",
+      "common_name": "Tufted Titmouse",
+      "pilot": false,
+      "photo_candidates": 6,
+      "photo_accepted": 6,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 25,
+      "ebird_species_code": "whbnut",
+      "common_name": "White-breasted Nuthatch",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 26,
+      "ebird_species_code": "buffle",
+      "common_name": "Bufflehead",
+      "pilot": true,
+      "photo_candidates": 7,
+      "photo_accepted": 3,
+      "audio_candidates": 1,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 27,
+      "ebird_species_code": "reshaw",
+      "common_name": "Red-shouldered Hawk",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 28,
+      "ebird_species_code": "haiwoo",
+      "common_name": "Hairy Woodpecker",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 1,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 29,
+      "ebird_species_code": "daejun",
+      "common_name": "Dark-eyed Junco",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 5,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 30,
+      "ebird_species_code": "norhar2",
+      "common_name": "Northern Harrier",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 31,
+      "ebird_species_code": "wooduc",
+      "common_name": "Wood Duck",
+      "pilot": true,
+      "photo_candidates": 7,
+      "photo_accepted": 7,
+      "audio_candidates": 4,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 32,
+      "ebird_species_code": "gadwal",
+      "common_name": "Gadwall",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 33,
+      "ebird_species_code": "ribgul",
+      "common_name": "Ring-billed Gull",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 34,
+      "ebird_species_code": "comgra",
+      "common_name": "Common Grackle",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 35,
+      "ebird_species_code": "amekes",
+      "common_name": "American Kestrel",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 36,
+      "ebird_species_code": "hoomer",
+      "common_name": "Hooded Merganser",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 37,
+      "ebird_species_code": "eastow",
+      "common_name": "Eastern Towhee",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 38,
+      "ebird_species_code": "easblu",
+      "common_name": "Eastern Bluebird",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 39,
+      "ebird_species_code": "coohaw",
+      "common_name": "Cooper's Hawk",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 3,
+      "audio_accepted": 1
+    },
+    {
+      "priority_rank": 40,
+      "ebird_species_code": "norsho",
+      "common_name": "Northern Shoveler",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 41,
+      "ebird_species_code": "pilwoo",
+      "common_name": "Pileated Woodpecker",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 42,
+      "ebird_species_code": "belkin1",
+      "common_name": "Belted Kingfisher",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 43,
+      "ebird_species_code": "fiespa",
+      "common_name": "Field Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 44,
+      "ebird_species_code": "easmea",
+      "common_name": "Eastern Meadowlark",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 45,
+      "ebird_species_code": "indbun",
+      "common_name": "Indigo Bunting",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 3,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 46,
+      "ebird_species_code": "yerwar",
+      "common_name": "Yellow-rumped Warbler",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 2,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 47,
+      "ebird_species_code": "swaspa",
+      "common_name": "Swamp Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 48,
+      "ebird_species_code": "houspa",
+      "common_name": "House Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 49,
+      "ebird_species_code": "bnhcow",
+      "common_name": "Brown-headed Cowbird",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 50,
+      "ebird_species_code": "greyel",
+      "common_name": "Greater Yellowlegs",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 51,
+      "ebird_species_code": "gwfgoo",
+      "common_name": "Greater White-fronted Goose",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 52,
+      "ebird_species_code": "horlar",
+      "common_name": "Horned Lark",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 53,
+      "ebird_species_code": "pibgre",
+      "common_name": "Pied-billed Grebe",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 54,
+      "ebird_species_code": "normoc",
+      "common_name": "Northern Mockingbird",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 55,
+      "ebird_species_code": "gnwtea",
+      "common_name": "Green-winged Teal",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 56,
+      "ebird_species_code": "amtspa",
+      "common_name": "American Tree Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 57,
+      "ebird_species_code": "doccor",
+      "common_name": "Double-crested Cormorant",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 58,
+      "ebird_species_code": "lesyel",
+      "common_name": "Lesser Yellowlegs",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 4,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 59,
+      "ebird_species_code": "whcspa",
+      "common_name": "White-crowned Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 60,
+      "ebird_species_code": "buwtea",
+      "common_name": "Blue-winged Teal",
+      "pilot": true,
+      "photo_candidates": 7,
+      "photo_accepted": 3,
+      "audio_candidates": 3,
+      "audio_accepted": 2
+    },
+    {
+      "priority_rank": 61,
+      "ebird_species_code": "gockin",
+      "common_name": "Golden-crowned Kinglet",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 62,
+      "ebird_species_code": "houfin",
+      "common_name": "House Finch",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 63,
+      "ebird_species_code": "dickci",
+      "common_name": "Dickcissel",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 5,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 64,
+      "ebird_species_code": "rehwoo",
+      "common_name": "Red-headed Woodpecker",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 65,
+      "ebird_species_code": "rinduc",
+      "common_name": "Ring-necked Duck",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 66,
+      "ebird_species_code": "easpho",
+      "common_name": "Eastern Phoebe",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 67,
+      "ebird_species_code": "y00475",
+      "common_name": "American Coot",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 68,
+      "ebird_species_code": "treswa",
+      "common_name": "Tree Swallow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 69,
+      "ebird_species_code": "prowar",
+      "common_name": "Prothonotary Warbler",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 3,
+      "audio_candidates": 6,
+      "audio_accepted": 1
+    },
+    {
+      "priority_rank": 70,
+      "ebird_species_code": "sancra",
+      "common_name": "Sandhill Crane",
+      "pilot": true,
+      "photo_candidates": 7,
+      "photo_accepted": 4,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 71,
+      "ebird_species_code": "norpin",
+      "common_name": "Northern Pintail",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 72,
+      "ebird_species_code": "greegr",
+      "common_name": "Great Egret",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 73,
+      "ebird_species_code": "chispa",
+      "common_name": "Chipping Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 74,
+      "ebird_species_code": "lessca",
+      "common_name": "Lesser Scaup",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 75,
+      "ebird_species_code": "amewig",
+      "common_name": "American Wigeon",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 76,
+      "ebird_species_code": "blkvul",
+      "common_name": "Black Vulture",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 1,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 77,
+      "ebird_species_code": "savspa",
+      "common_name": "Savannah Sparrow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 78,
+      "ebird_species_code": "shshaw",
+      "common_name": "Sharp-shinned Hawk",
+      "pilot": true,
+      "photo_candidates": 8,
+      "photo_accepted": 0,
+      "audio_candidates": 3,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 79,
+      "ebird_species_code": "comyel",
+      "common_name": "Common Yellowthroat",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 80,
+      "ebird_species_code": "wiltur",
+      "common_name": "Wild Turkey",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 81,
+      "ebird_species_code": "brdowl",
+      "common_name": "Barred Owl",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 82,
+      "ebird_species_code": "ruckin",
+      "common_name": "Ruby-crowned Kinglet",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 83,
+      "ebird_species_code": "cedwax",
+      "common_name": "Cedar Waxwing",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 84,
+      "ebird_species_code": "brnthr",
+      "common_name": "Brown Thrasher",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 85,
+      "ebird_species_code": "eawpew",
+      "common_name": "Eastern Wood-Pewee",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 86,
+      "ebird_species_code": "buggna",
+      "common_name": "Blue-gray Gnatcatcher",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 87,
+      "ebird_species_code": "whocra",
+      "common_name": "Whooping Crane",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 88,
+      "ebird_species_code": "barswa",
+      "common_name": "Barn Swallow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 89,
+      "ebird_species_code": "bkpwar",
+      "common_name": "Blackpoll Warbler",
+      "pilot": true,
+      "photo_candidates": 5,
+      "photo_accepted": 4,
+      "audio_candidates": 4,
+      "audio_accepted": 1
+    },
+    {
+      "priority_rank": 90,
+      "ebird_species_code": "rthhum",
+      "common_name": "Ruby-throated Hummingbird",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 91,
+      "ebird_species_code": "grycat",
+      "common_name": "Gray Catbird",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 92,
+      "ebird_species_code": "amwpel",
+      "common_name": "American White Pelican",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 93,
+      "ebird_species_code": "rudduc",
+      "common_name": "Ruddy Duck",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 94,
+      "ebird_species_code": "bongul",
+      "common_name": "Bonaparte's Gull",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 95,
+      "ebird_species_code": "rocpig",
+      "common_name": "Rock Pigeon",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 96,
+      "ebird_species_code": "nrwswa",
+      "common_name": "Northern Rough-winged Swallow",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 97,
+      "ebird_species_code": "whevir",
+      "common_name": "White-eyed Vireo",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 98,
+      "ebird_species_code": "norbob",
+      "common_name": "Northern Bobwhite",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 99,
+      "ebird_species_code": "reevir1",
+      "common_name": "Red-eyed Vireo",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    },
+    {
+      "priority_rank": 100,
+      "ebird_species_code": "ambduc",
+      "common_name": "American Black Duck",
+      "pilot": false,
+      "photo_candidates": 0,
+      "photo_accepted": 0,
+      "audio_candidates": 0,
+      "audio_accepted": 0
+    }
+  ],
+  "limitations": [
+    "Candidate targets allow for curation rejection; they do not guarantee accepted coverage.",
+    "Source assertions are not independent ground truth; model/rights gates remain separate.",
+    "Counts include all catalog candidates; accepted coverage is determined separately by curation gates.",
+    "A bounded batch may stop before every species reaches its candidate target."
+  ]
+}

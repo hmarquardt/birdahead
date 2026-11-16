@@ -22,7 +22,7 @@ class Handler(BaseHTTPRequestHandler):
             raw=HTML.read_bytes();self.send_response(200);self.send_header('Content-Type','text/html; charset=utf-8');self.send_header('Content-Length',str(len(raw)));self.send_header('Cache-Control','no-store');self.send_header('X-Frame-Options','DENY');self.send_header('Content-Security-Policy',"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");self.end_headers();self.wfile.write(raw);return
         store=Store(self.server.database)
         try:
-            if self.path=='/api/catalog':self.reply(200,{'assets':store.assets(),'used_seconds':round(store.used_seconds(),3),'audit_valid':store.verify(),'active_session':store.active_session()});return
+            if self.path=='/api/catalog':self.reply(200,{'assets':store.assets(),'flags':store.intake_flags(),'used_seconds':round(store.used_seconds(),3),'audit_valid':store.verify(),'active_session':store.active_session()});return
             if self.path.startswith('/media/'):
                 identifier=urllib.parse.unquote(self.path[len('/media/'):]);asset=next((a for a in store.assets() if a['id']==identifier),None)
                 if not asset:self.reply(404,{'error':'Asset not found'});return

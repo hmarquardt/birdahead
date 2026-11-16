@@ -1,0 +1,17 @@
+{
+  "schema": "birdahead-audio-segment-extraction-v1",
+  "at": "2026-11-15T23:57:31.401309+00:00",
+  "extracted": 32,
+  "total_clip_seconds": 368.2,
+  "total_bytes": 15104195,
+  "max_clips": 150,
+  "max_per_parent": 2,
+  "max_clip_seconds": 30.0,
+  "byte_budget": 150000000,
+  "threshold_policy": "species calibration when available, otherwise .90 low-risk/.97 confusion pair; two adjacent dominant windows and .10 margin required",
+  "skipped": {
+    "run_too_short": 42,
+    "no_two_adjacent_dominant_windows": 68
+  },
+  "limitation": "A clip is a real interval with model evidence, not independent ground truth; curation gates still apply."
+}

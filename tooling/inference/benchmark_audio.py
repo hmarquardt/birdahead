@@ -29,8 +29,14 @@ def main():
     model_path=directory/'BirdNET_GLOBAL_6K_V2.4_Model_FP32.tflite'
     labels=(directory/'BirdNET_GLOBAL_6K_V2.4_Labels.txt').read_text().splitlines()
     cfg.MODEL_PATH=str(model_path);cfg.TFLITE_THREADS=4;cfg.CUSTOM_CLASSIFIER=None;cfg.USE_PERCH=False
+    all_audio=[r for r in json.loads((WORK/'catalog.json').read_text()) if r['kind']=='audio']
+    report_path=WORK/'inference/birdnet.json'
+    prior=json.loads(report_path.read_text()) if report_path.exists() else None
+    done={r['asset_id'] for r in (prior or {}).get('predictions',[])}
+    audio=[r for r in all_audio if r['id'] not in done]
+    if not audio:
+        print(json.dumps({'new_audio_files':0,'message':'No new audio assets to infer'},indent=2));stop.set();thread.join();return
     model.load_model();load_seconds=time.monotonic()-started
-    data=json.loads((WORK/'catalog.json').read_text());audio=[r for r in data if r['kind']=='audio']
     warm=time.monotonic();model.predict(np.zeros((1,144000),dtype='float32'));warmup=time.monotonic()-warm
     rows=[];total_duration=0;segments=0;start=time.monotonic()
     for record in audio:
@@ -73,19 +79,23 @@ def main():
             'duration_seconds':duration,'inference_and_processing_seconds':round(time.monotonic()-t,4),
             'technical_metrics':{'sample_rate_hz':sample_rate,'channels':wave.shape[1],'peak_amplitude':peak_level,'rms_amplitude':rms,'clipped_sample_fraction':clipped},
             'acoustic_fingerprint_64':fingerprint.tolist(),'score_is_probability':False}
-        rows.append(row);save(WORK/'inference/birdnet-partial.json',{'predictions':rows})
+        rows.append(row);save(WORK/'inference/birdnet-partial.json',{'predictions':(prior.get('predictions',[]) if prior else [])+rows})
         print('BirdNET',len(rows),'/',len(audio),record['common_name'],flush=True)
     elapsed=time.monotonic()-start;stop.set();thread.join()
+    merged=(prior.get('predictions',[]) if prior else [])+rows
+    prior_seconds=sum(r.get('duration_seconds',0) for r in (prior.get('predictions',[]) if prior else []))
     report={'at':now(),'model':'BirdNET_GLOBAL_6K_V2.4_FP32','model_sha256':hashlib.sha256(model_path.read_bytes()).hexdigest(),
         'labels_sha256':hashlib.sha256((directory/'BirdNET_GLOBAL_6K_V2.4_Labels.txt').read_bytes()).hexdigest(),
         'model_bytes':model_path.stat().st_size,'model_license':'CC-BY-NC-SA-4.0','code_license':'MIT',
         'packages':{p:importlib.metadata.version(p) for p in ['birdnet-analyzer','tensorflow','numpy','soundfile']},
         'backend':'TensorFlow Lite CPU, four threads; no Apple Metal delegate configured','load_seconds':round(load_seconds,3),
-        'warmup_seconds':round(warmup,3),'audio_files':len(audio),'total_audio_seconds':round(total_duration,3),'windows':segments,
-        'processing_seconds':round(elapsed,3),'audio_seconds_per_wall_second':round(total_duration/elapsed,3),
+        'warmup_seconds':round(warmup,3),'audio_files':len(merged),'new_audio_files':len(audio),
+        'incremental':bool(prior),'total_audio_seconds':round(prior_seconds+total_duration,3),'windows':segments,
+        'new_audio_seconds':round(total_duration,3),'processing_seconds':round(elapsed,3),
+        'audio_seconds_per_wall_second':round(total_duration/elapsed,3),
         'peak_process_rss_bytes':peak['rss'],'label_count':len(labels),'geography_prior':False,'restricted_species_list':False,
-        'scores':'BirdNET sigmoid activations; not calibrated probabilities','predictions':rows}
-    save(WORK/'inference/birdnet.json',report);print(json.dumps({k:v for k,v in report.items() if k!='predictions'},indent=2))
+        'scores':'BirdNET sigmoid activations; not calibrated probabilities','predictions':merged}
+    save(report_path,report);print(json.dumps({k:v for k,v in report.items() if k!='predictions'},indent=2))
 
 
 if __name__=='__main__':main()

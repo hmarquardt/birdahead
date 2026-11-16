@@ -1,6 +1,6 @@
 # BirdAhead product specification
 
-Status: canonical scope, updated November 15, 2026. A bounded local learner MVP is now authorized and implemented; the broader product requirements below remain phased. Current evidence is in docs/phase-one.md; historical findings remain in docs/feasibility.md.
+Status: canonical scope, updated November 15, 2026. A bounded local learner MVP and Phase Two local content expansion are implemented; the broader product requirements below remain phased. Current evidence is in docs/phase-two.md; historical findings remain in docs/feasibility.md.
 
 ## Mission and audience
 
@@ -48,7 +48,15 @@ A future in-app “Flag possible misidentification” action must retain asset/r
 
 The workbench supports image/audio viewing, source/credit/license evidence, source identification support, model/technical results, separate rights/biology actions, reasons, timers, persistent audits, duplicate flags and deterministic approved-media export. Owner review is capped at 7,200 seconds in total for the initial regional dataset. The Phase One amendment below supersedes the Phase 0.5 hold for the local learner. Cloud deployment remains on hold.
 
-## Phase One — local use and scalable geography
+## Phase Two — automated content expansion
+
+Derive a prioritized 100-species teaching universe from the seven imported 2016–2025 county histograms. Rank by year-round regional frequency, current seasonal relevance, approaching 14–28 day migration windows, recreational/confusion-pair value and available accepted media. Retain all 25 pilot species, preserve unresolved/split-lump and missingness semantics, and treat 100 as a coverage objective rather than permission to weaken rights or biological gates.
+
+Expand accepted media toward five photographs and three recordings per species “where practical.” Use bounded, resumable acquisition batches with explicit request, media-byte and retry budgets. Reuse the existing source-evidence, rights, BioCLIP 2/BirdNET, technical and deduplication gates. Improve candidate selection from measured rejection reasons before increasing volume. Prefer multiple contributors and biological variation. Verified extraction of a source-dominant interval from an intermittent real recording is permitted when the license allows derivatives; every clip must retain parent digest, interval, model/recipe versions, rights and attribution. Never synthesize calls or imagery. No new paid inference service is authorized. The two-hour total owner-review ceiling is unchanged.
+
+Improve the local learner with visible seasonal vintage/sample support, clearer acceptance/coverage gaps, a browsable accepted-media reference library, feedback/session summaries, flag-to-workbench reconciliation, touch/mobile usability and compatibility-preserving progress across additive content releases. Reuse the seven county datasets for geographic intelligence; no new county downloads or large EBD/SED/modeled-raster acquisition is authorized in this phase.
+
+## Historical Phase One — local use and scalable geography
 
 The owner supplied seven consistent annual histogram downloads. Discover, validate and import them, preserving originals under ignored private storage. They are bootstrap data and reference checks, never a recurring per-county operating requirement. Geographic expansion must use configuration and automated processing over coherent regional source coverage.
 

@@ -1,0 +1,19 @@
+{
+  "schema": "birdahead-flag-reconciliation-v1",
+  "at": "2026-11-15T23:59:36.429489+00:00",
+  "mode": "apply",
+  "learner_flags": 0,
+  "already_reconciled": 0,
+  "new_deferred_for_triage": 0,
+  "duplicate_reports": 0,
+  "unmapped_assets": 0,
+  "unique_assets_affected": 0,
+  "assets_previously_accepted": 0,
+  "owner_review_seconds_before": 0,
+  "owner_review_seconds_after": 0,
+  "owner_review_budget_consumed": 0,
+  "affected_species_counts": {},
+  "audit_valid": true,
+  "actions": [],
+  "note": "A learner report is evidence for triage, not biological proof. Rights/biology acceptance history is retained."
+}

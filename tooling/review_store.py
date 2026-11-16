@@ -33,6 +33,8 @@ class Store:
         PRAGMA journal_mode=WAL;
         CREATE TABLE IF NOT EXISTS assets(id TEXT PRIMARY KEY, payload TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS sessions(id TEXT PRIMARY KEY, asset_id TEXT NOT NULL, actor TEXT NOT NULL, role TEXT NOT NULL, started TEXT NOT NULL, start_epoch REAL NOT NULL, ended TEXT, elapsed REAL);
+        CREATE TABLE IF NOT EXISTS flags(id TEXT PRIMARY KEY, profile_id TEXT NOT NULL, asset_id TEXT NOT NULL, release_id TEXT NOT NULL, session_id TEXT, reason TEXT NOT NULL, suggested_species TEXT, at TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS flag_intake(flag_id TEXT PRIMARY KEY, asset_id TEXT NOT NULL, profile_id TEXT, status TEXT NOT NULL, event_hash TEXT, detail TEXT, at TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY AUTOINCREMENT, payload TEXT NOT NULL, previous_hash TEXT NOT NULL, event_hash TEXT NOT NULL);
         CREATE TRIGGER IF NOT EXISTS events_no_update BEFORE UPDATE ON events BEGIN SELECT RAISE(ABORT,'audit events are append-only'); END;
         CREATE TRIGGER IF NOT EXISTS events_no_delete BEFORE DELETE ON events BEGIN SELECT RAISE(ABORT,'audit events are append-only'); END;
@@ -116,6 +118,35 @@ class Store:
             self.connection.execute('INSERT INTO events(payload,previous_hash,event_hash) VALUES(?,?,?)',(encoded,previous,digest))
             self.connection.execute('UPDATE sessions SET ended=?,elapsed=? WHERE id=?',(timestamp(),elapsed,session_id))
         return self.state(session['asset_id'])
+
+    def record_report(self,asset_id,actor,reason,tags=None):
+        """Append a learner-report deferral without a timed owner session.
+
+        A report is evidence for triage, not proof of a misidentification. It
+        never changes rights or biological acceptance and never consumes the
+        owner-review budget.
+        """
+        row=self.connection.execute('SELECT payload FROM assets WHERE id=?',(asset_id,)).fetchone()
+        if row is None:raise ValueError('Unknown reported asset')
+        asset=json.loads(row['payload'])
+        event={'asset_id':asset_id,'asset_sha256':asset.get('sha256'),'evidence_fingerprint':evidence_fingerprint(asset),
+               'actor':actor,'role':'learner-report','gate':'asset','action':'defer',
+               'reason':reason,'evidence':'Local learner report; pending curation triage; not automatic biological proof.',
+               'tags':tags or {},'review_seconds':0,'at':timestamp(),'session_id':None}
+        with self.connection:
+            prior=self.connection.execute('SELECT event_hash FROM events ORDER BY seq DESC LIMIT 1').fetchone();previous=prior[0] if prior else '0'*64
+            encoded=canonical(event);digest=hashlib.sha256((previous+encoded).encode()).hexdigest()
+            self.connection.execute('INSERT INTO events(payload,previous_hash,event_hash) VALUES(?,?,?)',(encoded,previous,digest))
+        return digest
+
+    def intake(self,flag_id,asset_id,profile_id,status,event_hash=None,detail=None):
+        with self.connection:
+            self.connection.execute('INSERT INTO flag_intake(flag_id,asset_id,profile_id,status,event_hash,detail,at) VALUES(?,?,?,?,?,?,?) '
+                'ON CONFLICT(flag_id) DO UPDATE SET status=excluded.status,event_hash=excluded.event_hash,detail=excluded.detail',
+                (flag_id,asset_id,profile_id,status,event_hash,canonical(detail or {}),timestamp()))
+
+    def intake_flags(self):
+        return [dict(row) for row in self.connection.execute('SELECT * FROM flag_intake ORDER BY at')]
 
     def verify(self):
         previous='0'*64

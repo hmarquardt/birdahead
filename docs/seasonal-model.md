@@ -68,6 +68,14 @@ Use transparent relevance components: present seasonal rate, positive change ove
 
 Category overlap is useful. A migrant can be Here Now and Passing Through; a resident can also be a Personal Weakness. Show anticipated departures where a well-supported current window is closing. A destination deck freezes trip date, habitats, source versions and approved content; refresh before travel and expose stale/missing inputs.
 
+## Phase Two teaching universe
+
+`tooling.teaching_universe` reconciles every uniquely named source taxon against the cached target authority, then ranks candidates with explicit normalized components: year-round frequency/coverage, current seasonal rate, positive 14–28-day rise, recreational/confusion-pair value and media availability at selection time. The 25-species pilot is force-retained. The first 100-species universe contains 333 reconciled candidates, 100 selected and 81 unresolved or non-species source names across the seven exports; unresolved names remain excluded and are retained privately. This is a deterministic curriculum shortlist, not a claim of complete regional biodiversity.
+
+The learner exposes the historical vintage (2016–2025), native-bin definition, per-species sample size and period, source-taxonomy unknown status and explicit media gaps. Additive content releases with the same taxonomy authority/version and source scope share a compatibility key, so learner progress and active sessions survive media expansion. A change to source scope or taxonomy requires a fresh session rather than silently reusing attempts.
+
+The imported profiles now hold 100 species × 48 native bins × seven counties. Values retain source anomalies (including `0.0015`), zero-support missingness and unresolved rows. Copying the same 25 species into a larger universe does not change their definitions or imply split/lump equivalence.
+
 ## Implemented ranking and remaining validation
 
 `tooling.seasonal.rank` maps a requested date onto native boundaries, including December-to-January wraparound. February 29 uses February 28 in the nonleap annual template. It evaluates the maximum available frequency at +14, +21 and +28 days, then a positive rise from current support. A zero current rate does not prevent arrival priority; unknown current support remains unknown. The demonstration score is `0.6 × current + 0.4 × positive rise`, a relative practice heuristic. Sampling support is retained, but the current score is not statistically adjusted for uneven effort, contributor dependence or low support. In the learner, Here Now excludes zero/unknown current rates, Arriving Soon independently orders positive rises, and reinforcement also uses personal history. Biological subtype and habitat are not yet scored.

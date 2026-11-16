@@ -6,7 +6,7 @@
   "checkpoint_bytes": 14069355,
   "backend": "CPU, four threads",
   "threshold": 0.45,
-  "image_count": 163,
+  "image_count": 296,
   "localized_species_model": {
     "model": "imageomics/bioclip-2",
     "revision": "2957b322090f9cb17ae72c71981c7218a28d81e0",
@@ -19,9 +19,15 @@
     "download_seconds": 52.04,
     "source_url": "https://huggingface.co/imageomics/bioclip-2"
   },
-  "load_and_download_seconds": 0.187,
-  "processing_seconds": 21.828,
-  "one_bird": 89,
-  "multiple_birds": 23,
-  "no_bird_detected": 51
+  "load_and_download_seconds": 0.146,
+  "processing_seconds": 60.985,
+  "screen_modes": {
+    "single_detected_bird": 176,
+    "no_bird_detected": 78,
+    "multiple_detections": 42
+  },
+  "screen_passed": 192,
+  "one_bird": 176,
+  "multiple_birds": 42,
+  "no_bird_detected": 78
 }

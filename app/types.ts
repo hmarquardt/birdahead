@@ -29,12 +29,23 @@ export interface Asset {
   attribution: string | null;
   vocalization: string | null;
   target_bbox_xyxy: number[] | null;
+  license_code?: string | null;
+  source?: string | null;
+  sex?: string | null;
+  age?: string | null;
+  plumage?: string | null;
+  derivative_of?: unknown;
+  technical_metrics?: Record<string, unknown> | null;
   [key: string]: unknown;
 }
 export interface Species {
   ebird_species_code: string;
   common_name: string;
   scientific_name: string;
+  pilot?: boolean;
+  priority_rank?: number | null;
+  confusion_pair?: Record<string, unknown> | null;
+  selection_rationale?: string[];
   [key: string]: unknown;
 }
 export interface Release {
@@ -44,6 +55,13 @@ export interface Release {
   counties: Record<string, string>;
   profiles: Record<string, OccurrenceProfile>;
   assets: Asset[];
+  compatibility_key?: string;
+  coverage?: Record<string, Record<string, number | boolean>>;
+  coverage_summary?: Record<string, unknown>;
+  data_vintage?: Record<string, unknown>;
+  confusion_pairs?: Array<{ left: string; right: string }>;
+  limitations?: string[];
+  universe?: Record<string, unknown>;
 }
 export interface Priority {
   species_code: string;

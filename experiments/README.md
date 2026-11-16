@@ -114,3 +114,18 @@ The learner is http://127.0.0.1:8788, separate from the :8765 curation workbench
 The [configurable geographic kernel](../tooling/checklists.py) reads source-shaped EBD/SED TSV and an explicit `scientific_name,species_code` crosswalk. The [pilot configuration](../config/geography/pilot.json) deliberately has null source release/taxonomy and pending crosswalk review; it must not run as though access or concepts were verified. Copy/configure it privately after an approved coherent snapshot arrives. Supply `--ebd`, `--sed`, `--crosswalk`, `--config` and a new private `--output` to `uv run python -m tooling.checklists aggregate`. The default input ceiling is 50 MB. This is a denominator prototype, not a downloader or production bulk adapter; polygons/effort standardization and real histogram parity remain unvalidated. Do not raise the ceiling or acquire archives before the [access/size preflight](../docs/geographic-acquisition.md).
 
 Status and Trends authenticated lists used `EBIRD_ST_API_KEY` programmatically, with no secret URLs/errors in evidence. Only two list requests were made; zero rasters. Current official API documentation includes credentials in query parameters, so any future adapter must redact URLs and exceptions, disable HTTP debug logs, restrict redirects and cache by public object identity. Do not reuse the generic public-query cache client for secret query strings.
+
+## Phase Two — 100-species universe and automated expansion
+
+```sh
+uv run python -m tooling.teaching_universe derive      # offline, cached taxonomy
+uv run python -m tooling.histograms                   # private 100-species profiles
+uv run python -m tooling.expansion plan               # explicit deficits/budgets
+uv run python -m tooling.expansion run --requests 450 --max-assets 900
+uv run python -m tooling.expansion status
+uv run python -m tooling.local_release
+uv run python -m tooling.coverage_report
+uv run python -m tooling.flag_sync --apply
+```
+
+Public evidence: `teaching-universe` configuration under `config/geography/`, `phase-two-acquisition.json` (checkpoint/budget/failure aggregates), `phase-two-media.json` (before/after accepted coverage, rejection reasons, seasonal deck coverage, storage/time), `audio-segments.json` (verified clip criteria/counts) and `flag-reconciliation.json` (aggregate reconciliation counts). `phase-one-media-baseline.json` is the pre-expansion snapshot. Private state: `experiments/private/phase05/expansion/state.json`, catalog/media, inference artifacts and the review database. Candidate counts are never accepted coverage; source/model evidence remains preliminary. No new county download, large EBD/SED acquisition or model raster was requested.

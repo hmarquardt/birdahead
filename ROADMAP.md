@@ -12,6 +12,16 @@ The Phase One amendment authorizes the local MVP concurrently with geographic da
 
 Acceptance evidence: Python tests, Hono API tests, TypeScript/build checks and real-media Chrome desktop/mobile smoke tests pass. The browser uses a disposable learner database; no owner practice or review was fabricated. [Current report](docs/phase-one.md), [local use](docs/local-mvp.md).
 
+## Delivered Phase Two increment
+
+- Derived a deterministic 100-species teaching universe from all seven county references (333 reconciled species, 25 pilot retained, unresolved names preserved privately). Histogram import now carries 100 species × 48 native bins × 7 counties.
+- Added checkpointed, budgeted acquisition with per-species deficits, contributor/rights/resolution/source-support filters and retry limits. The practical Phase Two batch processed 23/100 species and 186 new candidates; accepted coverage rose from 55 to 193 assets (141 photographs, 52 recordings). Candidate targets are not acceptance claims; 68 species remain explicit gaps.
+- Improved target-clarity screening (192/296 photos passed) and added 32 verified source-interval audio clips for intermittent recordings; 24 clips passed curation and parents remain in the catalog with derivative provenance.
+- Learner release v2 adds data vintage/sample support, coverage tiers and gaps, a browsable accepted-media field guide, richer feedback/session summaries, seasonal deck coverage, mobile/touch improvements and compatibility-preserving session continuation. Flags reconcile to the workbench without consuming owner-review time.
+- Added regression tests for expanded taxonomy, interrupted acquisition/resume, release compilation/compatibility and flag reconciliation.
+
+Acceptance evidence: Python tests, Hono tests and TypeScript/build checks pass; real-media browser smoke remains the local acceptance gate. [Phase Two report](docs/phase-two.md), [local use](docs/local-mvp.md).
+
 ## Next local usability and reliability pass
 
 The owners can use this local collection immediately; their field/use feedback will determine the next improvement. No access negotiation blocks use.

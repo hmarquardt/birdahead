@@ -15,18 +15,28 @@ function fixture() {
   const path = join(dir, "fixture.jpg");
   writeFileSync(path, data);
   const release: Release = {
-    schema: "birdahead-local-release-v1",
+    schema: "birdahead-local-release-v2",
     id: "fixture-release",
+    compatibility_key: "fixture-family",
+    data_vintage: { start_year: 2016, end_year: 2025, source_taxonomy_version: null },
+    coverage_summary: { species: 2, assets: 4 },
+    confusion_pairs: [{ left: "Fixture resident", right: "Fixture migrant" }],
     species: [
       {
         ebird_species_code: "a",
         common_name: "Fixture resident",
         scientific_name: "Fixture a",
+        pilot: true,
+        priority_rank: 1,
+        selection_rationale: ["fixture"],
       },
       {
         ebird_species_code: "b",
         common_name: "Fixture migrant",
         scientific_name: "Fixture b",
+        pilot: false,
+        priority_rank: 2,
+        selection_rationale: ["fixture"],
       },
     ],
     counties: { fixture: "Synthetic location" },
@@ -113,6 +123,7 @@ function fixture() {
     app,
     db,
     release,
+    dir,
     get,
     post,
     start,
@@ -309,6 +320,81 @@ test("media IDs, byte ranges and content integrity are enforced", async () => {
     );
     writeFileSync(f.release.assets[0].local_path, "changed fixture bytes");
     assert.equal((await f.get("/media/a0")).status, 400);
+  } finally {
+    f.cleanup();
+  }
+});
+test("library and coverage expose accepted assets without private paths", async () => {
+  const f = fixture();
+  try {
+    const library = await f.get("/api/library?location=fixture&day=2026-03-15");
+    assert.equal(library.status, 200);
+    assert.equal(library.data.species.length, 2);
+    const resident = library.data.species.find((s: any) => s.code === "a");
+    assert.equal(resident.photos, 2);
+    assert.equal(resident.photo_practice_ready, true);
+    assert.equal(resident.assets.length, 2);
+    assert.equal(resident.assets[0].local_path, undefined);
+    assert.equal(resident.assets[0].media_url, "/media/a0");
+    const searched = await f.get("/api/library?location=fixture&q=migrant&kind=photo");
+    assert.deepEqual(searched.data.species.map((s: any) => s.code), ["b"]);
+    const coverage = await f.get("/api/coverage?location=fixture");
+    assert.equal(coverage.status, 200);
+    assert.ok(coverage.data.decks.winter.deck_size >= 1);
+    assert.ok(coverage.data.decks.winter.photo_practice_ready >= 1);
+    assert.equal(coverage.data.data_vintage.start_year, 2016);
+  } finally {
+    f.cleanup();
+  }
+});
+test("sessions continue across compatible releases and progress remains available", async () => {
+  const f = fixture();
+  try {
+    const s = (await f.start()).data;
+    const compatible: Release = {
+      ...f.release,
+      id: "fixture-release-2",
+      assets: [
+        ...f.release.assets,
+        { ...f.release.assets[0], id: "added-photo" },
+      ],
+    };
+    const next = createApp(compatible, f.db, f.dir);
+    const continued = await next.request(origin + "/api/sessions/" + s.id, {
+      headers: { Host: "127.0.0.1:8788" },
+    });
+    assert.equal(continued.status, 200);
+    assert.equal((await continued.json()).id, s.id);
+    assert.equal((await f.get("/api/progress?profile=birder-1")).data.attempts, 0);
+    const incompatible: Release = { ...compatible, id: "fixture-release-3", compatibility_key: "other-family" };
+    const rejected = await createApp(incompatible, f.db, f.dir).request(origin + "/api/sessions/" + s.id, {
+      headers: { Host: "127.0.0.1:8788" },
+    });
+    assert.equal(rejected.status, 400);
+  } finally {
+    f.cleanup();
+  }
+});
+test("answer feedback includes coverage, comparison context and a session review list", async () => {
+  const f = fixture();
+  try {
+    const s = (await f.start()).data;
+    const stored = JSON.parse(f.db.prepare("SELECT questions FROM sessions WHERE id=?").get(s.id)!.questions as string);
+    const question = stored.find((q: any) => q.id === s.question.id);
+    const wrong = question.options.find((code: string) => code !== question.correct);
+    const result = await f.post("/api/answer", {
+      session_id: s.id,
+      question_id: s.question.id,
+      choice: wrong,
+    });
+    assert.equal(result.data.outcome, "incorrect");
+    assert.ok(result.data.feedback.includes("source identification"));
+    assert.equal(result.data.coverage.photos, 2);
+    assert.equal(result.data.coverage.photo_target_met, false);
+    assert.ok(["Fixture resident", "Fixture migrant"].includes(result.data.comparison_pair.name));
+    const after = await f.get("/api/sessions/" + s.id);
+    assert.equal(after.data.summary.missed.length, 1);
+    assert.ok(after.data.summary.coverage_note.includes("not a mastery claim"));
   } finally {
     f.cleanup();
   }

@@ -79,14 +79,18 @@ export function createApp(
   db: DatabaseSync,
   mediaRoot = privateRoot,
 ) {
-  if (release.schema !== "birdahead-local-release-v1")
+  if (!["birdahead-local-release-v1", "birdahead-local-release-v2"].includes(release.schema))
     throw Error("Unsupported private content release");
+  const releaseFamily = release.compatibility_key ?? release.id;
   db.exec(`PRAGMA journal_mode=WAL;
     CREATE TABLE IF NOT EXISTS profiles(id TEXT PRIMARY KEY,name TEXT NOT NULL);
     INSERT OR IGNORE INTO profiles VALUES('birder-1','Birder 1'),('birder-2','Birder 2');
     CREATE TABLE IF NOT EXISTS sessions(id TEXT PRIMARY KEY,profile_id TEXT NOT NULL,release_id TEXT NOT NULL,location TEXT NOT NULL,outing_day TEXT NOT NULL,kind TEXT NOT NULL,mode TEXT NOT NULL,started TEXT NOT NULL,questions TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS attempts(id TEXT PRIMARY KEY,session_id TEXT NOT NULL,question_id TEXT UNIQUE NOT NULL,profile_id TEXT NOT NULL,asset_id TEXT NOT NULL,species_code TEXT NOT NULL,kind TEXT NOT NULL,mode TEXT NOT NULL,choice TEXT NOT NULL,outcome TEXT NOT NULL,at TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS flags(id TEXT PRIMARY KEY,profile_id TEXT NOT NULL,asset_id TEXT NOT NULL,release_id TEXT NOT NULL,session_id TEXT,reason TEXT NOT NULL,suggested_species TEXT,at TEXT NOT NULL);`);
+  const sessionColumns = asRows(db.prepare("PRAGMA table_info(sessions)").all()).map((r) => r.name);
+  if (!sessionColumns.includes("release_family"))
+    db.exec("ALTER TABLE sessions ADD COLUMN release_family TEXT");
   const app = new Hono();
   const hidden = () =>
     new Set(
@@ -94,26 +98,33 @@ export function createApp(
         (r) => r.asset_id,
       ),
     );
-  const assets = () => release.assets.filter((a) => !hidden().has(a.id));
+  const assets = () => {
+    const suppressed = hidden();
+    return release.assets.filter((a) => !suppressed.has(a.id));
+  };
   const knownProfile = (id: string) =>
     !!db.prepare("SELECT id FROM profiles WHERE id=?").get(id);
   const species = (code: string) =>
-    release.species.find((s) => s.ebird_species_code === code)!;
-  const eligible = (kind: Kind) =>
-    release.species.filter(
-      (s) =>
-        assets().filter(
-          (a) => a.kind === kind && a.species_code === s.ebird_species_code,
-        ).length >= 2,
-    );
+    release.species.find((s) => s.ebird_species_code === code) ?? {
+      ebird_species_code: code,
+      common_name: code,
+      scientific_name: "Retained attempt; species absent from this content release",
+    };
+  const countAssets = (code: string, kind: Kind, visible = assets()) =>
+    visible.filter((a) => a.kind === kind && a.species_code === code).length;
+  const eligible = (kind: Kind, visible = assets()) =>
+    release.species.filter((s) => countAssets(s.ebird_species_code, kind, visible) >= 2);
   const credit = (a: Asset) => ({
     creator: a.creator,
     attribution: a.attribution,
     source_url: a.source_url,
     license_url: a.license_url,
+    license_code: a.license_code ?? null,
+    source: a.source ?? null,
     validation:
       "Automatically accepted with source and model evidence; no expert verification claimed",
     vocalization: a.vocalization,
+    derivative_of: a.derivative_of ?? null,
   });
   const history = (profile: string) =>
     asRows(
@@ -128,9 +139,17 @@ export function createApp(
       db.prepare("SELECT * FROM sessions WHERE id=?").get(id),
     );
     if (!session) throw Error("Session not found");
-    if (session.release_id !== release.id)
+    const compatible = session.release_family
+      ? session.release_family === releaseFamily
+      : session.release_id === release.id;
+    if (!compatible)
       throw Error("Content release changed; start a new session");
-    const questions = JSON.parse(session.questions) as DbRow[];
+    const visible = assets();
+    const byId = new Map(visible.map((a) => [a.id, a]));
+    const suppressed = hidden();
+    const questions = (JSON.parse(session.questions) as DbRow[]).filter((q) =>
+      byId.has(q.asset_id),
+    );
     const answered = asRows(
       db
         .prepare("SELECT * FROM attempts WHERE session_id=? ORDER BY at")
@@ -138,12 +157,23 @@ export function createApp(
     );
     const completed = new Set(answered.map((a) => a.question_id));
     const question = questions.find(
-      (q) => !completed.has(q.id) && !hidden().has(q.asset_id),
+      (q) => !completed.has(q.id) && !suppressed.has(q.asset_id),
     );
     const elapsed = Math.max(
       0,
       (Date.now() - Date.parse(session.started)) / 1000,
     );
+    const missed = answered
+      .filter((a) => a.outcome === "incorrect")
+      .map((a) => ({
+        name: species(a.species_code).common_name,
+        kind: a.kind,
+        choice: a.choice === "unknown" || a.choice === "insufficient" ? null : species(a.choice).common_name,
+      }));
+    const uncertain = answered
+      .filter((a) => a.outcome === "uncertain")
+      .map((a) => ({ name: species(a.species_code).common_name, kind: a.kind }));
+    const current = question ? byId.get(question.asset_id) : undefined;
     return {
       id,
       profile_id: session.profile_id,
@@ -155,13 +185,20 @@ export function createApp(
       total: questions.length,
       elapsed_seconds: elapsed,
       done: !question || elapsed >= 300,
+      data_vintage: release.data_vintage ?? null,
+      coverage_summary: release.coverage_summary ?? null,
       summary: {
         recognized: answered.filter((a) => a.outcome === "correct").length,
         practice: answered.filter((a) => a.outcome === "incorrect").length,
         uncertain: answered.filter((a) => a.outcome === "uncertain").length,
+        distinct_examples: new Set(answered.map((a) => a.asset_id)).size,
+        missed: missed.slice(0, 10),
+        uncertain_species: uncertain.slice(0, 10),
+        coverage_note:
+          "Practice results are not a mastery claim. Missing examples stay explicit; unknown media traits remain unknown.",
       },
       question:
-        question && elapsed < 300
+        question && current && elapsed < 300
           ? {
               id: question.id,
               asset_id: question.asset_id,
@@ -171,12 +208,11 @@ export function createApp(
                 code,
                 name: species(code).common_name,
               })),
-              credit: credit(
-                release.assets.find((a) => a.id === question.asset_id)!,
-              ),
-              bbox:
-                release.assets.find((a) => a.id === question.asset_id)
-                  ?.target_bbox_xyxy ?? null,
+              credit: credit(current),
+              bbox: current.target_bbox_xyxy ?? null,
+              source_evidence: current.source_verified
+                ? "Source-verified record; automated model corroboration is not expert certification"
+                : null,
             }
           : null,
     };
@@ -214,57 +250,266 @@ export function createApp(
       400,
     ),
   );
-  app.get("/api/bootstrap", (c) =>
-    c.json({
-      release_id: release.id,
-      counties: release.counties,
-      profiles: db.prepare("SELECT * FROM profiles ORDER BY id").all(),
-      species: release.species.map((s) => ({
+  app.get("/api/bootstrap", (c) => {
+    const visible = assets();
+    const counts = new Map<string, { photos: number; audio: number }>();
+    for (const asset of visible) {
+      const row = counts.get(asset.species_code) ?? { photos: 0, audio: 0 };
+      if (asset.kind === "photo") row.photos++;
+      else if (asset.kind === "audio") row.audio++;
+      counts.set(asset.species_code, row);
+    }
+    const speciesRows = release.species.map((s) => {
+      const row = counts.get(s.ebird_species_code) ?? { photos: 0, audio: 0 };
+      return {
         code: s.ebird_species_code,
         name: s.common_name,
         scientific_name: s.scientific_name,
-        photos: assets().filter(
-          (a) => a.kind === "photo" && a.species_code === s.ebird_species_code,
-        ).length,
-        recordings: assets().filter(
-          (a) => a.kind === "audio" && a.species_code === s.ebird_species_code,
-        ).length,
-      })),
+        pilot: (s as DbRow).pilot ?? false,
+        priority_rank: (s as DbRow).priority_rank ?? null,
+        photos: row.photos,
+        recordings: row.audio,
+        photo: row.photos >= 2,
+        audio: row.audio >= 2,
+        photo_target_met: row.photos >= 5,
+        audio_target_met: row.audio >= 3,
+        coverage_gap: row.photos < 2 && row.audio < 2,
+      };
+    });
+    const firstProfile = Object.values(release.profiles ?? {})[0];
+    const vintage =
+      release.data_vintage ??
+      (firstProfile
+        ? {
+            start_year: firstProfile.metadata.start_year,
+            end_year: firstProfile.metadata.end_year,
+            source_taxonomy_version: firstProfile.metadata.source_taxonomy_version ?? null,
+            taxonomy_version: firstProfile.metadata.taxonomy_version,
+            bin_definition: firstProfile.metadata.bin_definition,
+            units: firstProfile.metadata.units,
+            source_note: "Owner-supplied county histogram exports; source taxonomy release unknown.",
+          }
+        : null);
+    return c.json({
+      release_id: release.id,
+      release_schema: release.schema,
+      compatibility_key: releaseFamily,
+      counties: release.counties,
+      profiles: db.prepare("SELECT * FROM profiles ORDER BY id").all(),
+      species: speciesRows,
       coverage: {
-        photo: eligible("photo").length,
-        audio: eligible("audio").length,
+        photo: speciesRows.filter((s) => s.photo).length,
+        audio: speciesRows.filter((s) => s.audio).length,
+        species: speciesRows.length,
+        photo_target: speciesRows.filter((s) => s.photo_target_met).length,
+        audio_target: speciesRows.filter((s) => s.audio_target_met).length,
+        gaps: speciesRows.filter((s) => s.coverage_gap).length,
       },
+      coverage_summary: release.coverage_summary ?? null,
+      data_vintage: vintage,
+      confusion_pairs: release.confusion_pairs ?? [],
       source:
         "eBird 2016–2025, owner-supplied county histogram exports; 48 native bins/year",
       limitations:
-        "Reporting frequency reflects submitted complete checklists, not your chance of an encounter. Sparse samples and observer/habitat bias remain.",
-    }),
-  );
+        "Reporting frequency reflects submitted complete checklists, not your chance of an encounter. Sparse samples and observer/habitat bias remain. Missing media coverage is explicit.",
+    });
+  });
   app.get("/api/curriculum", (c) => {
     const profile = c.req.query("profile") ?? "";
     if (!knownProfile(profile)) throw Error("Choose a learner");
+    const location = c.req.query("location") ?? "";
+    const day = c.req.query("day") ?? isoDay();
     const past = history(profile);
-    return c.json({
-      priorities: priorities(
-        release,
-        c.req.query("location") ?? "",
-        c.req.query("day") ?? isoDay(),
-      ).map((r) => ({
+    const visible = assets();
+    const media = new Map<string, { photos: number; audio: number }>();
+    for (const asset of visible) {
+      const row = media.get(asset.species_code) ?? { photos: 0, audio: 0 };
+      if (asset.kind === "photo") row.photos++;
+      else if (asset.kind === "audio") row.audio++;
+      media.set(asset.species_code, row);
+    }
+    const ranked = priorities(release, location, day).map((r) => {
+      const counts = media.get(r.species_code) ?? { photos: 0, audio: 0 };
+      return {
         ...r,
         name: species(r.species_code).common_name,
-        photo:
-          assets().filter(
-            (a) => a.kind === "photo" && a.species_code === r.species_code,
-          ).length >= 2,
-        audio:
-          assets().filter(
-            (a) => a.kind === "audio" && a.species_code === r.species_code,
-          ).length >= 2,
+        scientific_name: species(r.species_code).scientific_name,
+        pilot: (species(r.species_code) as DbRow).pilot ?? false,
+        priority_rank: (species(r.species_code) as DbRow).priority_rank ?? null,
+        photos: counts.photos,
+        recordings: counts.audio,
+        photo: counts.photos >= 2,
+        audio: counts.audio >= 2,
+        photo_target_met: counts.photos >= 5,
+        audio_target_met: counts.audio >= 3,
+        coverage_gap: counts.photos < 2 && counts.audio < 2,
         attempts: past.filter((a) => a.species_code === r.species_code).length,
         needs_practice: past.filter(
-          (a) => a.species_code === r.species_code && a.outcome === "incorrect",
+          (a) => a.species_code === r.species_code && a.outcome !== "correct",
         ).length,
-      })),
+      };
+    });
+    return c.json({
+      location,
+      day,
+      data_vintage: release.data_vintage ?? null,
+      coverage_summary: release.coverage_summary ?? null,
+      priorities: ranked,
+    });
+  });
+  const publicAsset = (asset: Asset) => ({
+    id: asset.id,
+    kind: asset.kind,
+    species_code: asset.species_code,
+    media_url: `/media/${asset.id}`,
+    creator: asset.creator,
+    attribution: asset.attribution,
+    source_url: asset.source_url,
+    license_url: asset.license_url,
+    license_code: asset.license_code ?? null,
+    source: asset.source ?? null,
+    vocalization: asset.vocalization,
+    sex: (asset as DbRow).sex ?? null,
+    age: (asset as DbRow).age ?? null,
+    plumage: (asset as DbRow).plumage ?? null,
+    biological_attribute_status: (asset as DbRow).biological_attribute_status ?? null,
+    target_bbox_xyxy: asset.target_bbox_xyxy,
+    derivative_of: asset.derivative_of ?? null,
+    duration_seconds:
+      ((asset as DbRow).technical_metrics as DbRow | undefined)?.duration_seconds ??
+      null,
+    validation:
+      "Automatically accepted source/model corroboration; no expert verification claimed",
+  });
+  app.get("/api/library", (c) => {
+    const query = (c.req.query("q") ?? "").trim().toLowerCase();
+    const kind = c.req.query("kind") ?? "all";
+    const location = c.req.query("location") ?? Object.keys(release.counties)[0] ?? "";
+    const day = c.req.query("day") ?? isoDay();
+    const visible = assets();
+    const media = new Map<string, { photos: number; audio: number }>();
+    const grouped = new Map<string, Asset[]>();
+    for (const asset of visible) {
+      const row = media.get(asset.species_code) ?? { photos: 0, audio: 0 };
+      if (asset.kind === "photo") row.photos++;
+      else if (asset.kind === "audio") row.audio++;
+      media.set(asset.species_code, row);
+      if (kind !== "all" && asset.kind !== kind) continue;
+      const list = grouped.get(asset.species_code) ?? [];
+      list.push(asset);
+      grouped.set(asset.species_code, list);
+    }
+    const seasonal = new Map(
+      priorities(release, location, day).map((row) => [row.species_code, row]),
+    );
+    const rows = release.species
+      .map((s) => {
+        const counts = media.get(s.ebird_species_code) ?? { photos: 0, audio: 0 };
+        const seasonalRow = seasonal.get(s.ebird_species_code);
+        return {
+          code: s.ebird_species_code,
+          name: s.common_name,
+          scientific_name: s.scientific_name,
+          pilot: (s as DbRow).pilot ?? false,
+          priority_rank: (s as DbRow).priority_rank ?? null,
+          confusion_pair: (s as DbRow).confusion_pair ?? null,
+          selection_rationale: (s as DbRow).selection_rationale ?? [],
+          photos: counts.photos,
+          recordings: counts.audio,
+          photo_target_met: counts.photos >= 5,
+          audio_target_met: counts.audio >= 3,
+          photo_practice_ready: counts.photos >= 2,
+          audio_practice_ready: counts.audio >= 2,
+          coverage_gap: counts.photos < 2 && counts.audio < 2,
+          current_reporting_frequency: seasonalRow?.current_reporting_frequency ?? null,
+          approaching_window_rise: seasonalRow?.approaching_window_rise ?? null,
+          sample_size: seasonalRow?.sample_size ?? null,
+          bin_start: seasonalRow?.bin_start ?? null,
+          bin_end: seasonalRow?.bin_end ?? null,
+          assets: (grouped.get(s.ebird_species_code) ?? []).map(publicAsset),
+        };
+      })
+      .filter(
+        (row) =>
+          !query ||
+          row.name.toLowerCase().includes(query) ||
+          row.scientific_name.toLowerCase().includes(query) ||
+          row.code.toLowerCase().includes(query),
+      )
+      .sort(
+        (a, b) =>
+          (a.priority_rank ?? 9999) - (b.priority_rank ?? 9999) ||
+          a.name.localeCompare(b.name),
+      );
+    return c.json({
+      location,
+      day,
+      query,
+      kind,
+      data_vintage: release.data_vintage ?? null,
+      coverage_summary: release.coverage_summary ?? null,
+      species: rows,
+    });
+  });
+  app.get("/api/coverage", (c) => {
+    const location = c.req.query("location") ?? Object.keys(release.counties)[0] ?? "";
+    const visible = assets();
+    const count = (code: string, kind: Kind) =>
+      visible.filter((a) => a.kind === kind && a.species_code === code).length;
+    const describe = (code: string) => ({
+      code,
+      name: species(code).common_name,
+      photos: count(code, "photo"),
+      audio: count(code, "audio"),
+    });
+    const seasons: Record<string, string> = {
+      winter: "2026-01-15",
+      spring_migration: "2026-05-05",
+      summer: "2026-07-15",
+      fall_migration: "2026-09-10",
+      now: isoDay(),
+    };
+    const decks: Record<string, DbRow> = {};
+    for (const [label, day] of Object.entries(seasons)) {
+      const ranking = priorities(release, location, day)
+        .filter((row) => (row.current_reporting_frequency ?? 0) > 0)
+        .slice(0, 25);
+      decks[label] = {
+        day,
+        deck_size: ranking.length,
+        photo_practice_ready: ranking.filter((row) => count(row.species_code, "photo") >= 2).length,
+        audio_practice_ready: ranking.filter((row) => count(row.species_code, "audio") >= 2).length,
+        photo_and_audio_target: ranking.filter(
+          (row) => count(row.species_code, "photo") >= 5 && count(row.species_code, "audio") >= 3,
+        ).length,
+        photo_gaps: ranking
+          .filter((row) => count(row.species_code, "photo") < 2)
+          .slice(0, 12)
+          .map((row) => describe(row.species_code)),
+        audio_gaps: ranking
+          .filter((row) => count(row.species_code, "audio") < 2)
+          .slice(0, 12)
+          .map((row) => describe(row.species_code)),
+      };
+    }
+    const arriving = priorities(release, location, isoDay())
+      .filter((row) => (row.approaching_window_rise ?? 0) > 0)
+      .sort((a, b) => (b.approaching_window_rise ?? 0) - (a.approaching_window_rise ?? 0))
+      .slice(0, 25);
+    return c.json({
+      location,
+      data_vintage: release.data_vintage ?? null,
+      coverage_summary: release.coverage_summary ?? null,
+      decks,
+      arriving_soon: {
+        deck_size: arriving.length,
+        photo_practice_ready: arriving.filter((row) => count(row.species_code, "photo") >= 2).length,
+        audio_practice_ready: arriving.filter((row) => count(row.species_code, "audio") >= 2).length,
+        gaps: arriving
+          .filter((row) => count(row.species_code, "photo") < 2)
+          .slice(0, 12)
+          .map((row) => describe(row.species_code)),
+      },
     });
   });
   app.get("/api/progress", (c) => {
@@ -324,13 +569,16 @@ export function createApp(
     )
       throw Error("Invalid practice settings");
     const ranked = priorities(release, location, day),
-      pool = eligible(kind);
+      visible = assets(),
+      pool = eligible(kind, visible);
     if (pool.length < 2)
       throw Error("Not enough accepted examples for this practice mode");
     const past = history(profile),
       now = Date.now();
     const score = (code: string) => {
-      const r = ranked.find((r) => r.species_code === code)!;
+      const r =
+        ranked.find((row) => row.species_code === code) ??
+        ({ approaching_window_rise: 0, learning_priority: 0, current_reporting_frequency: 0 } as Priority);
       const h = past.filter(
         (a) => a.species_code === code && a.kind === kind && a.mode === mode,
       );
@@ -357,7 +605,9 @@ export function createApp(
     };
     const order = pool
       .filter((s) => {
-        const r = ranked.find((r) => r.species_code === s.ebird_species_code)!;
+        const r =
+          ranked.find((row) => row.species_code === s.ebird_species_code) ??
+          ({ approaching_window_rise: 0, current_reporting_frequency: 0 } as Priority);
         return (
           focus === "weak" ||
           (focus === "arriving"
@@ -379,7 +629,7 @@ export function createApp(
     // Interleave species; never repeat the same media within a session. Prefer unseen media between sessions.
     for (let round = 0; round < 5 && questions.length < 10; round++)
       for (const s of order) {
-        const candidates = assets().filter(
+        const candidates = visible.filter(
           (a) =>
             a.kind === kind &&
             a.species_code === s.ebird_species_code &&
@@ -431,10 +681,11 @@ export function createApp(
         });
       }
     const id = randomUUID();
-    db.prepare("INSERT INTO sessions VALUES(?,?,?,?,?,?,?,?,?)").run(
+    db.prepare("INSERT INTO sessions(id,profile_id,release_id,release_family,location,outing_day,kind,mode,started,questions) VALUES(?,?,?,?,?,?,?,?,?,?)").run(
       id,
       profile,
       release.id,
+      releaseFamily,
       location,
       day,
       kind,
@@ -471,7 +722,8 @@ export function createApp(
         ? [...q.options, "unknown", "insufficient"]
         : ["known", "unknown", "insufficient"];
     if (!allowed.includes(choice)) throw Error("Choose a valid answer");
-    const asset = release.assets.find((a) => a.id === q.asset_id)!;
+    const asset = assets().find((a) => a.id === q.asset_id);
+    if (!asset) throw Error("Media example is no longer available");
     const outcome = ["unknown", "insufficient"].includes(choice)
       ? "uncertain"
       : choice === q.correct || choice === "known"
@@ -491,18 +743,66 @@ export function createApp(
         outcome,
         new Date().toISOString(),
       );
+    const correct = species(q.correct);
+    const own = assets().filter((a) => a.species_code === q.correct);
+    const coverage = {
+      photos: own.filter((a) => a.kind === "photo").length,
+      audio: own.filter((a) => a.kind === "audio").length,
+      photo_target_met: own.filter((a) => a.kind === "photo").length >= 5,
+      audio_target_met: own.filter((a) => a.kind === "audio").length >= 3,
+    };
+    const pairs = ((release as DbRow).confusion_pairs ?? []) as DbRow[];
+    const pair = pairs.find(
+      (row) => row.left === correct.common_name || row.right === correct.common_name,
+    );
+    const partnerName = pair
+      ? pair.left === correct.common_name
+        ? pair.right
+        : pair.left
+      : null;
+    const partner = partnerName
+      ? release.species.find((s) => s.common_name === partnerName)
+      : null;
+    const resolved = existing?.outcome ?? outcome;
+    const feedback =
+      resolved === "correct"
+        ? session.mode === "recall"
+          ? "You recalled the source identification. Try another example to test transfer, not memorization."
+          : "Recognized. This is one accepted example; different photographs or recordings test transfer."
+        : resolved === "incorrect"
+          ? `Not this time. The source identification is ${correct.common_name}. Review the source record rather than relying on an invented field mark.`
+          : choice === "insufficient"
+            ? "Marked as not enough information. That is a valid outcome; flag the example if the media cannot support a species answer."
+            : "Left uncertain. Uncertainty is recorded separately from an incorrect species guess.";
     return c.json({
-      outcome: existing?.outcome ?? outcome,
+      outcome: resolved,
       answer: {
         code: q.correct,
-        name: species(q.correct).common_name,
-        scientific_name: species(q.correct).scientific_name,
+        name: correct.common_name,
+        scientific_name: correct.scientific_name,
       },
       credit: credit(asset),
       note:
         choice === "insufficient"
           ? "Marked uncertain. Flag this example if the media cannot support a species identification."
           : null,
+      feedback,
+      coverage,
+      comparison_pair:
+        partner && partnerName
+          ? {
+              code: partner.ebird_species_code,
+              name: partnerName,
+              photos: assets().filter(
+                (a) => a.kind === "photo" && a.species_code === partner.ebird_species_code,
+              ).length,
+              audio: assets().filter(
+                (a) => a.kind === "audio" && a.species_code === partner.ebird_species_code,
+              ).length,
+            }
+          : null,
+      evidence:
+        "Automatically accepted source/model corroboration; no expert certification or field-mark annotation is implied.",
     });
   });
   app.post("/api/reveal", async (c) => {
@@ -520,13 +820,48 @@ export function createApp(
     const q = JSON.parse(session.questions).find(
       (q: DbRow) => q.id === question_id,
     );
+    const asset = assets().find((a) => a.id === q.asset_id);
+    if (!asset) throw Error("Media example is no longer available");
+    const correct = species(q.correct);
+    const own = assets().filter((a) => a.species_code === q.correct);
+    const pairs = ((release as DbRow).confusion_pairs ?? []) as DbRow[];
+    const pair = pairs.find(
+      (row) => row.left === correct.common_name || row.right === correct.common_name,
+    );
+    const partnerName = pair
+      ? pair.left === correct.common_name
+        ? pair.right
+        : pair.left
+      : null;
+    const partner = partnerName
+      ? release.species.find((s) => s.common_name === partnerName)
+      : null;
     return c.json({
       answer: {
         code: q.correct,
-        name: species(q.correct).common_name,
-        scientific_name: species(q.correct).scientific_name,
+        name: correct.common_name,
+        scientific_name: correct.scientific_name,
       },
-      credit: credit(release.assets.find((a) => a.id === q.asset_id)!),
+      credit: credit(asset),
+      coverage: {
+        photos: own.filter((a) => a.kind === "photo").length,
+        audio: own.filter((a) => a.kind === "audio").length,
+        photo_target_met: own.filter((a) => a.kind === "photo").length >= 5,
+        audio_target_met: own.filter((a) => a.kind === "audio").length >= 3,
+      },
+      comparison_pair:
+        partner && partnerName
+          ? {
+              code: partner.ebird_species_code,
+              name: partnerName,
+              photos: assets().filter(
+                (a) => a.kind === "photo" && a.species_code === partner.ebird_species_code,
+              ).length,
+              audio: assets().filter(
+                (a) => a.kind === "audio" && a.species_code === partner.ebird_species_code,
+              ).length,
+            }
+          : null,
     });
   });
   app.post("/api/flag", async (c) => {
@@ -572,7 +907,7 @@ export function createApp(
     return c.json({
       id,
       status:
-        "Locally hidden from practice for both learners, pending review. Related attempts excluded from progress.",
+        "Locally hidden from practice for both learners, pending review. Related attempts excluded from progress. Sync to the curation workbench with `uv run python -m tooling.flag_sync --apply`.",
     });
   });
   app.get("/media/:id", (c) => {
@@ -591,6 +926,8 @@ export function createApp(
       ".mp3": "audio/mpeg",
       ".wav": "audio/wav",
       ".ogg": "audio/ogg",
+      ".flac": "audio/flac",
+      ".m4a": "audio/mp4",
     };
     c.header(
       "Content-Type",

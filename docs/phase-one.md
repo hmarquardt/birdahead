@@ -1,5 +1,7 @@
 # Phase One — bootstrap import, local learner and scalable geography
 
+**Historical Phase One record.** The local content scope is superseded by [Phase Two](phase-two.md); the geographic/acquisition conclusions remain valid.
+
 November 15, 2026. **Go for local recreational use now. Continue bulk/geographic validation independently. Hold cloud deployment, large downloads and claims of complete regional or biologically certified coverage.** The owner-supplied files removed the seasonal bootstrap blocker; long-term delivery uncertainty is not a local-app blocker.
 
 ## Annual import results
