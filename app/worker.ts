@@ -1,5 +1,6 @@
 /// <reference lib="webworker" />
 import { Hono } from "hono";
+import { geographicResponse, publicGeographicIndex, validateGeographicIndex } from "./geography";
 import { HTTPException } from "hono/http-exception";
 import { escapeHtml, renderMigrationPage, renderPrivacyPage, renderRegionPage, renderRobots, renderSitemap, renderSourcesPage, renderSpeciesPage } from "./public-pages";
 
@@ -41,6 +42,7 @@ interface Release {
   id: string; schema: string; compatibility_key?: string; species: Row[]; counties: Record<string,string>;
   profiles: Record<string,{ rows: Bin[]; metadata: Row }>; assets: Asset[]; coverage_summary?: Row;
   data_vintage?: Row; confusion_pairs?: Row[]; limitations?: string[]; coverage?: Row; universe?: Row; public_data_terms?: Row;
+  geography?: unknown;
 }
 
 const encoder = new TextEncoder();
@@ -231,6 +233,21 @@ app.use("/media/public/*", async (c, next) => {
   const ip = c.req.header("CF-Connecting-IP") ?? "local";
   if (c.env.PUBLIC_LIMIT && !(await c.env.PUBLIC_LIMIT.limit({ key: "public-media:" + ip })).success) return c.text("Too many media requests.", 429, { "Retry-After": "60" });
   await next();
+});
+app.get("/api/public/geography", async (c) => {
+  const release = await activeRelease(c.env);
+  if (!release.geography) return c.json({ error: "Geography unavailable." }, 404);
+  try {
+    c.header("Cache-Control", "public, max-age=60");
+    return c.json(publicGeographicIndex(validateGeographicIndex(release.geography)));
+  } catch { return c.json({ error: "Geography unavailable." }, 503); }
+});
+app.get("/api/public/geography/:version/:region", async (c) => {
+  const release = await activeRelease(c.env);
+  return geographicResponse(release.geography, c.req.param("version"), c.req.param("region"), async key => {
+    const object = await c.env.CONTENT.get(key);
+    return object ? object.arrayBuffer() : null;
+  });
 });
 app.get("/api/public/bootstrap", async (c) => {
   const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const counts = mediaCounts(release, visible);

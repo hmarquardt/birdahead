@@ -1,0 +1,173 @@
+{
+  "schema": "birdahead-geographic-config-v1",
+  "start_year": 2016,
+  "end_year": 2025,
+  "minimum_support": 20,
+  "effort": {},
+  "locations": [
+    {
+      "id": "US-IN",
+      "name": "Indiana",
+      "kind": "state",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "state",
+        "ids": [
+          "US-IN"
+        ]
+      }
+    },
+    {
+      "id": "US-IN-051",
+      "name": "Gibson",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-051"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-125",
+      "name": "Pike",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-125"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-055",
+      "name": "Greene",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-055"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-129",
+      "name": "Posey",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-129"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-083",
+      "name": "Knox",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-083"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-163",
+      "name": "Vanderburgh",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-163"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "US-IN-173",
+      "name": "Warrick",
+      "kind": "county",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "county",
+        "ids": [
+          "US-IN-173"
+        ]
+      },
+      "parent": "US-IN"
+    },
+    {
+      "id": "cane-ridge",
+      "name": "Cane Ridge WMA",
+      "kind": "destination",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "hotspot",
+        "ids": [
+          "L320465"
+        ]
+      },
+      "parent": "US-IN-051"
+    },
+    {
+      "id": "gibson-lake-habitat",
+      "name": "Gibson Lake Wildlife Habitat, not entire lake",
+      "kind": "destination",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "hotspot",
+        "ids": [
+          "L1872968"
+        ]
+      },
+      "parent": "US-IN-051"
+    },
+    {
+      "id": "snakey-point",
+      "name": "Patoka River NWR–Snakey Point Marsh",
+      "kind": "destination",
+      "coverage_states": [
+        "US-IN"
+      ],
+      "selector": {
+        "type": "hotspot",
+        "ids": [
+          "L564337"
+        ]
+      },
+      "parent": "US-IN-051"
+    }
+  ]
+}

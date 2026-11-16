@@ -2,6 +2,8 @@
 
 Status: public noncommercial educational release with optional private household profiles, November 16, 2026. Canonical URL: **https://birdahead.com**. `www.birdahead.com` redirects with HTTP 308. Public exploration, field guide, eligible media and guest practice require no account; private progress, identities and administration remain authenticated.
 
+**Phase Eight gate, November 16, 2026:** `CLOUDFLARE_DEPLOY_ENABLED` was observed enabled and reset to `false` before pushing the geographic architecture. No geographic code/content deployment was performed. The live accepted release remains in place. [Geographic release prerequisites, staging and rollback strategy](phase-eight.md). No backup, rollback or token-scope change occurred.
+
 ## Resource inventory
 
 | Resource | Name / identity | Purpose |

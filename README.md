@@ -78,6 +78,12 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Flag reconciliation](experiments/flag-reconciliation.json) | Learner-report intake status and budget evidence |
 | [Delivery manifest](experiments/phase-two-delivery-manifest.json) | R2 object keys, rights, attribution and projected storage |
 | [Audit queue](experiments/phase-two-audit-queue.json) | Concise risk-stratified sampled owner-audit queue |
+| [Phase Eight report](docs/phase-eight.md) | Measured source/resource access, reproducible pipeline, destinations and publication runbook |
+| [Regional source request](docs/phase-eight-owner-request.md) | One consolidated EBD/SED access, refresh and public S&T permission action |
+| [Geographic expansion manifest](config/geography/expansion.json) | Indiana → Illinois → Kentucky order, source schemas and release gates |
+| [Historical processing engine](tooling/geographic_engine.py) | Private typed ingestion, shared denominators, native profiles and content-addressed Parquet |
+| [Geographic validation](experiments/phase-eight-validation.json) | Seven real references; EBD comparison explicitly blocked until source delivery |
+| [Modeled experiment](experiments/phase-eight-modeled.json) | Actual authenticated inventories, sizes, transfers and coarse spatial extraction |
 | [Geographic acquisition](docs/geographic-acquisition.md) | EBD/SED, S&T, caching, sizes and access limits |
 | [Seasonal model](docs/seasonal-model.md) | Native bins, missingness and ranking |
 | [Architecture](docs/architecture.md) | Runtime/data separation and costs |
@@ -92,8 +98,8 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 ## Development and credentials
 
 ```sh
-uv run python -m unittest discover -s tests          # 55 tests
-npm test --prefix app                                  # 10 tests
+uv run python -m unittest discover -s tests
+npm test --prefix app
 npm run build --prefix app
 uv run --with playwright python -m tooling.learner_browser_smoke
 uv run --with playwright python -m tooling.production_smoke --base https://birdahead.com --browser

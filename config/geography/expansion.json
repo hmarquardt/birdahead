@@ -1,0 +1,80 @@
+{
+  "schema": "birdahead-geographic-expansion-v1",
+  "intended_use": "Public noncommercial educational bird learning at birdahead.com; private raw data; attributed eligible compact derivatives only",
+  "order": [
+    {
+      "id": "US-IN",
+      "priority": 1,
+      "acquisition_status": "no_approved_extract_found",
+      "pilot": "Seven reference counties, all species/months 2016-2025; complete coherent regional EBD + SED; bounded artifact size preflight before transfer",
+      "whole_state_config": "config/geography/indiana.json",
+      "publish": false
+    },
+    {
+      "id": "US-IL",
+      "priority": 2,
+      "acquisition_status": "deferred_until_indiana_pilot_measured",
+      "publish": false
+    },
+    {
+      "id": "US-KY",
+      "priority": 3,
+      "acquisition_status": "deferred_until_prior_stage_measured",
+      "publish": false
+    }
+  ],
+  "nationwide_strategy": "Provider-approved regional snapshots -> state/year private Parquet -> selective immutable regional products; same adapters for every region",
+  "sources": {
+    "historical": "EBD plus matching SED; approved project/direct delivery only",
+    "modeled": "authenticated documented S&T API; 27 km pilot; web/app written consent required",
+    "recent": "API v2 region recent presence; never a denominator"
+  },
+  "release_gates": [
+    "coherent real snapshot and pinned taxonomy",
+    "seven reference denominator-first comparisons with discrepancy review",
+    "explicit public-use eligibility",
+    "bounded source and resource preflight",
+    "verified existing GitHub Actions release gate"
+  ],
+  "geographic_selectors": [
+    "state",
+    "county",
+    "hotspot",
+    "bbox",
+    "polygon"
+  ],
+  "destination_kinds": [
+    "state",
+    "county",
+    "park",
+    "refuge",
+    "cell",
+    "region",
+    "destination"
+  ],
+  "fallback": "Per species/native bin: explicit parent chain; requested/effective region retained; unsupported root returns missing",
+  "sensitive_coordinates": "Private source only; no point/event data in public profiles",
+  "raw_source_schema": {
+    "sed": [
+      "SAMPLING EVENT IDENTIFIER",
+      "GROUP IDENTIFIER",
+      "ALL SPECIES REPORTED",
+      "OBSERVATION DATE",
+      "STATE CODE",
+      "COUNTY CODE",
+      "LOCALITY ID",
+      "LATITUDE",
+      "LONGITUDE",
+      "PROTOCOL CODE",
+      "DURATION MINUTES",
+      "EFFORT DISTANCE KM",
+      "NUMBER OBSERVERS"
+    ],
+    "ebd": [
+      "SAMPLING EVENT IDENTIFIER",
+      "SCIENTIFIC NAME",
+      "OBSERVATION COUNT",
+      "APPROVED"
+    ]
+  }
+}

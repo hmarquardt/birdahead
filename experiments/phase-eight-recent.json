@@ -1,0 +1,16 @@
+{
+  "at": "2026-11-16T22:12:51.145258+00:00",
+  "evidence": "observed experiment",
+  "endpoint": "https://api.ebird.org/v2/data/obs/US-IN/recent",
+  "parameters": {
+    "back": 7,
+    "maxResults": 5
+  },
+  "requests": 1,
+  "http_status": 200,
+  "bytes": 1520,
+  "records": 5,
+  "complete_checklist_denominator": false,
+  "signal": "recent_presence",
+  "public_raw_data": false
+}

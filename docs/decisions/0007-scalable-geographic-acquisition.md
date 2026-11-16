@@ -2,6 +2,8 @@
 
 Date: November 15, 2026. Status: accepted direction under the owner's Phase One amendment; bulk delivery and measured processing remain proposed/unverified.
 
+**Phase Eight update (November 16, 2026):** the configuration-driven local processing and selective publication path are implemented, including a real bounded coarse S&T experiment. Historical EBD source access/validation and public S&T web/app consent remain gates. [Measured report](../phase-eight.md).
+
 ## Decision
 
 The seven owner-supplied 2016–2025 county histograms are bootstrap inputs and validation references. They are not a recurring acquisition workflow. Continue the local MVP with these data while building an independent path to automated profiles from regional EBD **plus matching Sampling Event Data**. Use Python/uv, DuckDB and private partitioned Parquet; compile small, versioned runtime summaries. Configure counties, hotspot IDs and supported polygons rather than adding per-location manual downloads.

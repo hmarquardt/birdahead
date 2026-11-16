@@ -127,6 +127,7 @@ def main():
     parser.add_argument('--no-activate', action='store_true')
     parser.add_argument('--concurrency', type=int, default=2)
     parser.add_argument('--resolve-ip', default=None, help='Local DNS workaround for the apex host')
+    parser.add_argument('--geography-package', type=Path, help='Reviewed eligible compact geographic package; uploaded through private Worker binding')
     args = parser.parse_args()
     origin = 'http://127.0.0.1:8788' if args.local else args.origin
     if args.resolve_ip:
@@ -146,6 +147,14 @@ def main():
     release = json.loads(Path(RELEASE).read_text())
     delivery = json.loads(Path(DELIVERY).read_text())
     catalog = cloud_catalog(release, delivery)
+    geography = None
+    if args.geography_package:
+        from tooling.geographic_release import load_package
+        geography = load_package(args.geography_package)
+        catalog['geography'] = geography
+        # Preserve learner compatibility, but never rewrite a previous release catalog.
+        release = {**release, 'id': hashlib.sha256(json.dumps({'base': release['id'], 'geography': geography}, sort_keys=True).encode()).hexdigest()}
+        catalog['release_id'] = release['id']
     catalog_raw = json.dumps(catalog, sort_keys=True, separators=(',', ':')).encode()
     catalog_key = f"releases/{release['id']}/catalog.json"
     catalog_sha = hashlib.sha256(catalog_raw).hexdigest()
@@ -189,6 +198,9 @@ def main():
                         print(json.dumps({'uploaded': completed, 'pending': len(pending)}), flush=True)
         print(json.dumps({'uploaded_or_skipped': len(delivery['objects']), 'changed_uploaded': completed}, indent=2))
     # Upload the versioned catalog and activate only after every object is verified.
+    if geography:
+        for row in geography['regions']:
+            upload_object(origin, token, row['key'], args.geography_package / (row['id'] + '.json'), row['sha256'], 'application/json')
     status, result = request(origin, token, 'PUT', '/api/admin/object?key=' + urllib.parse.quote(catalog_key, safe=''),
                              catalog_raw, {'Content-Type': 'application/json', 'X-Content-SHA256': catalog_sha, 'Content-Length': str(len(catalog_raw))})
     ledger['catalogs'][catalog_key] = {'sha256': catalog_sha, 'bytes': len(catalog_raw), 'verified_at': datetime.now(timezone.utc).isoformat()}

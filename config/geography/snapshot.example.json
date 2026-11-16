@@ -1,0 +1,49 @@
+{
+  "schema": "birdahead-regional-snapshot-v1",
+  "snapshot_id": null,
+  "source_taxonomy_version": null,
+  "target_taxonomy_version": "2026",
+  "grant_reference": null,
+  "terms_url": "https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/",
+  "intended_use": "Public noncommercial educational BirdAhead profiles; raw data remains private",
+  "states": [
+    "US-IN"
+  ],
+  "source_scope": {
+    "kind": "counties",
+    "ids": [
+      "US-IN-051",
+      "US-IN-125",
+      "US-IN-055",
+      "US-IN-129",
+      "US-IN-083",
+      "US-IN-163",
+      "US-IN-173"
+    ]
+  },
+  "start_year": 2016,
+  "end_year": 2025,
+  "all_species": true,
+  "all_months": true,
+  "evidence": "real_ebd_sed",
+  "artifacts": {
+    "ebd": {
+      "path": null,
+      "bytes": null,
+      "sha256": null,
+      "snapshot_id": null
+    },
+    "sed": {
+      "path": null,
+      "bytes": null,
+      "sha256": null,
+      "snapshot_id": null
+    },
+    "crosswalk": {
+      "path": null,
+      "bytes": null,
+      "sha256": null,
+      "snapshot_id": null
+    }
+  }
+}

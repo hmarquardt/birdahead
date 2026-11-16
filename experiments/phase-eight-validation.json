@@ -1,0 +1,18 @@
+{
+  "schema": "birdahead-geographic-validation-v1",
+  "reference_count": 7,
+  "reference_samples": 79868,
+  "historical_validation": "blocked_source_unavailable",
+  "evidence": "real_histogram_reference_inventory_only",
+  "build_identity": null,
+  "counties": [],
+  "investigation_axes": [
+    "snapshot vintage",
+    "complete/effort/provisional filters",
+    "taxonomy split/lump and crosswalk",
+    "shared-event deduplication and conflicts",
+    "source rounding and presence markers"
+  ],
+  "frequency_comparison": "not performed: no matching approved EBD/SED snapshot",
+  "synthetic_tests": "separate integration tests; no real EBD denominator/frequency parity claim"
+}

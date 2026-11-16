@@ -1,0 +1,45 @@
+{
+  "schema": "birdahead-phase-eight-verification-v1",
+  "at": "2026-11-16T22:25:17.980733+00:00",
+  "evidence": "observed local checks",
+  "checks": {
+    "python_unittest": {
+      "command": "uv run python -m unittest discover -s tests",
+      "passed": 77
+    },
+    "app_tests": {
+      "command": "npm test --prefix app",
+      "passed": 28
+    },
+    "client_build": {
+      "command": "npm run build --prefix app",
+      "status": "passed"
+    },
+    "worker_bundle": {
+      "command": "npm run worker:dry --prefix app",
+      "status": "passed_without_deployment"
+    },
+    "publisher": {
+      "command": "uv run python -m tooling.cloud_publish --dry-run",
+      "status": "passed_without_mutation",
+      "objects": 589,
+      "bytes": 436400934
+    }
+  },
+  "historical_source_validation": "unavailable_no_approved_EBD_SED_pair",
+  "synthetic_checks": "source-shaped fixtures only, not EBD/reference parity",
+  "live_experiments": {
+    "status_and_trends_requests": 18,
+    "status_and_trends_response_bytes": 5744120,
+    "recent_requests": 1,
+    "recent_response_bytes": 1520,
+    "ebd_transfers": 0
+  },
+  "deployment": {
+    "performed": false,
+    "CLOUDFLARE_DEPLOY_ENABLED": "false",
+    "prior_observed_value": "true",
+    "reason": "real-source, public eligibility and validation gates pending"
+  },
+  "owner_action": "docs/phase-eight-owner-request.md"
+}

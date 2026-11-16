@@ -1,0 +1,442 @@
+{
+  "schema": "birdahead-modeled-experiment-v1",
+  "at": "2026-11-16T22:10:03.049590+00:00",
+  "evidence": "observed experiment",
+  "version": 2023,
+  "latest_version_verified": false,
+  "max_requests": 30,
+  "max_download_bytes": 64000000,
+  "documentation": "https://ebird.github.io/ebirdst/articles/api.html",
+  "species": [
+    {
+      "species_code": "norcar",
+      "products": [
+        {
+          "object": "2023/norcar/weekly/norcar_occurrence_median_27km_2023.tif",
+          "bytes": 1756445,
+          "sha256": "def0c6c42c18d81a8405937c479c2481c2f74189d02e64d99a5e918cf626acfe",
+          "cached": false,
+          "resumed_bytes": 0,
+          "bands": 52,
+          "resolution_m": [
+            27000.0,
+            27000.0
+          ],
+          "crs": "EPSG:8857",
+          "valid_cells_range": [
+            72,
+            72
+          ],
+          "value_range": [
+            0.7678218938765493,
+            0.818522347306496
+          ],
+          "signal": "modeled_occurrence",
+          "public_eligibility": "blocked_written_web_app_consent_required",
+          "valid_area_fraction_range": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "object": "2023/norcar/weekly/norcar_abundance_median_27km_2023.tif",
+          "bytes": 1774926,
+          "sha256": "cb051436e33f6272c657ad036f5c0c8f5f7978c54549e61932db3a15da6eb54f",
+          "cached": false,
+          "resumed_bytes": 0,
+          "bands": 52,
+          "resolution_m": [
+            27000.0,
+            27000.0
+          ],
+          "crs": "EPSG:8857",
+          "valid_cells_range": [
+            72,
+            72
+          ],
+          "value_range": [
+            3.070357382523931,
+            4.963720281300862
+          ],
+          "signal": "modeled_abundance",
+          "public_eligibility": "blocked_written_web_app_consent_required",
+          "valid_area_fraction_range": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "failures": [],
+      "object_count": 157,
+      "listing_bytes": 10545,
+      "product_families": [
+        "config.json",
+        "pis",
+        "ppms",
+        "ranges",
+        "regional_stats.csv",
+        "seasonal",
+        "web_download",
+        "weekly"
+      ],
+      "weekly_coarse_products": [
+        "2023/norcar/weekly/norcar_abundance_median_27km_2023.tif",
+        "2023/norcar/weekly/norcar_occurrence_median_27km_2023.tif"
+      ],
+      "quality_metadata_keys": [
+        "ALWAYS_SPLIT_COVARS",
+        "DATE_NAMES",
+        "FACTOR_COVARS",
+        "FOLD_N",
+        "HABITAT_COVARS",
+        "IS_BESPOKE",
+        "IS_CCI",
+        "IS_DATA_COVERAGE",
+        "IS_RESIDENT",
+        "MEM_MULT_FIT_PREDICT",
+        "MIN_ERD_YEAR",
+        "NUM_ES_FOLDS",
+        "NUM_FP_SHARDS_PER_FOLD",
+        "NUM_PD_FOLDS",
+        "NUM_SHARDS_SUMMARIZE",
+        "OBS_COVARS",
+        "PD_FEATURES",
+        "PREDICTOR_LIST",
+        "PREDICT_TO_SRD",
+        "SPECIES_CODE",
+        "SRD_PRED_DAYS",
+        "SRD_PRED_YEAR",
+        "SRD_TYPE",
+        "SRD_WINDOW_WIDTH",
+        "STIXEL_SUBDIR",
+        "USE_SINGLE_SPECIES_STIXELS",
+        "WEATHER_COVARS",
+        "WEEKLY_SRD_COVARS",
+        "bbox_ll",
+        "bbox_native",
+        "bins",
+        "bins_seasonal",
+        "display_resolution",
+        "es_threshold",
+        "has_predictions",
+        "has_seasonal",
+        "projection",
+        "projection_diagnostic",
+        "quality",
+        "season_dates",
+        "show_yearround",
+        "split_migration",
+        "summarize_as_resident"
+      ],
+      "metadata_bytes": 17404,
+      "quality_summary": {
+        "quality": {
+          "animation": [
+            2
+          ],
+          "full_year": [
+            3
+          ]
+        },
+        "has_predictions": [
+          true
+        ],
+        "season_dates": [
+          {
+            "season": "resident",
+            "pass": true,
+            "quality": 3,
+            "start_date": "2023-01-04",
+            "end_date": "2023-12-27"
+          }
+        ]
+      }
+    },
+    {
+      "species_code": "bkpwar",
+      "products": [
+        {
+          "object": "2023/bkpwar/weekly/bkpwar_occurrence_median_27km_2023.tif",
+          "bytes": 1076095,
+          "sha256": "1ba4917db5b04eff12967501ff395dae535a4d7508a722da099030466c12d095",
+          "cached": false,
+          "resumed_bytes": 0,
+          "bands": 52,
+          "resolution_m": [
+            27000.0,
+            27000.0
+          ],
+          "crs": "EPSG:8857",
+          "valid_cells_range": [
+            72,
+            72
+          ],
+          "value_range": [
+            0.0,
+            0.3107174710904981
+          ],
+          "signal": "modeled_occurrence",
+          "public_eligibility": "blocked_written_web_app_consent_required",
+          "valid_area_fraction_range": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "object": "2023/bkpwar/weekly/bkpwar_abundance_median_27km_2023.tif",
+          "bytes": 1078039,
+          "sha256": "d578d32bf2b76629434ce210c5424e5f3349bdf906cf03bb7cdb94abb0f3eb9c",
+          "cached": false,
+          "resumed_bytes": 0,
+          "bands": 52,
+          "resolution_m": [
+            27000.0,
+            27000.0
+          ],
+          "crs": "EPSG:8857",
+          "valid_cells_range": [
+            72,
+            72
+          ],
+          "value_range": [
+            0.0,
+            0.5160417637112972
+          ],
+          "signal": "modeled_abundance",
+          "public_eligibility": "blocked_written_web_app_consent_required",
+          "valid_area_fraction_range": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "failures": [],
+      "object_count": 183,
+      "listing_bytes": 12483,
+      "product_families": [
+        "config.json",
+        "pis",
+        "ppms",
+        "ranges",
+        "regional_stats.csv",
+        "seasonal",
+        "web_download",
+        "weekly"
+      ],
+      "weekly_coarse_products": [
+        "2023/bkpwar/weekly/bkpwar_abundance_median_27km_2023.tif",
+        "2023/bkpwar/weekly/bkpwar_occurrence_median_27km_2023.tif"
+      ],
+      "quality_metadata_keys": [
+        "ALWAYS_SPLIT_COVARS",
+        "DATE_NAMES",
+        "FACTOR_COVARS",
+        "FOLD_N",
+        "HABITAT_COVARS",
+        "IS_BESPOKE",
+        "IS_CCI",
+        "IS_DATA_COVERAGE",
+        "IS_RESIDENT",
+        "MEM_MULT_FIT_PREDICT",
+        "MIN_ERD_YEAR",
+        "NUM_ES_FOLDS",
+        "NUM_FP_SHARDS_PER_FOLD",
+        "NUM_PD_FOLDS",
+        "NUM_SHARDS_SUMMARIZE",
+        "OBS_COVARS",
+        "PD_FEATURES",
+        "PREDICTOR_LIST",
+        "PREDICT_TO_SRD",
+        "SPECIES_CODE",
+        "SRD_PRED_DAYS",
+        "SRD_PRED_YEAR",
+        "SRD_TYPE",
+        "SRD_WINDOW_WIDTH",
+        "STIXEL_SUBDIR",
+        "USE_SINGLE_SPECIES_STIXELS",
+        "WEATHER_COVARS",
+        "WEEKLY_SRD_COVARS",
+        "bbox_ll",
+        "bbox_native",
+        "bins",
+        "bins_seasonal",
+        "display_resolution",
+        "es_threshold",
+        "has_predictions",
+        "has_seasonal",
+        "projection",
+        "projection_diagnostic",
+        "quality",
+        "season_dates",
+        "show_yearround",
+        "split_migration",
+        "summarize_as_resident"
+      ],
+      "metadata_bytes": 18183,
+      "quality_summary": {
+        "quality": {
+          "animation": [
+            2
+          ],
+          "full_year": [
+            3
+          ],
+          "nonbreeding": [
+            2
+          ],
+          "prebreeding_migration": [
+            3
+          ],
+          "breeding": [
+            3
+          ],
+          "postbreeding_migration": [
+            3
+          ]
+        },
+        "has_predictions": [
+          true
+        ],
+        "season_dates": [
+          {
+            "season": "nonbreeding",
+            "pass": true,
+            "quality": 2,
+            "start_date": "2023-12-13",
+            "end_date": "2023-04-05"
+          },
+          {
+            "season": "prebreeding_migration",
+            "pass": true,
+            "quality": 3,
+            "start_date": "2023-04-12",
+            "end_date": "2023-06-07"
+          },
+          {
+            "season": "breeding",
+            "pass": true,
+            "quality": 3,
+            "start_date": "2023-06-14",
+            "end_date": "2023-08-02"
+          },
+          {
+            "season": "postbreeding_migration",
+            "pass": true,
+            "quality": 3,
+            "start_date": "2023-08-09",
+            "end_date": "2023-12-06"
+          }
+        ]
+      }
+    }
+  ],
+  "requests": 18,
+  "transferred_bytes": 5744120,
+  "events": [
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 729,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "text/csv"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 729
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 16675,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "application/json"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 16675
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 1756445,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "image/tiff"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 1756445
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 1774926,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "image/tiff"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 1774926
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 729,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "text/csv"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 729
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 17454,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "application/json"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 17454
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 1076095,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "image/tiff"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 1076095
+    },
+    {
+      "method": "HEAD",
+      "http_status": 200,
+      "bytes": 1078039,
+      "etag": null,
+      "accept_ranges": null,
+      "content_type": "image/tiff"
+    },
+    {
+      "method": "GET",
+      "http_status": 200,
+      "bytes": 1078039
+    }
+  ],
+  "spatial_extraction": "Offline re-extraction from these exact acquired rasters; floor/ceil window includes every envelope-intersecting cell, area weighted in EPSG:8857."
+}

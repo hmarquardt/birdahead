@@ -1,5 +1,7 @@
 # Scalable geographic acquisition
 
+**Phase Eight update, November 16, 2026:** the regional pipeline, bounded source adapters, real two-species S&T raster extraction and selective publication interfaces are implemented. EBD/SED availability and historical parity remain unverified. The public noncommercial intended use, measured resources, release gates and single owner request are in [the Phase Eight report](phase-eight.md) and [provider request](phase-eight-owner-request.md). The sections below retain the original dated investigation; the new report supersedes their planned/unmeasured implementation status.
+
 November 15, 2026. **Decision: use the seven supplied histograms immediately for the local MVP; grow through a configuration-driven EBD + Sampling Event Data pipeline, with Status and Trends and recent observations kept separate.** Manual per-county downloads are bootstrap/reference work only. They are not a refresh mechanism or a prerequisite for delivering the local learner.
 
 ## What was verified
@@ -41,9 +43,9 @@ Start with a southwestern Indiana regional EBD/SED extract for all taxa and all 
 
 ## One-time owner setup, without per-county operations
 
-1. Sign in at [eBird Download Data](https://ebird.org/data/download), check whether this BirdAhead project already has EBD access, and submit one project request if needed. Describe household, noncommercial bird-identification learning, derived seasonal profiles, private raw storage, all-taxa complete-checklist denominators and automated geographic expansion.
+1. Sign in at [eBird Download Data](https://ebird.org/data/download), check whether this BirdAhead project already has EBD access, and submit one project request if needed. Use the consolidated [public noncommercial educational intended-use description and regional request](phase-eight-owner-request.md), including anonymous educational access, private raw storage, all-taxa complete-checklist denominators and automated geographic expansion.
 2. Ask for one coherent regional EBD **and matching SED**, all months, 2016–2025 for validation, accepted/vetted observations, and surrounding intended geography. Select **Include sampling event data**. Exclude provisional/unvetted records in the first operating profile. Save the delivered documentation, release information and terms with the archives under `experiments/private/geography/ebd/`.
-3. In that same request, ask which supported delivery mechanism permits unattended refresh of a regional extract, what request limits apply, and whether versioned direct URLs or recurring delivery are available. Ask about derived-profile distribution to two household users, future noncommercial app delivery, required attribution and submission of derived products. A normal `EBIRD_API_KEY` or `EBIRD_ST_API_KEY` is not an EBD grant.
+3. In that same request, ask which supported delivery mechanism permits unattended refresh of a regional extract, what request limits apply, and whether versioned direct URLs or recurring delivery are available. Ask about public noncommercial educational derived-profile distribution, offline packs, S&T web/app consent, required attribution and submission of derived products. A normal `EBIRD_API_KEY` or `EBIRD_ST_API_KEY` is not an EBD grant.
 4. Do not send credentials or download links through project documentation. A supported credential, if issued, belongs in the shared credential file. No further owner histogram downloads are planned. This setup can run alongside local use of the seven supplied files.
 
 These are actionable access steps, not a claim that Cornell offers a recurring delivery service. No contact message was sent on the owner's behalf.
