@@ -1466,4 +1466,24 @@ footer > span {
 .offline-practice h2 { font-family:Georgia,serif; font-weight:500; font-size:28px; margin:8px 0 12px; }
 @media (max-width:760px) { .download-grid { grid-template-columns:1fr; } .download-facts { grid-template-columns:1fr 1fr; } }
 
+.roadtrip-page { max-width:1100px; margin:0 auto; padding:10px 0 50px; }
+.roadtrip-page > h1,.roadtrip-driving h1 { font-family:Georgia,serif; font-size:clamp(36px,6vw,64px); line-height:.98; margin:10px 0 18px; font-weight:500; }
+.roadtrip-page > h1 em { color:var(--forest); font-weight:400; }
+.roadtrip-config { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; border:1px solid var(--line); border-radius:14px; background:#fffdf8; padding:18px; margin:20px 0; }
+.roadtrip-config label { display:flex; flex-direction:column; gap:6px; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.07em; }
+.roadtrip-config select,.roadtrip-config input { border:1px solid var(--line); border-radius:8px; background:#fff; padding:10px; color:var(--ink); font-size:14px; text-transform:none; letter-spacing:0; }
+.roadtrip-summary { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 0; }
+.roadtrip-summary b { display:block; font-family:Georgia,serif; font-size:25px; font-weight:500; }
+.roadtrip-summary span { color:var(--muted); font-size:10px; }
+.roadtrip-list { display:grid; gap:10px; margin:14px 0 26px; }
+.roadtrip-list article { display:flex; justify-content:space-between; align-items:center; gap:14px; border:1px solid var(--line); border-radius:11px; background:#fffdf8; padding:13px 16px; }
+.roadtrip-list small { display:block; color:var(--muted); font-size:11px; margin-top:4px; }
+.roadtrip-driving { max-width:900px; margin:0 auto; padding:10px 0 60px; min-height:60vh; }
+.roadtrip-driving-head { display:flex; justify-content:space-between; align-items:center; gap:15px; }
+.roadtrip-status { display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding:14px 0; color:var(--muted); font-size:12px; }
+.roadtrip-big-audio { min-height:170px; display:grid; place-items:center; margin:24px 0; border-radius:16px; background:#edf0e3; }
+.roadtrip-big-audio strong { font-family:Georgia,serif; font-size:clamp(28px,6vw,54px); font-weight:500; color:var(--forest); text-align:center; }
+.roadtrip-driving audio { width:100%; margin:10px 0 20px; }
+@media (max-width:760px) { .roadtrip-config { grid-template-columns:1fr 1fr; } .roadtrip-summary { grid-template-columns:1fr 1fr; } .roadtrip-list article { align-items:flex-start; flex-direction:column; } }
+
 .season-strip span:hover { background:var(--forest); opacity:1; }

@@ -191,6 +191,7 @@ test("service worker keeps downloaded pack caches across shell upgrades", () => 
   assert.match(sw, /key\.startsWith\('birdahead-shell-'\)/);
   assert.doesNotMatch(sw, /keys\.filter\(\(key\) => key !== CACHE\)/);
   assert.match(sw, /url\.pathname\.startsWith\('\/media\/public\/'\)/);
+  assert.match(sw, /url\.pathname\.startsWith\('\/narration\/'\)/);
   assert.match(sw, /url\.pathname\.startsWith\('\/api\/'\)/);
 });
 

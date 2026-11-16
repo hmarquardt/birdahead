@@ -1,0 +1,67 @@
+{
+  "schema": "birdahead-roadtrip-verification-v1",
+  "at": "2026-11-16T19:06:04.779540+00:00",
+  "narration": {
+    "voice": "Samantha",
+    "files": 114,
+    "bytes": 1360634,
+    "manifest": "app/public/narration/manifest.json"
+  },
+  "automated_browser": {
+    "environment": "Local BirdAhead server + headless Google Chrome via Playwright; synthetic one-species audio catalog; real generated narration and local fixture media",
+    "physical_device": false,
+    "checks": [
+      {
+        "name": "road-trip configuration and actual download size",
+        "passed": true,
+        "detail": "10/20/30/60-minute and interval/focus/order/mode controls planned; tiny session showed 6 audio files / 250 KB"
+      },
+      {
+        "name": "continuous automatic playback",
+        "passed": true,
+        "detail": "recording, silence, answer narration, name narration and completion advanced through HTMLMediaElement ended events"
+      },
+      {
+        "name": "Media Session metadata",
+        "passed": true,
+        "detail": "metadata and action handlers installed; title observed in browser"
+      },
+      {
+        "name": "pause and resume",
+        "passed": true,
+        "detail": "audio paused and resumed through the driving controls"
+      },
+      {
+        "name": "offline road-trip launch",
+        "passed": true,
+        "detail": "after download and offline reload, the session started from the stored pack"
+      },
+      {
+        "name": "session recovery",
+        "passed": true,
+        "detail": "active session saved; after offline reload Resume saved session appeared and completed"
+      },
+      {
+        "name": "listening/scored separation",
+        "passed": true,
+        "detail": "0 scored attempts and 1 separate listening record after a session"
+      },
+      {
+        "name": "narration availability",
+        "passed": true,
+        "detail": "generated instruction and species clips were used; browser speech synthesis is fallback only"
+      }
+    ],
+    "limitations": [
+      "Physical Bluetooth, lock-screen, phone-call and navigation interruption behavior was not tested.",
+      "The tiny browser fixture used one audio species; production duration sizing and content diversity were verified from the catalog, not by completing a 60-minute production download.",
+      "Narration uses a locally generated macOS system voice; no paid TTS or cloud API."
+    ]
+  },
+  "production_catalog": {
+    "species_with_audio": 69,
+    "public_audio_assets": 205,
+    "narration_files": 114,
+    "narration_bytes": 1360634
+  }
+}

@@ -57,6 +57,10 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(caches.open(PACK_CACHE).then((cache) => cache.match(event.request)).then((cached) => cached || fetch(event.request)));
     return;
   }
+  if (url.pathname.startsWith('/narration/')) {
+    event.respondWith(caches.open(PACK_CACHE).then((cache) => cache.match(event.request)).then((cached) => cached || fetch(event.request)));
+    return;
+  }
   if (url.pathname.startsWith('/media/') || url.pathname.startsWith('/api/')) return;
   if (event.request.mode === 'navigate') {
     event.respondWith(fetch(event.request).then((response) => {

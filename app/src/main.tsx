@@ -2,10 +2,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 import { Downloads } from "./offline-ui";
+import { RoadTrip } from "./roadtrip-ui";
 import { syncOfflineAttempts } from "./offline";
 
 type Row = Record<string, any>;
-type Tab = "explore" | "guide" | "practice" | "downloads" | "progress" | "about";
+type Tab = "explore" | "guide" | "practice" | "downloads" | "roadtrip" | "progress" | "about";
 type Auth = "checking" | "guest" | "in";
 declare global { interface Window { cflabAnalytics?: { track?: (name: string, props?: Row) => void } } }
 const track = (name: string, props?: Row) => { try { window.cflabAnalytics?.track?.(name, props); } catch { /* optional */ } };
@@ -194,7 +195,7 @@ function About() {
 function App() {
   const initial = useMemo(() => new URLSearchParams(window.location.search), []);
   const initialTab = (initial.get("tab") ?? "explore") as Tab;
-  const [tab, setTab] = useState<Tab>(["explore", "guide", "practice", "downloads", "progress", "about"].includes(initialTab) ? initialTab : "explore");
+  const [tab, setTab] = useState<Tab>(["explore", "guide", "practice", "downloads", "roadtrip", "progress", "about"].includes(initialTab) ? initialTab : "explore");
   const [auth, setAuth] = useState<Auth>("checking");
   const [profile, setProfile] = useState("hank");
   const [authName, setAuthName] = useState("");
@@ -245,12 +246,13 @@ function App() {
 
   return <>
     <header className="topbar"><a className="brand" href="/" onClick={(e) => { e.preventDefault(); setTab("explore"); }}><span className="brandmark"><Icon type="bird" /></span><span>BirdAhead<small>LEARN WHAT’S NEXT</small></span></a><div className="profile"><span className="profile-guest">{auth === "in" ? `${authName || profile} · household` : "Public visitor"}</span>{auth === "in" ? <button className="text-button sign-out" onClick={signOut}>Sign out</button> : <button className="signin-trigger" onClick={() => setLoginOpen(true)}>Household sign in</button>}</div></header>
-    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["guide", "Field guide"], ["practice", "Practice"], ["downloads", "Downloads"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
+    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["guide", "Field guide"], ["practice", "Practice"], ["downloads", "Downloads"], ["roadtrip", "Road trip"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
       {error && <p className="error">{error}</p>}
       {tab === "explore" && <Explore boot={boot} ranked={ranked} arriving={arriving} county={county} day={day} setCounty={setCounty} setDay={setDay} openBird={openBird} onPractice={() => setTab("practice")} />}
       {tab === "guide" && <Guide boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} focusCode={focusCode} onPractice={startFromGuide} />}
       {tab === "practice" && <Practice signedIn={auth === "in"} profile={profile} county={county} day={day} initialKind={practiceKind} initialBird={focusCode} onProgress={() => { if (auth === "in") api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => undefined); }} />}
       {tab === "downloads" && <Downloads boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} />}
+      {tab === "roadtrip" && <RoadTrip boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} progress={progress} setCounty={setCounty} setDay={setDay} />}
       {tab === "progress" && <ProgressView signedIn={auth === "in"} progress={progress} profile={profile} />}
       {tab === "about" && <About />}
       <footer><div className="brand"><Icon type="bird" />BirdAhead</div><p>Learn the birds you're about to meet.</p><span>Public noncommercial educational project · eBird-derived seasonal summaries and licensed media<br />Household sign-in optional · <a href="/sources">Sources</a> · <a href="/privacy">Privacy</a> · <a href="/robots.txt">Robots</a></span></footer>

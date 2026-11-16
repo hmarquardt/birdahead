@@ -9,7 +9,7 @@ export type OfflinePackKind = "county-day" | "here-now" | "arriving-soon" | "pho
 
 export interface OfflineAsset {
   id: string; kind: "photo" | "audio"; species_code: string; media_url: string;
-  bytes: number; sha256: string; content_type: string;
+  bytes: number; sha256: string; content_type: string; duration_seconds?: number | null;
   creator?: string | null; attribution?: string | null; source_url?: string | null;
   license_url?: string | null; license_code?: string | null; source?: string | null;
   vocalization?: string | null; target_bbox_xyxy?: number[] | null;
@@ -17,16 +17,16 @@ export interface OfflineAsset {
   public_share_alike?: boolean | null; validation?: string | null;
 }
 export interface OfflineSpecies {
-  code: string; name: string; scientific_name?: string;
+  code: string; name: string; scientific_name?: string; priority_rank?: number | null;
   current_reporting_frequency?: number | null; approaching_window_rise?: number | null;
   assets: OfflineAsset[];
 }
 export interface OfflineCatalog { release_id: string; county: string; day: string; species: OfflineSpecies[]; }
 export interface OfflinePackDefinition {
-  id: OfflinePackKind; title: string; description: string; release_id: string;
+  id: string; title: string; description: string; release_id: string;
   county: string; day: string; created_at: string; assetIds: string[];
   assets: OfflineAsset[]; species: Array<Pick<OfflineSpecies, "code" | "name" | "scientific_name">>;
-  bytes: number;
+  bytes: number; roadTrip?: RoadTripPlan;
 }
 export interface StoredPack extends OfflinePackDefinition {
   status: "downloading" | "complete" | "incomplete";
@@ -47,12 +47,41 @@ export interface OfflineAttempt {
 export interface OfflineProgress {
   pack_id: string; completed: number; total: number; bytes_done: number; bytes_total: number;
 }
+export interface OfflineListening {
+  event_id: string; profile_id: string | null; pack_id: string; release_id: string;
+  at: string; minutes: number; exercises_completed: number; focus: string;
+}
+export type RoadTripMinutes = 10 | 20 | 30 | 60;
+export type RoadTripFocus = "common" | "here" | "arriving" | "mixed" | "weak";
+export type RoadTripInterval = 5 | 10 | 15 | 20 | 30 | 45 | 60;
+export type RoadTripOrder = "sequential" | "shuffled";
+export type RoadTripMode = "quiz" | "listen";
+export interface RoadTripConfig {
+  minutes: RoadTripMinutes; county: string; day: string; focus: RoadTripFocus;
+  interval_seconds: RoadTripInterval; order: RoadTripOrder; mode: RoadTripMode;
+}
+export interface RoadTripSegment {
+  kind: "recording" | "silence" | "narration";
+  url: string; text?: string; exercise: number; species_code?: string;
+  asset_id?: string; duration_seconds?: number | null;
+}
+export interface RoadTripExercise {
+  id: string; species_code: string; name: string;
+  recordings: OfflineAsset[]; name_url: string; name_text: string;
+}
+export interface RoadTripPlan { config: RoadTripConfig; exercises: RoadTripExercise[]; segments: RoadTripSegment[]; }
+export interface NarrationManifest {
+  schema: string; voice: string;
+  files: Record<string, { bytes: number; sha256: string; content_type: string; duration_seconds?: number }>;
+}
 
 const DB_NAME = "birdahead-offline-v1";
 const ASSET_CACHE = "birdahead-pack-assets-v1";
 const STORE_PACKS = "packs";
 const STORE_QUEUE = "queue";
 const STORE_ATTEMPTS = "attempts";
+const STORE_LISTENING = "listening";
+const DB_VERSION = 2;
 
 export const PACK_LABELS: Record<OfflinePackKind, { title: string; description: string }> = {
   "county-day": { title: "County outing", description: "Here Now and Arriving Soon for the selected county and date." },
@@ -131,12 +160,13 @@ export async function sha256Bytes(bytes: ArrayBuffer): Promise<string> {
 function idb(): Promise<IDBDatabase> {
   if (typeof indexedDB === "undefined") return Promise.reject(new Error("Offline storage is unavailable in this browser."));
   return new Promise((resolve, reject) => {
-    const request = indexedDB.open(DB_NAME, 1);
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
     request.onupgradeneeded = () => {
       const db = request.result;
       if (!db.objectStoreNames.contains(STORE_PACKS)) db.createObjectStore(STORE_PACKS, { keyPath: "id" });
       if (!db.objectStoreNames.contains(STORE_QUEUE)) db.createObjectStore(STORE_QUEUE, { keyPath: "event_id" });
       if (!db.objectStoreNames.contains(STORE_ATTEMPTS)) db.createObjectStore(STORE_ATTEMPTS, { keyPath: "event_id" });
+      if (!db.objectStoreNames.contains(STORE_LISTENING)) db.createObjectStore(STORE_LISTENING, { keyPath: "event_id" });
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error ?? new Error("Could not open offline storage."));
@@ -172,6 +202,21 @@ export async function listQueue(profileId?: string | null): Promise<OfflineAttem
 export async function listOfflineAttempts(profileId?: string | null): Promise<OfflineAttempt[]> {
   const rows = await storeAll<OfflineAttempt>(STORE_ATTEMPTS);
   return profileId === undefined ? rows : rows.filter((row) => row.profile_id === profileId);
+}
+export async function listListening(profileId?: string | null): Promise<OfflineListening[]> {
+  const rows = await storeAll<OfflineListening>(STORE_LISTENING);
+  return profileId === undefined ? rows : rows.filter((row) => row.profile_id === profileId);
+}
+export async function recordListening(input: {
+  profile_id: string | null; pack_id: string; release_id: string; minutes: number; exercises_completed: number; focus: string;
+}): Promise<OfflineListening> {
+  const event: OfflineListening = {
+    event_id: `listening:${crypto.randomUUID()}`, profile_id: input.profile_id, pack_id: input.pack_id,
+    release_id: input.release_id, at: new Date().toISOString(), minutes: input.minutes,
+    exercises_completed: input.exercises_completed, focus: input.focus,
+  };
+  await storePut(STORE_LISTENING, event);
+  return event;
 }
 export async function storageEstimate(): Promise<{ usage: number; quota: number } | null> {
   if (typeof navigator === "undefined" || !navigator.storage?.estimate) return null;
@@ -240,13 +285,13 @@ export async function downloadPack(
 export async function deletePack(id: string): Promise<number> {
   await storeDelete(STORE_PACKS, id);
   const remaining = await listPacks();
-  const needed = new Set(remaining.flatMap((pack) => pack.assetIds));
+  const neededPaths = new Set(remaining.flatMap((pack) => pack.assets.map((asset) => new URL(asset.media_url, typeof location === "undefined" ? "http://localhost" : location.origin).pathname)));
   const removed = new Set<string>();
   if (typeof caches !== "undefined") {
     const cache = await caches.open(ASSET_CACHE);
     for (const request of await cache.keys()) {
       const url = new URL(request.url);
-      if (url.pathname.startsWith("/media/public/") && !needed.has(url.pathname.slice("/media/public/".length))) {
+      if ((url.pathname.startsWith("/media/public/") || url.pathname.startsWith("/narration/")) && !neededPaths.has(url.pathname)) {
         await cache.delete(request); removed.add(url.pathname);
       }
     }
@@ -268,7 +313,7 @@ export function offlineQuestions(
   kind: "photo" | "audio", attempts: OfflineAttempt[] = [], limit = 10, random: () => number = Math.random,
 ): OfflineQuestion[] {
   const byAsset = new Map<string, OfflineAsset>();
-  for (const pack of packs) for (const asset of pack.assets) if (asset.kind === kind) byAsset.set(asset.id, asset);
+  for (const pack of packs) for (const asset of pack.assets) if (asset.kind === kind && asset.media_url.startsWith("/media/public/")) byAsset.set(asset.id, asset);
   const species = new Map<string, string>();
   for (const pack of packs) for (const row of pack.species) species.set(row.code, row.name);
   const weak = new Map<string, number>(); const seen = new Map<string, number>();

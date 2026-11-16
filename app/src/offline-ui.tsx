@@ -3,7 +3,7 @@ import {
   deletePack, downloadPack, formatBytes, listOfflineAttempts, listPacks, listQueue,
   newBytesForPack, offlineQuestions, planOfflinePacks, recordOfflineAttempt,
   requestPersistentStorage, sharedAssetCount, storageEstimate, syncOfflineAttempts,
-  type OfflineAsset, type OfflineAttempt, type OfflinePackDefinition, type OfflinePackKind,
+  type OfflineAsset, type OfflineAttempt, type OfflinePackDefinition,
   type OfflineProgress, type OfflineQuestion, type StoredPack,
 } from "./offline";
 import { OfflinePractice } from "./offline-practice";
@@ -37,7 +37,7 @@ export function OfflineCredit({ asset }: { asset: Partial<OfflineAsset> }) {
 function PackCard({ pack, stored, existing, progress, onDownload, onDelete, onPause, busy }: {
   pack: OfflinePackDefinition; stored?: StoredPack; existing: OfflinePackDefinition[];
   progress?: OfflineProgress; onDownload: (pack: OfflinePackDefinition) => void;
-  onDelete: (id: OfflinePackKind) => void; onPause: () => void; busy: boolean;
+  onDelete: (id: string) => void; onPause: () => void; busy: boolean;
 }) {
   const complete = stored?.status === "complete";
   const downloading = stored?.status === "downloading";
@@ -115,7 +115,7 @@ export function Downloads({ boot, county, day, signedIn, profile }: { boot: Row;
       else setMessage((error as Error).message);
     } finally { controller.current = null; setBusy(false); await refresh(); }
   }
-  async function remove(id: OfflinePackKind) {
+  async function remove(id: string) {
     setBusy(true); setMessage("");
     try { await deletePack(id); setMessage("Download removed. Shared files still used by another pack were kept."); }
     catch (error) { setMessage((error as Error).message); }

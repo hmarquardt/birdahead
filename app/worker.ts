@@ -133,7 +133,7 @@ function publicAssetCard(a: Asset) { return { id:a.id, kind:a.kind, species_code
   attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code??null, source:a.source??null,
   public_use_basis:a.public_use_basis??null, public_license_notice:a.public_license_notice??null, public_noncommercial_only:a.public_noncommercial_only??null,
   public_share_alike:a.public_share_alike??null, derivative:!!a.derivative_of, vocalization:a.vocalization??null, sex:a.sex??null, age:a.age??null,
-  plumage:a.plumage??null, target_bbox_xyxy:a.target_bbox_xyxy??null, validation:'Member of the accepted public collection; automated corroboration only, not expert certification' }; }
+  plumage:a.plumage??null, duration_seconds:(a.technical_metrics as any)?.duration_seconds??a.duration_seconds??null, target_bbox_xyxy:a.target_bbox_xyxy??null, validation:'Member of the accepted public collection; automated corroboration only, not expert certification' }; }
 function publicRanked(release: Release, location: string, day: string, visible: Asset[]): Row[] { const counts=mediaCounts(release,visible);
   return priorities(release,location,day).map((r)=>{ const s=speciesOf(release,r.species_code); const c=counts.get(r.species_code)??{photos:0,audio:0};
     return {...r,name:s.common_name,scientific_name:s.scientific_name,photos:c.photos,recordings:c.audio,photo_ready:c.photos>=1,audio_ready:c.audio>=1}; }); }

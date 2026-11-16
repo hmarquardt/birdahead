@@ -15,7 +15,9 @@ November 16, 2026. BirdAhead is deployed at **https://birdahead.com** as a free,
 - Inline, data-URI SVG favicon on the homepage and every public page, with the existing PNG PWA icons and manifest preserved; no new raster or ICO assets.
 - Standardized public tagline: **Learn the birds you're about to meet.**
 - Existing CFLab Search Console collector mapping integrated for the verified `sc-domain:birdahead.com` Domain property; the production collector wrote 120 daily rows (zero search traffic so far) with `siteRestrictedUser` access, and the collector remains server-to-server and read-only.
-- **Phase Four offline learning:** selective County outing, Here Now, Arriving Soon, photo, audio and complete eligible-collection packs; shared-media deduplication, resumable asset downloads, SHA-256 integrity, local guest practice, and profile-bound offline attempt sync. See [offline learning](offline.md). Hands-free road-trip mode remains deferred.
+- **Phase Four offline learning:** selective County outing, Here Now, Arriving Soon, photo, audio and complete eligible-collection packs; shared-media deduplication, resumable asset downloads, SHA-256 integrity, local guest practice, and profile-bound offline attempt sync. See [offline learning](offline.md).
+
+- **Phase Five Road Trip:** hands-free 10/20/30/60-minute audio sessions with accepted recordings, pre-generated narration/silence clips, quiz/listen-and-learn modes, automatic HTMLMediaElement progression, Media Session controls and separate listening records. See [Road Trip](roadtrip.md). Physical Bluetooth/background checks remain owner work.
 
 - CFLab analytics registration and verified aggregate event ingestion.
 - GitHub Actions validation and a manually gated provisioning/release workflow using the established Cloudflare secret names.
@@ -50,4 +52,4 @@ The existing automated acceptance policy remains unchanged. The existing 117-ite
 
 ## Deferred
 
-Hands-free road-trip mode, additional geographic acquisition, further media expansion, commercial licensing, scheduled backup/restore drills and least-privilege token rotation remain subsequent work.
+Hands-free refinements, additional geographic acquisition, further media expansion, commercial licensing, scheduled backup/restore drills and least-privilege token rotation remain subsequent work.

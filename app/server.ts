@@ -137,6 +137,7 @@ export function createApp(
     attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code ?? null, source:a.source ?? null,
     public_use_basis:a.public_use_basis ?? null, public_license_notice:a.public_license_notice ?? null, public_noncommercial_only:a.public_noncommercial_only ?? null,
     public_share_alike:a.public_share_alike ?? null, derivative:!!a.derivative_of, vocalization:a.vocalization ?? null, target_bbox_xyxy:a.target_bbox_xyxy ?? null,
+    duration_seconds:(a as DbRow).duration_seconds??((a as DbRow).technical_metrics as DbRow|undefined)?.duration_seconds??null,
     validation:'Accepted source record; automated corroboration only, not expert certification' });
   const publicRanked = (location: string, day: string) => { const visible=publicAssets(); const counts=new Map<string,{photos:number;audio:number}>();
     for(const a of visible){const row=counts.get(a.species_code)??{photos:0,audio:0}; if(a.kind==='photo')row.photos++; else row.audio++; counts.set(a.species_code,row);}
@@ -1059,6 +1060,7 @@ export function createApp(
   app.get("/regions/:county", (c) => c.redirect(`/?tab=explore&county=${encodeURIComponent(c.req.param("county"))}`, 302));
   app.get("/birds/:code", (c) => c.redirect(`/?tab=guide&bird=${encodeURIComponent(c.req.param("code"))}`, 302));
   app.get("/assets/*", serveStatic({ root: resolve(root, "app/dist") }));
+  app.get("/narration/*", serveStatic({ root: resolve(root, "app/dist") }));
   for (const asset of ["/sw.js", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"]) {
     app.get(asset, serveStatic({ path: resolve(root, "app/dist", asset.slice(1)) }));
   }

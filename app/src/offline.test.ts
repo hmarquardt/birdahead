@@ -2,8 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   formatBytes, newBytesForPack, offlineQuestions, planOfflinePacks, sha256Bytes, sharedAssetCount,
-  type OfflineAttempt, type OfflineCatalog,
+  type OfflineAttempt, type OfflineCatalog, type NarrationManifest,
 } from "./offline";
+import { planRoadTrip } from "./roadtrip";
 
 function asset(id: string, kind: "photo" | "audio", species: string, bytes: number) {
   return {
@@ -59,6 +60,38 @@ test("offline questions include only downloaded modality, four distinct choices,
   assert.ok(questions.every((question) => new Set(question.options.map((option) => option.code)).size === question.options.length));
   assert.ok(questions.every((question) => question.options.some((option) => option.code === question.species_code)));
   assert.equal(offlineQuestions(packs, "audio", [], 10).length, 1);
+});
+
+test("road-trip planning builds an automatic audio chain with narration and separate listening metadata", () => {
+  const manifest: NarrationManifest = {
+    schema: "birdahead-narration-v1", voice: "Fixture",
+    files: {
+      "instructions/intro.m4a": { bytes: 100, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/answer.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/next.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/another.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/listen.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/complete.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "silence/10.m4a": { bytes: 60, sha256: "b".repeat(64), content_type: "audio/mp4", duration_seconds: 10 },
+      "names/a.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "names/b.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "names/c.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
+    },
+  };
+  const base = catalog();
+  base.species = base.species.map((row) => ({ ...row, assets: row.assets.map((asset) => ({ ...asset, duration_seconds: 3 })) }));
+  const quiz = planRoadTrip(base, manifest, { minutes: 10, county: "fixture", day: "2026-04-10", focus: "mixed", interval_seconds: 10, order: "sequential", mode: "quiz" });
+  assert.ok(quiz.roadTrip!.exercises.length >= 1);
+  assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "silence"));
+  assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "recording"));
+  assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "narration" && segment.text === "The answer is"));
+  assert.ok(quiz.assets.some((asset) => asset.media_url === "/narration/names/a.m4a"));
+  assert.ok(quiz.bytes > 0);
+  const listen = planRoadTrip(base, manifest, { minutes: 10, county: "fixture", day: "2026-04-10", focus: "here", interval_seconds: 10, order: "sequential", mode: "listen" });
+  const firstRecording = listen.roadTrip!.segments.findIndex((segment) => segment.kind === "recording");
+  const firstNarration = listen.roadTrip!.segments.findIndex((segment) => segment.kind === "narration" && segment.text === "The next bird is");
+  assert.ok(firstNarration >= 0 && firstNarration < firstRecording);
+  assert.ok(!listen.roadTrip!.segments.some((segment) => segment.kind === "silence"));
 });
 
 test("integrity helper hashes exact bytes", async () => {

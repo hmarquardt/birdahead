@@ -49,6 +49,7 @@ Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evide
 - Registered BirdAhead with the existing CFLab analytics collector, verified event ingestion, and documented the privacy-preserving event policy.
 - Integrated the verified `sc-domain:birdahead.com` property with the existing CFLab Search Console collector; sitemap submission remains an owner action. Neither the eBird notification nor the sitemap handoff is represented as completed.
 - Added Phase Four selective offline packs, local guest practice and profile-bound offline sync; physical-device checks and hands-free mode remain deferred.
+- Added Phase Five Road Trip mode with 10/20/30/60-minute audio sessions, pre-generated narration, Media Session controls, offline session packs and separate listening records; physical Bluetooth/background checks remain owner work.
 
 ## Next local usability and reliability pass
 

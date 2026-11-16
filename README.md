@@ -50,6 +50,8 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Analytics](docs/analytics.md) | CFLab registration, events, privacy and verification |
 | [Offline learning](docs/offline.md) | Packs, storage, resume/integrity, offline practice and profile-bound sync |
 | [Offline evidence](experiments/phase-four-offline.json) | Automated browser offline/reload/resume/reclamation checks |
+| [Road Trip](docs/roadtrip.md) | Hands-free audio sessions, narration, Media Session and device checklist |
+| [Road Trip evidence](experiments/phase-five-roadtrip.json) | Automated narration/timing/recovery checks |
 | [Search Console](docs/search-console.md) | CFLab GSC mapping, sitemap and owner verification handoff |
 | [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |
