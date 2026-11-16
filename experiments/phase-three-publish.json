@@ -1,0 +1,11 @@
+{
+  "schema": "birdahead-publish-report-v1",
+  "at": "2026-11-16T02:12:07.945105+00:00",
+  "origin": "https://birdahead.com",
+  "release_id": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
+  "catalog_key": "releases/5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a/catalog.json",
+  "objects": 589,
+  "bytes": 436400934,
+  "activated": true,
+  "scope": "Private household noncommercial; authenticated media only"
+}

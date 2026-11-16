@@ -1,8 +1,8 @@
 # Architecture — local implementation and proposed production
 
-November 15, 2026. The architecture direction is accepted. A local learner is implemented under Phase One; production deployment/resources remain on hold.
+November 15, 2026. The private household production release is deployed at birdahead.com on Workers, D1 and private R2. Local acquisition remains the only media-ingestion path.
 
-**Current local increment:** React/TypeScript/Vite + Hono on loopback Node, private SQLite learner state and a compiled private release v2 are implemented. Python derives a 100-species teaching universe, imports the seven bootstrap profiles, expands accepted media through checkpointed batches and compiles a deterministic release containing data vintage, coverage tiers, priority ranks and a compatibility key. Accepted media are served from private storage with checksum/range checks. There are no runtime third-party API calls. [Local MVP](local-mvp.md), [Phase Two](phase-two.md) and [scalable Python/DuckDB/Parquet geographic lane](geographic-acquisition.md) supersede earlier acquisition gaps. Workers/D1/R2, authentication and offline packs below remain future deployment architecture. Bulk access is independent of local delivery.
+**Current production increment:** React/TypeScript/Vite PWA + Hono on a dedicated Cloudflare Worker, D1 learner/session state and private R2 media. The local Python pipeline remains the ingestion/curation lane; accepted release catalogs are versioned in R2 and activated through D1. Protected APIs and media require household sessions. No third-party API is contacted at runtime. See [production operations](production.md), [Phase Three](phase-three.md) and [Phase Two](phase-two.md). Full offline packs, additional geography and cloud sync remain deferred.
 
 ## Separation of responsibilities
 

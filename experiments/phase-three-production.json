@@ -1,0 +1,129 @@
+{
+  "schema": "birdahead-production-smoke-v1",
+  "base": "https://birdahead.com",
+  "health": {
+    "ok": true,
+    "app": "birdahead",
+    "revision": "e0254bb757af3f94291cd932dccacdf8027808a7",
+    "release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
+    "auth": "session"
+  },
+  "checks": [
+    {
+      "name": "health",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "unauthenticated bootstrap rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unauthenticated media rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "cross-origin mutation rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "login CSRF header required",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "wrong key rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "hank login",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "session cookie httponly/samesite",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "session cookie secure/host",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "hank session identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "bootstrap release/species",
+      "passed": true,
+      "detail": "100"
+    },
+    {
+      "name": "actual seasonal curriculum",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "accepted media library",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "accepted photograph present",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "authenticated photo bytes",
+      "passed": true,
+      "detail": "200"
+    },
+    {
+      "name": "photo byte range",
+      "passed": true,
+      "detail": "206"
+    },
+    {
+      "name": "PWA manifest",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "service worker",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "heather login",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "heather independent identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "www canonical redirect",
+      "passed": true,
+      "detail": "308"
+    },
+    {
+      "name": "browser image decode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no mobile horizontal overflow",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": true
+}

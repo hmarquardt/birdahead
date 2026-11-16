@@ -81,7 +81,7 @@ def cloud_catalog(release, delivery):
 
 def request(origin, token, method, path, body=None, headers=None, timeout=90):
     url = origin.rstrip('/') + path
-    merged = {'X-Publish-Token': token, 'X-BirdAhead-Publish': '1', **(headers or {})}
+    merged = {'X-Publish-Token': token, 'X-BirdAhead-Publish': '1', 'User-Agent': 'BirdAhead-Publisher/1.0', **(headers or {})}
     req = urllib.request.Request(url, data=body, method=method, headers=merged)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -118,8 +118,16 @@ def main():
     parser.add_argument('--rollback-id', default=None)
     parser.add_argument('--no-activate', action='store_true')
     parser.add_argument('--concurrency', type=int, default=2)
+    parser.add_argument('--resolve-ip', default=None, help='Local DNS workaround for the apex host')
     args = parser.parse_args()
     origin = 'http://127.0.0.1:8788' if args.local else args.origin
+    if args.resolve_ip:
+        import socket
+        host = urllib.parse.urlsplit(origin).hostname
+        original = socket.getaddrinfo
+        def resolved(name, port, *rest, **kwargs):
+            return original(args.resolve_ip if name == host else name, port, *rest, **kwargs)
+        socket.getaddrinfo = resolved
     token = publish_token(args.local)
     if not token:
         raise SystemExit('No publish token available in the private credential file')

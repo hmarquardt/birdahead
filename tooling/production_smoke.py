@@ -36,6 +36,7 @@ def keys(local):
 
 
 def request(base, path, method='GET', body=None, headers=None, follow=True):
+    headers = {'User-Agent': 'BirdAhead-ProductionSmoke/1.0', **(headers or {})}
     class NoRedirect(urllib.request.HTTPRedirectHandler):
         def redirect_request(self, *args, **kwargs): return None
     opener = urllib.request.build_opener() if follow else urllib.request.build_opener(NoRedirect)
@@ -59,9 +60,17 @@ def main():
     parser.add_argument('--base', default='https://birdahead.com')
     parser.add_argument('--local', action='store_true')
     parser.add_argument('--browser', action='store_true')
+    parser.add_argument('--resolve-ip', default=None, help='Local DNS workaround for the apex host')
     parser.add_argument('--evidence', type=Path, default=ROOT / 'experiments/phase-three-production.json')
     args = parser.parse_args()
     base = 'http://127.0.0.1:8788' if args.local else args.base
+    if args.resolve_ip:
+        import socket, urllib.parse
+        host = urllib.parse.urlsplit(base).hostname
+        original = socket.getaddrinfo
+        def resolved(name, port, *rest, **kwargs):
+            return original(args.resolve_ip if name == host else name, port, *rest, **kwargs)
+        socket.getaddrinfo = resolved
     secret = keys(args.local)
     checks = []
     def check(name, condition, detail=''):
@@ -106,7 +115,11 @@ def main():
     if args.browser:
         from playwright.sync_api import sync_playwright, expect
         with sync_playwright() as p:
-            browser = p.chromium.launch(channel='chrome', headless=True)
+            launch_args = []
+            if args.resolve_ip:
+                import urllib.parse
+                launch_args = [f'--host-resolver-rules=MAP {urllib.parse.urlsplit(base).hostname} {args.resolve_ip}']
+            browser = p.chromium.launch(channel='chrome', headless=True, args=launch_args)
             page = browser.new_page(viewport={'width': 390, 'height': 844})
             page.goto(base)
             expect(page.get_by_role('heading', name='Welcome to BirdAhead.')).to_be_visible()

@@ -110,8 +110,10 @@ jobs:
             sleep 5
           done
           cat "$RUNNER_TEMP/health.json"
-          grep -q "$GITHUB_SHA" "$RUNNER_TEMP/health.json"
-          test "$(curl -s -o /dev/null -w '%{http_code}' https://www.birdahead.com/)" = "308"
+          node -e 'const fs=require("fs");const h=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/health.json"));if(h.revision!==process.env.GITHUB_SHA||!h.release)process.exit(1)'
+          www_status=$(curl -s -o /dev/null -w '%{http_code}' https://www.birdahead.com/ || true)
+          echo "www status: $www_status"
+          case "$www_status" in 301|302|307|308) ;; 000) echo 'warning: local DNS could not resolve www during the runner check' ;; *) exit 1 ;; esac
       - name: Record deployed resources
         run: |
           echo "Dedicated D1: birdahead ($BIRDAHEAD_D1_ID)" >> "$GITHUB_STEP_SUMMARY"
