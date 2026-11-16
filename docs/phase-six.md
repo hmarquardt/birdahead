@@ -39,4 +39,4 @@ local practice history.
 Local automated checks, catalog validation, TypeScript build, Wrangler dry run
 and headless mobile comparison checks are recorded in
 [`experiments/phase-six-comparison.json`](../experiments/phase-six-comparison.json).
-Production `e14747a` passed the public and private smoke suites (25/25 and 23/23), and the deployed comparison UI passed a mobile-viewport browser check. Physical device/Bluetooth and owner/expert biological review remain outstanding.
+Production `6b31cd6` passed the public and private smoke suites (26/26 and 23/23), the legacy `.m4a` URL returns `404`, and the deployed comparison UI passed a mobile-viewport browser check. Physical device/Bluetooth and owner/expert biological review remain outstanding.

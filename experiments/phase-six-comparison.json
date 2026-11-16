@@ -74,12 +74,13 @@
   ],
   "production": {
     "url": "https://birdahead.com",
-    "revision": "e14747af1046f740642c09465d47fae2cc8c60a0",
-    "deployment_run": 43953796176,
-    "public_smoke": "PASS 25/25",
+    "revision": "6b31cd678c6c9332f8d7b75e60cf423acd762ac1",
+    "deployment_run": 43954896156,
+    "public_smoke": "PASS 26/26",
     "private_smoke": "PASS 23/23",
     "health": true,
+    "legacy_narration_status": 404,
     "comparison_browser": "production mobile viewport; pair, media, practice and no page errors",
-    "edge_note": "Initial health check observed the previous revision during edge propagation; a rerun passed after the new revision was visible."
+    "edge_note": "Initial health check observed the previous revision during edge propagation; the final push deployment passed and health reported the new revision."
   }
 }
