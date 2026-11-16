@@ -68,11 +68,13 @@ jobs:
         working-directory: app
         run: |
           set -euo pipefail
-          npx wrangler d1 list --json > "$RUNNER_TEMP/d1.json"
+          WRANGLER=./node_modules/.bin/wrangler
+          $WRANGLER d1 list --json > "$RUNNER_TEMP/d1.json"
           node -e 'const fs=require("fs");const d=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/d1.json"));const row=d.find(x=>x.name==="birdahead");if(row) console.log(row.uuid);' > "$RUNNER_TEMP/d1-id.txt"
           if [ ! -s "$RUNNER_TEMP/d1-id.txt" ]; then
-            npx wrangler d1 create birdahead --json > "$RUNNER_TEMP/d1-create.json"
-            node -e 'const fs=require("fs");const d=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+"/d1-create.json"));console.log(d.uuid||d.database_id||d.result.uuid);' > "$RUNNER_TEMP/d1-id.txt"
+            $WRANGLER d1 create birdahead > "$RUNNER_TEMP/d1-create.txt"
+            cat "$RUNNER_TEMP/d1-create.txt"
+            grep -oE '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}' "$RUNNER_TEMP/d1-create.txt" | head -1 > "$RUNNER_TEMP/d1-id.txt"
           fi
           test -s "$RUNNER_TEMP/d1-id.txt"
           echo "BIRDAHEAD_D1_ID=$(cat "$RUNNER_TEMP/d1-id.txt")" >> "$GITHUB_ENV"
@@ -80,8 +82,9 @@ jobs:
         working-directory: app
         run: |
           set -euo pipefail
-          npx wrangler r2 bucket list > "$RUNNER_TEMP/r2.txt"
-          if ! grep -q 'birdahead-private' "$RUNNER_TEMP/r2.txt"; then npx wrangler r2 bucket create birdahead-private; fi
+          WRANGLER=./node_modules/.bin/wrangler
+          $WRANGLER r2 bucket list > "$RUNNER_TEMP/r2.txt"
+          if ! grep -q 'birdahead-private' "$RUNNER_TEMP/r2.txt"; then $WRANGLER r2 bucket create birdahead-private; fi
       - name: Generate dedicated production config
         run: node scripts/prepare_production.mjs
       - name: Apply reviewed additive migrations
