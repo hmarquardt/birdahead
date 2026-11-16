@@ -3,9 +3,9 @@ import type {
   RoadTripConfig, RoadTripExercise, RoadTripPlan, RoadTripSegment,
 } from "./offline";
 
-const INSTRUCTION = (key: string) => `instructions/${key}.m4a`;
-const NAME = (code: string) => `names/${code}.m4a`;
-const SILENCE = (seconds: number) => `silence/${seconds}.m4a`;
+const INSTRUCTION = (key: string) => `instructions/${key}.wav`;
+const NAME = (code: string) => `names/${code}.wav`;
+const SILENCE = (seconds: number) => `silence/${seconds}.wav`;
 
 function narrationAsset(manifest: NarrationManifest, path: string): OfflineAsset | null {
   const file = manifest.files[path];
@@ -14,8 +14,8 @@ function narrationAsset(manifest: NarrationManifest, path: string): OfflineAsset
     id: `narration:${path}`, kind: "audio", species_code: "__narration",
     media_url: `/narration/${path}`, bytes: file.bytes, sha256: file.sha256,
     content_type: file.content_type, duration_seconds: file.duration_seconds ?? null,
-    creator: "BirdAhead local narration", attribution: null, source_url: null, license_url: null,
-    public_license_notice: "Locally generated instructional narration; not bird media.",
+    creator: "BirdAhead local narration (Kokoro-82M, Apache-2.0)", attribution: null, source_url: "https://huggingface.co/hexgrad/Kokoro-82M", license_url: "https://www.apache.org/licenses/LICENSE-2.0",
+    public_license_notice: "Locally generated with Kokoro-82M (Apache-2.0); not bird media.",
   };
 }
 function audioAssets(species: OfflineSpecies): OfflineAsset[] {
@@ -102,7 +102,7 @@ export function planRoadTrip(
   if (intro) segments.push(segmentFor(intro, 0, "narration", "Road Trip. Listen to each bird recording. Guess the species during the pause. The answer follows."));
   if (config.mode === "listen" && listen) segments.push(segmentFor(listen, 0, "narration", "Listen and learn. The species is announced before its recordings."));
   chosen.forEach((exercise, exerciseIndex) => {
-    const name = narrationAsset(manifest, `names/${exercise.species_code}.m4a`);
+    const name = narrationAsset(manifest, `names/${exercise.species_code}.wav`);
     if (config.mode === "listen") {
       if (next) segments.push(segmentFor(next, exerciseIndex, "narration", "The next bird is"));
       if (name) segments.push(segmentFor(name, exerciseIndex, "narration", exercise.name));
@@ -126,9 +126,9 @@ export function planRoadTrip(
     if (asset) byId.set(asset.id, asset);
   }
   const assets = [...byId.values()];
-  const roadTrip: RoadTripPlan = { config, exercises: chosen, segments };
+  const roadTrip: RoadTripPlan = { config, exercises: chosen, segments, narration_version: manifest.narration_version };
   return {
-    id: `roadtrip:${config.minutes}:${config.focus}:${config.interval_seconds}:${config.order}:${config.mode}:${config.county}:${config.day}`,
+    id: `roadtrip:${config.minutes}:${config.focus}:${config.interval_seconds}:${config.order}:${config.mode}:${config.county}:${config.day}:${manifest.narration_version}`,
     title: `Road trip · ${config.minutes} min`,
     description: `${config.focus} · ${config.mode === "quiz" ? "guess and reveal" : "listen and learn"} · ${config.interval_seconds}s interval · ${config.order}`,
     release_id: catalog.release_id, county: catalog.county, day: catalog.day,

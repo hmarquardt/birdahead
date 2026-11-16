@@ -136,7 +136,7 @@ function publicAssetCard(a: Asset) { return { id:a.id, kind:a.kind, species_code
   plumage:a.plumage??null, duration_seconds:(a.technical_metrics as any)?.duration_seconds??a.duration_seconds??null, target_bbox_xyxy:a.target_bbox_xyxy??null, validation:'Member of the accepted public collection; automated corroboration only, not expert certification' }; }
 function publicRanked(release: Release, location: string, day: string, visible: Asset[]): Row[] { const counts=mediaCounts(release,visible);
   return priorities(release,location,day).map((r)=>{ const s=speciesOf(release,r.species_code); const c=counts.get(r.species_code)??{photos:0,audio:0};
-    return {...r,name:s.common_name,scientific_name:s.scientific_name,photos:c.photos,recordings:c.audio,photo_ready:c.photos>=1,audio_ready:c.audio>=1}; }); }
+    return {...r,name:s.common_name,scientific_name:s.scientific_name,confusion_pair:s.confusion_pair??null,photos:c.photos,recordings:c.audio,photo_ready:c.photos>=1,audio_ready:c.audio>=1}; }); }
 function publicSeasonality(release: Release, location: string, code: string): Row { const profile=release.profiles[location];
   if(!profile) throw new HTTPException(400,{message:'Choose a supported county.'}); const species=release.species.find((s)=>s.ebird_species_code===code);
   if(!species) throw new HTTPException(404,{message:'Species not found.'}); return { code, name:species.common_name, scientific_name:species.scientific_name,
@@ -188,7 +188,7 @@ async function publicSession(db: D1Database, release: Release, id: string, profi
       uncertain: answered.filter((a) => a.outcome === "uncertain").length, distinct_examples: new Set(answered.map((a) => a.asset_id)).size,
       missed: missed.slice(0,10), uncertain_species: uncertain.slice(0,10),
       coverage_note: "Practice results are not a mastery claim. Missing examples stay explicit; unknown media traits remain unknown." },
-    question: question && current && elapsed < 300 ? { id: question.id, asset_id: question.asset_id, media_url: `/media/${question.asset_id}`, kind: session.kind,
+    question: question && current && elapsed < 300 ? { id: question.id, asset_id: question.asset_id, media_url: `/media/${question.asset_id}`, compare_with: (()=>{const cp=(speciesOf(release,current.species_code) as any).confusion_pair; return cp?.ebird_species_code?{code:cp.ebird_species_code,name:cp.common_name}:null;})(), kind: session.kind,
       options: question.options.map((code: string) => ({ code, name: speciesOf(release, code).common_name })), credit: credit(current), bbox: current.target_bbox_xyxy ?? null,
       source_evidence: current.source_verified ? "Source-verified record; automated model corroboration is not expert certification" : null } : null };
 }
@@ -289,7 +289,7 @@ app.get("/api/public/practice", async (c) => {
     const otherCodes = candidates.filter((r) => r.species_code !== candidate.species_code).slice(0, 8).map((r) => r.species_code);
     const options = mode === "choice" ? [candidate.species_code, ...otherCodes.slice(0, 3)] : [];
     const hashed = await Promise.all(options.map(async (code) => [code, await digest(qid + code)] as const)); hashed.sort((a, b) => String(a[1]).localeCompare(String(b[1])));
-    questions.push({ id: qid, asset_id: asset.id, species_code: candidate.species_code, name: candidate.name, kind, mode, media_url: `/media/public/${asset.id}`,
+    questions.push({ id: qid, asset_id: asset.id, species_code: candidate.species_code, name: candidate.name, compare_with: candidate.confusion_pair?.ebird_species_code ? { code: candidate.confusion_pair.ebird_species_code, name: candidate.confusion_pair.common_name } : null, kind, mode, media_url: `/media/public/${asset.id}`,
       options: hashed.map(([code]) => ({ code, name: speciesOf(release, code).common_name })), answer_code: candidate.species_code, credit: publicCredit(asset), bbox: asset.target_bbox_xyxy ?? null });
   }
   if (!questions.length) throw new HTTPException(400, { message: "No public practice questions are available for these settings." });
@@ -393,7 +393,7 @@ app.get("/api/progress", async (c) => {
   const confusion=await dbRows(c.env.DB,`SELECT species_code,choice,kind,COUNT(*) AS count FROM attempts WHERE profile_id=? AND outcome='incorrect' AND mode='choice' AND asset_id NOT IN (SELECT asset_id FROM flags) GROUP BY species_code,choice,kind ORDER BY count DESC`,profile);
   const flags=await dbRows(c.env.DB,"SELECT asset_id,reason,at FROM flags WHERE profile_id=? ORDER BY at DESC",profile);
   return c.json({attempts:past.length,distinct_examples:new Set(past.map((a)=>a.asset_id)).size,by_species:release.species.flatMap((s)=>(["photo","audio"] as const).map((kind)=>{const records=past.filter((a)=>a.species_code===s.ebird_species_code&&a.kind===kind);return {name:s.common_name,code:s.ebird_species_code,kind,attempts:records.length,recognized:records.filter((a)=>a.outcome==="correct").length,distinct_examples:new Set(records.map((a)=>a.asset_id)).size,label:records.length?"Practicing":"New"}})).filter((s)=>s.attempts),
-    confusion:confusion.map((r)=>({...r,from:speciesOf(release,r.species_code).common_name,to:speciesOf(release,r.choice).common_name})),flags,profile_id:profile,profile_name:profileNames[profile]});
+    confusion:confusion.map((r)=>({...r,from:speciesOf(release,r.species_code).common_name,to:speciesOf(release,r.choice).common_name,from_code:r.species_code,to_code:r.choice})),flags,profile_id:profile,profile_name:profileNames[profile]});
 });
 app.post("/api/sessions", async (c) => {
   const profile=c.get("profile"); const body=await c.req.json().catch(()=>null) as Row|null;
@@ -564,11 +564,12 @@ app.on(["GET","HEAD"], "/media/:id", async (c) => {
   if(range)headers["Content-Range"]=`bytes ${range.offset}-${range.offset+range.length-1}/${size}`;
   return new Response(c.req.method==="HEAD"?null:object.body,{status:range?206:200,headers});
 });
+app.get("/compare", (c) => c.redirect("/?tab=compare", 302));
 app.get("/birds/:code", async (c) => {
   const release=await activeRelease(c.env); const code=c.req.param("code"); const visible=publicAssets(release,await hidden(c.env.DB)); const location=c.req.query("location")??Object.keys(release.counties)[0]??"";
   const detail=publicSeasonality(release,location,code); const priority=publicRanked(release,location,new Date().toISOString().slice(0,10),visible).find((r)=>r.species_code===code);
   const bins=Array.isArray(detail.bins)?detail.bins:[]; const assets=visible.filter((a)=>a.species_code===code).map(publicAssetCard);
-  const html=renderSpeciesPage(c.env.APP_ORIGIN,{code,name:String(detail.name),scientific_name:String(detail.scientific_name),public_photos:assets.filter((a)=>a.kind==="photo").length,public_recordings:assets.filter((a)=>a.kind==="audio").length,
+  const html=renderSpeciesPage(c.env.APP_ORIGIN,{code,name:String(detail.name),scientific_name:String(detail.scientific_name),confusion_pair:(release.species.find((s)=>s.ebird_species_code===code) as Row|undefined)?.confusion_pair??null,public_photos:assets.filter((a)=>a.kind==="photo").length,public_recordings:assets.filter((a)=>a.kind==="audio").length,
     priority:{current_reporting_frequency:priority?.current_reporting_frequency??null,approaching_window_rise:priority?.approaching_window_rise??null,sample_size:priority?.sample_size??null,bin_start:priority?.bin_start??null,bin_end:priority?.bin_end??null},assets,bins: bins.map((b:Row)=>({start:b.start,end:b.end,frequency:b.frequency,sample_size:b.sample_size})),});
   c.header("Cache-Control","public, max-age=600, stale-while-revalidate=3600"); return c.html(html);
 });

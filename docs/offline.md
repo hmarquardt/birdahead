@@ -21,7 +21,7 @@ The UI displays the number of files and actual byte total from the public catalo
 
 - **IndexedDB `birdahead-offline-v1`** stores pack definitions/progress, the profile-bound sync queue and local attempt records.
 - **Cache Storage `birdahead-pack-assets-v1`** stores one response per public media URL. Removing a pack deletes an asset only when no remaining pack references it.
-- **Service-worker shell `birdahead-shell-v2`** is versioned separately. Activating a new shell deletes old `birdahead-shell-*` caches only; it never deletes `birdahead-pack-assets-v1`.
+- **Service-worker shell `birdahead-shell-v2`** is versioned separately. Activating a new shell deletes old `birdahead-shell-*` caches only; it never deletes `birdahead-pack-assets-v1`. The v3 shell also caches the small `/comparisons.json` catalog; accepted comparison media still requires a downloaded pack or online access.
 - The service worker caches only `/media/public/*`. Authenticated `/media/*` and every `/api/*` response remain network-only.
 
 A download is resumable at asset granularity: each completed asset is persisted before the next starts. An interrupted tab, aborted fetch or connection loss leaves the pack in `downloading`; Resume verifies already-cached assets and continues with the rest. Every asset must match the release `bytes` and SHA-256 digest before it enters the cache. Cache eviction or a digest mismatch causes that asset to be downloaded again.

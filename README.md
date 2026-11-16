@@ -24,7 +24,7 @@ npm run local --prefix app
 
 Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase 2.1 collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
 
-The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Selective offline learning packs are available; hands-free road-trip mode remains deferred. [Local use](docs/local-mvp.md), [offline learning](docs/offline.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
+The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Selective offline learning packs, hands-free Road Trip mode and the public comparison explorer are available. [Local use](docs/local-mvp.md), [offline learning](docs/offline.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
 
 ## Current evidence
 
@@ -52,6 +52,10 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Offline evidence](experiments/phase-four-offline.json) | Automated browser offline/reload/resume/reclamation checks |
 | [Road Trip](docs/roadtrip.md) | Hands-free audio sessions, narration, Media Session and device checklist |
 | [Road Trip evidence](experiments/phase-five-roadtrip.json) | Automated narration/timing/recovery checks |
+| [Phase Six delivery](docs/phase-six.md) | Narration remediation, comparison explorer, adaptive practice and verification |
+| [Comparative learning](docs/comparison.md) | Public comparison explorer, cited catalog, adaptive practice and offline notes |
+| [Narration remediation](docs/narration-remediation.md) | Kokoro replacement provenance and historical exposure |
+| [Comparison evidence](experiments/phase-six-comparison.json) | Automated comparison/catalog/practice checks |
 | [Search Console](docs/search-console.md) | CFLab GSC mapping, sitemap and owner verification handoff |
 | [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |

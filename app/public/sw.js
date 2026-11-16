@@ -1,6 +1,6 @@
 // BirdAhead PWA shell. Downloaded learning media lives in a separate,
 // independently versioned cache and is never removed by a shell upgrade.
-const SHELL_CACHE = 'birdahead-shell-v2';
+const SHELL_CACHE = 'birdahead-shell-v3';
 const PACK_CACHE = 'birdahead-pack-assets-v1';
 
 async function cacheResponse(cache, request, response) {
@@ -23,7 +23,7 @@ async function installShell() {
     const assetResponse = await fetch(asset, { cache: 'reload', credentials: 'omit' });
     await cacheResponse(cache, asset, assetResponse);
   }
-  for (const asset of ['/manifest.webmanifest', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png']) {
+  for (const asset of ['/manifest.webmanifest', '/comparisons.json', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png']) {
     const assetResponse = await fetch(asset, { cache: 'reload', credentials: 'omit' });
     await cacheResponse(cache, asset, assetResponse);
   }
@@ -69,7 +69,7 @@ self.addEventListener('fetch', (event) => {
     }).catch(() => caches.match('/').then((cached) => cached || Response.error())));
     return;
   }
-  if (url.pathname.startsWith('/assets/') || url.pathname === '/manifest.webmanifest' || url.pathname.endsWith('.png')) {
+  if (url.pathname.startsWith('/assets/') || url.pathname === '/manifest.webmanifest' || url.pathname === '/comparisons.json' || url.pathname.endsWith('.png')) {
     event.respondWith(caches.match(event.request).then((cached) => cached || fetch(event.request).then((response) => {
       if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(event.request, response.clone()));
       return response;

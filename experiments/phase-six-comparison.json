@@ -1,0 +1,76 @@
+{
+  "schema": "birdahead-phase-six-verification-v1",
+  "at": "2026-11-16T20:45:55.985160+00:00",
+  "environment": "Local BirdAhead server + headless Chromium (Playwright) against the current public release; no physical device",
+  "physical_device": false,
+  "narration": {
+    "version": "kokoro-82m-af_heart-v1",
+    "model": "hexgrad/Kokoro-82M",
+    "model_license": "Apache-2.0",
+    "voice": "af_heart",
+    "files": 114,
+    "bytes": 15382216,
+    "schema": "birdahead-narration-v2",
+    "apple_m4a_in_current_assets": 0,
+    "manifest_hashes_verified": true,
+    "pronunciation_overrides": 9,
+    "command": "uv run --with 'kokoro==0.9.4' --with soundfile python tooling/generate_roadtrip_narration.py",
+    "historical_exposure": "Apple-generated .m4a remains in commit 4597eca; current delivery removed; no history rewrite performed."
+  },
+  "catalog": {
+    "schema": "birdahead-comparison-catalog-v1",
+    "version": "2026-11-16.1",
+    "pairs": 4,
+    "sources": 16,
+    "review_status": "provisional_curated",
+    "validator": "tooling/validate_comparison_catalog.py"
+  },
+  "checks": [
+    {
+      "name": "public comparison catalog",
+      "passed": true,
+      "detail": "/comparisons.json returned schema, 4 reviewed pairs and explicit gaps"
+    },
+    {
+      "name": "side-by-side accepted media",
+      "passed": true,
+      "detail": "Both columns render accepted public photos/audio where available; absent media is an explicit coverage gap"
+    },
+    {
+      "name": "cited evidence and seasonal overlap",
+      "passed": true,
+      "detail": "Six cited dimensions per pair; 34/48 matching active bins for Cooper's/Sharp-shinned in Gibson County"
+    },
+    {
+      "name": "comparative practice separation",
+      "passed": true,
+      "detail": "One comparative IndexedDB record; zero scored attempts; UI states it is not mastery/scored/passive listening"
+    },
+    {
+      "name": "different accepted example",
+      "passed": true,
+      "detail": "Greater/Lesser Yellowlegs audio practice advanced from xc-239633 to xc-884698 after one answer"
+    },
+    {
+      "name": "direct guide navigation",
+      "passed": true,
+      "detail": "Guide compare button opened /?tab=compare&a=coohaw&b=shshaw with no page errors"
+    },
+    {
+      "name": "mobile viewport",
+      "passed": true,
+      "detail": "390 x 844 viewport rendered pair, media, traits, overlap and practice controls"
+    }
+  ],
+  "automated_tests": {
+    "python": 57,
+    "app": 21,
+    "typescript_build": "passed",
+    "wrangler_local_dry_run": "passed"
+  },
+  "limitations": [
+    "No physical iPhone/Android, Bluetooth, lock-screen, call/navigation interruption or storage-eviction test was run.",
+    "The catalog is provisional_curated and has not received owner/expert biological review.",
+    "No production smoke/deploy is claimed by this local evidence file."
+  ]
+}

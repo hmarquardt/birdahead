@@ -2,10 +2,15 @@
   "schema": "birdahead-roadtrip-verification-v1",
   "at": "2026-11-16T19:06:04.779540+00:00",
   "narration": {
-    "voice": "Samantha",
+    "version": "kokoro-82m-af_heart-v1",
+    "model": "hexgrad/Kokoro-82M",
+    "model_license": "Apache-2.0",
+    "voice": "af_heart",
     "files": 114,
-    "bytes": 1360634,
-    "manifest": "app/public/narration/manifest.json"
+    "bytes": 15382216,
+    "manifest": "app/public/narration/manifest.json",
+    "superseded": "Apple macOS system-voice narration; removed from current delivery after licensing review",
+    "remediation": "docs/narration-remediation.md"
   },
   "automated_browser": {
     "environment": "Local BirdAhead server + headless Google Chrome via Playwright; synthetic one-species audio catalog; real generated narration and local fixture media",

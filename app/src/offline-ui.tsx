@@ -24,7 +24,7 @@ function hasOfflineIdentity(asset: Row): asset is OfflineAsset {
 function catalogFrom(library: Row, county: string, day: string) {
   return { release_id: String(library.release_id ?? ""), county, day,
     species: (library.species ?? []).map((row: Row) => ({
-      code: String(row.code), name: String(row.name), scientific_name: row.scientific_name,
+      code: String(row.code), name: String(row.name), scientific_name: row.scientific_name, confusion_pair: row.confusion_pair ?? null,
       current_reporting_frequency: row.current_reporting_frequency ?? null,
       approaching_window_rise: row.approaching_window_rise ?? null,
       assets: (row.assets ?? []).filter(hasOfflineIdentity),

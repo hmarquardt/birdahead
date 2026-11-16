@@ -64,18 +64,18 @@ test("offline questions include only downloaded modality, four distinct choices,
 
 test("road-trip planning builds an automatic audio chain with narration and separate listening metadata", () => {
   const manifest: NarrationManifest = {
-    schema: "birdahead-narration-v1", voice: "Fixture",
+    schema: "birdahead-narration-v2", narration_version: "fixture-v1", voice: "Fixture",
     files: {
-      "instructions/intro.m4a": { bytes: 100, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "instructions/answer.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "instructions/next.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "instructions/another.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "instructions/listen.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "instructions/complete.m4a": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "silence/10.m4a": { bytes: 60, sha256: "b".repeat(64), content_type: "audio/mp4", duration_seconds: 10 },
-      "names/a.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "names/b.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
-      "names/c.m4a": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/mp4" },
+      "instructions/intro.wav": { bytes: 100, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "instructions/answer.wav": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "instructions/next.wav": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "instructions/another.wav": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "instructions/listen.wav": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "instructions/complete.wav": { bytes: 80, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "silence/10.wav": { bytes: 60, sha256: "b".repeat(64), content_type: "audio/wav", duration_seconds: 10 },
+      "names/a.wav": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "names/b.wav": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/wav" },
+      "names/c.wav": { bytes: 40, sha256: "b".repeat(64), content_type: "audio/wav" },
     },
   };
   const base = catalog();
@@ -85,7 +85,7 @@ test("road-trip planning builds an automatic audio chain with narration and sepa
   assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "silence"));
   assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "recording"));
   assert.ok(quiz.roadTrip!.segments.some((segment) => segment.kind === "narration" && segment.text === "The answer is"));
-  assert.ok(quiz.assets.some((asset) => asset.media_url === "/narration/names/a.m4a"));
+  assert.ok(quiz.assets.some((asset) => asset.media_url === "/narration/names/a.wav"));
   assert.ok(quiz.bytes > 0);
   const listen = planRoadTrip(base, manifest, { minutes: 10, county: "fixture", day: "2026-04-10", focus: "here", interval_seconds: 10, order: "sequential", mode: "listen" });
   const firstRecording = listen.roadTrip!.segments.findIndex((segment) => segment.kind === "recording");

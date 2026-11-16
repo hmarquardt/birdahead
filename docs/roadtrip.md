@@ -23,7 +23,13 @@ Listen-and-learn announces the species before the recordings and does not insert
 
 ## Narration and audio
 
-The narration pack is generated locally with the macOS `say` voice and `afconvert`; no paid TTS, provider API or cloud speech service is used. It contains 100 species-name clips, reusable instruction clips and silent interval clips. The manifest records bytes and SHA-256 for every file. Browser `speechSynthesis` is used only as a fallback when a narration file cannot play; it is not assumed to be available offline. See `docs/offline.md` for the offline pack/cache contract.
+The narration pack is generated locally with **Kokoro-82M** (`hexgrad/Kokoro-82M`, Apache-2.0) and the `af_heart` voice. Kokoro documents permissive/non-copyrighted and synthetic training audio; no paid TTS, provider API or cloud speech service is used. It contains 100 species-name clips, reusable instruction clips and silent interval clips. Generated files are WAV for macOS/Linux reproducibility. The manifest records the model, voice, version, bytes and SHA-256 for every file. Browser `speechSynthesis` is used only as a fallback when a narration file cannot play; it is not assumed to be available offline. Reproduce with:
+
+```sh
+uv run --with 'kokoro==0.9.4' --with soundfile python tooling/generate_roadtrip_narration.py
+```
+
+The current narration version is `kokoro-82m-af_heart-v1`. Pre-Kokoro `.m4a` narration is removed from current delivery and old downloaded packs are marked for refresh. See `docs/offline.md` and [narration remediation](narration-remediation.md).
 
 Road-trip packs reuse the Phase Four `birdahead-pack-assets-v1` cache. They include the selected recordings, name/instruction clips and only the silence interval needed by that session. Shared recordings are stored once. The download UI shows the actual size before download and the pack participates in interruption recovery, integrity validation, release-change marking and deletion/reclamation.
 
@@ -37,7 +43,7 @@ Bird recordings retain their creator, source URL, license, attribution and publi
 
 - Background playback and Media Session behavior differ by iOS/Android version, browser, Bluetooth stack and vehicle head unit. A browser can pause or suspend an HTMLMediaElement when the screen locks even when a desktop simulation succeeds.
 - Browser speech synthesis voices and availability differ by platform and are an online/device-dependent fallback only.
-- The generated narration voice is a local system voice; no third-party voice provider is involved. Redistribution beyond this project should be reviewed with the owner's platform terms.
+- The narration model is Apache-2.0 Kokoro-82M; the voice is `af_heart`. Model/voice provenance is recorded in the manifest and [narration remediation](narration-remediation.md). Platform speech synthesis remains only a fallback.
 - Simulated headless Chrome tests cannot prove physical Bluetooth routing, lock-screen controls, phone-call interruption behavior or OS storage eviction.
 
 ## Physical-device checklist

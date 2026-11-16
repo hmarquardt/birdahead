@@ -1,0 +1,84 @@
+{
+  "schema": "birdahead-comparison-catalog-v1",
+  "version": "2026-11-16.1",
+  "review_status": "provisional_curated",
+  "review_note": "Concise original summaries of cited reference facts. No protected prose or illustrations copied. Field verification and owner/expert review are not claimed.",
+  "sources": {
+    "cornell_coopers": {"publisher": "Cornell Lab of Ornithology", "title": "Cooper's Hawk", "url": "https://www.allaboutbirds.org/guide/Coopers_Hawk/"},
+    "cornell_sharp": {"publisher": "Cornell Lab of Ornithology", "title": "Sharp-shinned Hawk", "url": "https://www.allaboutbirds.org/guide/Sharp-shinned_Hawk/"},
+    "cornell_downy": {"publisher": "Cornell Lab of Ornithology", "title": "Downy Woodpecker", "url": "https://www.allaboutbirds.org/guide/Downy_Woodpecker/"},
+    "cornell_hairy": {"publisher": "Cornell Lab of Ornithology", "title": "Hairy Woodpecker", "url": "https://www.allaboutbirds.org/guide/Hairy_Woodpecker/"},
+    "cornell_turkey": {"publisher": "Cornell Lab of Ornithology", "title": "Turkey Vulture", "url": "https://www.allaboutbirds.org/guide/Turkey_Vulture/"},
+    "cornell_black": {"publisher": "Cornell Lab of Ornithology", "title": "Black Vulture", "url": "https://www.allaboutbirds.org/guide/Black_Vulture/"},
+    "cornell_greater": {"publisher": "Cornell Lab of Ornithology", "title": "Greater Yellowlegs", "url": "https://www.allaboutbirds.org/guide/Greater_Yellowlegs/"},
+    "cornell_lesser": {"publisher": "Cornell Lab of Ornithology", "title": "Lesser Yellowlegs", "url": "https://www.allaboutbirds.org/guide/Lesser_Yellowlegs/"},
+    "ebird_coopers": {"publisher": "eBird", "title": "Cooper's Hawk species account", "url": "https://ebird.org/species/coohaw"},
+    "ebird_sharp": {"publisher": "eBird", "title": "Sharp-shinned Hawk species account", "url": "https://ebird.org/species/shshaw"},
+    "ebird_downy": {"publisher": "eBird", "title": "Downy Woodpecker species account", "url": "https://ebird.org/species/dowwoo"},
+    "ebird_hairy": {"publisher": "eBird", "title": "Hairy Woodpecker species account", "url": "https://ebird.org/species/haiwoo"},
+    "ebird_turkey": {"publisher": "eBird", "title": "Turkey Vulture species account", "url": "https://ebird.org/species/turvul"},
+    "ebird_black": {"publisher": "eBird", "title": "Black Vulture species account", "url": "https://ebird.org/species/blkvul"},
+    "ebird_greater": {"publisher": "eBird", "title": "Greater Yellowlegs species account", "url": "https://ebird.org/species/greyel"},
+    "ebird_lesser": {"publisher": "eBird", "title": "Lesser Yellowlegs species account", "url": "https://ebird.org/species/lesyel"}
+  },
+  "pairs": [
+    {
+      "id": "coopers-sharp-shinned", "priority": 1,
+      "left": {"code": "coohaw", "name": "Cooper's Hawk"},
+      "right": {"code": "shshaw", "name": "Sharp-shinned Hawk"},
+      "traits": [
+        {"dimension": "relative_size", "left": "Larger, roughly crow-sized (37–51 cm long); larger head and chest.", "right": "Smaller, roughly jay-sized (23–34 cm long); smaller head and body.", "source_ids": ["cornell_coopers", "cornell_sharp"]},
+        {"dimension": "shape", "left": "Blocky head, broad chest and rounded tail tip.", "right": "Small rounded head, narrow body and squared tail tip.", "source_ids": ["cornell_coopers", "cornell_sharp"]},
+        {"dimension": "plumage", "left": "Adult cap is darker than the back; juveniles are streaked below. Sex and age are not inferred here.", "right": "Adult hood and back are similar in tone; juveniles are streaked below. Sex and age are not inferred here.", "source_ids": ["cornell_coopers", "cornell_sharp"]},
+        {"dimension": "behavior", "left": "Accipiter flight with slower wingbeats and glides.", "right": "Fast, choppy wingbeats with flap-glide sequences.", "source_ids": ["cornell_coopers", "cornell_sharp"]},
+        {"dimension": "habitat", "left": "Woodlands, forest edges, suburbs and open wooded areas.", "right": "Forests and woodland edges; often more retiring.", "source_ids": ["cornell_coopers", "cornell_sharp"]},
+        {"dimension": "vocalization", "left": "Reference accounts describe kik/kak series; use the accepted recordings for actual examples.", "right": "Reference accounts describe higher, rapid kik notes; differences can be subtle.", "source_ids": ["cornell_coopers", "cornell_sharp"]}
+      ],
+      "gaps": ["Do not infer sex, age or plumage class from unlabelled accepted media."]
+    },
+    {
+      "id": "downy-hairy", "priority": 2,
+      "left": {"code": "dowwoo", "name": "Downy Woodpecker"},
+      "right": {"code": "haiwoo", "name": "Hairy Woodpecker"},
+      "traits": [
+        {"dimension": "relative_size", "left": "Smaller, roughly sparrow-sized (14–18 cm long).", "right": "Larger, roughly robin-sized (18–26 cm long).", "source_ids": ["cornell_downy", "cornell_hairy"]},
+        {"dimension": "shape", "left": "Short bill, about one-third to one-half the head length.", "right": "Long, chisel-like bill, nearly the length of the head.", "source_ids": ["cornell_downy", "cornell_hairy"]},
+        {"dimension": "plumage", "left": "Outer tail feathers usually show black spots; source annotations are not interpreted as verified traits.", "right": "Outer tail feathers usually unmarked white; source annotations are not interpreted as verified traits.", "source_ids": ["cornell_downy", "cornell_hairy"]},
+        {"dimension": "behavior", "left": "Forages on small branches, weeds and trunks; active and often tame.", "right": "Forages on larger trunks and branches; stronger excavator.", "source_ids": ["cornell_downy", "cornell_hairy"]},
+        {"dimension": "habitat", "left": "Woodlands, orchards, parks and suburbs.", "right": "Mature forests, woodlots and wooded suburbs.", "source_ids": ["cornell_downy", "cornell_hairy"]},
+        {"dimension": "vocalization", "left": "Reference accounts describe a short pik call and a descending whinny.", "right": "Reference accounts describe a louder peek call and a rattling call.", "source_ids": ["cornell_downy", "cornell_hairy"]}
+      ],
+      "gaps": ["The comparison does not assign age, sex or plumage labels to individual accepted photos."]
+    },
+
+    {
+      "id": "turkey-black-vulture", "priority": 3,
+      "left": {"code": "turvul", "name": "Turkey Vulture"},
+      "right": {"code": "blkvul", "name": "Black Vulture"},
+      "traits": [
+        {"dimension": "relative_size", "left": "Larger (64–81 cm long) with a longer tail.", "right": "Smaller (60–68 cm long) with a shorter, square tail.", "source_ids": ["cornell_turkey", "cornell_black"]},
+        {"dimension": "shape", "left": "Long, rounded tail and long wings; small head.", "right": "Short, square tail and broad wings; compact body.", "source_ids": ["cornell_turkey", "cornell_black"]},
+        {"dimension": "plumage", "left": "Two-toned underwing: dark leading edge and silvery trailing flight feathers.", "right": "Blackish body and wings with silvery-white wingtips.", "source_ids": ["cornell_turkey", "cornell_black"]},
+        {"dimension": "behavior", "left": "Soars with wings held in a shallow dihedral and often rocks; rarely flaps.", "right": "Soars with flatter wings and more frequent flapping.", "source_ids": ["cornell_turkey", "cornell_black"]},
+        {"dimension": "habitat", "left": "Open country, roadsides, forests and farmland.", "right": "Open country, towns and roadsides; often social.", "source_ids": ["cornell_turkey", "cornell_black"]},
+        {"dimension": "vocalization", "left": "Usually silent; reference accounts describe soft hisses and grunts.", "right": "Usually silent; reference accounts describe soft hisses.", "source_ids": ["cornell_turkey", "cornell_black"]}
+      ],
+      "gaps": ["Head-color descriptions are not applied to an individual unless the accepted image supports it."]
+    },
+    {
+      "id": "greater-lesser-yellowlegs", "priority": 4,
+      "left": {"code": "greyel", "name": "Greater Yellowlegs"},
+      "right": {"code": "lesyel", "name": "Lesser Yellowlegs"},
+      "traits": [
+        {"dimension": "relative_size", "left": "Larger (27–30 cm long) with a longer bill.", "right": "Smaller (23–27 cm long) with a shorter bill.", "source_ids": ["cornell_greater", "cornell_lesser"]},
+        {"dimension": "shape", "left": "Long bill often slightly upturned; long legs and neck.", "right": "Shorter, straight bill; compact body and shorter neck.", "source_ids": ["cornell_greater", "cornell_lesser"]},
+        {"dimension": "plumage", "left": "Mottled gray-brown above and pale below; similar to Lesser.", "right": "Mottled gray-brown above and pale below; similar to Greater.", "source_ids": ["cornell_greater", "cornell_lesser"]},
+        {"dimension": "behavior", "left": "Forages actively in shallow water; often gives a three-note call.", "right": "Forages in shallow water; often gives a two-note call.", "source_ids": ["cornell_greater", "cornell_lesser"]},
+        {"dimension": "habitat", "left": "Mudflats, marshes, ponds and wet fields.", "right": "Mudflats, marshes, ponds and wet fields.", "source_ids": ["cornell_greater", "cornell_lesser"]},
+        {"dimension": "vocalization", "left": "Reference accounts describe a ringing three-note call.", "right": "Reference accounts describe a shorter two-note call.", "source_ids": ["cornell_greater", "cornell_lesser"]}
+      ],
+      "gaps": ["Separating silent birds in similar plumage requires care; use multiple media examples and source references."]
+    }
+  ]
+}
+

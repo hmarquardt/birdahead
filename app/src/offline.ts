@@ -17,7 +17,7 @@ export interface OfflineAsset {
   public_share_alike?: boolean | null; validation?: string | null;
 }
 export interface OfflineSpecies {
-  code: string; name: string; scientific_name?: string; priority_rank?: number | null;
+  code: string; name: string; scientific_name?: string; priority_rank?: number | null; confusion_pair?: { common_name: string; ebird_species_code: string } | null;
   current_reporting_frequency?: number | null; approaching_window_rise?: number | null;
   assets: OfflineAsset[];
 }
@@ -51,6 +51,11 @@ export interface OfflineListening {
   event_id: string; profile_id: string | null; pack_id: string; release_id: string;
   at: string; minutes: number; exercises_completed: number; focus: string;
 }
+export interface ComparativeAttempt {
+  event_id: string; profile_id: string | null; pair_id: string; asset_id: string;
+  species_code: string; kind: "photo" | "audio"; choice: string;
+  outcome: "correct" | "incorrect"; at: string;
+}
 export type RoadTripMinutes = 10 | 20 | 30 | 60;
 export type RoadTripFocus = "common" | "here" | "arriving" | "mixed" | "weak";
 export type RoadTripInterval = 5 | 10 | 15 | 20 | 30 | 45 | 60;
@@ -69,9 +74,10 @@ export interface RoadTripExercise {
   id: string; species_code: string; name: string;
   recordings: OfflineAsset[]; name_url: string; name_text: string;
 }
-export interface RoadTripPlan { config: RoadTripConfig; exercises: RoadTripExercise[]; segments: RoadTripSegment[]; }
+export interface RoadTripPlan { config: RoadTripConfig; exercises: RoadTripExercise[]; segments: RoadTripSegment[]; narration_version?: string; }
 export interface NarrationManifest {
-  schema: string; voice: string;
+  schema: string; narration_version: string; voice: string;
+  model?: string; model_license?: string; model_url?: string; voice_license?: string; training_data?: string;
   files: Record<string, { bytes: number; sha256: string; content_type: string; duration_seconds?: number }>;
 }
 
@@ -81,7 +87,8 @@ const STORE_PACKS = "packs";
 const STORE_QUEUE = "queue";
 const STORE_ATTEMPTS = "attempts";
 const STORE_LISTENING = "listening";
-const DB_VERSION = 2;
+const STORE_COMPARATIVE = "comparative";
+const DB_VERSION = 3;
 
 export const PACK_LABELS: Record<OfflinePackKind, { title: string; description: string }> = {
   "county-day": { title: "County outing", description: "Here Now and Arriving Soon for the selected county and date." },
@@ -167,6 +174,7 @@ function idb(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains(STORE_QUEUE)) db.createObjectStore(STORE_QUEUE, { keyPath: "event_id" });
       if (!db.objectStoreNames.contains(STORE_ATTEMPTS)) db.createObjectStore(STORE_ATTEMPTS, { keyPath: "event_id" });
       if (!db.objectStoreNames.contains(STORE_LISTENING)) db.createObjectStore(STORE_LISTENING, { keyPath: "event_id" });
+      if (!db.objectStoreNames.contains(STORE_COMPARATIVE)) db.createObjectStore(STORE_COMPARATIVE, { keyPath: "event_id" });
     };
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error ?? new Error("Could not open offline storage."));
@@ -218,6 +226,21 @@ export async function recordListening(input: {
   await storePut(STORE_LISTENING, event);
   return event;
 }
+export async function listComparativeAttempts(profileId?: string | null): Promise<ComparativeAttempt[]> {
+  const rows = await storeAll<ComparativeAttempt>(STORE_COMPARATIVE);
+  return profileId === undefined ? rows : rows.filter((row) => row.profile_id === profileId);
+}
+export async function recordComparativeAttempt(input: {
+  profile_id: string | null; pair_id: string; question: { asset_id: string; species_code: string; kind: "photo" | "audio" }; choice: string;
+}): Promise<ComparativeAttempt> {
+  const event: ComparativeAttempt = {
+    event_id: `comparative:${crypto.randomUUID()}`, profile_id: input.profile_id, pair_id: input.pair_id,
+    asset_id: input.question.asset_id, species_code: input.question.species_code, kind: input.question.kind,
+    choice: input.choice, outcome: input.choice === input.question.species_code ? "correct" : "incorrect", at: new Date().toISOString(),
+  };
+  await storePut(STORE_COMPARATIVE, event);
+  return event;
+}
 export async function storageEstimate(): Promise<{ usage: number; quota: number } | null> {
   if (typeof navigator === "undefined" || !navigator.storage?.estimate) return null;
   const estimate = await navigator.storage.estimate();
@@ -225,6 +248,17 @@ export async function storageEstimate(): Promise<{ usage: number; quota: number 
 }
 export async function requestPersistentStorage(): Promise<boolean> {
   try { return !!(await navigator.storage?.persist?.()); } catch { return false; }
+}
+/** Remove pre-Kokoro narration entries without touching bird recordings or
+ * current narration. Old road-trip packs remain visible but are marked stale. */
+export async function removeLegacyNarrationCache(): Promise<number> {
+  if (typeof caches === "undefined") return 0;
+  const cache = await caches.open(ASSET_CACHE); let removed = 0;
+  for (const request of await cache.keys()) {
+    const url = new URL(request.url);
+    if (url.pathname.startsWith("/narration/") && url.pathname.endsWith(".m4a")) { await cache.delete(request); removed += 1; }
+  }
+  return removed;
 }
 async function openAssetCache(): Promise<Cache> {
   if (typeof caches === "undefined") throw new Error("Offline media storage is unavailable in this browser.");

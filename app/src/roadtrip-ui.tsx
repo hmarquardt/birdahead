@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   deletePack, downloadPack, formatBytes, listOfflineAttempts, listPacks,
-  recordListening, type OfflineAttempt, type OfflinePackDefinition, type OfflineProgress,
+  recordListening, removeLegacyNarrationCache, type OfflineAttempt, type OfflinePackDefinition, type OfflineProgress,
   type StoredPack, type NarrationManifest, type RoadTripConfig, type RoadTripFocus,
   type RoadTripInterval, type RoadTripMinutes, type RoadTripMode, type RoadTripOrder,
   type RoadTripSegment,
@@ -15,7 +15,7 @@ const FOCUS_LABELS: Record<RoadTripFocus, string> = {
 function catalogFrom(library: Row, county: string, day: string) {
   return { release_id: String(library.release_id ?? ""), county, day,
     species: (library.species ?? []).map((row: Row) => ({
-      code: String(row.code), name: String(row.name), scientific_name: row.scientific_name,
+      code: String(row.code), name: String(row.name), scientific_name: row.scientific_name, confusion_pair: row.confusion_pair ?? null,
       priority_rank: row.priority_rank ?? null, current_reporting_frequency: row.current_reporting_frequency ?? null,
       approaching_window_rise: row.approaching_window_rise ?? null,
       assets: (row.assets ?? []).filter((asset: Row) => asset.kind === "audio" && Number(asset.bytes) > 0 && typeof asset.sha256 === "string" && asset.media_url?.startsWith("/media/public/")),
@@ -67,12 +67,12 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
         const saved = JSON.parse(localStorage.getItem("birdahead-roadtrip-library-v1") ?? "null");
         if (saved?.library) setLibrary(saved.library);
         const narration = localStorage.getItem("birdahead-narration-manifest-v1");
-        if (narration) setManifest(JSON.parse(narration));
+        if (narration) { const parsed = JSON.parse(narration); if (parsed?.schema === "birdahead-narration-v2" && parsed?.narration_version) setManifest(parsed); }
       } catch { /* use the error below */ }
       setMessage(reason.message);
     });
   }, [county, day]);
-  useEffect(() => { refresh().catch((reason) => setMessage(reason.message)); }, []);
+  useEffect(() => { removeLegacyNarrationCache().catch(() => undefined); refresh().catch((reason) => setMessage(reason.message)); }, []);
   useEffect(() => { listOfflineAttempts(signedIn ? profile : null).then((rows) => setWeak(weakCodesFrom(progress, rows))).catch(() => undefined); }, [signedIn, profile, progress]);
   useEffect(() => {
     try { const saved = JSON.parse(localStorage.getItem("birdahead-roadtrip-active-v1") ?? "null"); if (saved?.pack_id) setResumeInfo(saved); } catch { /* optional */ }
@@ -85,7 +85,9 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
   }, [library, manifest, county, day, minutes, focus, intervalSeconds, order, mode, weak.join("|")]);
   const plan = planResult.plan; const planError = planResult.error;
   const downloaded = stored.filter((row) => row.roadTrip);
-  const selectedStored = plan ? stored.find((row) => row.id === plan.id && row.status === "complete") : undefined;
+  const narrationVersion = manifest?.narration_version ?? "";
+  const versionCurrent = (version?: string) => !narrationVersion || version === narrationVersion;
+  const selectedStored = plan ? stored.find((row) => row.id === plan.id && row.status === "complete" && versionCurrent(row.roadTrip?.narration_version)) : undefined;
   const segments = active?.roadTrip?.segments ?? [];
   const currentSegment = segments[segmentIndex] ?? null;
   async function startDownload() {
@@ -98,6 +100,7 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
   }
   function startSession(pack: StoredPack, segment = 0) {
     if (!pack.roadTrip) return;
+    if (!pack.roadTrip.narration_version || (narrationVersion && pack.roadTrip.narration_version !== narrationVersion)) { setMessage("This road-trip pack uses an obsolete narration version. Remove it and download a new session."); return; }
     setActive(pack); setSegmentIndex(segment); setFinished(false); setPlaying(false); setError(""); startedAt.current = Date.now();
     localStorage.setItem("birdahead-roadtrip-active-v1", JSON.stringify({ pack_id: pack.id, segment_index: segment }));
   }
@@ -164,7 +167,7 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
     session.playbackState = playing ? "playing" : "paused";
     return () => { for (const [action] of handlers) { try { session.setActionHandler(action, null); } catch { /* unsupported */ } } };
   }, [active, playing, segmentIndex, currentSegment]);
-  const resumePack = resumeInfo ? stored.find((row) => row.id === resumeInfo.pack_id && row.roadTrip?.segments?.length) : null;
+  const resumePack = resumeInfo ? stored.find((row) => row.id === resumeInfo.pack_id && row.roadTrip?.segments?.length && versionCurrent(row.roadTrip?.narration_version)) : null;
   async function removeRoadTrip(id: string) { setBusy(true); try { await deletePack(id); await refresh(); } catch (reason) { setMessage((reason as Error).message); } finally { setBusy(false); } }
 
 
@@ -188,7 +191,7 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
     <div className="public-actions">{plan && (selectedStored ? <button className="primary" onClick={() => startSession(selectedStored)}>Start downloaded session</button> : <button className="primary" disabled={busy} onClick={startDownload}>{busy ? "Downloading…" : "Download session for offline"}</button>)}{resumePack && resumeInfo && <button className="secondary" onClick={() => startSession(resumePack, resumeInfo.segment_index)}>Resume saved session</button>}</div>
     {message && <p className="fine">{message}</p>}
     <h2>Downloaded road trips</h2>
-    {downloaded.length ? <div className="roadtrip-list">{downloaded.map((row) => <article key={row.id}><div><strong>{row.title}</strong><small>{row.roadTrip?.exercises.length} exercises · {formatBytes(row.bytes)} · release {row.release_id.slice(0, 10)}…</small></div><div className="public-actions"><button className="primary" onClick={() => startSession(row)}>Start</button><button className="secondary" onClick={() => removeRoadTrip(row.id)}>Remove</button></div></article>)}</div> : <p className="fine">No road-trip session is downloaded yet.</p>}
+    {downloaded.length ? <div className="roadtrip-list">{downloaded.map((row) => <article key={row.id}><div><strong>{row.title}</strong><small>{row.roadTrip?.exercises.length} exercises · {formatBytes(row.bytes)} · release {row.release_id.slice(0, 10)}…{!versionCurrent(row.roadTrip?.narration_version) ? " · narration update required" : ""}</small></div><div className="public-actions"><button className="primary" disabled={!row.roadTrip?.narration_version || !versionCurrent(row.roadTrip.narration_version)} onClick={() => startSession(row)}>Start</button><button className="secondary" onClick={() => removeRoadTrip(row.id)}>Remove</button></div></article>)}</div> : <p className="fine">No road-trip session is downloaded yet.</p>}
     <p className="fine">Quiz mode plays a recording, a silent guess interval, spoken species name and a second recording where available. Listening activity is stored separately and never marked correct. Bird recordings carry their original creator, source and license notices.</p>
   </section>;
 }

@@ -32,7 +32,7 @@ experiments/phase05/
 *.ogg
 *.flac
 *.m4a
-!app/public/narration/**/*.m4a
+!app/public/narration/**/*.wav
 *.zip
 *.gz
 *.parquet
