@@ -70,7 +70,16 @@
   },
   "limitations": [
     "No physical iPhone/Android, Bluetooth, lock-screen, call/navigation interruption or storage-eviction test was run.",
-    "The catalog is provisional_curated and has not received owner/expert biological review.",
-    "No production smoke/deploy is claimed by this local evidence file."
-  ]
+    "The catalog is provisional_curated and has not received owner/expert biological review."
+  ],
+  "production": {
+    "url": "https://birdahead.com",
+    "revision": "e14747af1046f740642c09465d47fae2cc8c60a0",
+    "deployment_run": 43953796176,
+    "public_smoke": "PASS 25/25",
+    "private_smoke": "PASS 23/23",
+    "health": true,
+    "comparison_browser": "production mobile viewport; pair, media, practice and no page errors",
+    "edge_note": "Initial health check observed the previous revision during edge propagation; a rerun passed after the new revision was visible."
+  }
 }
