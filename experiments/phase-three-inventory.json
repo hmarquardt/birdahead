@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "public-noncommercial-release-verified",
-  "generated_at": "2026-11-16T15:26:00Z",
+  "generated_at": "2026-11-16T16:45:00Z",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "9a4cce9630e16c34f6d9ee544466f5f6cb8f93ea",
+    "revision": "02f75770752145993a94b8efd3b132cb1dcbaf6b",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "47a8b9d4-28fd-4ceb-8a82-007666b0c716",
-    "deployed_revision": "9a4cce9630e16c34f6d9ee544466f5f6cb8f93ea",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43895715626",
+    "version_id": "f161f2b9-b6aa-4e78-ac86-8794c07b621d",
+    "deployed_revision": "02f75770752145993a94b8efd3b132cb1dcbaf6b",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43909699258",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
@@ -70,9 +70,9 @@
   },
   "verification": {
     "smoke_evidence": "experiments/phase-three-production.json",
-    "checks_passed": 25,
-    "checks_total": 25,
-    "browser": true,
+    "checks_passed": 23,
+    "checks_total": 23,
+    "browser": false,
     "https": true,
     "unauthorized_api_rejected": true,
     "unauthorized_media_rejected": true,
@@ -92,13 +92,14 @@
     "authenticated_audio_range": true,
     "unauthorized_admin_rejected": true,
     "public_smoke_evidence": "experiments/phase-three-public.json",
-    "public_checks_passed": 19,
-    "public_checks_total": 19,
-    "private_checks_passed": 25,
-    "private_checks_total": 25,
+    "public_checks_passed": 18,
+    "public_checks_total": 18,
+    "private_checks_passed": 23,
+    "private_checks_total": 23,
     "analytics_pageview_verified": true,
     "public_media_private_r2": true,
-    "guest_local_history_verified": true
+    "guest_local_history_verified": true,
+    "browser_evidence_note": "The earlier browser-inclusive run passed 19/19 public and 25/25 private checks; the latest release smoke was non-browser."
   },
   "costs": {
     "currency": "USD",
@@ -162,5 +163,24 @@
     "A production D1 restore drill remains deferred.",
     "The deployment token is likely account-scoped; least-privilege rotation is an owner action.",
     "No full offline media packs, additional geography/media, commercial clearance or expert biological audit."
-  ]
+  ],
+  "branding": {
+    "tagline": "Learn the birds you're about to meet.",
+    "favicon": "inline data-URI SVG on every public page",
+    "pwa_icons": "existing PNG icons and manifest preserved"
+  },
+  "gsc": {
+    "property": "sc-domain:birdahead.com",
+    "site_id": 10,
+    "mapping_commit": "2a6d74c",
+    "analytics_revision": "472d9223be7b04e38ec1a31b85386da6fb2d1f5b",
+    "permission_level": "siteRestrictedUser",
+    "last_success_at": "2026-11-16T17:05:15.846Z",
+    "daily_total_rows": 120,
+    "newest_day": "2026-11-08",
+    "impressions": 0,
+    "queries": 0,
+    "pages": 0,
+    "evidence": "experiments/phase-three-gsc.json"
+  }
 }

@@ -1,0 +1,60 @@
+{
+  "schema": "birdahead-gsc-integration-v1",
+  "checked_at": "2026-11-16T17:12:48.390869+00:00",
+  "cflab_site": {
+    "id": 10,
+    "public_id": "as_Bq4kGnf2EkSW3dS0HZAddF",
+    "slug": "birdahead",
+    "name": "BirdAhead",
+    "domains": [
+      {
+        "hostname": "birdahead.com",
+        "kind": "primary",
+        "active": 1
+      },
+      {
+        "hostname": "www.birdahead.com",
+        "kind": "alias",
+        "active": 1
+      }
+    ]
+  },
+  "duplicate_check": {
+    "site_rows": 1,
+    "apex_domain_rows": 1,
+    "www_domain_rows": 1,
+    "owner_memberships": 1
+  },
+  "reviewed_mapping": {
+    "property": "sc-domain:birdahead.com",
+    "label": "BirdAhead",
+    "site_slug": "birdahead",
+    "mapping_commit": "2a6d74c",
+    "analytics_revision": "472d9223be7b04e38ec1a31b85386da6fb2d1f5b",
+    "analytics_production_checks": "10/10"
+  },
+  "collector": {
+    "property": "sc-domain:birdahead.com",
+    "site_id": 10,
+    "permission_level": "siteRestrictedUser",
+    "last_attempt_at": "2026-11-16T17:05:15.846Z",
+    "last_success_at": "2026-11-16T17:05:15.846Z",
+    "last_error_code": null,
+    "days_covered": 30,
+    "newest_day": "2026-11-08",
+    "backfill_complete": 0,
+    "daily_total_rows": 120,
+    "clicks": 0,
+    "impressions": 0,
+    "first_report_day": "2026-07-12",
+    "last_report_day": "2026-11-08",
+    "query_rows": 0,
+    "page_rows": 0,
+    "breakdown_rows": 0
+  },
+  "evidence": {
+    "actual_search_console_api_access": true,
+    "method": "Production Analytics Worker scheduled collector; the BirdAhead property row and daily totals were read directly from the cflab-analytics D1 database.",
+    "note": "A temporary one-minute trigger was used to exercise the deployed collector; the normal 17 * * * * schedule was restored and the 10-check Analytics production verification passed. The zero impressions describe a newly verified property with no Search Console search traffic yet; they are not a failure."
+  }
+}

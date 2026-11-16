@@ -48,7 +48,7 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [ROADMAP.md](ROADMAP.md) | Delivered local scope and next acceptance gates |
 | [Phase Three report](docs/phase-three.md) | Public/private release, auth, verification and deferred work |
 | [Analytics](docs/analytics.md) | CFLab registration, events, privacy and verification |
-| [Search Console](docs/search-console.md) | Sitemap and owner verification handoff |
+| [Search Console](docs/search-console.md) | CFLab GSC mapping, sitemap and owner verification handoff |
 | [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |
 | [Public evidence](experiments/phase-three-public.json) | Anonymous exploration, guest practice, SEO and private-boundary checks |

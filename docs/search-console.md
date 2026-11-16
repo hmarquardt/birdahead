@@ -4,7 +4,7 @@ BirdAhead publishes an indexable homepage, public species and county landing pag
 
 ## Current status
 
-The owner verified `sc-domain:birdahead.com` as a Domain property and granted the existing CFLab Search Console service account read access. The adjacent CFLab project now includes the reviewed mapping `sc-domain:birdahead.com` → `birdahead` (commit `2a6d74c`), and the Analytics Worker was released at that revision with all 10 read-only production checks passing. The production collector runs in the existing hourly cron; its first BirdAhead result is recorded in [production evidence](../experiments/phase-three-production.json). No second collector, service account or credential was created.
+The owner verified `sc-domain:birdahead.com` as a Domain property and granted the existing CFLab Search Console service account read access. The adjacent CFLab project now includes the reviewed mapping `sc-domain:birdahead.com` → `birdahead` (mapping commit `2a6d74c`; final Analytics revision `472d922`), and the Analytics Worker passed all 10 read-only production checks. The production collector recorded the BirdAhead property with `siteRestrictedUser` access and 120 daily totals through 2026-11-08; there is no Search Console search traffic yet. Details are in the [GSC evidence](../experiments/phase-three-gsc.json). No second collector, service account or credential was created.
 
 ## Remaining owner actions
 

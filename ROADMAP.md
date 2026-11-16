@@ -47,7 +47,7 @@ Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evide
 - Kept Hank/Heather sessions, D1 progress, publishing, administration and privileged mutations authenticated, with server-backed practice for signed-in learners.
 - Added crawlable species and county landing pages, canonical/OG metadata, JSON-LD, sitemap, robots, public privacy/source pages and selective noindex for APIs/media.
 - Registered BirdAhead with the existing CFLab analytics collector, verified event ingestion, and documented the privacy-preserving event policy.
-- Prepared eBird-derived-product notification and Search Console verification handoffs for owner review; neither is represented as completed.
+- Integrated the verified `sc-domain:birdahead.com` property with the existing CFLab Search Console collector; sitemap submission remains an owner action. Neither the eBird notification nor the sitemap handoff is represented as completed.
 
 ## Next local usability and reliability pass
 

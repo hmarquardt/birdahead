@@ -70,7 +70,7 @@ The production smoke checks HTTPS health/revision, unauthorized private API/medi
 
 BirdAhead is registered in the existing CFLab analytics Site model as `as_Bq4kGnf2EkSW3dS0HZAddF` with apex/`www` domains. Aggregate public pageviews and feature events are verified; the client honors DNT/GPC, stores no cookies or persistent visitor ID, and never receives household identities, access keys, individual quiz responses, precise locations or private progress. See [analytics](analytics.md).
 
-Google Search Console registration is now integrated with the existing CFLab collector. The reviewed property list includes `sc-domain:birdahead.com` mapped to the `birdahead` Site; the Analytics Worker was released at CFLab revision `2a6d74c` and passed its read-only production checks. Sitemap submission still requires an account with Full/Owner permission; the collector itself only needs read access. See [Search Console](search-console.md).
+Google Search Console registration is now integrated with the existing CFLab collector. The reviewed property list includes `sc-domain:birdahead.com` mapped to the `birdahead` Site; the Analytics Worker passed all 10 read-only production checks at CFLab revision `472d922` (mapping commit `2a6d74c`). The collector stored 120 daily totals with zero search traffic so far, confirming real read access to the new property. Sitemap submission still requires an account with Full/Owner permission; the collector itself only needs read access. See [Search Console](search-console.md) and [GSC evidence](../experiments/phase-three-gsc.json).
 
 ## Backup evidence
 
@@ -79,6 +79,6 @@ A private production D1 export was taken on November 16, 2026, with Time Travel 
 ## Known limitations and next improvements
 
 - The Edge IP `--resolve-ip` is a local resolver workaround used because this workstation temporarily did not resolve the apex; normal clients use DNS. The public site remains hosted privately on R2 behind the Worker; no R2 public domain exists.
-- The production D1 backup has no automated schedule or verified restore drill. The deployment token is likely account-scoped; least-privilege rotation remains an owner action ([evaluation](../experiments/phase-three-token-evaluation.json)). Google Search Console verification/sitemap submission and the eBird derived-product notification are also owner actions.
+- The production D1 backup has no automated schedule or verified restore drill. The deployment token is likely account-scoped; least-privilege rotation remains an owner action ([evaluation](../experiments/phase-three-token-evaluation.json)). Sitemap submission and the eBird derived-product notification are also owner actions.
 - No offline media packs, hands-free road-trip mode, cloud sync across devices, additional regions or further media expansion are included.
 - Automated acceptance remains preliminary source/model corroboration; owner/expert audit and the Mallard/American Black Duck risk remain documented. The two-hour owner-review cap is unchanged.
