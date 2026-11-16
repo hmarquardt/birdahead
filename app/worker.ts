@@ -193,6 +193,9 @@ async function publicSession(db: D1Database, release: Release, id: string, profi
       source_evidence: current.source_verified ? "Source-verified record; automated model corroboration is not expert certification" : null } : null };
 }
 const app = new Hono<AppEnv>();
+// Legacy Apple-generated narration is no longer deliverable. Static asset
+// storage may retain old immutable files, so deny the path explicitly.
+app.use("/narration/*", async (c, next) => { if (c.req.path.endsWith(".m4a")) return c.notFound(); await next(); });
 app.use("*", async (c, next) => {
   const url = new URL(c.req.url); const host = url.host; const canonical = originHost(c.env.APP_ORIGIN);
   if (host === "www.birdahead.com" && canonical === "birdahead.com") return c.redirect("https://birdahead.com" + url.pathname + url.search, 308);

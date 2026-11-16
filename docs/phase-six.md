@@ -7,7 +7,7 @@ replaced with locally generated Kokoro-82M WAV files. The current version is
 `kokoro-82m-af_heart-v1`; model/voice provenance, checksums and generation
 commands are recorded in [narration remediation](narration-remediation.md) and
 the public manifest. Old downloaded Phase Five packs are marked stale and their
-legacy `.m4a` cache entries are removed; the shell cache advanced to v3.
+legacy `.m4a` cache entries are removed; the shell cache advanced to v3. The Worker also explicitly denies legacy `/narration/*.m4a` paths because Cloudflare static storage can retain old immutable files.
 
 The historical Git commit `4597eca` still contains the Apple files. It was not
 rewritten without owner authorization; the exposure and coordinated rewrite

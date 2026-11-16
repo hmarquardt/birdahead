@@ -72,6 +72,8 @@ def main():
     check('road-trip narration manifest', status == 200 and narration.get('narration_version') == 'kokoro-82m-af_heart-v1' and len(narration.get('files', {})) >= 100)
     status, mh, mb = request(base, '/narration/names/mallar3.wav')
     check('road-trip narration audio', status == 200 and (mh.get('Content-Type') or mh.get('content-type') or '').startswith('audio/') and len(mb) > 1000)
+    status, _, _ = request(base, '/narration/names/mallar3.m4a')
+    check('legacy narration not delivered', status == 404, status)
     status, _, body = request(base, '/comparisons.json')
     comparisons = json.loads(body)
     check('public comparison catalog', status == 200 and comparisons.get('schema') == 'birdahead-comparison-catalog-v1' and len(comparisons.get('pairs', [])) == 4 and all(pair.get('gaps') for pair in comparisons.get('pairs', [])))

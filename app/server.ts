@@ -1063,6 +1063,7 @@ export function createApp(
   app.get("/regions/:county", (c) => c.redirect(`/?tab=explore&county=${encodeURIComponent(c.req.param("county"))}`, 302));
   app.get("/compare", (c) => c.redirect("/?tab=compare", 302));
   app.get("/birds/:code", (c) => c.redirect(`/?tab=guide&bird=${encodeURIComponent(c.req.param("code"))}`, 302));
+  app.use("/narration/*", async (c, next) => { if (c.req.path.endsWith(".m4a")) return c.notFound(); await next(); });
   app.get("/assets/*", serveStatic({ root: resolve(root, "app/dist") }));
   app.use("/narration/*", async (c, next) => { await next(); c.res.headers.set("Content-Type", c.req.path.endsWith(".json") ? "application/json" : "audio/wav"); });
   app.get("/narration/*", serveStatic({ root: resolve(root, "app/dist") }));

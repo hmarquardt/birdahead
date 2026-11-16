@@ -52,5 +52,4 @@ owner wants to remove the historical blobs, use an authorized history rewrite
 coordinated force-push) after coordinating with all clones and CI. **No history
 rewrite was performed here**, and no remote history was altered.
 
-The Apple files should not be reused, copied into another project or
-redistributed. The Kokoro replacement is the only current narration source.
+The current Worker explicitly returns `404` for every `/narration/*.m4a` path so retained immutable static objects cannot be delivered. The Apple files should not be reused, copied into another project or redistributed. The Kokoro replacement is the only current narration source.
