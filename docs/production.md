@@ -64,7 +64,7 @@ uv run python -m tooling.production_smoke --base https://birdahead.com --resolve
 uv run python tooling/repo_check.py
 ```
 
-The smoke test checks HTTPS health/revision, unauthorized API/media rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo bytes/ranges, PWA manifest/service worker and mobile browser image rendering. It never prints credentials or records private media.
+The smoke test checks HTTPS health/revision, unauthorized API/media rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo and audio bytes/ranges, PWA manifest/service worker and mobile browser image rendering. It never prints credentials or records private media.
 
 ## Known limitations and next improvements
 

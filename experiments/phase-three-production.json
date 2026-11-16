@@ -1,6 +1,6 @@
 {
   "schema": "birdahead-production-smoke-v1",
-  "at": "2026-11-16T02:19:20.843673+00:00",
+  "at": "2026-11-16T02:21:16.805457+00:00",
   "base": "https://birdahead.com",
   "health": {
     "ok": true,
@@ -88,6 +88,11 @@
     },
     {
       "name": "photo byte range",
+      "passed": true,
+      "detail": "206"
+    },
+    {
+      "name": "authenticated audio range",
       "passed": true,
       "detail": "206"
     },

@@ -103,6 +103,10 @@ def main():
         check('authenticated photo bytes', mstatus == 200 and len(mbody) == asset.get('bytes', len(mbody)) and mheaders.get('Content-Type','').startswith('image/'), str(mstatus))
         rstatus, rheaders, rbody = request(base, asset['media_url'], headers={**hh, 'Range':'bytes=0-63'})
         check('photo byte range', rstatus == 206 and len(rbody) == 64 and rheaders.get('Content-Range','').startswith('bytes 0-63/'), str(rstatus))
+    audio = next((a for s in library['species'] for a in s.get('assets', []) if a.get('kind') == 'audio'), None)
+    if audio:
+        astatus, aheaders, abody = request(base, audio['media_url'], headers={**hh, 'Range':'bytes=0-63'})
+        check('authenticated audio range', astatus == 206 and len(abody) == 64 and aheaders.get('Content-Range','').startswith('bytes 0-63/'), str(astatus))
     check('PWA manifest', request(base, '/manifest.webmanifest')[0] == 200 and 'icon-512.png' in request(base, '/manifest.webmanifest')[2].decode())
     check('service worker', request(base, '/sw.js')[0] == 200)
     hstatus2, _, _, hcookie2 = login(base, 'heather', secret['HEATHER_KEY'])
