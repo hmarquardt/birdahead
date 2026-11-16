@@ -132,7 +132,8 @@ export function createApp(
   const publicAssets = () => assets().filter((a) => isPublicAsset(a));
   const publicCredit = (a: Asset) => ({ ...credit(a), public_use_basis: a.public_use_basis ?? null, public_license_notice: a.public_license_notice ?? null,
     public_noncommercial_only: a.public_noncommercial_only ?? null, public_share_alike: a.public_share_alike ?? null });
-  const publicAssetCard = (a: Asset) => ({ id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, creator:a.creator,
+  const publicAssetCard = (a: Asset) => ({ id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, bytes:Number(a.bytes??(a.local_path?statSync(resolve(root,a.local_path)).size:0)),
+    sha256:a.sha256??null, content_type:a.content_type??a.media_format??(a.kind==='photo'?'image/jpeg':'audio/mpeg'), creator:a.creator,
     attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code ?? null, source:a.source ?? null,
     public_use_basis:a.public_use_basis ?? null, public_license_notice:a.public_license_notice ?? null, public_noncommercial_only:a.public_noncommercial_only ?? null,
     public_share_alike:a.public_share_alike ?? null, derivative:!!a.derivative_of, vocalization:a.vocalization ?? null, target_bbox_xyxy:a.target_bbox_xyxy ?? null,
@@ -290,7 +291,7 @@ export function createApp(
     const rows=release.species.map((s)=>{const c=counts.get(s.ebird_species_code)??{photos:0,audio:0};const sr=seasonal.get(s.ebird_species_code);return {code:s.ebird_species_code,name:s.common_name,scientific_name:s.scientific_name,priority_rank:s.priority_rank??null,confusion_pair:s.confusion_pair??null,
       photos:c.photos,recordings:c.audio,photo_practice_ready:c.photos>=2,audio_practice_ready:c.audio>=2,coverage_gap:c.photos<2&&c.audio<2,current_reporting_frequency:sr?.current_reporting_frequency??null,approaching_window_rise:sr?.approaching_window_rise??null,sample_size:sr?.sample_size??null,bin_start:sr?.bin_start??null,bin_end:sr?.bin_end??null,assets:(grouped.get(s.ebird_species_code)??[]).map(publicAssetCard)};})
       .filter((r)=>!query||r.name.toLowerCase().includes(query)||r.scientific_name.toLowerCase().includes(query)||r.code.toLowerCase().includes(query)).sort((a,b)=>(a.priority_rank??9999)-(b.priority_rank??9999)||a.name.localeCompare(b.name));
-    return c.json({location,day,query,kind,data_vintage:release.data_vintage??null,species:rows});
+    return c.json({location,day,query,kind,release_id:release.id,data_vintage:release.data_vintage??null,species:rows});
   });
   app.get("/api/public/seasonality", (c) => { const code=c.req.query('code')??''; const location=c.req.query('location')??''; const profile=release.profiles[location]; if(!profile) throw Error('Choose a supported county'); const s=species(code);
     return c.json({code,location,name:s.common_name,scientific_name:s.scientific_name,bins:profile.rows.filter((r)=>r.species_code===code).map((r)=>({start:r.start,end:r.end,frequency:r.frequency,sample_size:r.sample_size,value_status:r.value_status??null})),metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null},data_vintage:release.data_vintage??null}); });
@@ -500,6 +501,7 @@ export function createApp(
       day,
       query,
       kind,
+      release_id: release.id,
       data_vintage: release.data_vintage ?? null,
       coverage_summary: release.coverage_summary ?? null,
       species: rows,
@@ -918,6 +920,35 @@ export function createApp(
           : null,
     });
   });
+  app.post("/api/offline/sync", async (c) => {
+    const body = await c.req.json().catch(() => null) as DbRow | null;
+    const profile = String(body?.profile ?? body?.profile_id ?? "");
+    const input = Array.isArray(body?.attempts) ? body.attempts : null;
+    if (!knownProfile(profile) || !input || input.length > 100) throw Error("Choose a learner and send between 1 and 100 offline attempts");
+    const visible = publicAssets();
+    const byId = new Map(visible.map((asset) => [asset.id, asset]));
+    const accepted: string[] = []; const duplicates: string[] = [];
+    const rejected: Array<{ event_id: string; code: string }> = [];
+    const eventPattern = /^offline:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+    for (const raw of input) {
+      const item = raw && typeof raw === "object" ? raw as DbRow : {};
+      const eventId = typeof item.event_id === "string" ? item.event_id.toLowerCase() : "";
+      if (!eventPattern.test(eventId)) { rejected.push({ event_id: String(item.event_id ?? "").slice(0, 80), code: "invalid_event_id" }); continue; }
+      const asset = byId.get(String(item.asset_id ?? ""));
+      const mode = item.mode === "recall" ? "recall" : item.mode === "choice" ? "choice" : "";
+      const choice = String(item.choice ?? "");
+      const at = Date.parse(String(item.at ?? ""));
+      if (!asset || asset.kind !== item.kind) { rejected.push({ event_id: eventId, code: asset ? "kind_mismatch" : "media_withdrawn" }); continue; }
+      if (!mode || !Number.isFinite(at) || at > Date.now() + 300_000 || at < Date.now() - 400 * 86_400_000) { rejected.push({ event_id: eventId, code: "invalid_attempt" }); continue; }
+      if (!["unknown", "insufficient", "known", "incorrect"].includes(choice) && !release.species.some((s) => s.ebird_species_code === choice)) { rejected.push({ event_id: eventId, code: "invalid_choice" }); continue; }
+      const outcome = choice === "unknown" || choice === "insufficient" ? "uncertain" : mode === "recall" ? (choice === "known" ? "correct" : "incorrect") : choice === asset.species_code ? "correct" : "incorrect";
+      const prior = asRow(db.prepare("SELECT profile_id FROM attempts WHERE id=? OR question_id=?").get(eventId, eventId));
+      if (prior) { if (prior.profile_id !== profile) rejected.push({ event_id: eventId, code: "profile_mismatch" }); else duplicates.push(eventId); continue; }
+      const changes = db.prepare("INSERT OR IGNORE INTO attempts(id,session_id,question_id,profile_id,asset_id,species_code,kind,mode,choice,outcome,at) VALUES(?,?,?,?,?,?,?,?,?,?,?)").run(eventId, `offline:${eventId.slice(8)}`, eventId, profile, asset.id, asset.species_code, asset.kind, mode, choice, outcome, new Date(at).toISOString()).changes;
+      if (changes > 0) accepted.push(eventId); else duplicates.push(eventId);
+    }
+    return c.json({ ok: true, profile_id: profile, release_id: release.id, accepted, duplicates, rejected });
+  });
   app.post("/api/flag", async (c) => {
     const { profile, asset_id, session_id, reason, suggested_species } =
       await c.req.json();
@@ -1028,6 +1059,9 @@ export function createApp(
   app.get("/regions/:county", (c) => c.redirect(`/?tab=explore&county=${encodeURIComponent(c.req.param("county"))}`, 302));
   app.get("/birds/:code", (c) => c.redirect(`/?tab=guide&bird=${encodeURIComponent(c.req.param("code"))}`, 302));
   app.get("/assets/*", serveStatic({ root: resolve(root, "app/dist") }));
+  for (const asset of ["/sw.js", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"]) {
+    app.get(asset, serveStatic({ path: resolve(root, "app/dist", asset.slice(1)) }));
+  }
   app.get("/", serveStatic({ path: resolve(root, "app/dist/index.html") }));
   return app;
 }

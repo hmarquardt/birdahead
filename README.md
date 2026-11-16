@@ -24,7 +24,7 @@ npm run local --prefix app
 
 Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase 2.1 collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
 
-The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Full offline media packs remain deferred. [Local use](docs/local-mvp.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
+The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Selective offline learning packs are available; hands-free road-trip mode remains deferred. [Local use](docs/local-mvp.md), [offline learning](docs/offline.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
 
 ## Current evidence
 
@@ -48,6 +48,8 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [ROADMAP.md](ROADMAP.md) | Delivered local scope and next acceptance gates |
 | [Phase Three report](docs/phase-three.md) | Public/private release, auth, verification and deferred work |
 | [Analytics](docs/analytics.md) | CFLab registration, events, privacy and verification |
+| [Offline learning](docs/offline.md) | Packs, storage, resume/integrity, offline practice and profile-bound sync |
+| [Offline evidence](experiments/phase-four-offline.json) | Automated browser offline/reload/resume/reclamation checks |
 | [Search Console](docs/search-console.md) | CFLab GSC mapping, sitemap and owner verification handoff |
 | [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |

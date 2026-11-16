@@ -48,6 +48,7 @@ Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evide
 - Added crawlable species and county landing pages, canonical/OG metadata, JSON-LD, sitemap, robots, public privacy/source pages and selective noindex for APIs/media.
 - Registered BirdAhead with the existing CFLab analytics collector, verified event ingestion, and documented the privacy-preserving event policy.
 - Integrated the verified `sc-domain:birdahead.com` property with the existing CFLab Search Console collector; sitemap submission remains an owner action. Neither the eBird notification nor the sitemap handoff is represented as completed.
+- Added Phase Four selective offline packs, local guest practice and profile-bound offline sync; physical-device checks and hands-free mode remain deferred.
 
 ## Next local usability and reliability pass
 
@@ -75,13 +76,13 @@ Acceptance criteria:
 
 ## Private production pilot — separately authorized
 
-After separate deployment approval, create isolated BirdAhead Workers/D1/R2 resources, authentication, migrations/backups and bounded usage. Validate on the owners' phones, then add selective offline packs. Test interrupted downloads, retry/idempotent progress, independent profiles, stale/revoked content and restored exports. Measure costs, verify deployed release and rollback. Local `vite build` is a compilation check, not a deployment authorization.
+After separate deployment approval, create isolated BirdAhead Workers/D1/R2 resources, authentication, migrations/backups and bounded usage. Validate on the owners' phones, then use the selective offline packs. Test interrupted downloads, retry/idempotent progress, independent profiles, stale/revoked content and restored exports. Measure costs, verify deployed release and rollback. Local `vite build` is a compilation check, not a deployment authorization.
 
 ## Regional product expansion
 
 Derive the regular teaching universe from supported annual geography and habitat, separating unusual/exotic historical records. The current histogram union has 333 unique current species-name matches; the earlier all-time API list has a different scope. Neither automatically becomes a teaching target. Expand media through lawful automation, calibrated operating points, deduplication and contributor diversity while preserving the two-hour total initial owner-review cap.
 
-Add precise destination preparation, life-list import, offline packs, shared sessions, hands-free audio and mastery/confusion maps only after the core learning loop proves useful. Keep specialized model scores separate from calibrated probabilities; avoid claims of scientific certification.
+Add precise destination preparation, life-list import, shared sessions, hands-free audio and mastery/confusion maps only after the core learning loop proves useful. Keep specialized model scores separate from calibrated probabilities; avoid claims of scientific certification.
 
 ## Suitable lower-cost coding tasks
 

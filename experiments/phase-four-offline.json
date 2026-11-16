@@ -1,0 +1,62 @@
+{
+  "schema": "birdahead-offline-verification-v1",
+  "at": "2026-11-16T18:39:11.341004+00:00",
+  "environment": "LocalBirdAhead server + automated headless Google Chrome via Playwright; synthetic small public catalog slice and real local fixture media",
+  "physical_device": false,
+  "checks": [
+    {
+      "name": "online pack download",
+      "passed": true,
+      "detail": "county-day complete; one asset in pack"
+    },
+    {
+      "name": "shared media stored once",
+      "passed": true,
+      "detail": "Cache Storage contained one /media/public asset for the pack; shared planning covered by unit test"
+    },
+    {
+      "name": "airplane-mode application launch",
+      "passed": true,
+      "detail": "page reloaded with browser context offline; cached shell and bootstrap fallback rendered"
+    },
+    {
+      "name": "airplane-mode photo practice",
+      "passed": true,
+      "detail": "cached image decoded with naturalWidth 1024"
+    },
+    {
+      "name": "airplane-mode audio practice",
+      "passed": true,
+      "detail": "audio element used cached /media/public/xc-642029 and completed a question"
+    },
+    {
+      "name": "guest offline history",
+      "passed": true,
+      "detail": "one guest attempt persisted in localStorage/IDB"
+    },
+    {
+      "name": "interrupted download resume",
+      "passed": true,
+      "detail": "first media request aborted; pack remained downloading with 0 completed; resume completed with one cache entry"
+    },
+    {
+      "name": "pack deletion/reclamation",
+      "passed": true,
+      "detail": "after removal, pack asset cache count returned to zero"
+    },
+    {
+      "name": "service-worker shell preservation",
+      "passed": true,
+      "detail": "static test asserts pack cache is separate and activation deletes only birdahead-shell-*"
+    }
+  ],
+  "automated_unit_tests": {
+    "app_tests": 17,
+    "python_tests": 55
+  },
+  "limitations": [
+    "Physical iPhone/Android install, OS storage eviction, background audio and long-duration downloads were not tested.",
+    "The browser fixture used a one-photo/one-audio catalog; production complete-pack download was not downloaded in full.",
+    "Signed-in sync is covered by local server tests and code path checks; production household sync requires a real session."
+  ]
+}

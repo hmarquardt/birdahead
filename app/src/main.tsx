@@ -1,9 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import { Downloads } from "./offline-ui";
+import { syncOfflineAttempts } from "./offline";
 
 type Row = Record<string, any>;
-type Tab = "explore" | "guide" | "practice" | "progress" | "about";
+type Tab = "explore" | "guide" | "practice" | "downloads" | "progress" | "about";
 type Auth = "checking" | "guest" | "in";
 declare global { interface Window { cflabAnalytics?: { track?: (name: string, props?: Row) => void } } }
 const track = (name: string, props?: Row) => { try { window.cflabAnalytics?.track?.(name, props); } catch { /* optional */ } };
@@ -192,7 +194,7 @@ function About() {
 function App() {
   const initial = useMemo(() => new URLSearchParams(window.location.search), []);
   const initialTab = (initial.get("tab") ?? "explore") as Tab;
-  const [tab, setTab] = useState<Tab>(["explore", "guide", "practice", "progress", "about"].includes(initialTab) ? initialTab : "explore");
+  const [tab, setTab] = useState<Tab>(["explore", "guide", "practice", "downloads", "progress", "about"].includes(initialTab) ? initialTab : "explore");
   const [auth, setAuth] = useState<Auth>("checking");
   const [profile, setProfile] = useState("hank");
   const [authName, setAuthName] = useState("");
@@ -208,7 +210,8 @@ function App() {
   const [error, setError] = useState("");
   useEffect(() => {
     fetch("/api/public/bootstrap", { credentials: "same-origin" }).then(async (r) => { if (!r.ok) throw Error((await r.json().catch(() => ({}))).error ?? "Public catalog unavailable"); return r.json(); })
-      .then((d) => { setBoot(d); setCounty((current) => current && d.counties?.[current] ? current : Object.keys(d.counties ?? {})[0] ?? ""); }).catch((e) => setError(e.message));
+      .then((d) => { setBoot(d); localStorage.setItem("birdahead-boot-v1", JSON.stringify(d)); setCounty((current) => current && d.counties?.[current] ? current : Object.keys(d.counties ?? {})[0] ?? ""); })
+      .catch((e) => { try { const cached = localStorage.getItem("birdahead-boot-v1"); if (cached) { const d = JSON.parse(cached); setBoot(d); setCounty((current) => current && d.counties?.[current] ? current : Object.keys(d.counties ?? {})[0] ?? ""); return; } } catch { /* use the network error below */ } setError(e.message); });
   }, []);
   useEffect(() => {
     fetch("/api/session", { credentials: "same-origin" }).then(async (r) => { if (!r.ok) { setAuth("guest"); return; } const d = await r.json(); setAuth("in"); setProfile(d.profile_id ?? "hank"); setAuthName(d.name ?? d.profile_id ?? "Learner"); }).catch(() => setAuth("guest"));
@@ -217,9 +220,21 @@ function App() {
     return () => window.removeEventListener("birdahead-auth-expired", expired);
   }, []);
   useEffect(() => {
+    if (auth !== "in") return;
+    const sync = () => {
+      if (!navigator.onLine) return;
+      syncOfflineAttempts(profile).catch((error) => {
+        if ((error as { status?: number }).status === 401) window.dispatchEvent(new Event("birdahead-auth-expired"));
+      });
+    };
+    sync();
+    window.addEventListener("online", sync);
+    return () => window.removeEventListener("online", sync);
+  }, [auth, profile]);
+  useEffect(() => {
     if (!county) return;
     const path = auth === "in" ? `curriculum?profile=${encodeURIComponent(profile)}&location=${encodeURIComponent(county)}&day=${day}` : `public/curriculum?location=${encodeURIComponent(county)}&day=${day}`;
-    api(path).then((d) => { setRanked(d.priorities ?? []); setArriving(d.arriving_soon ?? (d.priorities ?? []).filter((r: Row) => (r.approaching_window_rise ?? 0) > 0).sort((a: Row, b: Row) => (b.approaching_window_rise ?? 0) - (a.approaching_window_rise ?? 0)).slice(0, 25)); localStorage.setItem("birdahead-county", county); }).catch((e) => setError(e.message));
+    api(path).then((d) => { setRanked(d.priorities ?? []); setArriving(d.arriving_soon ?? (d.priorities ?? []).filter((r: Row) => (r.approaching_window_rise ?? 0) > 0).sort((a: Row, b: Row) => (b.approaching_window_rise ?? 0) - (a.approaching_window_rise ?? 0)).slice(0, 25)); localStorage.setItem("birdahead-county", county); localStorage.setItem(`birdahead-curriculum-v1:${county}:${day}:${auth === "in" ? profile : "guest"}`, JSON.stringify(d)); }).catch((e) => { try { const cached = localStorage.getItem(`birdahead-curriculum-v1:${county}:${day}:${auth === "in" ? profile : "guest"}`); if (cached) { const d = JSON.parse(cached); setRanked(d.priorities ?? []); setArriving(d.arriving_soon ?? []); return; } } catch { /* show the network error */ } setError(e.message); });
   }, [county, day, auth, profile]);
   useEffect(() => { if (auth !== "in") { setProgress(null); return; } api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => setProgress(null)); }, [auth, profile, county, day]);
   useEffect(() => { const params = new URLSearchParams(); params.set("tab", tab); if (county) params.set("county", county); if (focusCode) params.set("bird", focusCode); window.history.replaceState(null, "", "/?" + params.toString()); }, [tab, county, focusCode]);
@@ -230,11 +245,12 @@ function App() {
 
   return <>
     <header className="topbar"><a className="brand" href="/" onClick={(e) => { e.preventDefault(); setTab("explore"); }}><span className="brandmark"><Icon type="bird" /></span><span>BirdAhead<small>LEARN WHAT’S NEXT</small></span></a><div className="profile"><span className="profile-guest">{auth === "in" ? `${authName || profile} · household` : "Public visitor"}</span>{auth === "in" ? <button className="text-button sign-out" onClick={signOut}>Sign out</button> : <button className="signin-trigger" onClick={() => setLoginOpen(true)}>Household sign in</button>}</div></header>
-    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["guide", "Field guide"], ["practice", "Practice"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
+    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["guide", "Field guide"], ["practice", "Practice"], ["downloads", "Downloads"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
       {error && <p className="error">{error}</p>}
       {tab === "explore" && <Explore boot={boot} ranked={ranked} arriving={arriving} county={county} day={day} setCounty={setCounty} setDay={setDay} openBird={openBird} onPractice={() => setTab("practice")} />}
       {tab === "guide" && <Guide boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} focusCode={focusCode} onPractice={startFromGuide} />}
       {tab === "practice" && <Practice signedIn={auth === "in"} profile={profile} county={county} day={day} initialKind={practiceKind} initialBird={focusCode} onProgress={() => { if (auth === "in") api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => undefined); }} />}
+      {tab === "downloads" && <Downloads boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} />}
       {tab === "progress" && <ProgressView signedIn={auth === "in"} progress={progress} profile={profile} />}
       {tab === "about" && <About />}
       <footer><div className="brand"><Icon type="bird" />BirdAhead</div><p>Learn the birds you're about to meet.</p><span>Public noncommercial educational project · eBird-derived seasonal summaries and licensed media<br />Household sign-in optional · <a href="/sources">Sources</a> · <a href="/privacy">Privacy</a> · <a href="/robots.txt">Robots</a></span></footer>

@@ -63,6 +63,10 @@ def main():
     library = json.loads(body)
     assets = [a for row in library.get('species', []) for a in row.get('assets', [])]
     check('anonymous eligible media library', status == 200 and len(assets) > 0 and all(a.get('media_url', '').startswith('/media/public/') for a in assets))
+    check('offline download metadata', len(assets) > 0 and all(isinstance(a.get('bytes'), int) and a.get('bytes', 0) > 0 and len(str(a.get('sha256', ''))) == 64 for a in assets))
+    status, _, body = request(base, '/sw.js')
+    sw = body.decode('utf-8', 'replace')
+    check('offline shell preserves pack cache', status == 200 and 'birdahead-pack-assets-v1' in sw and "key.startsWith('birdahead-shell-')" in sw)
     photo = next((a for a in assets if a.get('kind') == 'photo'), None)
     if photo:
         ms, mh, mb = request(base, photo['media_url'])

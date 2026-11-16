@@ -128,7 +128,8 @@ const isPublicAsset = (a: Asset) => a.public_delivery === true && a.permitted_de
 function publicAssets(release: Release, suppressed: Set<string>) { return release.assets.filter((a) => !suppressed.has(a.id) && isPublicAsset(a)); }
 function publicCredit(a: Asset) { return { ...credit(a), public_use_basis: a.public_use_basis ?? null, public_license_notice: a.public_license_notice ?? null,
   public_noncommercial_only: a.public_noncommercial_only ?? null, public_share_alike: a.public_share_alike ?? null }; }
-function publicAssetCard(a: Asset) { return { id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, creator:a.creator,
+function publicAssetCard(a: Asset) { return { id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, bytes:Number(a.bytes??0),
+  sha256:a.sha256??null, content_type:a.content_type??a.media_format??(a.kind==='photo'?'image/jpeg':'audio/mpeg'), creator:a.creator,
   attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code??null, source:a.source??null,
   public_use_basis:a.public_use_basis??null, public_license_notice:a.public_license_notice??null, public_noncommercial_only:a.public_noncommercial_only??null,
   public_share_alike:a.public_share_alike??null, derivative:!!a.derivative_of, vocalization:a.vocalization??null, sex:a.sex??null, age:a.age??null,
@@ -265,7 +266,7 @@ app.get("/api/public/library", async (c) => {
       assets: (grouped.get(s.ebird_species_code) ?? []).map(publicAssetCard) }; })
     .filter((r) => !query || r.name.toLowerCase().includes(query) || r.scientific_name.toLowerCase().includes(query) || r.code.toLowerCase().includes(query))
     .sort((a, b) => (a.priority_rank ?? 9999) - (b.priority_rank ?? 9999) || a.name.localeCompare(b.name));
-  return c.json({ location, day, query, kind, data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS }, species });
+  return c.json({ location, day, query, kind, release_id: release.id, data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS }, species });
 });
 app.get("/api/public/species/:code", async (c) => {
   const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const code = c.req.param("code"); const location = c.req.query("location") ?? Object.keys(release.counties)[0] ?? "";
@@ -442,6 +443,57 @@ app.post("/api/reveal", async (c) => {
   const q=(JSON.parse(session.questions) as Row[]).find((x)=>x.id===question_id); if(!q)throw new HTTPException(400,{message:"Question is no longer active."}); const asset=release.assets.find((a)=>a.id===q.asset_id); if(!asset)throw new HTTPException(409,{message:"Media example is no longer available."});
   const correct=speciesOf(release,q.correct); const own=release.assets.filter((a)=>a.species_code===q.correct); const pairs=(release.confusion_pairs??[]) as Row[]; const pair=pairs.find((r)=>r.left===correct.common_name||r.right===correct.common_name); const partnerName=pair?(pair.left===correct.common_name?pair.right:pair.left):null; const partner=partnerName?release.species.find((s)=>s.common_name===partnerName):null;
   return c.json({answer:{code:q.correct,name:correct.common_name,scientific_name:correct.scientific_name},credit:credit(asset),coverage:{photos:own.filter((a)=>a.kind==="photo").length,audio:own.filter((a)=>a.kind==="audio").length,photo_target_met:own.filter((a)=>a.kind==="photo").length>=5,audio_target_met:own.filter((a)=>a.kind==="audio").length>=3},comparison_pair:partner&&partnerName?{code:partner.ebird_species_code,name:partnerName,photos:release.assets.filter((a)=>a.kind==="photo"&&a.species_code===partner.ebird_species_code).length,audio:release.assets.filter((a)=>a.kind==="audio"&&a.species_code===partner.ebird_species_code).length}:null});
+});
+app.post("/api/offline/sync", async (c) => {
+  assertSameOrigin(c, c.env);
+  const profile = c.get("profile");
+  const body = await c.req.json().catch(() => null) as Row | null;
+  const input = Array.isArray(body?.attempts) ? body!.attempts : null;
+  if (!input || input.length > 100) throw new HTTPException(400, { message: "Send between 1 and 100 offline attempts." });
+  const release = await activeRelease(c.env);
+  const visible = publicAssets(release, await hidden(c.env.DB));
+  const assets = new Map(visible.map((asset) => [asset.id, asset]));
+  const accepted: string[] = [];
+  const duplicates: string[] = [];
+  const rejected: Array<{ event_id: string; code: string }> = [];
+  const eventPattern = /^offline:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+  for (const raw of input) {
+    const item = raw && typeof raw === "object" ? raw as Row : {};
+    const eventId = typeof item.event_id === "string" ? item.event_id.toLowerCase() : "";
+    if (!eventPattern.test(eventId)) {
+      rejected.push({ event_id: String(item.event_id ?? "").slice(0, 80), code: "invalid_event_id" });
+      continue;
+    }
+    const asset = assets.get(String(item.asset_id ?? ""));
+    const mode = item.mode === "recall" ? "recall" : item.mode === "choice" ? "choice" : "";
+    const choice = String(item.choice ?? "");
+    const at = Date.parse(String(item.at ?? ""));
+    if (!asset || asset.kind !== item.kind) {
+      rejected.push({ event_id: eventId, code: asset ? "kind_mismatch" : "media_withdrawn" });
+      continue;
+    }
+    if (!mode || !Number.isFinite(at) || at > Date.now() + 300_000 || at < Date.now() - 400 * 86_400_000) {
+      rejected.push({ event_id: eventId, code: "invalid_attempt" });
+      continue;
+    }
+    if (!["unknown", "insufficient", "known", "incorrect"].includes(choice) && !release.species.some((s) => s.ebird_species_code === choice)) {
+      rejected.push({ event_id: eventId, code: "invalid_choice" });
+      continue;
+    }
+    const outcome = choice === "unknown" || choice === "insufficient" ? "uncertain"
+      : mode === "recall" ? (choice === "known" ? "correct" : "incorrect")
+      : choice === asset.species_code ? "correct" : "incorrect";
+    const prior = await c.env.DB.prepare("SELECT profile_id FROM attempts WHERE id=? OR question_id=?").bind(eventId, eventId).first<{ profile_id: string }>();
+    if (prior) {
+      if (prior.profile_id !== profile) rejected.push({ event_id: eventId, code: "profile_mismatch" });
+      else duplicates.push(eventId);
+      continue;
+    }
+    const result = await c.env.DB.prepare("INSERT OR IGNORE INTO attempts(id,session_id,question_id,profile_id,asset_id,species_code,kind,mode,choice,outcome,at) VALUES(?,?,?,?,?,?,?,?,?,?,?)")
+      .bind(eventId, `offline:${eventId.slice(8)}`, eventId, profile, asset.id, asset.species_code, asset.kind, mode, choice, outcome, new Date(at).toISOString()).run();
+    if (Number(result.meta?.changes ?? 0) > 0) accepted.push(eventId); else duplicates.push(eventId);
+  }
+  return c.json({ ok: true, profile_id: profile, release_id: release.id, accepted, duplicates, rejected });
 });
 app.post("/api/flag", async (c) => {
   const profile=c.get("profile"); const body=await c.req.json(); const release=await activeRelease(c.env); const {asset_id,session_id,reason,suggested_species}=body;

@@ -4,7 +4,7 @@ import { DatabaseSync } from "node:sqlite";
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { createApp, priorities } from "./server";
 import type { Release } from "./types";
 
@@ -71,6 +71,7 @@ function fixture() {
         kind: "photo" as const,
         species_code: code,
         local_path: path,
+        bytes: data.length,
         sha256: createHash("sha256").update(data).digest("hex"),
         creator: "Fixture creator",
         source_url: "https://example.org/source",
@@ -153,6 +154,44 @@ test("public branding is consistent and every public page declares the inline SV
       assertFavicon(page.data);
     }
   } finally { f.cleanup(); }
+});
+
+test("offline sync is idempotent and never crosses learner profiles", async () => {
+  const f = fixture();
+  try {
+    const library = await f.get("/api/public/library?location=fixture&day=2026-03-15");
+    const card = library.data.species.flatMap((row: any) => row.assets)[0];
+    assert.ok(card.bytes > 0);
+    assert.match(card.sha256, /^[a-f0-9]{64}$/);
+    const event_id = `offline:${randomUUID()}`;
+    const attempt = {
+      event_id, asset_id: "a0", kind: "photo", mode: "choice", choice: "a",
+      at: new Date().toISOString(), release_id: card.release_id ?? "fixture-release",
+    };
+    const first = await f.post("/api/offline/sync", { profile: "birder-1", attempts: [attempt] });
+    assert.equal(first.status, 200);
+    assert.deepEqual(first.data.accepted, [event_id]);
+    const duplicate = await f.post("/api/offline/sync", { profile: "birder-1", attempts: [attempt] });
+    assert.deepEqual(duplicate.data.duplicates, [event_id]);
+    const crossed = await f.post("/api/offline/sync", { profile: "birder-2", attempts: [attempt] });
+    assert.deepEqual(crossed.data.rejected, [{ event_id, code: "profile_mismatch" }]);
+    assert.equal((await f.get("/api/progress?profile=birder-1")).data.attempts, 1);
+    assert.equal((await f.get("/api/progress?profile=birder-2")).data.attempts, 0);
+    const withdrawn = await f.post("/api/offline/sync", {
+      profile: "birder-1",
+      attempts: [{ ...attempt, event_id: `offline:${randomUUID()}`, asset_id: "not-in-release" }],
+    });
+    assert.equal(withdrawn.data.rejected[0].code, "media_withdrawn");
+  } finally { f.cleanup(); }
+});
+
+test("service worker keeps downloaded pack caches across shell upgrades", () => {
+  const sw = readFileSync(new URL("./public/sw.js", import.meta.url), "utf8");
+  assert.match(sw, /birdahead-pack-assets-v1/);
+  assert.match(sw, /key\.startsWith\('birdahead-shell-'\)/);
+  assert.doesNotMatch(sw, /keys\.filter\(\(key\) => key !== CACHE\)/);
+  assert.match(sw, /url\.pathname\.startsWith\('\/media\/public\/'\)/);
+  assert.match(sw, /url\.pathname\.startsWith\('\/api\/'\)/);
 });
 
 test("approaching signal includes absent migrants and validates dates", () => {
