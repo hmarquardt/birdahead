@@ -29,7 +29,8 @@ uv run --with 'kokoro==0.9.4' --with soundfile \
   python tooling/generate_roadtrip_narration.py
 ```
 
-The first run downloads the Apache-2.0 model/voice from Hugging Face. No paid
+The first run downloads the Apache-2.0 model/voice from Hugging Face. Install
+`espeak-ng` if the platform does not provide Kokoro's English fallback. No paid
 inference is used. The manifest records the model, voice, license and
 pronunciation-review phonemes for names with explicit overrides (Pileated,
 Prothonotary, Bonaparte's, Sharp-shinned, Cooper's, Blue-gray Gnatcatcher,
