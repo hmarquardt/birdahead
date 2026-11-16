@@ -10,7 +10,7 @@ self.addEventListener('fetch', (event) => {
   if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/media/')) return;
   if (event.request.method !== 'GET') return;
   if (event.request.mode === 'navigate') {
-    event.respondWith(fetch(event.request).then((response) => { if (response.ok) caches.open(CACHE).then((cache) => cache.put('/', response.clone())); return response; }).catch(() => caches.match('/')));
+    event.respondWith(fetch(event.request).then((response) => { if (response.ok && url.pathname === '/') caches.open(CACHE).then((cache) => cache.put('/', response.clone())); return response; }).catch(() => url.pathname === '/' ? caches.match('/') : Response.error()));
     return;
   }
   if (url.pathname.startsWith('/assets/') || url.pathname === '/manifest.webmanifest' || url.pathname.endsWith('.png')) {

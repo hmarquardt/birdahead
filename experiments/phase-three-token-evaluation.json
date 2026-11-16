@@ -1,0 +1,8 @@
+{
+  "schema": "birdahead-deploy-token-evaluation-v1",
+  "at": "2026-11-16T15:10:00Z",
+  "status": "unchanged",
+  "evidence_label": "observed deployment capability; least-privilege scope not resolvable without token-management permission",
+  "conclusion": "The existing GitHub Actions Cloudflare token successfully provisioned/deployed the dedicated birdahead Worker, D1 and R2 during the release, so it has at least Workers Scripts, D1 and R2 permissions. A resource-scoped token was not available to substitute without changing owner-managed secrets; no token was rotated or weakened. The account-scoped local D1 backup token was used only for an explicitly authorized private export, never for deployment.",
+  "follow_up": "Owner should replace the deployment secret with a token restricted to the birdahead Worker, birdahead D1 and birdahead-private R2, then rerun the gated release and rollback check."
+}

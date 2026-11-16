@@ -75,7 +75,10 @@ function fixture() {
         creator: "Fixture creator",
         source_url: "https://example.org/source",
         license_url: "https://creativecommons.org/licenses/by/4.0/",
-        attribution: null,
+        attribution: "Fixture creator, example source, CC BY 4.0",
+        public_delivery: n === 0,
+        public_use_basis: n === 0 ? "Fixture public-noncommercial eligibility" : null,
+        public_license_notice: n === 0 ? "Fixture public attribution notice" : null,
         vocalization: null,
         target_bbox_xyxy: null,
       })),
@@ -145,6 +148,22 @@ test("approaching signal includes absent migrants and validates dates", () => {
     f.cleanup();
   }
 });
+test("public catalog exposes only explicitly eligible assets and public media needs no login", async () => {
+  const f = fixture();
+  try {
+    const boot = await f.get("/api/public/bootstrap");
+    assert.equal(boot.status, 200);
+    assert.equal(boot.data.public_assets, 2);
+    assert.equal(boot.data.counties.fixture, "Synthetic location");
+    const library = await f.get("/api/public/library?location=fixture&day=2026-03-15");
+    assert.equal(library.status, 200);
+    assert.equal(library.data.species.flatMap((row: any) => row.assets).length, 2);
+    assert.equal((await f.get("/media/public/a0")).status, 200);
+    assert.equal((await f.get("/media/public/a1")).status, 404);
+    assert.equal((await f.get("/api/public/practice?location=fixture&day=2026-03-15&kind=photo&mode=choice&focus=weak")).status, 200);
+  } finally { f.cleanup(); }
+});
+
 test("answers are persistent and idempotent; profiles, modalities and directed confusion stay separate", async () => {
   const f = fixture();
   try {

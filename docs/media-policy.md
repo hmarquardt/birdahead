@@ -16,6 +16,10 @@ November 15, 2026. The Phase 0.5 amendment supersedes the original per-asset hum
 
 An asset can carry several evidence labels. Never relabel an automated decision as a human or expert decision. Unknown sex, age, plumage, exact location or vocalization stays unknown. Source-asserted traits and machine suggestions remain distinguishable from verified traits.
 
+## Public delivery eligibility
+
+Phase 3.1 separates biological acceptance from public delivery. Every object retains its own source license, creator, source URL, exact license URL and attribution. CC0, CC BY, CC BY-SA, CC BY-NC and CC BY-NC-SA media passed the public-noncommercial allowlist, with NC/SA notices retained. CC BY-NC and CC BY-NC-SA do not prohibit public noncommercial distribution; they prohibit commercial use. BirdAhead is free, has no advertising or paid access, and does not imply commercial clearance. R2 itself remains private and every public byte flows through an eligibility-checked Worker route. eBird-derived seasonal summaries follow the eBird Data Access Terms; raw histogram exports are never public.
+
 ## Automated gates
 
 1. **Credible source identification.** For iNaturalist, retain Research Grade, current community taxon, disagreements/flags and concordant identifiers other than the owner. For Xeno-canto, retain identified status, quality, recordist, bird-seen assertion, method and background species. A source filename, Research Grade or model result alone is insufficient.

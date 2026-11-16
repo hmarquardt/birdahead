@@ -4,7 +4,7 @@
 
 A local, mobile-first learning app for two recreational birders in southwestern Indiana. Prepare for an outing with seasonal priorities, photo and audio practice, recall reveals and independent progress.
 
-**Status: private household production release live at https://birdahead.com.** The 100-species teaching universe and **589 accepted assets** are served through an authenticated Cloudflare Worker PWA for Hank and Heather. The collection includes verified audio clips, field-guide/coverage views and private R2 delivery. No paid subscription, additional media acquisition or geographic expansion was undertaken.
+**Status: public, noncommercial educational release live at https://birdahead.com.** Seasonal exploration, Here Now/Arriving Soon, historical seasonal signals, the public field guide, eligible photos/recordings, photo/audio practice and guest summaries work without an account. Optional household sign-in preserves private D1 progress for Hank and Heather. The **589 accepted assets** remain behind the private R2 binding and public eligibility gate. No paid subscription, advertising, additional media acquisition or geographic expansion was undertaken.
 
 ## Try the local learner
 
@@ -24,7 +24,7 @@ npm run local --prefix app
 
 Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase 2.1 collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
 
-The local app binds only to loopback. The deployed PWA is at **https://birdahead.com**; sign in as Hank or Heather with the private household access key stored in `~/.config/secrets/birdahead.env` (never committed). Full offline media packs remain deferred. [Local use](docs/local-mvp.md), [production operations](docs/production.md).
+The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Full offline media packs remain deferred. [Local use](docs/local-mvp.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
 
 ## Current evidence
 
@@ -46,7 +46,10 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [PROJECT.md](PROJECT.md) | Canonical specification and current authorization |
 | [AGENTS.md](AGENTS.md) | Operating boundary and credential convention |
 | [ROADMAP.md](ROADMAP.md) | Delivered local scope and next acceptance gates |
-| [Phase Three report](docs/phase-three.md) | Deployed release, auth, verification and deferred work |
+| [Phase Three report](docs/phase-three.md) | Public/private release, auth, verification and deferred work |
+| [Analytics](docs/analytics.md) | CFLab registration, events, privacy and verification |
+| [Search Console](docs/search-console.md) | Sitemap and owner verification handoff |
+| [eBird notification](docs/ebird-public-notice.md) | Prepared derived-product notification for owner review |
 | [Production operations](docs/production.md) | Resources, auth, publishing, backup/rollback and gates |
 | [Production evidence](experiments/phase-three-production.json) | Live smoke results and deployed health/release |
 | [Production inventory](experiments/phase-three-inventory.json) | Dedicated resources, release, costs, security and backups |
@@ -81,6 +84,7 @@ npm test --prefix app                                  # 9 tests
 npm run build --prefix app
 uv run --with playwright python -m tooling.learner_browser_smoke
 uv run --with playwright python -m tooling.production_smoke --base https://birdahead.com --browser
+uv run --with playwright python -m tooling.public_smoke --base https://birdahead.com --browser
 uv run python tooling/repo_check.py
 ```
 

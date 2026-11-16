@@ -1,0 +1,12 @@
+{
+  "schema": "birdahead-production-backup-v1",
+  "at": "2026-11-16T15:09:51.002835+00:00",
+  "database": "birdahead",
+  "d1_id": "ce2302c9-988b-490c-9ad3-3035d0a57c8b",
+  "time_travel_bookmark_before": "00000006-00000000-00005125-3b796d5251939d4f3e4b4b64ef4a0595",
+  "private_file": "experiments/private/backups/birdahead-d1-20261116T150948Z.sql",
+  "bytes": 5346,
+  "sha256": "13fea34494e7001cf6ee3f1a3f3166769c6f9986c3ff67ce3c16fcdf771d0f93",
+  "scope": "Private learner/session/flag/release-pointer data; never committed or served publicly.",
+  "restore_drill": "not performed; restore only into an isolated database after owner review."
+}

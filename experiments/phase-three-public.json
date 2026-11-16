@@ -1,0 +1,84 @@
+{
+  "schema": "birdahead-public-smoke-v1",
+  "at": "2026-11-16T15:11:56.818284+00:00",
+  "base": "http://127.0.0.1:8788",
+  "browser": true,
+  "checks": [
+    {
+      "name": "public homepage",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "indexable metadata",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "analytics client",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "robots public rules",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "sitemap species/region entries",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "anonymous public bootstrap",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "anonymous seasonal curriculum",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "anonymous eligible media library",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "anonymous public media bytes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "anonymous guest practice",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "crawlable species page",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "sources page",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "privacy page",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "guest browser image decode",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "guest browser practice flow",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "passed": true
+}

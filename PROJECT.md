@@ -1,6 +1,6 @@
 # BirdAhead product specification
 
-Status: canonical scope, updated November 15, 2026. A private household production release is deployed at https://birdahead.com using the accepted 589-asset collection. The broader product requirements below remain phased. Current production evidence is in docs/phase-three.md and docs/production.md; historical findings remain in docs/feasibility.md.
+Status: canonical scope, updated November 16, 2026. A public, noncommercial educational PWA is deployed at https://birdahead.com with optional private household profiles. The accepted 589-asset collection is eligibility-gated for public delivery; guest practice is browser-local. Current evidence is in docs/phase-three.md, docs/production.md and docs/analytics.md; historical findings remain in docs/feasibility.md.
 
 ## Mission and audience
 
@@ -62,11 +62,11 @@ Resume the existing teaching-universe acquisition checkpoint through successive 
 
 Prepare a compact private-household delivery-object manifest for eventual authenticated R2 use, including exact license/attribution, derivative notices, source restrictions and projected storage. Prepare a concise risk-stratified sampled audit queue. Rebuild the compatible learner release without resetting profiles, progress or flags. No paid inference, new county download, large geographic dataset, production deployment or cloud resource is authorized.
 
-## Phase Three — private household production
+## Phase 3.1 — public utility, private personalization
 
-Deliver the existing 589-asset, 100-species collection and seven-county seasonal intelligence as a private, authenticated, installable PWA on Cloudflare Workers, React/Vite static assets, Hono, a dedicated D1 database, a dedicated private R2 bucket and GitHub Actions. Use two independent learner profiles for Hank and Heather. Authentication is Worker-enforced on all protected APIs, media and private content; sessions use host-only secure cookies, origin/header checks and rate limiting. Do not invent public registration, password reset, third-party identity or default credentials.
+Deliver the existing 589-asset, 100-species collection and seven-county seasonal intelligence as a public, noncommercial educational PWA on Cloudflare Workers, React/Vite static assets, Hono, a dedicated D1 database, a dedicated private R2 bucket and GitHub Actions. General educational functionality, public seasonal exploration, public eligible media, the field guide and guest practice must work without authentication. Use optional independent learner profiles for Hank and Heather for server-backed progress, personalized cloud curriculum and cross-device continuity. Do not invent public registration, password reset, third-party identity, default credentials or guest server accounts.
 
-Keep delivery media private and authenticated. Use the existing delivery manifest and reusable publisher; validate checksums/rights, skip unchanged objects, resume transfers, verify uploads, publish versioned catalogs and support atomic activation/rollback. Never publish raw eBird exports, rejected media, credentials, local databases, model weights or private captures. Reuse the local progress/flags migration path and document backups and rollback.
+Keep the R2 bucket private. Use an explicit, per-asset public-noncommercial eligibility layer independent of biological acceptance, plus authenticated household delivery for private views. Use the existing delivery manifest and reusable publisher; validate checksums/rights, skip unchanged objects, resume transfers, verify uploads, publish versioned catalogs and support atomic activation/rollback. Never publish raw eBird exports, rejected media, credentials, local databases, model weights, precise wildlife coordinates or private captures. Verify provider/CC terms; NC/SA obligations remain. Reuse the local progress/flags migration path and document backups and rollback.
 
 Deliver a mobile-first PWA with manifest, icons, service-worker app-shell caching, connection/auth status and reliable authenticated audio. Do not cache private media across authentication boundaries. Complete the existing automated acceptance policy; the audit queue is not a mandatory pre-deployment checklist, and no human/expert approval is fabricated. Full offline packs, hands-free mode, additional geography/media and commercial use are deferred.
 

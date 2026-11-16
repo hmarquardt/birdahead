@@ -1,12 +1,12 @@
 # BirdAhead production operations
 
-Status: private household production release, November 15, 2026. Canonical URL: **https://birdahead.com**. `www.birdahead.com` redirects with HTTP 308. Production is intentionally private, noncommercial and authenticated.
+Status: public noncommercial educational release with optional private household profiles, November 16, 2026. Canonical URL: **https://birdahead.com**. `www.birdahead.com` redirects with HTTP 308. Public exploration, field guide, eligible media and guest practice require no account; private progress, identities and administration remain authenticated.
 
 ## Resource inventory
 
 | Resource | Name / identity | Purpose |
 | --- | --- | --- |
-| Cloudflare Worker | `birdahead` | Hono API, session auth, authenticated media, static SPA |
+| Cloudflare Worker | `birdahead` | Hono API, public eligibility-gated content/media, optional session auth, static PWA |
 | Worker version | recorded in [production evidence](../experiments/phase-three-inventory.json) | exact live revision/version |
 | D1 | `birdahead` (`ce2302c9-988b-490c-9ad3-3035d0a57c8b`) | profiles, sessions, attempts, flags, release pointer |
 | Private R2 | `birdahead-private` | 589 delivery media objects + versioned catalogs; public access/r2.dev disabled |
@@ -17,19 +17,19 @@ No unrelated Worker, D1, R2 bucket, DNS record, shared service or billing plan w
 
 ## Authentication
 
-Two household learner identities, **Hank** and **Heather**, authenticate with independently generated 256-bit access keys. The keys are held only in:
+Public visitors require no account. Two optional household learner identities, **Hank** and **Heather**, authenticate with independently generated 256-bit access keys for persistent progress and cross-device continuity. The keys are held only in:
 
 - the owner-only local file `~/.config/secrets/birdahead.env` (mode 0600), never printed or committed;
 - Cloudflare Worker secrets `HANK_KEY` and `HEATHER_KEY`;
 - GitHub Actions secrets `BIRDAHEAD_HANK_KEY` and `BIRDAHEAD_HEATHER_KEY` for release provisioning.
 
-There is no registration, email recovery, password reset, public identity provider or default credential. Sign in selects the household learner and posts the key over HTTPS. The Worker stores only SHA-256 hashes of opaque 256-bit session tokens. Cookies are host-only `__Host-birdahead-session`, `HttpOnly`, `Secure`, `SameSite=Strict`, with a 30-day lifetime. Mutations require same-origin `Origin`/`Sec-Fetch-Site` checks and the custom `X-BirdAhead-Request` header. Login is rate-limited (10 attempts/minute/IP) and publish endpoints separately rate-limited.
+There is no public registration, email recovery, password reset, public identity provider, guest server account or default credential. The optional household sign-in selects the learner and posts the key over HTTPS. The Worker stores only SHA-256 hashes of opaque 256-bit session tokens. Cookies are host-only `__Host-birdahead-session`, `HttpOnly`, `Secure`, `SameSite=Strict`, with a 30-day lifetime. Mutations require same-origin `Origin`/`Sec-Fetch-Site` checks and the custom `X-BirdAhead-Request` header. Login is rate-limited (10 attempts/minute/IP) and publish endpoints separately rate-limited.
 
 To rotate a key: replace the relevant GitHub secret and the local private file, rerun the gated deployment (or update the Worker secret), and retain the new key in the owner password manager. Rotating either key does not delete learning history; existing sessions remain until expiry unless sessions are cleared.
 
 ## Publishing and content releases
 
-The local publisher sends accepted bytes only to the authenticated Worker, which writes them to private R2 through its binding. No R2 credential is exposed locally or in the browser. The local ledger is ignored private state.
+The public catalog contains only assets with an explicit public-noncommercial eligibility decision. The local publisher sends accepted bytes only to the authenticated Worker, which writes them to private R2 through its binding. Public media is served by `/media/public/:id`; private household media remains `/media/:id`. No R2 credential is exposed locally or in the browser. The local ledger is ignored private state.
 
 ```sh
 # Publish/activate the current accepted release (production)
@@ -46,7 +46,7 @@ The publisher validates local SHA-256/size, skips unchanged ledger objects, resu
 
 ## Backups and rollback
 
-- **D1:** use Cloudflare D1 Time Travel plus a private export (`npx wrangler d1 export DB --remote --config <generated-config> --output <private-file>`). The export command was exercised against the local D1; a production export/restore drill remains deferred. Do not commit exports. Test restore in a separate database before treating it as disaster recovery.
+- **D1:** use Cloudflare D1 Time Travel plus a private export (`npx wrangler d1 export DB --remote --config <generated-config> --output <private-file>`). A production export was taken on 2026-11-16; see [backup evidence](../experiments/phase-three-backup.json). A production restore drill remains deferred. Do not commit exports. Test restore in a separate database before treating it as disaster recovery.
 - **Learning progress:** `uv run python -m tooling.learner_export` writes idempotent `INSERT OR IGNORE` SQL for attempts/flags to ignored private storage. Apply it only to the dedicated BirdAhead D1. Profiles are seeded by migration; active local sessions are intentionally not resumed.
 - **R2:** catalogs are versioned; media keys are immutable. Keep a private backup of source media/manifests outside the repository. Do not enable public R2 access.
 - **Worker:** retain prior Worker versions and roll back through the Cloudflare Workers dashboard/API after operator authorization. A Worker rollback does not undo D1 or R2 changes.
@@ -64,11 +64,21 @@ uv run python -m tooling.production_smoke --base https://birdahead.com --resolve
 uv run python tooling/repo_check.py
 ```
 
-The smoke test checks HTTPS health/revision, unauthorized API/media rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo and audio bytes/ranges, PWA manifest/service worker and mobile browser image rendering. It never prints credentials or records private media.
+The production smoke checks HTTPS health/revision, unauthorized private API/media/admin rejection, CSRF/origin rejection, both household logins and independent identities, actual seasonal curriculum, authenticated photo/audio ranges, PWA assets and mobile browser rendering. A separate public smoke checks guest exploration, public field-guide media and guest practice. It never prints credentials or records private media.
+
+## Analytics and Search Console
+
+BirdAhead is registered in the existing CFLab analytics Site model as `as_Bq4kGnf2EkSW3dS0HZAddF` with apex/`www` domains. Aggregate public pageviews and feature events are verified; the client honors DNT/GPC, stores no cookies or persistent visitor ID, and never receives household identities, access keys, individual quiz responses, precise locations or private progress. See [analytics](analytics.md).
+
+Google Search Console registration is not complete: `sc-domain:birdahead.com` is not verified or in the existing CFLab reviewed property list. Sitemap submission and verification are documented owner actions in [Search Console](search-console.md).
+
+## Backup evidence
+
+A private production D1 export was taken on November 16, 2026, with Time Travel bookmark `00000006-00000000-00005125-3b796d5251939d4f3e4b4b64ef4a0595`. The SQL export, digest and private path are recorded in [backup evidence](../experiments/phase-three-backup.json) and remain ignored private storage. A production restore drill was not performed.
 
 ## Known limitations and next improvements
 
-- The Edge IP `--resolve-ip` is a local resolver workaround used because this workstation temporarily did not resolve the apex; normal clients use DNS.
-- No scheduled D1 export, verified restore drill, R2 lifecycle/versioning policy or least-privilege token rotation has been executed. The repository token may be account-scoped; narrow it after operational validation.
+- The Edge IP `--resolve-ip` is a local resolver workaround used because this workstation temporarily did not resolve the apex; normal clients use DNS. The public site remains hosted privately on R2 behind the Worker; no R2 public domain exists.
+- The production D1 backup has no automated schedule or verified restore drill. The deployment token is likely account-scoped; least-privilege rotation remains an owner action ([evaluation](../experiments/phase-three-token-evaluation.json)). Google Search Console verification/sitemap submission and the eBird derived-product notification are also owner actions.
 - No offline media packs, hands-free road-trip mode, cloud sync across devices, additional regions or further media expansion are included.
 - Automated acceptance remains preliminary source/model corroboration; owner/expert audit and the Mallard/American Black Duck risk remain documented. The two-hour owner-review cap is unchanged.

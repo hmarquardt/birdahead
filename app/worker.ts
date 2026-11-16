@@ -1,6 +1,7 @@
 /// <reference lib="webworker" />
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
+import { escapeHtml, renderPrivacyPage, renderRegionPage, renderRobots, renderSitemap, renderSourcesPage, renderSpeciesPage } from "./public-pages";
 
 type Row = Record<string, any>;
 interface D1Prepared {
@@ -31,6 +32,7 @@ interface Env {
   DEPLOY_REVISION: string;
   LOGIN_LIMIT?: { limit(options: { key: string }): Promise<{ success: boolean }> };
   PUBLISH_LIMIT?: { limit(options: { key: string }): Promise<{ success: boolean }> };
+  PUBLIC_LIMIT?: { limit(options: { key: string }): Promise<{ success: boolean }> };
 }
 type AppEnv = { Bindings: Env; Variables: { profile: string } };
 interface Bin { species_code: string; start: string; end: string; frequency: number | null; sample_size: number | null; }
@@ -38,7 +40,7 @@ interface Asset { id: string; kind: "photo" | "audio"; species_code: string; r2_
 interface Release {
   id: string; schema: string; compatibility_key?: string; species: Row[]; counties: Record<string,string>;
   profiles: Record<string,{ rows: Bin[]; metadata: Row }>; assets: Asset[]; coverage_summary?: Row;
-  data_vintage?: Row; confusion_pairs?: Row[]; limitations?: string[]; coverage?: Row; universe?: Row;
+  data_vintage?: Row; confusion_pairs?: Row[]; limitations?: string[]; coverage?: Row; universe?: Row; public_data_terms?: Row;
 }
 
 const encoder = new TextEncoder();
@@ -119,6 +121,25 @@ function priorities(release: Release, location: string, day: string): Row[] {
 const credit = (a: Asset) => ({ creator: a.creator, attribution: a.attribution, source_url: a.source_url, license_url: a.license_url,
   license_code: a.license_code ?? null, source: a.source ?? null, validation: "Automatically accepted with source and model evidence; no expert verification claimed",
   vocalization: a.vocalization, derivative_of: a.derivative_of ?? null });
+const PUBLIC_EBIRD_TERMS = 'https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/';
+const PUBLIC_EBIRD_CITATION = 'eBird. 2016-2025. eBird observation data; derived seasonal summaries. Cornell Lab of Ornithology, Ithaca, New York. https://ebird.org.';
+const PUBLIC_SCOPE = 'Public noncommercial educational use; no advertising, monetization or paid access.';
+const isPublicAsset = (a: Asset) => a.public_delivery === true && a.permitted_delivery !== false;
+function publicAssets(release: Release, suppressed: Set<string>) { return release.assets.filter((a) => !suppressed.has(a.id) && isPublicAsset(a)); }
+function publicCredit(a: Asset) { return { ...credit(a), public_use_basis: a.public_use_basis ?? null, public_license_notice: a.public_license_notice ?? null,
+  public_noncommercial_only: a.public_noncommercial_only ?? null, public_share_alike: a.public_share_alike ?? null }; }
+function publicAssetCard(a: Asset) { return { id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, creator:a.creator,
+  attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code??null, source:a.source??null,
+  public_use_basis:a.public_use_basis??null, public_license_notice:a.public_license_notice??null, public_noncommercial_only:a.public_noncommercial_only??null,
+  public_share_alike:a.public_share_alike??null, derivative:!!a.derivative_of, vocalization:a.vocalization??null, sex:a.sex??null, age:a.age??null,
+  plumage:a.plumage??null, target_bbox_xyxy:a.target_bbox_xyxy??null, validation:'Member of the accepted public collection; automated corroboration only, not expert certification' }; }
+function publicRanked(release: Release, location: string, day: string, visible: Asset[]): Row[] { const counts=mediaCounts(release,visible);
+  return priorities(release,location,day).map((r)=>{ const s=speciesOf(release,r.species_code); const c=counts.get(r.species_code)??{photos:0,audio:0};
+    return {...r,name:s.common_name,scientific_name:s.scientific_name,photos:c.photos,recordings:c.audio,photo_ready:c.photos>=1,audio_ready:c.audio>=1}; }); }
+function publicSeasonality(release: Release, location: string, code: string): Row { const profile=release.profiles[location];
+  if(!profile) throw new HTTPException(400,{message:'Choose a supported county.'}); const species=release.species.find((s)=>s.ebird_species_code===code);
+  if(!species) throw new HTTPException(404,{message:'Species not found.'}); return { code, name:species.common_name, scientific_name:species.scientific_name,
+    bins: profile.rows.filter((r)=>r.species_code===code), metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null} }; }
 async function dbRows(db: D1Database, sql: string, ...bind: any[]): Promise<Row[]> {
   return (await db.prepare(sql).bind(...bind).all()).results;
 }
@@ -177,11 +198,13 @@ app.use("*", async (c, next) => {
   if (canonical === "birdahead.com" && host !== "birdahead.com") return c.text("BirdAhead is available at https://birdahead.com.", 404);
   await next();
   c.header("X-Content-Type-Options", "nosniff"); c.header("Referrer-Policy", "no-referrer"); c.header("X-Frame-Options", "DENY");
-  c.header("X-Robots-Tag", "noindex, nofollow"); c.header("Cross-Origin-Resource-Policy", "same-origin");
+  if (c.req.path.startsWith("/api/") || c.req.path.startsWith("/media/") || c.req.path === "/health" || c.req.path.startsWith("/admin")) c.header("X-Robots-Tag", "noindex, nofollow");
+  c.header("Cross-Origin-Resource-Policy", "same-origin");
   c.header("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=()");
-  c.header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
+  c.header("Content-Security-Policy", "default-src 'self'; script-src 'self' https://analytics.aismallbizguru.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self' https://analytics.aismallbizguru.com; worker-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");
   if (url.protocol === "https:") c.header("Strict-Transport-Security", "max-age=31536000");
-  if (c.req.path.startsWith("/api/") || c.req.path.startsWith("/media/") || c.req.path === "/sw.js" || c.req.path === "/health" || c.res.headers.get("Content-Type")?.includes("text/html")) c.header("Cache-Control", "no-store");
+  const path = c.req.path; const publicPath = path.startsWith("/api/public/") || path.startsWith("/media/public/") || path === "/robots.txt" || path === "/sitemap.xml" || path === "/sources" || path === "/privacy" || path.startsWith("/birds/") || path.startsWith("/regions/");
+  if (!publicPath && (path.startsWith("/api/") || path.startsWith("/media/") || path === "/sw.js" || path === "/health" || c.res.headers.get("Content-Type")?.includes("text/html"))) c.header("Cache-Control", "no-store");
 });
 app.onError((err, c) => {
   if (err instanceof HTTPException) return c.json({ error: err.message }, err.status);
@@ -192,6 +215,87 @@ app.get("/health", async (c) => {
   const release = await activeRelease(c.env).catch(() => null);
   return c.json({ ok: true, app: "birdahead", revision: c.env.DEPLOY_REVISION, release: release?.id ?? null, auth: "session" });
 });
+app.use("/api/public/*", async (c, next) => {
+  const ip = c.req.header("CF-Connecting-IP") ?? "local";
+  if (c.env.PUBLIC_LIMIT && !(await c.env.PUBLIC_LIMIT.limit({ key: "public:" + ip })).success) {
+    c.header("Retry-After", "60"); throw new HTTPException(429, { message: "Too many public requests. Try again shortly." });
+  }
+  await next();
+  if (!c.res.headers.has("Cache-Control")) c.header("Cache-Control", "public, max-age=60, stale-while-revalidate=300");
+});
+app.use("/media/public/*", async (c, next) => {
+  const ip = c.req.header("CF-Connecting-IP") ?? "local";
+  if (c.env.PUBLIC_LIMIT && !(await c.env.PUBLIC_LIMIT.limit({ key: "public-media:" + ip })).success) return c.text("Too many media requests.", 429, { "Retry-After": "60" });
+  await next();
+});
+app.get("/api/public/bootstrap", async (c) => {
+  const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const counts = mediaCounts(release, visible);
+  const species = release.species.map((s) => { const row = counts.get(s.ebird_species_code) ?? { photos: 0, audio: 0 };
+    return { code: s.ebird_species_code, name: s.common_name, scientific_name: s.scientific_name, priority_rank: s.priority_rank ?? null,
+      public_photos: row.photos, public_recordings: row.audio, photo_practice_ready: row.photos >= 2, audio_practice_ready: row.audio >= 2,
+      coverage_gap: row.photos < 2 && row.audio < 2 }; });
+  return c.json({ schema: "birdahead-public-bootstrap-v1", release_id: release.id, counties: release.counties, species,
+    public_assets: visible.length, public_photo_assets: visible.filter((a) => a.kind === "photo").length, public_audio_assets: visible.filter((a) => a.kind === "audio").length,
+    coverage: { species: species.length, public_photo_species: species.filter((s) => s.public_photos > 0).length, public_audio_species: species.filter((s) => s.public_recordings > 0).length,
+      photo_practice_ready: species.filter((s) => s.photo_practice_ready).length, audio_practice_ready: species.filter((s) => s.audio_practice_ready).length, gaps: species.filter((s) => s.coverage_gap).length },
+    data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS, notice: release.public_data_terms?.ebird_notice ?? "Derived seasonal summaries only; raw histogram exports are not public.", scope: PUBLIC_SCOPE },
+    limitations: "Historical reporting frequency reflects complete checklists, not encounter probability. Automated media acceptance is not expert verification." });
+});
+app.get("/api/public/curriculum", async (c) => {
+  const location = c.req.query("location") ?? ""; const day = c.req.query("day") ?? new Date().toISOString().slice(0, 10);
+  const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const ranked = publicRanked(release, location, day, visible);
+  const arriving = ranked.filter((r) => (r.approaching_window_rise ?? 0) > 0).sort((a, b) => (b.approaching_window_rise ?? -1) - (a.approaching_window_rise ?? -1)).slice(0, 25);
+  return c.json({ location, day, data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS }, priorities: ranked, arriving_soon: arriving,
+    note: "Here Now uses historical complete-checklist reporting frequency for the selected date; Arriving Soon uses the next 14–28 day rise. Neither is an encounter forecast." });
+});
+app.get("/api/public/seasonality", async (c) => {
+  const location = c.req.query("location") ?? ""; const code = c.req.query("code") ?? ""; const release = await activeRelease(c.env); const detail = publicSeasonality(release, location, code);
+  return c.json({ location, ...detail, data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS } });
+});
+app.get("/api/public/library", async (c) => {
+  const query = (c.req.query("q") ?? "").trim().toLowerCase(); const kind = c.req.query("kind") ?? "all";
+  const location = c.req.query("location") ?? Object.keys((await activeRelease(c.env)).counties)[0] ?? ""; const day = c.req.query("day") ?? new Date().toISOString().slice(0, 10);
+  const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const counts = mediaCounts(release, visible); const grouped = new Map<string, Asset[]>();
+  for (const a of visible) { if (kind !== "all" && a.kind !== kind) continue; const list = grouped.get(a.species_code) ?? []; list.push(a); grouped.set(a.species_code, list); }
+  const seasonal = new Map(priorities(release, location, day).map((r) => [r.species_code, r]));
+  const species = release.species.map((s) => { const count = counts.get(s.ebird_species_code) ?? { photos: 0, audio: 0 }; const sr = seasonal.get(s.ebird_species_code);
+    return { code: s.ebird_species_code, name: s.common_name, scientific_name: s.scientific_name, priority_rank: s.priority_rank ?? null, confusion_pair: s.confusion_pair ?? null,
+      photos: count.photos, recordings: count.audio, photo_practice_ready: count.photos >= 2, audio_practice_ready: count.audio >= 2, coverage_gap: count.photos < 2 && count.audio < 2,
+      current_reporting_frequency: sr?.current_reporting_frequency ?? null, approaching_window_rise: sr?.approaching_window_rise ?? null, sample_size: sr?.sample_size ?? null, bin_start: sr?.bin_start ?? null, bin_end: sr?.bin_end ?? null,
+      assets: (grouped.get(s.ebird_species_code) ?? []).map(publicAssetCard) }; })
+    .filter((r) => !query || r.name.toLowerCase().includes(query) || r.scientific_name.toLowerCase().includes(query) || r.code.toLowerCase().includes(query))
+    .sort((a, b) => (a.priority_rank ?? 9999) - (b.priority_rank ?? 9999) || a.name.localeCompare(b.name));
+  return c.json({ location, day, query, kind, data_vintage: release.data_vintage ?? null, data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS }, species });
+});
+app.get("/api/public/species/:code", async (c) => {
+  const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const code = c.req.param("code"); const location = c.req.query("location") ?? Object.keys(release.counties)[0] ?? "";
+  const detail = publicSeasonality(release, location, code); const ranked = publicRanked(release, location, new Date().toISOString().slice(0, 10), visible).find((r) => r.species_code === code);
+  return c.json({ ...detail, location, priority: ranked ?? null, assets: visible.filter((a) => a.species_code === code).map(publicAssetCard), data_vintage: release.data_vintage ?? null,
+    data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS, notice: release.public_data_terms?.ebird_notice ?? null } });
+});
+app.get("/api/public/practice", async (c) => {
+  const location = c.req.query("location") ?? ""; const day = c.req.query("day") ?? new Date().toISOString().slice(0, 10); const kind = c.req.query("kind") === "audio" ? "audio" : "photo";
+  const mode = c.req.query("mode") === "recall" ? "recall" : "choice"; const focus = ["now", "arriving", "weak"].includes(c.req.query("focus") ?? "") ? c.req.query("focus")! : "now";
+  const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const ranked = publicRanked(release, location, day, visible);
+  let candidates = ranked.filter((r) => kind === "photo" ? r.photo_ready : r.audio_ready);
+  if (focus === "now") candidates = candidates.filter((r) => (r.current_reporting_frequency ?? 0) > 0);
+  if (focus === "arriving") candidates = candidates.filter((r) => (r.approaching_window_rise ?? 0) > 0);
+  if (candidates.length < 2) throw new HTTPException(400, { message: "Not enough public media for this practice mode." });
+  const questions: Row[] = []; const used = new Set<string>();
+  for (let round = 0; round < 4 && questions.length < 10; round++) for (const candidate of candidates) {
+    if (questions.length >= 10) break; const pool = visible.filter((a) => a.species_code === candidate.species_code && a.kind === kind && !used.has(a.id)); if (!pool.length) continue;
+    const asset = pool[0]; used.add(asset.id); const qid = crypto.randomUUID();
+    const otherCodes = candidates.filter((r) => r.species_code !== candidate.species_code).slice(0, 8).map((r) => r.species_code);
+    const options = mode === "choice" ? [candidate.species_code, ...otherCodes.slice(0, 3)] : [];
+    const hashed = await Promise.all(options.map(async (code) => [code, await digest(qid + code)] as const)); hashed.sort((a, b) => String(a[1]).localeCompare(String(b[1])));
+    questions.push({ id: qid, asset_id: asset.id, species_code: candidate.species_code, name: candidate.name, kind, mode, media_url: `/media/public/${asset.id}`,
+      options: hashed.map(([code]) => ({ code, name: speciesOf(release, code).common_name })), answer_code: candidate.species_code, credit: publicCredit(asset), bbox: asset.target_bbox_xyxy ?? null });
+  }
+  if (!questions.length) throw new HTTPException(400, { message: "No public practice questions are available for these settings." });
+  return c.json({ schema: "birdahead-public-practice-v1", guest: true, location, day, kind, mode, focus, questions,
+    data_source: { citation: PUBLIC_EBIRD_CITATION, terms_url: PUBLIC_EBIRD_TERMS }, note: "Guest practice is scored in this browser; no guest account or server-side guest history is created." });
+});
+
 app.post("/api/login", async (c) => {
   assertSameOrigin(c, c.env);
   const ip = c.req.header("CF-Connecting-IP") ?? "local";
@@ -388,6 +492,16 @@ app.post("/api/admin/rollback", async (c) => {
   return c.json({ok:true,id,active:true});
 });
 app.get("/api/admin/releases", async (c) => c.json({releases:(await dbRows(c.env.DB,"SELECT id,object_key,compatibility_key,created_at,active FROM releases ORDER BY created_at DESC"))}));
+app.on(["GET","HEAD"], "/media/public/:id", async (c) => {
+  const release=await activeRelease(c.env); const suppressed=await hidden(c.env.DB); const asset=release.assets.find((a)=>a.id===c.req.param("id"));
+  if(!asset||!isPublicAsset(asset)||suppressed.has(asset.id))return c.notFound(); const key=asset.r2_key??`media/${asset.id}`; const size=Number(asset.bytes??0);
+  let range:Row|undefined; const rangeHeader=c.req.header("Range");
+  if(rangeHeader){const m=/^bytes=(\d+)-(\d*)$/.exec(rangeHeader); if(!m)return new Response(null,{status:416,headers:{"Content-Range":`bytes */${size}`,"Accept-Ranges":"bytes"}}); const start=Number(m[1]); const end=m[2]?Math.min(Number(m[2]),size-1):size-1; if(start>end||start>=size)return new Response(null,{status:416,headers:{"Content-Range":`bytes */${size}`,"Accept-Ranges":"bytes"}}); range={offset:start,length:end-start+1};}
+  const object=await c.env.CONTENT.get(key,range?{range}:undefined); if(!object)return c.notFound();
+  const headers:Record<string,string>={"Content-Type":asset.content_type??asset.media_format??"application/octet-stream","Content-Length":String(range?.length??object.size??size),"Accept-Ranges":"bytes","Cache-Control":"public, max-age=86400, stale-while-revalidate=604800","ETag":`"${asset.sha256}"`, "X-Content-SHA256":asset.sha256};
+  if(range)headers["Content-Range"]=`bytes ${range.offset}-${range.offset+range.length-1}/${size}`;
+  return new Response(c.req.method==="HEAD"?null:object.body,{status:range?206:200,headers});
+});
 app.on(["GET","HEAD"], "/media/:id", async (c) => {
   await currentProfile(c); const release=await activeRelease(c.env); const suppressed=await hidden(c.env.DB); const asset=release.assets.find((a)=>a.id===c.req.param("id"));
   if(!asset||suppressed.has(asset.id))return c.notFound(); const key=asset.r2_key??`media/${asset.id}`; const size=Number(asset.bytes??0);
@@ -398,6 +512,27 @@ app.on(["GET","HEAD"], "/media/:id", async (c) => {
   if(range)headers["Content-Range"]=`bytes ${range.offset}-${range.offset+range.length-1}/${size}`;
   return new Response(c.req.method==="HEAD"?null:object.body,{status:range?206:200,headers});
 });
+app.get("/birds/:code", async (c) => {
+  const release=await activeRelease(c.env); const code=c.req.param("code"); const visible=publicAssets(release,await hidden(c.env.DB)); const location=c.req.query("location")??Object.keys(release.counties)[0]??"";
+  const detail=publicSeasonality(release,location,code); const priority=publicRanked(release,location,new Date().toISOString().slice(0,10),visible).find((r)=>r.species_code===code);
+  const bins=Array.isArray(detail.bins)?detail.bins:[]; const assets=visible.filter((a)=>a.species_code===code).map(publicAssetCard);
+  const html=renderSpeciesPage(c.env.APP_ORIGIN,{code,name:String(detail.name),scientific_name:String(detail.scientific_name),public_photos:assets.filter((a)=>a.kind==="photo").length,public_recordings:assets.filter((a)=>a.kind==="audio").length,
+    priority:{current_reporting_frequency:priority?.current_reporting_frequency??null,approaching_window_rise:priority?.approaching_window_rise??null,sample_size:priority?.sample_size??null,bin_start:priority?.bin_start??null,bin_end:priority?.bin_end??null},assets,bins: bins.map((b:Row)=>({start:b.start,end:b.end,frequency:b.frequency,sample_size:b.sample_size})),});
+  c.header("Cache-Control","public, max-age=600, stale-while-revalidate=3600"); return c.html(html);
+});
+app.get("/regions/:county", async (c) => {
+  const release=await activeRelease(c.env); const code=c.req.param("county"); const name=release.counties[code]; if(!name) throw new HTTPException(404,{message:"Region not found."});
+  const visible=publicAssets(release,await hidden(c.env.DB)); const ranked=publicRanked(release,code,new Date().toISOString().slice(0,10),visible).filter((r)=>r.photo_ready||r.audio_ready).slice(0,30);
+  const vintage=release.data_vintage?`${release.data_vintage.start_year}–${release.data_vintage.end_year} historical eBird reporting profiles`:"Historical eBird reporting profiles";
+  const html=renderRegionPage(c.env.APP_ORIGIN,code,name,ranked.map((r)=>({code:r.species_code,name:r.name,frequency:r.current_reporting_frequency,rise:r.approaching_window_rise,photos:r.photos,audio:r.recordings})),vintage);
+  c.header("Cache-Control","public, max-age=600, stale-while-revalidate=3600"); return c.html(html);
+});
+app.get("/sources", (c) => { c.header("Cache-Control","public, max-age=3600"); return c.html(renderSourcesPage(c.env.APP_ORIGIN)); });
+app.get("/privacy", (c) => { c.header("Cache-Control","public, max-age=3600"); return c.html(renderPrivacyPage(c.env.APP_ORIGIN)); });
+app.get("/about", (c) => c.redirect("/sources", 308));
+app.get("/robots.txt", async (c) => { c.header("Content-Type","text/plain; charset=utf-8"); c.header("Cache-Control","public, max-age=3600"); return c.body(renderRobots(c.env.APP_ORIGIN)); });
+app.get("/sitemap.xml", async (c) => { const release=await activeRelease(c.env); c.header("Content-Type","application/xml; charset=utf-8"); c.header("Cache-Control","public, max-age=3600");
+  return c.body(renderSitemap(c.env.APP_ORIGIN,release.species.map((s)=>({code:s.ebird_species_code})),release.counties,new Date().toISOString().slice(0,10))); });
 app.all("/api/*", (c) => c.json({error:"Not found"},404));
 app.all("/media/*", (c) => c.json({error:"Not found"},404));
 app.all("*", async (c) => { const response=await c.env.ASSETS.fetch(c.req.raw); if(c.req.path==="/"||c.req.path==="/sw.js"){const h=new Headers(response.headers);h.set("Cache-Control","no-store");return new Response(response.body,{status:response.status,headers:h});} return response; });

@@ -1,8 +1,8 @@
 # Architecture — local implementation and proposed production
 
-November 15, 2026. The private household production release is deployed at birdahead.com on Workers, D1 and private R2. Local acquisition remains the only media-ingestion path.
+November 16, 2026. A public noncommercial educational release with optional private household profiles is deployed at birdahead.com on Workers, D1 and private R2. Local acquisition remains the only media-ingestion path.
 
-**Current production increment:** React/TypeScript/Vite PWA + Hono on a dedicated Cloudflare Worker, D1 learner/session state and private R2 media. The local Python pipeline remains the ingestion/curation lane; accepted release catalogs are versioned in R2 and activated through D1. Protected APIs and media require household sessions. No third-party API is contacted at runtime. See [production operations](production.md), [Phase Three](phase-three.md) and [Phase Two](phase-two.md). Full offline packs, additional geography and cloud sync remain deferred.
+**Current production increment:** React/TypeScript/Vite PWA + Hono on a dedicated Cloudflare Worker. Public exploration, field-guide, eligible media and guest practice use `/api/public/*` and `/media/public/*`; private progress, sessions, administrative routes and legacy media require household authentication. D1 stores both profiles and the active release pointer; R2 remains private. The public catalog is versioned in R2 and eligibility-gated per asset. CFLab analytics receives aggregate public events only. No third-party API is contacted at runtime. See [production operations](production.md), [Phase Three](phase-three.md), [analytics](analytics.md) and [Phase Two](phase-two.md). Full offline packs, additional geography and cloud sync remain deferred.
 
 ## Separation of responsibilities
 

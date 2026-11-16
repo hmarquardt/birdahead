@@ -39,6 +39,16 @@ Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evide
 - Added installable PWA manifest/icons/service worker, mobile-first login/status UI, authenticated audio ranges and D1-backed learning persistence/migration export.
 - Added GitHub Actions validation and a manually gated provisioning/release workflow. Resource inventory, auth, publishing, backup and rollback are in [production operations](docs/production.md); deployment evidence is in [Phase Three](docs/phase-three.md).
 
+## Delivered Phase 3.1 public utility release
+
+- Reworked the homepage into a public, mobile-first regional bird explorer with Here Now, Arriving Soon, historical seasonal strips and public data terms.
+- Added public field-guide, licensed photo/recording, photo/audio practice and guest summary flows that require no account; guest attempts persist in browser localStorage only.
+- Added explicit per-asset public-noncommercial eligibility to the delivery manifest and versioned catalog, independent of biological acceptance; R2 remains private.
+- Kept Hank/Heather sessions, D1 progress, publishing, administration and privileged mutations authenticated, with server-backed practice for signed-in learners.
+- Added crawlable species and county landing pages, canonical/OG metadata, JSON-LD, sitemap, robots, public privacy/source pages and selective noindex for APIs/media.
+- Registered BirdAhead with the existing CFLab analytics collector, verified event ingestion, and documented the privacy-preserving event policy.
+- Prepared eBird-derived-product notification and Search Console verification handoffs for owner review; neither is represented as completed.
+
 ## Next local usability and reliability pass
 
 The owners can use this local collection immediately; their field/use feedback will determine the next improvement. No access negotiation blocks use.

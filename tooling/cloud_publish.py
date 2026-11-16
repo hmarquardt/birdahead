@@ -66,6 +66,8 @@ def cloud_catalog(release, delivery):
         clean['r2_key'] = row['key']
         clean['content_type'] = row['content_type']
         clean['bytes'] = row['bytes']
+        for key in ('public_delivery', 'public_use_basis', 'public_noncommercial_only', 'public_share_alike', 'public_license_notice'):
+            clean[key] = row.get(key)
         assets.append(clean)
     return {
         'schema': 'birdahead-cloud-catalog-v1', 'release_id': release['id'],
@@ -75,7 +77,13 @@ def cloud_catalog(release, delivery):
         'data_vintage': release.get('data_vintage'), 'universe': release.get('universe'),
         'confusion_pairs': release.get('confusion_pairs', []), 'limitations': release.get('limitations', []),
         'state_support': release.get('state_support'),
-        'delivery_scope': 'private household noncommercial; authenticated delivery only',
+        'delivery_scope': 'public noncommercial educational delivery plus authenticated household delivery; raw source data remains private',
+        'public_data_terms': {
+            'ebird_attribution': 'eBird. 2016-2025. eBird observation data; derived seasonal summaries. Cornell Lab of Ornithology, Ithaca, New York. https://ebird.org.',
+            'ebird_terms_url': 'https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/',
+            'ebird_notice': 'Derived seasonal summaries only; original histogram exports are not publicly redistributed. Noncommercial educational use; eBird Data Access Terms apply.',
+            'policy': 'Public delivery is noncommercial only, with per-asset creator, source and license attribution.',
+        },
     }
 
 
@@ -191,7 +199,7 @@ def main():
     summary = {'schema': 'birdahead-publish-report-v1', 'at': datetime.now(timezone.utc).isoformat(), 'origin': origin,
                'release_id': release['id'], 'catalog_key': catalog_key, 'objects': len(delivery['objects']),
                'bytes': delivery['total_bytes'], 'activated': bool(activation and activation.get('active')),
-               'scope': 'Private household noncommercial; authenticated media only'}
+               'scope': 'Public noncommercial educational delivery; authenticated household progress and private administration'}
     save((PRIVATE / 'production/publish-report-local.json') if args.local else PUBLIC_REPORT, summary)
     print(json.dumps({'catalog': result, 'activation': activation, 'report': summary}, indent=2))
 

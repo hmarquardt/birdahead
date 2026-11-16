@@ -14,3 +14,5 @@
 | [0010 — Phase 2.1 collection completion](0010-phase-two-point-one.md) | Implemented within Phase 2.1 local authorization |
 
 Records distinguish owner requirements from recommendations. A proposed architecture does not authorize a deployment.
+
+- [0011 — public educational utility with private personalization](0011-public-utility.md)

@@ -8,6 +8,7 @@ import { readFileSync, realpathSync, statSync, mkdirSync } from "node:fs";
 import { dirname, extname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Asset, Kind, Priority, Release } from "./types";
+import { renderPrivacyPage, renderRobots, renderSitemap, renderSourcesPage } from "./public-pages";
 
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const privateRoot = resolve(root, "experiments/private");
@@ -126,6 +127,20 @@ export function createApp(
     vocalization: a.vocalization,
     derivative_of: a.derivative_of ?? null,
   });
+  const PUBLIC_LICENSES = new Set(['cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa']);
+  const isPublicAsset = (a: Asset) => a.public_delivery === true || (a.public_delivery === undefined && PUBLIC_LICENSES.has(String(a.license_code ?? '').toLowerCase()) && !!a.creator && !!a.license_url && !!a.source_url && !!a.attribution);
+  const publicAssets = () => assets().filter((a) => isPublicAsset(a));
+  const publicCredit = (a: Asset) => ({ ...credit(a), public_use_basis: a.public_use_basis ?? null, public_license_notice: a.public_license_notice ?? null,
+    public_noncommercial_only: a.public_noncommercial_only ?? null, public_share_alike: a.public_share_alike ?? null });
+  const publicAssetCard = (a: Asset) => ({ id:a.id, kind:a.kind, species_code:a.species_code, media_url:`/media/public/${a.id}`, creator:a.creator,
+    attribution:a.attribution, source_url:a.source_url, license_url:a.license_url, license_code:a.license_code ?? null, source:a.source ?? null,
+    public_use_basis:a.public_use_basis ?? null, public_license_notice:a.public_license_notice ?? null, public_noncommercial_only:a.public_noncommercial_only ?? null,
+    public_share_alike:a.public_share_alike ?? null, derivative:!!a.derivative_of, vocalization:a.vocalization ?? null, target_bbox_xyxy:a.target_bbox_xyxy ?? null,
+    validation:'Accepted source record; automated corroboration only, not expert certification' });
+  const publicRanked = (location: string, day: string) => { const visible=publicAssets(); const counts=new Map<string,{photos:number;audio:number}>();
+    for(const a of visible){const row=counts.get(a.species_code)??{photos:0,audio:0}; if(a.kind==='photo')row.photos++; else row.audio++; counts.set(a.species_code,row);}
+    return priorities(release,location,day).map((r)=>{const s=species(r.species_code); const c=counts.get(r.species_code)??{photos:0,audio:0};
+      return {...r,name:s.common_name,scientific_name:s.scientific_name,photos:c.photos,recordings:c.audio,photo_ready:c.photos>=1,audio_ready:c.audio>=1};}); };
   const history = (profile: string) =>
     asRows(
       db
@@ -232,7 +247,7 @@ export function createApp(
     c.header("Referrer-Policy", "no-referrer");
     c.header(
       "Content-Security-Policy",
-      "default-src 'self'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'",
+      "default-src 'self'; script-src 'self' https://analytics.aismallbizguru.com; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://analytics.aismallbizguru.com; object-src 'none'; frame-ancestors 'none'; base-uri 'none'",
     );
     c.header("Cache-Control", "no-store");
     await next();
@@ -250,6 +265,45 @@ export function createApp(
       400,
     ),
   );
+  app.get("/api/public/bootstrap", (c) => {
+    const visible=publicAssets(); const counts=new Map<string,{photos:number;audio:number}>();
+    for(const a of visible){const row=counts.get(a.species_code)??{photos:0,audio:0}; if(a.kind==='photo')row.photos++; else row.audio++; counts.set(a.species_code,row);}
+    const rows=release.species.map((s)=>{const row=counts.get(s.ebird_species_code)??{photos:0,audio:0};return {code:s.ebird_species_code,name:s.common_name,scientific_name:s.scientific_name,priority_rank:s.priority_rank??null,
+      public_photos:row.photos,public_recordings:row.audio,photo_practice_ready:row.photos>=2,audio_practice_ready:row.audio>=2,coverage_gap:row.photos<2&&row.audio<2};});
+    return c.json({schema:'birdahead-public-bootstrap-v1',release_id:release.id,counties:release.counties,species:rows,public_assets:visible.length,
+      public_photo_assets:visible.filter((a)=>a.kind==='photo').length,public_audio_assets:visible.filter((a)=>a.kind==='audio').length,
+      coverage:{species:rows.length,public_photo_species:rows.filter((s)=>s.public_photos>0).length,public_audio_species:rows.filter((s)=>s.public_recordings>0).length,
+        photo_practice_ready:rows.filter((s)=>s.photo_practice_ready).length,audio_practice_ready:rows.filter((s)=>s.audio_practice_ready).length,gaps:rows.filter((s)=>s.coverage_gap).length},
+      data_vintage:release.data_vintage??null,data_source:{citation:'eBird. 2016–2025. eBird observation data; derived seasonal summaries.',terms_url:'https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/'},
+      limitations:'Historical reporting frequency reflects complete checklists, not encounter probability. Automated media acceptance is not expert verification.'});
+  });
+  app.get("/api/public/curriculum", (c) => {
+    const location=c.req.query('location')??''; const day=c.req.query('day')??isoDay(); const ranked=publicRanked(location,day);
+    const arriving=ranked.filter((r)=>(r.approaching_window_rise??0)>0).sort((a,b)=>(b.approaching_window_rise??-1)-(a.approaching_window_rise??-1)).slice(0,25);
+    return c.json({location,day,data_vintage:release.data_vintage??null,priorities:ranked,arriving_soon:arriving,note:'Historical reporting frequency and a 14–28 day rise; neither is an encounter forecast.'});
+  });
+  app.get("/api/public/library", (c) => {
+    const query=(c.req.query('q')??'').trim().toLowerCase(); const kind=c.req.query('kind')??'all'; const location=c.req.query('location')??Object.keys(release.counties)[0]??''; const day=c.req.query('day')??isoDay();
+    const visible=publicAssets(); const counts=new Map<string,{photos:number;audio:number}>(); const grouped=new Map<string,Asset[]>();
+    for(const a of visible){const row=counts.get(a.species_code)??{photos:0,audio:0}; if(a.kind==='photo')row.photos++; else row.audio++; counts.set(a.species_code,row); if(kind!=='all'&&a.kind!==kind)continue; const list=grouped.get(a.species_code)??[]; list.push(a); grouped.set(a.species_code,list);}
+    const seasonal=new Map(priorities(release,location,day).map((r)=>[r.species_code,r]));
+    const rows=release.species.map((s)=>{const c=counts.get(s.ebird_species_code)??{photos:0,audio:0};const sr=seasonal.get(s.ebird_species_code);return {code:s.ebird_species_code,name:s.common_name,scientific_name:s.scientific_name,priority_rank:s.priority_rank??null,confusion_pair:s.confusion_pair??null,
+      photos:c.photos,recordings:c.audio,photo_practice_ready:c.photos>=2,audio_practice_ready:c.audio>=2,coverage_gap:c.photos<2&&c.audio<2,current_reporting_frequency:sr?.current_reporting_frequency??null,approaching_window_rise:sr?.approaching_window_rise??null,sample_size:sr?.sample_size??null,bin_start:sr?.bin_start??null,bin_end:sr?.bin_end??null,assets:(grouped.get(s.ebird_species_code)??[]).map(publicAssetCard)};})
+      .filter((r)=>!query||r.name.toLowerCase().includes(query)||r.scientific_name.toLowerCase().includes(query)||r.code.toLowerCase().includes(query)).sort((a,b)=>(a.priority_rank??9999)-(b.priority_rank??9999)||a.name.localeCompare(b.name));
+    return c.json({location,day,query,kind,data_vintage:release.data_vintage??null,species:rows});
+  });
+  app.get("/api/public/seasonality", (c) => { const code=c.req.query('code')??''; const location=c.req.query('location')??''; const profile=release.profiles[location]; if(!profile) throw Error('Choose a supported county'); const s=species(code);
+    return c.json({code,location,name:s.common_name,scientific_name:s.scientific_name,bins:profile.rows.filter((r)=>r.species_code===code),metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null},data_vintage:release.data_vintage??null}); });
+  app.get("/api/public/practice", async (c) => {
+    const location=c.req.query('location')??''; const day=c.req.query('day')??isoDay(); const kind:Kind=c.req.query('kind')==='audio'?'audio':'photo'; const mode=c.req.query('mode')==='recall'?'recall':'choice'; const focus=c.req.query('focus')??'now';
+    const visible=publicAssets(); let candidates=publicRanked(location,day).filter((r)=>kind==='photo'?r.photo_ready:r.audio_ready);
+    if(focus==='now')candidates=candidates.filter((r)=>(r.current_reporting_frequency??0)>0); if(focus==='arriving')candidates=candidates.filter((r)=>(r.approaching_window_rise??0)>0);
+    if(candidates.length<2)throw Error('Not enough public media for this practice mode'); const questions:DbRow[]=[]; const used=new Set<string>();
+    for(let round=0;round<4&&questions.length<10;round++)for(const candidate of candidates){if(questions.length>=10)break;const pool=visible.filter((a)=>a.species_code===candidate.species_code&&a.kind===kind&&!used.has(a.id));if(!pool.length)continue;const asset=pool[0];used.add(asset.id);const id=randomUUID();
+      const options=mode==='choice'?[candidate.species_code,...candidates.filter((r)=>r.species_code!==candidate.species_code).slice(0,3).map((r)=>r.species_code)]:[];
+      questions.push({id,asset_id:asset.id,species_code:candidate.species_code,name:candidate.name,kind,mode,media_url:`/media/public/${asset.id}`,options:options.map((code)=>({code,name:species(code).common_name})),answer_code:candidate.species_code,credit:publicCredit(asset),bbox:asset.target_bbox_xyxy??null});}
+    if(!questions.length)throw Error('No public practice questions are available'); return c.json({schema:'birdahead-public-practice-v1',guest:true,location,day,kind,mode,focus,questions});
+  });
   app.get("/api/bootstrap", (c) => {
     const visible = assets();
     const counts = new Map<string, { photos: number; audio: number }>();
@@ -910,6 +964,14 @@ export function createApp(
         "Locally hidden from practice for both learners, pending review. Related attempts excluded from progress. Sync to the curation workbench with `uv run python -m tooling.flag_sync --apply`.",
     });
   });
+  app.get("/media/public/:id", (c) => {
+    const asset=publicAssets().find((a)=>a.id===c.req.param('id')); if(!asset)return c.notFound(); const path=realpathSync(resolve(root,asset.local_path));
+    if(!path.startsWith(realpathSync(mediaRoot)+sep))return c.notFound(); const bytes=readFileSync(path); if(createHash('sha256').update(bytes).digest('hex')!==asset.sha256)throw Error('Content integrity check failed');
+    const mime:Record<string,string>={'.jpeg':'image/jpeg','.jpg':'image/jpeg','.png':'image/png','.webp':'image/webp','.mp3':'audio/mpeg','.wav':'audio/wav','.ogg':'audio/ogg','.flac':'audio/flac','.m4a':'audio/mp4'};
+    c.header('Content-Type',mime[extname(path).toLowerCase()]??'application/octet-stream'); c.header('Accept-Ranges','bytes'); c.header('Cache-Control','public, max-age=86400');
+    const range=c.req.header('range'); if(range){const m=/^bytes=(\d+)-(\d*)$/.exec(range); if(!m)return c.body(null,416,{'Content-Range':`bytes */${bytes.length}`}); const start=Number(m[1]),end=Math.min(m[2]?Number(m[2]):bytes.length-1,bytes.length-1); if(start>end||start>=bytes.length)return c.body(null,416,{'Content-Range':`bytes */${bytes.length}`}); return c.body(new Uint8Array(bytes.subarray(start,end+1)),206,{'Content-Range':`bytes ${start}-${end}/${bytes.length}`,'Content-Length':String(end-start+1)});}
+    return c.body(new Uint8Array(bytes),200,{'Content-Length':String(bytes.length)});
+  });
   app.get("/media/:id", (c) => {
     const asset = assets().find((a) => a.id === c.req.param("id"));
     if (!asset) return c.notFound();
@@ -959,6 +1021,12 @@ export function createApp(
       "Content-Length": String(statSync(path).size),
     });
   });
+  app.get("/sources", (c) => c.html(renderSourcesPage(new URL(c.req.url).origin)));
+  app.get("/privacy", (c) => c.html(renderPrivacyPage(new URL(c.req.url).origin)));
+  app.get("/robots.txt", (c) => { c.header("Content-Type","text/plain"); return c.body(renderRobots(new URL(c.req.url).origin)); });
+  app.get("/sitemap.xml", (c) => { c.header("Content-Type","application/xml"); return c.body(renderSitemap(new URL(c.req.url).origin,release.species.map((s)=>({code:s.ebird_species_code})),release.counties,isoDay())); });
+  app.get("/regions/:county", (c) => c.redirect(`/?tab=explore&county=${encodeURIComponent(c.req.param("county"))}`, 302));
+  app.get("/birds/:code", (c) => c.redirect(`/?tab=guide&bird=${encodeURIComponent(c.req.param("code"))}`, 302));
   app.get("/assets/*", serveStatic({ root: resolve(root, "app/dist") }));
   app.get("/", serveStatic({ path: resolve(root, "app/dist/index.html") }));
   return app;

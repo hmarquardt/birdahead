@@ -68,7 +68,7 @@ The bounded replacement pass prioritized the pilot, top-ranked species and confu
 
 Projected R2 Standard object storage is **$0/month** under the 10 GB-month free allowance; at $0.015/GB-month the raw storage estimate is about **$0.006/month** before allowances. Class A/B operations and future egress are separate. No bucket or deployment was created.
 
-Rights distribution: 318 iNaturalist CC BY-NC photos, 33 CC BY photos, 9 CC BY-NC-SA photos, 2 CC BY-SA photos and 22 CC0 photos; Xeno-canto recordings include 70 CC BY-NC-SA, 68 CC BY-NC-SA derivatives, 34 CC BY-SA, 28 CC BY-SA derivatives, 1 CC BY-NC, 1 CC BY-NC derivative and 3 CC0. **NC/SA assets restrict delivery to private household noncommercial use**, require attribution, and require share-alike for adaptations. Source-specific notes are retained in the manifest; no Cornell-restricted media is included.
+Rights distribution: 318 iNaturalist CC BY-NC photos, 33 CC BY photos, 9 CC BY-NC-SA photos, 2 CC BY-SA photos and 22 CC0 photos; Xeno-canto recordings include 70 CC BY-NC-SA, 68 CC BY-NC-SA derivatives, 34 CC BY-SA, 28 CC BY-SA derivatives, 1 CC BY-NC, 1 CC BY-NC derivative and 3 CC0. **At the time, NC/SA assets were conservatively scoped to private household noncommercial delivery.** Phase 3.1 supersedes that delivery scope after a per-asset public-noncommercial eligibility review; attribution and share-alike obligations still apply, and commercial use remains prohibited. Source-specific notes are retained in the manifest; no Cornell-restricted media is included.
 
 ## Audit queue
 

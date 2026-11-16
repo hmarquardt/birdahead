@@ -13,6 +13,7 @@ import mimetypes
 from pathlib import Path
 
 from tooling.discover import PRIVATE, ROOT, save
+from tooling.public_eligibility import evaluate as evaluate_public
 
 RELEASE = PRIVATE / 'local-mvp/release.json'
 OUTPUT = ROOT / 'experiments/phase-two-delivery-manifest.json'
@@ -46,6 +47,7 @@ def build(release_path=RELEASE, output=OUTPUT):
         key = f"media/{asset['id']}{suffix}"
         content_type = mimetypes.guess_type(key)[0] or ('image/jpeg' if asset['kind'] == 'photo' else 'audio/mpeg')
         derivative = isinstance(asset.get('derivative_of'), dict)
+        public = evaluate_public(asset)
         restrictions[(asset.get('license_code') or 'unknown', asset.get('source') or 'unknown', derivative)] += 1
         objects.append({
             'asset_id': asset['id'], 'key': key, 'content_type': content_type, 'bytes': len(raw), 'sha256': asset['sha256'],
@@ -55,7 +57,8 @@ def build(release_path=RELEASE, output=OUTPUT):
             'source_url': asset.get('source_url'), 'permitted_delivery': True,
             'share_alike': bool(asset.get('share_alike')), 'commercial_compatible': bool(asset.get('commercial_compatible')),
             'derivative': derivative, 'derivative_recipe': asset.get('derivative_recipe'),
-            'presentation_modification_notice': asset.get('presentation_modification_notice')})
+            'presentation_modification_notice': asset.get('presentation_modification_notice'),
+            **public})
         total += len(raw)
     objects.sort(key=lambda row: row['key'])
     gib = total / (1024 ** 3)
@@ -65,13 +68,13 @@ def build(release_path=RELEASE, output=OUTPUT):
         'xeno_canto': 'Recording license is per recording; retain recordist, recording ID, license and attribution. No Cornell-restricted media is included.',
         'cc-by': 'Attribution required; derivative and commercial use permitted by the source license.',
         'cc-by-sa': 'Attribution required; adaptations must carry the same share-alike license.',
-        'cc-by-nc': 'Private household noncommercial use only; attribution required. Do not present as commercial or redistribute outside the household.',
-        'cc-by-nc-sa': 'Private household noncommercial use only; attribution and share-alike required for adaptations.',
+        'cc-by-nc': 'CC BY-NC 4.0 permits public noncommercial sharing with attribution; BirdAhead has no advertising, monetization or paid access. Do not treat this as commercial clearance.',
+        'cc-by-nc-sa': 'CC BY-NC-SA 4.0 permits public noncommercial sharing with attribution and share-alike obligations for adaptations; do not treat this as commercial clearance.',
     }
     report = {
-        'schema': 'birdahead-delivery-media-manifest-v1', 'scope': 'Private household, noncommercial, authenticated delivery only; not a public redistribution grant.',
+        'schema': 'birdahead-delivery-media-manifest-v2', 'scope': 'Public noncommercial educational delivery plus authenticated household delivery. Raw source data and restricted media remain private.',
         'release_id': release['id'], 'compatibility_key': release.get('compatibility_key'), 'object_count': len(objects),
-        'total_bytes': total, 'total_gb': round(gib, 6), 'objects': objects,
+        'total_bytes': total, 'total_gb': round(gib, 6), 'public_object_count': sum(1 for row in objects if row['public_delivery']), 'objects': objects,
         'projected_r2': {'total_gb': round(gib, 6), 'free_tier_gb': FREE_GB,
                          'billable_gb': round(max(0.0, gib - FREE_GB), 6), 'rate_usd_per_gb_month': R2_RATE_PER_GB_MONTH,
                          'projected_usd_per_month': round(projected, 6),
@@ -79,11 +82,12 @@ def build(release_path=RELEASE, output=OUTPUT):
         'restrictions': {f'license:{license}|source:{source}|derivative:{str(derivative).lower()}': count
                          for (license, source, derivative), count in sorted(restrictions.items())},
         'source_notes': source_notes,
-        'limitations': ['Do not publish this bucket publicly unless every object license permits the intended use.',
-                        'NC/SA assets constrain commercial use and derivative licensing; attribution must accompany delivery.',
-                        'This manifest does not imply rights to source data, model weights or exact locations.']}
+        'limitations': ['Public delivery is noncommercial only; NC/SA assets constrain commercial use and derivative licensing.',
+                        'Creator, source URL, exact license and attribution must accompany public delivery.',
+                        'This manifest does not imply rights to source data, model weights, exact locations or third-party API access.',
+                        'eBird-derived seasonal summaries remain subject to the eBird Data Access Terms; raw histograms are not public.']}
     save(output, report)
-    print(json.dumps({key: report[key] for key in ['object_count', 'total_bytes', 'total_gb', 'projected_r2', 'restrictions']}, indent=2))
+    print(json.dumps({key: report[key] for key in ['object_count', 'public_object_count', 'total_bytes', 'total_gb', 'projected_r2', 'restrictions']}, indent=2))
     return report
 
 
