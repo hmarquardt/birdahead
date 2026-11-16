@@ -74,8 +74,8 @@
   ],
   "production": {
     "url": "https://birdahead.com",
-    "revision": "6b31cd678c6c9332f8d7b75e60cf423acd762ac1",
-    "deployment_run": 43954896156,
+    "revision": "a8ed0dc9ef2cb78aa30c08c1653e9314f958e40f",
+    "deployment_run": 43955514555,
     "public_smoke": "PASS 26/26",
     "private_smoke": "PASS 23/23",
     "health": true,
