@@ -19,7 +19,7 @@
   "vars": { "APP_ORIGIN": "https://birdahead.com", "DEPLOY_REVISION": "unreleased" },
   "secrets": { "required": ["HANK_KEY", "HEATHER_KEY", "PUBLISH_TOKEN"] },
   "d1_databases": [
-    { "binding": "DB", "database_name": "birdahead", "database_id": "00000000-0000-0000-0000-000000000000", "migrations_dir": "migrations" }
+    { "binding": "DB", "database_name": "birdahead", "database_id": "ce2302c9-988b-490c-9ad3-3035d0a57c8b", "migrations_dir": "migrations" }
   ],
   "r2_buckets": [{ "binding": "CONTENT", "bucket_name": "birdahead-private" }],
   "ratelimits": [
