@@ -1,7 +1,7 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "private-production-release-verified",
-  "generated_at": "2026-11-16T02:21:00Z",
+  "generated_at": "2026-11-16T02:22:30Z",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
@@ -53,8 +53,8 @@
   },
   "verification": {
     "smoke_evidence": "experiments/phase-three-production.json",
-    "checks_passed": 24,
-    "checks_total": 24,
+    "checks_passed": 25,
+    "checks_total": 25,
     "browser": true,
     "https": true,
     "unauthorized_api_rejected": true,
@@ -72,7 +72,8 @@
       "passed": true,
       "evidence": "experiments/phase-three-rollback.json"
     },
-    "authenticated_audio_range": true
+    "authenticated_audio_range": true,
+    "unauthorized_admin_rejected": true
   },
   "costs": {
     "currency": "USD",

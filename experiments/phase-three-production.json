@@ -1,6 +1,6 @@
 {
   "schema": "birdahead-production-smoke-v1",
-  "at": "2026-11-16T02:21:16.805457+00:00",
+  "at": "2026-11-16T02:22:59.718690+00:00",
   "base": "https://birdahead.com",
   "health": {
     "ok": true,
@@ -23,6 +23,11 @@
     },
     {
       "name": "unauthenticated media rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "unauthenticated admin rejected",
       "passed": true,
       "detail": ""
     },

@@ -81,6 +81,7 @@ def main():
     check('health', status == 200 and health.get('ok') and health.get('auth') == 'session', str(status))
     check('unauthenticated bootstrap rejected', request(base, '/api/bootstrap')[0] == 401)
     check('unauthenticated media rejected', request(base, '/media/not-authorized')[0] == 401)
+    check('unauthenticated admin rejected', request(base, '/api/admin/releases')[0] == 401)
     check('cross-origin mutation rejected', request(base, '/api/logout', 'POST', b'{}', {'Content-Type':'application/json','Origin':'https://invalid.example','X-BirdAhead-Request':'1'})[0] == 403)
     check('login CSRF header required', request(base, '/api/login', 'POST', json.dumps({'profile':'hank','key':secret['HANK_KEY']}).encode(), {'Content-Type':'application/json','Origin':base})[0] == 403)
     check('wrong key rejected', login(base, 'hank', 'not-the-right-key-value')[0] == 401)
