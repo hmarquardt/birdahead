@@ -22,6 +22,15 @@ Acceptance evidence: Python tests, Hono API tests, TypeScript/build checks and r
 
 Acceptance evidence: Python tests, Hono tests and TypeScript/build checks pass; real-media browser smoke remains the local acceptance gate. [Phase Two report](docs/phase-two.md), [local use](docs/local-mvp.md).
 
+## Delivered Phase 2.1 increment
+
+- Resumed at species 23/100 and completed the breadth pass at **100/100** using successive checkpointed batches, incremental 5 GB media baseline, cached requests/predictions, bounded four-worker downloads and a targeted high-priority replacement pass.
+- Accepted coverage rose from **193 to 589 assets** (384 photographs, 205 recordings), with **83 sight-ready / 57 sound-ready** species, 18 meeting both targets and only **7 explicit gaps**. Seasonal top-25 decks are now 19–21 sight-ready and 16–19 sound-ready.
+- Added a compact **589-object / 0.406 GB** delivery manifest with checksums, attribution, source/license restrictions and projected R2 free-tier storage of $0. Added a concise **117-asset** risk-stratified audit queue (~56 minutes at stated assumptions) without recording any owner review or fabricating approval.
+- New tests cover incremental media budgets, replacement selection, delivery-manifest checksums/private-path exclusion and the earlier taxonomy/acquisition/release/flag suites. Real-media browser smoke passes on the 589-asset release.
+
+Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evidence](experiments/phase-two-acquisition.json), [delivery manifest](experiments/phase-two-delivery-manifest.json) and [audit queue](experiments/phase-two-audit-queue.json).
+
 ## Next local usability and reliability pass
 
 The owners can use this local collection immediately; their field/use feedback will determine the next improvement. No access negotiation blocks use.

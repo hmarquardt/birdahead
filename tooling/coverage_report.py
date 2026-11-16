@@ -124,10 +124,10 @@ def main():
         'data_vintage': {**{key: profile.get('metadata', {}).get(key) for key in
                             ['start_year', 'end_year', 'source_taxonomy_version', 'bin_definition', 'units']},
                          'source_note': 'Owner-supplied 2016-2025 county exports; source taxonomy release unknown.'},
-        'acquisition': {'new_assets': expansion.get('counters', {}).get('assets_added', 0),
+        'acquisition': {'new_assets': expansion.get('incremental_new_assets', expansion.get('counters', {}).get('assets_added', 0)),
                         'requests': expansion.get('counters', {}).get('requests', 0),
                         'downloads': expansion.get('counters', {}).get('downloads', 0),
-                        'new_media_bytes': expansion.get('counters', {}).get('media_bytes', 0),
+                        'new_media_bytes': expansion.get('incremental_media_bytes', expansion.get('counters', {}).get('media_bytes', 0)),
                         'elapsed_seconds': expansion.get('counters', {}).get('elapsed_seconds', 0),
                         'retries': expansion.get('counters', {}).get('retries', 0),
                         'checkpoint_complete': state.get('complete'),

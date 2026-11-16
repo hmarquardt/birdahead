@@ -65,6 +65,14 @@ Phase Two may extract a clip from a real recording when the source species domin
 
 Candidate selection is improved from measured failure reasons: source-taxon lineage support, concordant non-owner identifiers, high-risk two-identifier requirement, contributor caps, resolution preflight, distinct observations, quality/duration filters and a target-clarity screen that can select one source-consistent crop among several detector boxes. A whole-image fallback is conservative and unavailable for confusion pairs. Candidate volume never substitutes for these gates.
 
+## Phase 2.1 throughput and replacement rules
+
+Successive bounded batches may reuse the checkpoint, catalog, source caches and model predictions. API metadata requests remain sequential under provider pacing; only media transfers use bounded concurrency (four workers in the measured run) with retry/backoff and a per-run asset/request/byte ceiling. A cumulative **5 GB new-media budget** applies to Phase 2.1; disk free space must exceed the budget plus a reserve before a batch starts. Existing rejected URLs and catalog assets are not downloaded again, and cached inference is reused while model/preprocessing versions remain unchanged.
+
+Targeted replacement passes are allowed for high-priority species, the versioned pilot and confusion pairs with accepted-coverage gaps. Replacement queries begin on later result pages so they seek new observations/recordings rather than re-evaluating the same rejected files. Contributor caps, source evidence, rights, resolution, duration and target-clarity screens remain in force; replacement volume never becomes acceptance authority. Contributor, month/season, source-asserted age/sex and vocalization-type diversity are preferred where the source provides evidence; unknown traits remain unknown.
+
+A sampled audit queue is stratified across modality and risk (including confusion pairs), not a per-asset approval requirement. The workbench timer and the 7,200-second total cap still govern any actual owner review.
+
 ## Flags and corrections
 
 The learning app must offer “Flag possible misidentification” from an exercise/reveal. Save asset/release/variant IDs, reason, optional suggested species and audio interval. Triage flags, suppress disputed examples from new sessions where warranted, revalidate or replace them, publish an erratum and repair affected progress. User reports are evidence, not automatic proof of the proposed replacement identification.

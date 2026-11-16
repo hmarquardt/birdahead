@@ -1,0 +1,503 @@
+{
+  "schema": "birdahead-phase-two-1-report-v1",
+  "at": "2026-11-16T00:55:49.443358+00:00",
+  "scope": "Local private household continuation; no deployment or paid infrastructure",
+  "checkpoint": {
+    "cursor": 100,
+    "complete": true,
+    "species": 100,
+    "budgets": {
+      "requests": 900,
+      "media_bytes": 5000000000,
+      "retries": 2,
+      "max_assets": 1800
+    },
+    "media_bytes_baseline": 187817080,
+    "counters": {
+      "requests": 352,
+      "downloads": 876,
+      "media_bytes": 827616591,
+      "retries": 114,
+      "assets_added": 882,
+      "elapsed_seconds": 2639.232
+    },
+    "increment_new_assets": 696,
+    "incremental_media_bytes": 639799511
+  },
+  "before_phase_2_1": {
+    "schema": "birdahead-phase-two-accepted-baseline-v1",
+    "source": "Phase Two accepted manifest before Phase 2.1 continuation",
+    "automatically_accepted": 193,
+    "accepted_by_modality": {
+      "photo": 141,
+      "audio": 52
+    },
+    "photo_practice_species": 30,
+    "audio_practice_species": 16,
+    "photo_target_species": 16,
+    "audio_target_species": 10,
+    "species_with_both_targets": 4,
+    "gaps": 68,
+    "note": "Automatically accepted counts only; no human/expert approval implied."
+  },
+  "after": {
+    "automatically_accepted": 589,
+    "accepted_by_modality": {
+      "photo": 384,
+      "audio": 205
+    },
+    "photo_practice_species": 83,
+    "audio_practice_species": 57,
+    "photo_target_species": 41,
+    "audio_target_species": 37,
+    "species_with_any_accepted_photo": 94,
+    "species_with_any_accepted_audio": 69
+  },
+  "coverage_tiers": {
+    "photo_only_target": 23,
+    "practice_partial": 52,
+    "gap": 7,
+    "target": 18
+  },
+  "acceptance": {
+    "photo_candidates": 732,
+    "photo_accepted": 384,
+    "photo_rate": 0.5246,
+    "audio_candidates": 549,
+    "audio_accepted": 205,
+    "audio_rate": 0.3734,
+    "audio_derivative_candidates": 136,
+    "accepted_derivative_clips": 97
+  },
+  "rejection_reasons": {
+    "no two adjacent dominant high-scoring source-species windows": 304,
+    "single source-consistent target not established by automated localization screen": 241,
+    "target not dominant across enough of full recording; replace or make verified clip": 219,
+    "BioCLIP 2 agreement/threshold/margin failed": 195,
+    "BioCLIP fails top-five corroboration": 99,
+    "confusion pair requires BioCLIP corroboration and margin": 55,
+    "insufficient independent source identifier support for risk tier": 33,
+    "localized target margin below species risk threshold": 11,
+    "audio species calibration lacks fitting support": 8,
+    "duplicate recording candidate": 7,
+    "high-risk call requires source bird-seen evidence": 6,
+    "image resolution insufficient": 1,
+    "source vocalization description is uncertain": 1,
+    "exposure screening failed": 1
+  },
+  "seasonal_decks": {
+    "reference_county": "US-IN-051",
+    "county_name": "Gibson",
+    "anchors": {
+      "winter": "2026-01-15",
+      "spring_migration": "2026-05-05",
+      "summer": "2026-07-15",
+      "fall_migration": "2026-09-10",
+      "now": "2026-11-15"
+    },
+    "decks": {
+      "winter": {
+        "deck_size": 25,
+        "photo_practice_ready": 21,
+        "audio_practice_ready": 16,
+        "photo_and_audio_target": 8,
+        "photo_gaps": [
+          "norcar",
+          "snogoo",
+          "rethaw",
+          "amecro"
+        ],
+        "photo_ready_codes": [
+          "mallar3",
+          "cangoo",
+          "norhar2",
+          "gadwal",
+          "grbher3",
+          "sonspa",
+          "buffle",
+          "gwfgoo",
+          "baleag",
+          "rewbla",
+          "amekes",
+          "hoomer",
+          "blujay",
+          "ribgul",
+          "easmea",
+          "moudov",
+          "rebwoo",
+          "horlar",
+          "eursta",
+          "carchi",
+          "amtspa"
+        ],
+        "audio_ready_codes": [
+          "cangoo",
+          "norcar",
+          "snogoo",
+          "gadwal",
+          "grbher3",
+          "gwfgoo",
+          "amecro",
+          "baleag",
+          "amekes",
+          "hoomer",
+          "blujay",
+          "ribgul",
+          "moudov",
+          "rebwoo",
+          "eursta",
+          "amtspa"
+        ]
+      },
+      "spring_migration": {
+        "deck_size": 25,
+        "photo_practice_ready": 20,
+        "audio_practice_ready": 19,
+        "photo_and_audio_target": 8,
+        "photo_gaps": [
+          "norcar",
+          "bnhcow",
+          "amecro",
+          "treswa",
+          "lesyel"
+        ],
+        "photo_ready_codes": [
+          "rewbla",
+          "indbun",
+          "comyel",
+          "killde",
+          "cangoo",
+          "dickci",
+          "comgra",
+          "moudov",
+          "grbher3",
+          "mallar3",
+          "sonspa",
+          "amerob",
+          "fiespa",
+          "buggna",
+          "turvul",
+          "brnthr",
+          "barswa",
+          "amegfi",
+          "norbob",
+          "greegr"
+        ],
+        "audio_ready_codes": [
+          "indbun",
+          "killde",
+          "norcar",
+          "cangoo",
+          "dickci",
+          "comgra",
+          "moudov",
+          "grbher3",
+          "bnhcow",
+          "fiespa",
+          "amecro",
+          "buggna",
+          "brnthr",
+          "barswa",
+          "treswa",
+          "amegfi",
+          "norbob",
+          "lesyel",
+          "greegr"
+        ]
+      },
+      "summer": {
+        "deck_size": 25,
+        "photo_practice_ready": 20,
+        "audio_practice_ready": 18,
+        "photo_and_audio_target": 8,
+        "photo_gaps": [
+          "norcar",
+          "amecro",
+          "lesyel",
+          "greyel",
+          "treswa"
+        ],
+        "photo_ready_codes": [
+          "killde",
+          "grbher3",
+          "greegr",
+          "indbun",
+          "rewbla",
+          "moudov",
+          "comyel",
+          "cangoo",
+          "amegfi",
+          "dickci",
+          "barswa",
+          "mallar3",
+          "sonspa",
+          "turvul",
+          "wooduc",
+          "norbob",
+          "doccor",
+          "fiespa",
+          "baleag",
+          "carwre"
+        ],
+        "audio_ready_codes": [
+          "killde",
+          "grbher3",
+          "greegr",
+          "indbun",
+          "moudov",
+          "cangoo",
+          "amegfi",
+          "dickci",
+          "barswa",
+          "norcar",
+          "amecro",
+          "lesyel",
+          "treswa",
+          "wooduc",
+          "norbob",
+          "fiespa",
+          "baleag",
+          "carwre"
+        ]
+      },
+      "fall_migration": {
+        "deck_size": 25,
+        "photo_practice_ready": 19,
+        "audio_practice_ready": 16,
+        "photo_and_audio_target": 6,
+        "photo_gaps": [
+          "amecro",
+          "norcar",
+          "greyel",
+          "dowwoo",
+          "lesyel",
+          "treswa"
+        ],
+        "photo_ready_codes": [
+          "greegr",
+          "grbher3",
+          "killde",
+          "cangoo",
+          "blujay",
+          "doccor",
+          "mallar3",
+          "rebwoo",
+          "moudov",
+          "amegfi",
+          "carwre",
+          "ribgul",
+          "turvul",
+          "carchi",
+          "buwtea",
+          "amwpel",
+          "rewbla",
+          "tuftit",
+          "norfli"
+        ],
+        "audio_ready_codes": [
+          "greegr",
+          "grbher3",
+          "killde",
+          "cangoo",
+          "amecro",
+          "norcar",
+          "blujay",
+          "rebwoo",
+          "moudov",
+          "amegfi",
+          "carwre",
+          "ribgul",
+          "buwtea",
+          "lesyel",
+          "treswa",
+          "tuftit"
+        ]
+      },
+      "now": {
+        "deck_size": 25,
+        "photo_practice_ready": 21,
+        "audio_practice_ready": 16,
+        "photo_and_audio_target": 8,
+        "photo_gaps": [
+          "amecro",
+          "snogoo",
+          "rethaw",
+          "norcar"
+        ],
+        "photo_ready_codes": [
+          "mallar3",
+          "grbher3",
+          "blujay",
+          "hoomer",
+          "norhar2",
+          "gadwal",
+          "ribgul",
+          "cangoo",
+          "sonspa",
+          "baleag",
+          "buffle",
+          "rebwoo",
+          "killde",
+          "norfli",
+          "norsho",
+          "eursta",
+          "carchi",
+          "amekes",
+          "moudov",
+          "gwfgoo",
+          "rewbla"
+        ],
+        "audio_ready_codes": [
+          "grbher3",
+          "blujay",
+          "amecro",
+          "hoomer",
+          "gadwal",
+          "ribgul",
+          "cangoo",
+          "baleag",
+          "snogoo",
+          "rebwoo",
+          "killde",
+          "norcar",
+          "eursta",
+          "amekes",
+          "moudov",
+          "gwfgoo"
+        ]
+      }
+    },
+    "arriving_soon_now": {
+      "deck_size": 25,
+      "photo_practice_ready": 20,
+      "audio_practice_ready": 11,
+      "photo_and_audio_target": 4,
+      "photo_gaps": [
+        "snogoo",
+        "dowwoo",
+        "rethaw",
+        "coohaw",
+        "lessca"
+      ],
+      "photo_ready_codes": [
+        "gwfgoo",
+        "amtspa",
+        "mallar3",
+        "baleag",
+        "gadwal",
+        "rebwoo",
+        "buffle",
+        "norsho",
+        "ambduc",
+        "doccor",
+        "norhar2",
+        "belkin1",
+        "whbnut",
+        "whocra",
+        "daejun",
+        "norpin",
+        "gnwtea",
+        "rinduc",
+        "tuftit",
+        "gockin"
+      ],
+      "audio_ready_codes": [
+        "snogoo",
+        "gwfgoo",
+        "amtspa",
+        "baleag",
+        "gadwal",
+        "rebwoo",
+        "belkin1",
+        "whbnut",
+        "norpin",
+        "tuftit",
+        "gockin"
+      ]
+    }
+  },
+  "contributors": {
+    "accepted_photos": 268,
+    "accepted_audio": 42,
+    "max_photos_one_contributor": 17,
+    "max_audio_one_contributor": 51,
+    "photo_contributor_buckets": {
+      "1": 219,
+      "3+": 24,
+      "2": 25
+    },
+    "audio_contributor_buckets": {
+      "1": 12,
+      "3+": 18,
+      "2": 12
+    }
+  },
+  "quality_controls": {
+    "mislabeled_photo_controls_accepted": 0,
+    "mislabeled_photo_controls": 72468,
+    "mislabeled_audio_controls_accepted": 1,
+    "mislabeled_audio_controls": 53253,
+    "accepted_derivative_clips": 97,
+    "note": "One counterfactual audio control (American Black Duck source labelled Mallard) passed; it is not an accepted production asset and highlights a known dabbling-duck confusion risk."
+  },
+  "delivery": {
+    "object_count": 589,
+    "total_bytes": 436400934,
+    "total_gb": 0.40643,
+    "projected_r2": {
+      "total_gb": 0.40643,
+      "free_tier_gb": 10.0,
+      "billable_gb": 0.0,
+      "rate_usd_per_gb_month": 0.015,
+      "projected_usd_per_month": 0.0,
+      "note": "Object storage only; class A/B operations and egress depend on actual use. Free-tier assumptions are account-wide."
+    },
+    "restrictions": {
+      "license:cc-by|source:inaturalist|derivative:false": 33,
+      "license:cc-by-nc|source:inaturalist|derivative:false": 318,
+      "license:cc-by-nc|source:xeno_canto|derivative:false": 1,
+      "license:cc-by-nc|source:xeno_canto|derivative:true": 1,
+      "license:cc-by-nc-sa|source:inaturalist|derivative:false": 9,
+      "license:cc-by-nc-sa|source:xeno_canto|derivative:false": 70,
+      "license:cc-by-nc-sa|source:xeno_canto|derivative:true": 68,
+      "license:cc-by-sa|source:inaturalist|derivative:false": 2,
+      "license:cc-by-sa|source:xeno_canto|derivative:false": 34,
+      "license:cc-by-sa|source:xeno_canto|derivative:true": 28,
+      "license:cc0|source:inaturalist|derivative:false": 22,
+      "license:cc0|source:xeno_canto|derivative:false": 3
+    },
+    "source_notes": {
+      "inaturalist": "Photo license is separate from the observation license; retain creator, exact license and attribution. Exact coordinates are excluded from delivery metadata.",
+      "xeno_canto": "Recording license is per recording; retain recordist, recording ID, license and attribution. No Cornell-restricted media is included.",
+      "cc-by": "Attribution required; derivative and commercial use permitted by the source license.",
+      "cc-by-sa": "Attribution required; adaptations must carry the same share-alike license.",
+      "cc-by-nc": "Private household noncommercial use only; attribution required. Do not present as commercial or redistribute outside the household.",
+      "cc-by-nc-sa": "Private household noncommercial use only; attribution and share-alike required for adaptations."
+    }
+  },
+  "audit": {
+    "queue_size": 117,
+    "by_kind_and_risk": {
+      "audio|high_risk=false": 34,
+      "audio|high_risk=true": 6,
+      "photo|high_risk=false": 67,
+      "photo|high_risk=true": 10
+    },
+    "estimated_minutes": 55.7
+  },
+  "review": {
+    "owner_review_seconds_recorded": 0,
+    "owner_total_review_limit_seconds": 7200,
+    "human_approved": 0,
+    "expert_verified": 0,
+    "note": "No owner/expert approval fabricated; audit queue is not a completed audit."
+  },
+  "limitations": [
+    "Seven teaching species remain explicit gaps, including difficult hawk/yellowlegs pairs.",
+    "Most species are practice-partial rather than meeting both targets.",
+    "Automated source/model acceptance is preliminary and not calibrated biological probability.",
+    "One adversarial audio control passed; source/model errors can correlate.",
+    "Source taxonomy release is unknown; NC/SA licenses limit delivery to private noncommercial household use.",
+    "No production deployment or cloud resource was created."
+  ]
+}

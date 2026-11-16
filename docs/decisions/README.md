@@ -11,5 +11,6 @@
 | [0007 — Scalable geographic acquisition](0007-scalable-geographic-acquisition.md) | Accepted direction; bulk access/refresh still unverified |
 | [0008 — Local learner delivery](0008-local-learner.md) | Implemented within Phase One local authorization |
 | [0009 — Phase Two local expansion](0009-phase-two-expansion.md) | Implemented within Phase Two local authorization |
+| [0010 — Phase 2.1 collection completion](0010-phase-two-point-one.md) | Implemented within Phase 2.1 local authorization |
 
 Records distinguish owner requirements from recommendations. A proposed architecture does not authorize a deployment.

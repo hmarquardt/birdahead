@@ -8,10 +8,12 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
+import threading
 import time
 
 from tooling.acquire import (CATALOG, COMMERCIAL_CODES, NONCOMMERCIAL_CODES, WORK, SafeClient,
@@ -24,9 +26,10 @@ STATE_DIR = WORK / 'expansion'
 STATE = STATE_DIR / 'state.json'
 REPORT = ROOT / 'experiments/phase-two-acquisition.json'
 SCHEMA = 'birdahead-expansion-state-v1'
-CANDIDATE_TARGETS = {'photos': 8, 'audio': 5}
+CANDIDATE_TARGETS = {'photos': 5, 'audio': 3}
 ACCEPTED_TARGETS = {'photos': 5, 'audio': 3}
 DEFAULT_BUDGETS = {'requests': 450, 'media_bytes': 1_200_000_000, 'retries': 2, 'max_assets': 900}
+REPLACEMENT_TARGETS = {'photos': 12, 'audio': 8}
 BOUNDING_BOX = {'swlat': 24, 'swlng': -100, 'nelat': 52, 'nelng': -60}
 HIGH_RISK = {name for pair in PAIR_NAMES for name in pair}
 ALIASES = {'Astur cooperii': ['Accipiter cooperii'],
@@ -89,7 +92,8 @@ def plan(catalog, species, budgets=None):
             'deficit': deficit})
     return {'schema': SCHEMA, 'created_at': _utc(), 'updated_at': _utc(),
             'universe_sha256': hashlib.sha256(UNIVERSE.read_bytes()).hexdigest(),
-            'candidate_targets': CANDIDATE_TARGETS, 'accepted_targets': ACCEPTED_TARGETS,
+            'candidate_targets': CANDIDATE_TARGETS, 'accepted_targets': ACCEPTED_TARGETS, 'replacement_targets': REPLACEMENT_TARGETS,
+            'media_bytes_baseline': 0, 'assets_baseline': 0,
             'budgets': budgets, 'cursor': 0, 'complete': False,
             'counters': {'requests': 0, 'downloads': 0, 'media_bytes': 0, 'retries': 0,
                          'assets_added': 0, 'elapsed_seconds': 0},
@@ -129,24 +133,42 @@ def _note_bytes(state, size):
     state['counters']['downloads'] += 1
 
 
-def _download(url, dest, limit, state, retries):
-    if url in state['failed_urls']:
-        return None, 'URL previously exceeded retry budget'
-    existed = Path(dest).exists()
+def _media_limit(state):
+    return int(state.get('media_bytes_baseline', 0)) + int(state['budgets']['media_bytes'])
+
+
+def _download(url, dest, limit, state, retries, lock=None):
+    lock = lock or threading.Lock()
+    with lock:
+        if url in state['failed_urls']:
+            return None, 'URL previously exceeded retry budget'
+        existed = Path(dest).exists()
     last = None
     for attempt in range(retries + 1):
         try:
             raw = file_download(url, Path(dest), limit)
             if not existed:
-                _note_bytes(state, len(raw))
+                with lock:
+                    _note_bytes(state, len(raw))
             return raw, None
         except RuntimeError as exc:
             last = str(exc)
-            state['counters']['retries'] += 1
+            with lock:
+                state['counters']['retries'] += 1
             if attempt < retries:
                 time.sleep(.4 * (attempt + 1))
-    state['failed_urls'][url] = {'reason': last, 'at': _utc()}
+    with lock:
+        state['failed_urls'][url] = {'reason': last, 'at': _utc()}
     return None, last
+
+
+def _prefetch(tasks, state, retries, workers):
+    """Download bounded media concurrently; provider requests stay sequential."""
+    if workers <= 1 or not tasks:
+        return [None] * len(tasks)
+    lock = threading.Lock()
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(lambda task: _download(task[0], task[1], task[2], state, retries, lock), tasks))
 
 
 def _lineage(obs, target_id):
@@ -303,12 +325,13 @@ def _observations(client, state, taxon_id, page=1):
     return data
 
 
-def expand_photos(species, state, client, catalog, *, catalog_path, media_dir, budgets, downloader, metrics_fn, risky, asset_ceiling=None):
+def expand_photos(species, state, client, catalog, *, catalog_path, media_dir, budgets, downloader, metrics_fn, risky, asset_ceiling=None, targets=None, replacement=False, start_page=1, download_workers=1):
     code = species['ebird_species_code']
     existing = [asset for asset in catalog if asset.get('kind') == 'photo' and asset.get('species_code') == code]
     accepted = sum(asset.get('automated_decision', {}).get('status') in
                    {'automatically_accepted', 'human_approved', 'expert_verified'} for asset in existing)
-    deficit = 0 if accepted >= ACCEPTED_TARGETS['photos'] else max(0, CANDIDATE_TARGETS['photos'] - len(existing))
+    target = int((targets or CANDIDATE_TARGETS)['photos'])
+    deficit = 0 if accepted >= ACCEPTED_TARGETS['photos'] else max(0, target - len(existing))
     if deficit <= 0:
         return 0, 'no photo deficit'
     ceiling = budgets['max_assets'] if asset_ceiling is None else min(asset_ceiling, budgets['max_assets'])
@@ -319,10 +342,10 @@ def expand_photos(species, state, client, catalog, *, catalog_path, media_dir, b
     contributors = Counter(asset.get('contributor_id') for asset in existing)
     existing_observations = {str(asset.get('source_record_id')) for asset in existing}
     added = 0
-    for page in (1, 2):
+    for page in range(max(1, start_page), max(1, start_page) + 2):
         if added >= deficit or state['counters']['assets_added'] >= ceiling:
             break
-        if state['counters']['media_bytes'] >= budgets['media_bytes']:
+        if state['counters']['media_bytes'] >= _media_limit(state):
             _failure(state, code, 'photo', 'media byte budget exhausted')
             break
         if _budget_left(state, client) <= 0:
@@ -336,17 +359,23 @@ def expand_photos(species, state, client, catalog, *, catalog_path, media_dir, b
         options = _photo_options(data, species, target_id, contributors, existing_observations, risky)
         if not options:
             _failure(state, code, 'photo', 'no observation met source-support, contributor, resolution and rights filters')
-        for option in options:
+        slots = min(deficit - added, ceiling - state['counters']['assets_added'], len(options))
+        selected = options[:max(0, slots)]
+        tasks = []
+        for option in selected:
+            url = option['photo']['url'].replace('/square.', '/large.')
+            suffix = Path(url.split('?', 1)[0]).suffix or '.jpg'
+            dest = Path(media_dir) / f"inat-{option['photo']['id']}{suffix}"
+            tasks.append((url, dest, 5_000_000))
+        prefetched = _prefetch(tasks, state, budgets['retries'], download_workers) if download_workers > 1 else None
+        for index, option in enumerate(selected):
             if added >= deficit or state['counters']['assets_added'] >= ceiling:
                 break
-            if state['counters']['media_bytes'] >= budgets['media_bytes']:
-                _failure(state, code, 'photo', 'media byte budget exhausted')
-                break
-            photo = option['photo']
-            url = photo['url'].replace('/square.', '/large.')
-            suffix = Path(url.split('?', 1)[0]).suffix or '.jpg'
-            dest = Path(media_dir) / f"inat-{photo['id']}{suffix}"
-            raw, error = downloader(url, dest, 5_000_000, state, budgets['retries'])
+            url, dest, limit = tasks[index]
+            if prefetched is not None:
+                raw, error = prefetched[index]
+            else:
+                raw, error = downloader(url, dest, limit, state, budgets['retries'])
             if raw is None:
                 _failure(state, code, 'photo', error or 'download failed')
                 continue
@@ -366,6 +395,7 @@ def expand_photos(species, state, client, catalog, *, catalog_path, media_dir, b
         if len(data.get('results', [])) < 6:
             break
     return added, None
+
 
 def xc_query(species, scientific=None):
     return f'sp:"{scientific or species["scientific_name"]}" grp:birds box:24,-100,52,-60 id?:no q:">C"'
@@ -448,12 +478,13 @@ def _audio_record(option, species, raw, dest):
     return record
 
 
-def expand_audio(species, state, client, catalog, *, catalog_path, media_dir, budgets, downloader, risky, asset_ceiling=None):
+def expand_audio(species, state, client, catalog, *, catalog_path, media_dir, budgets, downloader, risky, asset_ceiling=None, targets=None, replacement=False, start_page=1, download_workers=1):
     code = species['ebird_species_code']
     existing = [asset for asset in catalog if asset.get('kind') == 'audio' and asset.get('species_code') == code]
     accepted = sum(asset.get('automated_decision', {}).get('status') in
                    {'automatically_accepted', 'human_approved', 'expert_verified'} for asset in existing)
-    deficit = 0 if accepted >= ACCEPTED_TARGETS['audio'] else max(0, CANDIDATE_TARGETS['audio'] - len(existing))
+    target = int((targets or CANDIDATE_TARGETS)['audio'])
+    deficit = 0 if accepted >= ACCEPTED_TARGETS['audio'] else max(0, target - len(existing))
     if deficit <= 0:
         return 0, 'no audio deficit'
     ceiling = budgets['max_assets'] if asset_ceiling is None else min(asset_ceiling, budgets['max_assets'])
@@ -461,47 +492,52 @@ def expand_audio(species, state, client, catalog, *, catalog_path, media_dir, bu
     types = Counter(asset.get('vocalization') or 'unknown' for asset in existing)
     added = 0
     for scientific in [species['scientific_name'], *ALIASES.get(species['scientific_name'], [])]:
-        if added >= deficit:
-            break
-        if _budget_left(state, client) <= 0 or state['counters']['media_bytes'] >= budgets['media_bytes']:
-            _failure(state, code, 'audio', 'request or byte budget exhausted')
-            break
-        before = client.calls
-        try:
-            data = client.json('https://xeno-canto.org/api/3/recordings',
-                               {'query': xc_query(species, scientific), 'per_page': 50, 'page': 1}, xc=True)
-        except RuntimeError as exc:
+        for page in range(max(1, start_page), max(1, start_page) + 2):
+            if added >= deficit:
+                break
+            if _budget_left(state, client) <= 0 or state['counters']['media_bytes'] >= _media_limit(state):
+                _failure(state, code, 'audio', 'request or byte budget exhausted')
+                break
+            before = client.calls
+            try:
+                data = client.json('https://xeno-canto.org/api/3/recordings',
+                                   {'query': xc_query(species, scientific), 'per_page': 50, 'page': page}, xc=True)
+            except RuntimeError as exc:
+                _sync_requests(state, client, before)
+                _failure(state, code, 'audio', str(exc))
+                continue
             _sync_requests(state, client, before)
-            _failure(state, code, 'audio', str(exc))
-            continue
-        _sync_requests(state, client, before)
-        options = _audio_options(data.get('recordings', []), species, contributors, types, risky)
-        if not options:
-            _failure(state, code, 'audio', 'no recording met quality, rights, duration, recordist and source-name filters')
-        for option in options:
-            if added >= deficit or state['counters']['assets_added'] >= ceiling:
+            options = _audio_options(data.get('recordings', []), species, contributors, types, risky)
+            if not options:
+                _failure(state, code, 'audio', 'no recording met quality, rights, duration, recordist and source-name filters')
+            options = [option for option in options if not any(asset.get('id') == 'xc-' + str(option['row']['id']) for asset in catalog)]
+            slots = min(deficit - added, ceiling - state['counters']['assets_added'], len(options))
+            selected = options[:max(0, slots)]
+            tasks = []
+            for option in selected:
+                suffix = Path(option['url'].split('?', 1)[0]).suffix or '.mp3'
+                dest = Path(media_dir) / ('xc-' + str(option['row']['id']) + suffix)
+                tasks.append((option['url'], dest, 8_000_000))
+            prefetched = _prefetch(tasks, state, budgets['retries'], download_workers) if download_workers > 1 else None
+            for index, option in enumerate(selected):
+                if added >= deficit or state['counters']['assets_added'] >= ceiling:
+                    break
+                url, dest, limit = tasks[index]
+                if prefetched is not None:
+                    raw, error = prefetched[index]
+                else:
+                    raw, error = downloader(url, dest, limit, state, budgets['retries'])
+                if raw is None:
+                    _failure(state, code, 'audio', error or 'download failed')
+                    continue
+                record = _audio_record(option, species, raw, dest)
+                catalog.append(record); save(catalog_path, catalog)
+                state['counters']['assets_added'] += 1; added += 1
+                contributors[option['row'].get('rec')] += 1
+                types[option['type']] += 1
+                save(STATE, state)
+            if data.get('numPages', 1) <= page:
                 break
-            if state['counters']['media_bytes'] >= budgets['media_bytes']:
-                _failure(state, code, 'audio', 'media byte budget exhausted')
-                break
-            row = option['row']
-            asset_id = 'xc-' + str(row['id'])
-            if any(asset.get('id') == asset_id for asset in catalog):
-                continue
-            suffix = Path(option['url'].split('?', 1)[0]).suffix or '.mp3'
-            dest = Path(media_dir) / (asset_id + suffix)
-            raw, error = downloader(option['url'], dest, 8_000_000, state, budgets['retries'])
-            if raw is None:
-                _failure(state, code, 'audio', error or 'download failed')
-                continue
-            record = _audio_record(option, species, raw, dest)
-            catalog.append(record); save(catalog_path, catalog)
-            state['counters']['assets_added'] += 1; added += 1
-            contributors[option['row'].get('rec')] += 1
-            types[option['type']] += 1
-            save(STATE, state)
-        if data.get('numPages', 1) <= 1:
-            break
     return added, None
 
 
@@ -521,6 +557,11 @@ def write_report(state, catalog=None):
         'schema': 'birdahead-phase-two-acquisition-v1', 'at': _utc(),
         'scope': 'Bounded local recreational acquisition; no bulk geographic or restricted-media download',
         'candidate_targets': state['candidate_targets'], 'accepted_targets': state['accepted_targets'],
+        'replacement_targets': state.get('replacement_targets', REPLACEMENT_TARGETS),
+        'incremental_media_bytes': state['counters']['media_bytes'] - int(state.get('media_bytes_baseline', 0)),
+        'incremental_new_assets': state['counters']['assets_added'] - int(state.get('assets_baseline', 0)),
+        'media_bytes_baseline': int(state.get('media_bytes_baseline', 0)),
+        'media_bytes_limit': _media_limit(state),
         'budgets': state['budgets'], 'counters': state['counters'],
         'universe_species': len(state['species']), 'checkpoint_cursor': state.get('cursor'),
         'checkpoint_complete': state.get('complete'),
@@ -539,7 +580,8 @@ def write_report(state, catalog=None):
 
 
 def run(*, max_species=None, max_assets=None, budgets=None, reset=False, catalog_path=None,
-        media_dir=None, client=None, downloader=_download, metrics_fn=image_metrics):
+        media_dir=None, client=None, downloader=_download, metrics_fn=image_metrics,
+        download_workers=1, media_baseline=None, targets=None):
     catalog_path = Path(catalog_path) if catalog_path else CATALOG
     media_dir = Path(media_dir) if media_dir else WORK / 'media'
     catalog = _load(catalog_path) or []
@@ -547,6 +589,8 @@ def run(*, max_species=None, max_assets=None, budgets=None, reset=False, catalog
     state = plan(catalog, species, budgets) if reset or not STATE.exists() else load_state(catalog, species, budgets)
     if budgets:
         state['budgets'].update(budgets)
+    if media_baseline is not None:
+        state['media_bytes_baseline'] = int(media_baseline)
     client = client or SafeClient(budget=state['budgets']['requests'])
     start = time.monotonic()
     start_assets = state['counters']['assets_added']
@@ -564,9 +608,11 @@ def run(*, max_species=None, max_assets=None, budgets=None, reset=False, catalog
                 continue
             risky = row['common_name'] in HIGH_RISK
             expand_photos(row, state, client, catalog, catalog_path=catalog_path, media_dir=media_dir,
-                          budgets=state['budgets'], downloader=downloader, metrics_fn=metrics_fn, risky=risky, asset_ceiling=ceiling)
+                          budgets=state['budgets'], downloader=downloader, metrics_fn=metrics_fn, risky=risky, asset_ceiling=ceiling,
+                          targets=targets, download_workers=download_workers)
             expand_audio(row, state, client, catalog, catalog_path=catalog_path, media_dir=media_dir,
-                         budgets=state['budgets'], downloader=downloader, risky=risky, asset_ceiling=ceiling)
+                         budgets=state['budgets'], downloader=downloader, risky=risky, asset_ceiling=ceiling,
+                         targets=targets, download_workers=download_workers)
             state['cursor'] += 1
             processed += 1
             state['updated_at'] = _utc()
@@ -585,15 +631,81 @@ def run(*, max_species=None, max_assets=None, budgets=None, reset=False, catalog
     return state
 
 
+def replacement_candidates(state, catalog, limit=30):
+    """High-priority species with an accepted-coverage gap, including partial ones."""
+    counts = media_counts(catalog)
+    rows = []
+    for row in state['species']:
+        current = counts[row['ebird_species_code']]
+        if current['photos_accepted'] >= ACCEPTED_TARGETS['photos'] and current['audio_accepted'] >= ACCEPTED_TARGETS['audio']:
+            continue
+        if not (row.get('pilot') or int(row.get('priority_rank') or 999) <= 40 or row.get('common_name') in HIGH_RISK):
+            continue
+        rows.append(row)
+    rows.sort(key=lambda row: (not row.get('pilot'), int(row.get('priority_rank') or 999), row['common_name']))
+    return rows[:limit]
+
+
+def replacement_round(*, limit=30, max_assets=240, targets=None, start_page=2, download_workers=2,
+                      budgets=None, catalog_path=None, media_dir=None, client=None):
+    """Targeted replacements for high-priority gaps without changing the main cursor."""
+    catalog_path = Path(catalog_path) if catalog_path else CATALOG
+    media_dir = Path(media_dir) if media_dir else WORK / 'media'
+    catalog = _load(catalog_path) or []
+    state = load_state(catalog, universe_species(), budgets)
+    if budgets:
+        state['budgets'].update(budgets)
+    targets = targets or state.get('replacement_targets', REPLACEMENT_TARGETS)
+    state['replacement_targets'] = targets
+    candidates = replacement_candidates(state, catalog, limit)
+    client = client or SafeClient(budget=state['budgets']['requests'])
+    start = time.monotonic(); start_assets = state['counters']['assets_added']
+    ceiling = min(state['budgets']['max_assets'], start_assets + max_assets)
+    processed = 0
+    try:
+        for row in candidates:
+            if state['counters']['assets_added'] >= ceiling:
+                break
+            if state['counters']['media_bytes'] >= _media_limit(state):
+                break
+            risky = row['common_name'] in HIGH_RISK
+            expand_photos(row, state, client, catalog, catalog_path=catalog_path, media_dir=media_dir,
+                          budgets=state['budgets'], downloader=_download, metrics_fn=image_metrics, risky=risky,
+                          asset_ceiling=ceiling, targets=targets, replacement=True, start_page=start_page,
+                          download_workers=download_workers)
+            expand_audio(row, state, client, catalog, catalog_path=catalog_path, media_dir=media_dir,
+                         budgets=state['budgets'], downloader=_download, risky=risky, asset_ceiling=ceiling,
+                         targets=targets, replacement=True, start_page=start_page, download_workers=download_workers)
+            processed += 1
+            state['updated_at'] = _utc()
+            save(STATE, state)
+    finally:
+        state['counters']['elapsed_seconds'] = round(state['counters'].get('elapsed_seconds', 0) + time.monotonic() - start, 3)
+        save(STATE, state)
+        write_report(state, catalog)
+        if getattr(client, 'events', None):
+            save(WORK / 'request-logs' / f"replacement-{time.time_ns()}.json", client.events)
+    print(json.dumps({'replacement_species': len(candidates), 'processed': processed,
+                      'assets_added': state['counters']['assets_added'] - start_assets,
+                      'incremental_media_bytes': state['counters']['media_bytes'] - int(state.get('media_bytes_baseline', 0))}, indent=2))
+    return state
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['plan', 'run', 'status', 'report'], nargs='?', default='status')
+    parser.add_argument('command', choices=['plan', 'run', 'replacement', 'status', 'report'], nargs='?', default='status')
     parser.add_argument('--max-species', type=int, default=None)
     parser.add_argument('--max-assets', type=int, default=None)
     parser.add_argument('--requests', type=int, default=None)
     parser.add_argument('--media-bytes', type=int, default=None)
     parser.add_argument('--retries', type=int, default=None)
     parser.add_argument('--reset', action='store_true')
+    parser.add_argument('--workers', type=int, default=1)
+    parser.add_argument('--media-baseline', type=int, default=None)
+    parser.add_argument('--photo-candidates', type=int, default=None)
+    parser.add_argument('--audio-candidates', type=int, default=None)
+    parser.add_argument('--start-page', type=int, default=2)
+    parser.add_argument('--limit', type=int, default=30)
     args = parser.parse_args()
     budgets = {key: value for key, value in {'requests': args.requests, 'media_bytes': args.media_bytes,
         'retries': args.retries}.items() if value is not None}
@@ -601,10 +713,13 @@ def main():
         state = _load(STATE)
         print(json.dumps({'exists': bool(state), 'cursor': (state or {}).get('cursor'),
             'species': len((state or {}).get('species', [])), 'counters': (state or {}).get('counters'),
-            'budgets': (state or {}).get('budgets')}, indent=2))
+            'budgets': (state or {}).get('budgets'), 'media_bytes_baseline': (state or {}).get('media_bytes_baseline'),
+            'incremental_media_bytes': ((state or {}).get('counters',{}).get('media_bytes',0) - (state or {}).get('media_bytes_baseline',0)) if state else None}, indent=2))
     elif args.command == 'plan':
         catalog = _load(CATALOG) or []
         state = plan(catalog, universe_species(), budgets)
+        if args.media_baseline is not None:
+            state['media_bytes_baseline'] = int(args.media_baseline)
         save(STATE, state)
         print(json.dumps({'planned_species': len(state['species']),
             'photo_deficit_candidates': sum(row['deficit']['photos'] for row in state['species']),
@@ -615,8 +730,14 @@ def main():
         if not state:
             raise SystemExit('No expansion checkpoint; run plan first')
         print(json.dumps(write_report(state), indent=2))
+    elif args.command == 'replacement':
+        targets = {'photos': args.photo_candidates or REPLACEMENT_TARGETS['photos'],
+                   'audio': args.audio_candidates or REPLACEMENT_TARGETS['audio']}
+        replacement_round(limit=args.limit, max_assets=args.max_assets or 240, targets=targets,
+                          start_page=args.start_page, download_workers=args.workers, budgets=budgets)
     else:
-        run(max_species=args.max_species, max_assets=args.max_assets, budgets=budgets, reset=args.reset)
+        run(max_species=args.max_species, max_assets=args.max_assets, budgets=budgets, reset=args.reset,
+            download_workers=args.workers, media_baseline=args.media_baseline)
 
 
 if __name__ == '__main__':

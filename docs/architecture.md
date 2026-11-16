@@ -64,6 +64,12 @@ Workers+D1+R2 suits two users and compact relational metadata. SQLite files/stat
 
 Read-only inspection of Road Naturalist's architecture and deployment docs supports source-specific adapters, distinct evidence classes, immutable manifests, checksums, offline preparation and post-publish verification. Its raw GIS data and deployment resources are not dependencies. Deep Cuts was not found in the inspected local top-level project metadata; no reuse or compatibility assessment is claimed. The Sites skill local-only workflow was used for the learner increment; no Site registration, cloud resources or publishing occurred.
 
+## Delivery-media manifest and R2 projection
+
+`tooling.delivery_manifest` emits a compact, rights-compliant object manifest from the accepted release: object key, content type, bytes, SHA-256, creator, exact license/attribution, source, delivery permission, share-alike/commercial flags, derivative notice and source link. Media bytes stay private. Keys are stable content-addressed IDs under `media/`; an eventual authenticated household bucket can serve them with immutable cache headers and byte ranges. The manifest deliberately excludes local paths, model weights, raw source captures and exact locations.
+
+At the Phase 2.1 accepted collection size (0.406 GB, 589 objects), projected R2 Standard storage is **$0/month** under the 10 GB-month free allowance; at $0.015/GB-month the raw storage estimate would be about $0.006/month before allowances. Class A/B operations and any future egress are separate. Most photos are iNaturalist CC BY/CC BY-SA/CC0/CC BY-NC; recordings are Xeno-canto CC BY-SA/CC BY-NC-SA. NC/SA assets restrict commercial use and derivative licensing. Delivery is therefore limited to a **private, noncommercial household** unless every included license permits a broader use. No public bucket was created.
+
 ## Cost model, in USD
 
 Rates checked November 15, 2026; estimates are incremental, not an account invoice. Existing projects may consume shared allowances.

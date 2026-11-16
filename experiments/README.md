@@ -129,3 +129,14 @@ uv run python -m tooling.flag_sync --apply
 ```
 
 Public evidence: `teaching-universe` configuration under `config/geography/`, `phase-two-acquisition.json` (checkpoint/budget/failure aggregates), `phase-two-media.json` (before/after accepted coverage, rejection reasons, seasonal deck coverage, storage/time), `audio-segments.json` (verified clip criteria/counts) and `flag-reconciliation.json` (aggregate reconciliation counts). `phase-one-media-baseline.json` is the pre-expansion snapshot. Private state: `experiments/private/phase05/expansion/state.json`, catalog/media, inference artifacts and the review database. Candidate counts are never accepted coverage; source/model evidence remains preliminary. No new county download, large EBD/SED acquisition or model raster was requested.
+
+## Phase 2.1 — collection completion
+
+```sh
+uv run python -m tooling.complete_expansion --batch-species 8 --batch-assets 100 --workers 4
+uv run python -m tooling.expansion replacement --limit 40 --max-assets 300 --workers 4 --start-page 2
+uv run python -m tooling.delivery_manifest
+uv run python -m tooling.audit_queue
+```
+
+Phase 2.1 uses an incremental 5 GB media baseline in the existing checkpoint, cached requests/predictions, bounded concurrent downloads and targeted replacement pages. Public outputs are `phase-two-1.json`, updated `phase-two-media.json`/`phase-two-acquisition.json`, `phase-two-delivery-manifest.json` and `phase-two-audit-queue.json`; `phase-two-accepted-baseline.json` records the 193-asset Phase Two starting point. Private state remains under `experiments/private/phase05/`.

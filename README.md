@@ -4,7 +4,7 @@
 
 A local, mobile-first learning app for two recreational birders in southwestern Indiana. Prepare for an outing with seasonal priorities, photo and audio practice, recall reveals and independent progress.
 
-**Status: Phase Two local content expansion delivered; production hosting remains off.** The local teaching universe now has **100 species** derived from all seven supplied 2016–2025 eBird county histograms. Media expansion, verified audio clips, the field-guide/coverage UI and flag-to-workbench reconciliation are implemented. No large EBD/SED or modeled-raster download was undertaken; no cloud resource was created.
+**Status: Phase 2.1 completed the initial local collection; production hosting remains off.** The local teaching universe has **100 species** derived from all seven supplied 2016–2025 eBird county histograms. The collection now has **589 automatically accepted assets across 99 species**, verified audio clips, the field-guide/coverage UI, a private delivery manifest and flag-to-workbench reconciliation. No large EBD/SED or modeled-raster download was undertaken; no cloud resource was created.
 
 ## Try the local learner
 
@@ -16,11 +16,13 @@ uv run python -m tooling.teaching_universe derive
 uv run python -m tooling.histograms
 uv run python -m tooling.local_release
 uv run python -m tooling.expansion status
+uv run python -m tooling.delivery_manifest
+uv run python -m tooling.audit_queue
 npm ci --prefix app --ignore-scripts
 npm run local --prefix app
 ```
 
-Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase Two collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
+Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase 2.1 collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
 
 The app binds only to loopback; this is not yet a phone-accessible hosted PWA, an authenticated multiuser service or a complete offline-pack implementation. [Local use, data, limitations and checks](docs/local-mvp.md).
 
@@ -30,10 +32,10 @@ The app binds only to loopback; this is not yet a phone-accessible hosted PWA, a
 - Winter/spring/summer/fall priorities demonstrably change for the same county. A future migration rise is evaluated independently of current reporting frequency. Reporting frequency is **not** the probability of an encounter.
 - Authenticated Status and Trends file listing works using `EBIRD_ST_API_KEY`; no raster was downloaded. EBD/SED delivery and unattended refresh entitlement remain unverified. Recurring manual county downloads are rejected.
 - Python/DuckDB/partitioned Parquet are validated on the small imported bootstrap dataset and synthetic source-shaped checklist tests. Real bulk throughput and EBD-to-histogram parity are not claimed.
-- Phase Two accepted coverage rose from **55 to 193 assets** (141 photographs, 52 recordings), with 30 species sight-ready and 16 sound-ready. Sixteen species meet the five-photo target and ten meet the three-recording target; four meet both. Sixty-eight teaching species remain explicit gaps. Media expansion stopped at a practical 23/100-species checkpoint; the bounded state is resumable.
-- Verified audio clips are real intervals with parent provenance, never synthetic calls; 24 clips passed curation. Automated acceptance remains preliminary source/model corroboration, not biological certification. Owner/expert audits and biological-subtype coverage remain gaps; the two-hour total owner-review cap is unchanged and recorded owner-review time remains zero. The 40-asset sampled audit queue is not a completed audit.
+- Phase 2.1 completed the breadth pass: **100/100 species processed**, **589 accepted assets** (384 photographs, 205 recordings), **83 species sight-ready** and **57 sound-ready**. Forty-one species meet the five-photo target, 37 meet the three-recording target and 18 meet both. Only **7 explicit gaps** remain. The incremental 5 GB budget used ~640 MB; 116 GiB free was verified before acquisition.
+- Verified audio clips are real intervals with parent provenance, never synthetic calls; 97 clips passed curation. Automated acceptance remains preliminary source/model corroboration, not biological certification. Owner/expert audits and biological-subtype coverage remain gaps; the two-hour total owner-review cap is unchanged and recorded owner-review time remains zero. The **117-asset sampled audit queue** (about 56 minutes at stated assumptions) is not a completed audit. The private delivery manifest covers 589 objects / 0.406 GB with R2 free-tier storage projected at $0; NC/SA licenses limit delivery to a private noncommercial household.
 
-See the [Phase Two report](docs/phase-two.md), [media coverage evidence](experiments/phase-two-media.json), [teaching universe](config/geography/teaching-universe.json), [acquisition checkpoint evidence](experiments/phase-two-acquisition.json), [geographic acquisition architecture](docs/geographic-acquisition.md) and [derived histogram evidence](experiments/histogram-validation.json).
+See the [Phase 2.1 report](docs/phase-two-1.md), [Phase Two report](docs/phase-two.md), [media coverage evidence](experiments/phase-two-media.json), [teaching universe](config/geography/teaching-universe.json), [acquisition checkpoint evidence](experiments/phase-two-acquisition.json), [geographic acquisition architecture](docs/geographic-acquisition.md) and [derived histogram evidence](experiments/histogram-validation.json).
 
 ## Project documents
 
@@ -42,6 +44,7 @@ See the [Phase Two report](docs/phase-two.md), [media coverage evidence](experim
 | [PROJECT.md](PROJECT.md) | Canonical specification and current authorization |
 | [AGENTS.md](AGENTS.md) | Operating boundary and credential convention |
 | [ROADMAP.md](ROADMAP.md) | Delivered local scope and next acceptance gates |
+| [Phase 2.1 report](docs/phase-two-1.md) | Breadth/replacement completion, delivery, R2 and audit queue |
 | [Phase Two report](docs/phase-two.md) | Universe, expansion, acceptance, coverage and handoff |
 | [Local MVP](docs/local-mvp.md) | Run, reset/export, flags and verification |
 | [Teaching universe](config/geography/teaching-universe.json) | Priority ranks, selection inputs and unresolved counts |
@@ -50,6 +53,8 @@ See the [Phase Two report](docs/phase-two.md), [media coverage evidence](experim
 | [Media coverage](experiments/phase-two-media.json) | Before/after acceptance, reasons, decks and storage |
 | [Audio segments](experiments/audio-segments.json) | Verified interval extraction criteria and counts |
 | [Flag reconciliation](experiments/flag-reconciliation.json) | Learner-report intake status and budget evidence |
+| [Delivery manifest](experiments/phase-two-delivery-manifest.json) | R2 object keys, rights, attribution and projected storage |
+| [Audit queue](experiments/phase-two-audit-queue.json) | Concise risk-stratified sampled owner-audit queue |
 | [Geographic acquisition](docs/geographic-acquisition.md) | EBD/SED, S&T, caching, sizes and access limits |
 | [Seasonal model](docs/seasonal-model.md) | Native bins, missingness and ranking |
 | [Architecture](docs/architecture.md) | Runtime/data separation and costs |
@@ -64,7 +69,7 @@ See the [Phase Two report](docs/phase-two.md), [media coverage evidence](experim
 ## Development and credentials
 
 ```sh
-uv run python -m unittest discover -s tests          # 48 tests
+uv run python -m unittest discover -s tests          # 52 tests
 npm test --prefix app                                  # 9 tests
 npm run build --prefix app
 uv run --with playwright python -m tooling.learner_browser_smoke

@@ -1,0 +1,16 @@
+{
+  "schema": "birdahead-phase-two-accepted-baseline-v1",
+  "source": "Phase Two accepted manifest before Phase 2.1 continuation",
+  "automatically_accepted": 193,
+  "accepted_by_modality": {
+    "photo": 141,
+    "audio": 52
+  },
+  "photo_practice_species": 30,
+  "audio_practice_species": 16,
+  "photo_target_species": 16,
+  "audio_target_species": 10,
+  "species_with_both_targets": 4,
+  "gaps": 68,
+  "note": "Automatically accepted counts only; no human/expert approval implied."
+}

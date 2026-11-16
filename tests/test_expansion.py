@@ -151,6 +151,23 @@ class ExpansionTests(unittest.TestCase):
                                            {'owner-1': 0}, set(), False)
         self.assertEqual(len(options), 1)
 
+    def test_incremental_media_budget_uses_baseline(self):
+        state = expansion.plan([], self.species)
+        state['media_bytes_baseline'] = 1000
+        state['budgets']['media_bytes'] = 5000
+        self.assertEqual(expansion._media_limit(state), 6000)
+
+    def test_replacement_candidates_target_priority_gaps(self):
+        state = expansion.plan([], self.species)
+        state['species'][0]['pilot'] = True
+        state['species'][0]['priority_rank'] = 1
+        state['species'][1]['pilot'] = False
+        state['species'][1]['priority_rank'] = 90
+        catalog = [{'id': 'accepted', 'kind': 'photo', 'species_code': 'fixture-a',
+                    'automated_decision': {'status': 'automatically_accepted'}}]
+        rows = expansion.replacement_candidates(state, catalog, limit=10)
+        self.assertEqual([row['ebird_species_code'] for row in rows], ['fixture-a'])
 
 if __name__ == '__main__':
     unittest.main()
+

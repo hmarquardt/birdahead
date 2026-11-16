@@ -1,6 +1,6 @@
 # BirdAhead product specification
 
-Status: canonical scope, updated November 15, 2026. A bounded local learner MVP and Phase Two local content expansion are implemented; the broader product requirements below remain phased. Current evidence is in docs/phase-two.md; historical findings remain in docs/feasibility.md.
+Status: canonical scope, updated November 15, 2026. A bounded local learner MVP, Phase Two content expansion and Phase 2.1 collection completion are implemented; the broader product requirements below remain phased. Current evidence is in docs/phase-two.md; historical findings remain in docs/feasibility.md.
 
 ## Mission and audience
 
@@ -55,6 +55,12 @@ Derive a prioritized 100-species teaching universe from the seven imported 2016�
 Expand accepted media toward five photographs and three recordings per species “where practical.” Use bounded, resumable acquisition batches with explicit request, media-byte and retry budgets. Reuse the existing source-evidence, rights, BioCLIP 2/BirdNET, technical and deduplication gates. Improve candidate selection from measured rejection reasons before increasing volume. Prefer multiple contributors and biological variation. Verified extraction of a source-dominant interval from an intermittent real recording is permitted when the license allows derivatives; every clip must retain parent digest, interval, model/recipe versions, rights and attribution. Never synthesize calls or imagery. No new paid inference service is authorized. The two-hour total owner-review ceiling is unchanged.
 
 Improve the local learner with visible seasonal vintage/sample support, clearer acceptance/coverage gaps, a browsable accepted-media reference library, feedback/session summaries, flag-to-workbench reconciliation, touch/mobile usability and compatibility-preserving progress across additive content releases. Reuse the seven county datasets for geographic intelligence; no new county downloads or large EBD/SED/modeled-raster acquisition is authorized in this phase.
+
+### Phase 2.1 completion
+
+Resume the existing teaching-universe acquisition checkpoint through successive bounded batches, using an incremental 5 GB new-media budget, provider-compliant concurrency, cached responses/predictions, explicit retries and free-disk verification. Complete the 100-species breadth pass, then run targeted replacement passes for high-priority, pilot and confusion-pair gaps. Retain all rights/provenance/technical/model/deduplication gates; candidate volume is never acceptance authority. Continue verified source-interval audio clips where permitted.
+
+Prepare a compact private-household delivery-object manifest for eventual authenticated R2 use, including exact license/attribution, derivative notices, source restrictions and projected storage. Prepare a concise risk-stratified sampled audit queue. Rebuild the compatible learner release without resetting profiles, progress or flags. No paid inference, new county download, large geographic dataset, production deployment or cloud resource is authorized.
 
 ## Historical Phase One — local use and scalable geography
 

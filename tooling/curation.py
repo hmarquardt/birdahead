@@ -13,6 +13,7 @@ from tooling.review_store import Store
 
 POLICY='recreational-tiered-v1-source-proxy'
 PAIR_NAMES=[("Cooper's Hawk","Sharp-shinned Hawk"),('Downy Woodpecker','Hairy Woodpecker'),('Turkey Vulture','Black Vulture'),('Greater Yellowlegs','Lesser Yellowlegs')]
+HIGH_RISK={name for pair in PAIR_NAMES for name in pair}
 
 
 @lru_cache(maxsize=1)
@@ -177,7 +178,11 @@ def run():
     for kind,cap in [('photo',90),('audio',40)]:
         group=sorted([a for a in accepted if a['kind']==kind],key=lambda a:digest([POLICY,a['sha256']]))
         limit=min(cap,math.ceil(.20*len(group)))
-        audited_ids.update(a['id'] for a in group[:limit])
+        high=[a for a in group if a.get('common_name') in HIGH_RISK]
+        other=[a for a in group if a.get('common_name') not in HIGH_RISK]
+        high_take=min(len(high),math.ceil(.5*limit))
+        selected=high[:high_take]+other[:max(0,limit-high_take)]
+        audited_ids.update(a['id'] for a in selected)
     for a in assets:a['audit_selected']=a['id'] in audited_ids
     save(CATALOG,assets)
     store=Store();store.sync(assets);export=store.export(WORK/'approved-media.json');used=store.used_seconds();store.close()
