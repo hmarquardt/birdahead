@@ -3,7 +3,7 @@ import {
   comparativeQuestion, recommendedPairs, seasonalOverlap, assetGaps,
   type ComparisonAsset, type ComparisonCatalog, type ComparisonPair, type ComparativeQuestion,
 } from "./comparisons";
-import { listComparativeAttempts, recordComparativeAttempt, type ComparativeAttempt } from "./offline";
+import { listComparativeAttempts, listPacks, recordComparativeAttempt, type ComparativeAttempt } from "./offline";
 
 type Row = Record<string, any>;
 const DIMENSIONS: Record<string, string> = {
@@ -40,7 +40,7 @@ export function Compare({ boot, county, day, signedIn, profile, progress, attemp
   const [practiceMessage, setPracticeMessage] = useState("");
   useEffect(() => {
     fetch("/comparisons.json", { credentials: "same-origin" }).then((response) => response.ok ? response.json() : Promise.reject(new Error("Comparison catalog unavailable."))).then(setCatalog).catch((reason) => setError(reason.message));
-    fetch(`/api/public/library?location=${encodeURIComponent(county)}&day=${encodeURIComponent(day)}`, { credentials: "same-origin" }).then((response) => response.ok ? response.json() : Promise.reject(new Error("Public media catalog unavailable."))).then(setLibrary).catch((reason) => setError(reason.message));
+    fetch(`/api/public/library?location=${encodeURIComponent(county)}&day=${encodeURIComponent(day)}`, { credentials: "same-origin" }).then((response) => response.ok ? response.json() : Promise.reject(new Error("Public media catalog unavailable."))).then(setLibrary).catch(async () => { const packs = await listPacks().catch(() => []); const rows = new Map<string, Row>(); for (const pack of packs) for (const asset of pack.assets) { if (!asset.media_url.startsWith("/media/public/")) continue; const row = rows.get(asset.species_code) ?? { code: asset.species_code, name: pack.species.find((s) => s.code === asset.species_code)?.name ?? asset.species_code, assets: [] }; row.assets.push(asset); rows.set(asset.species_code, row); } setLibrary({ species: [...rows.values()] }); setError("Comparison media catalog is using downloaded packs offline."); });
     listComparativeAttempts(signedIn ? profile : null).then(setHistory).catch(() => undefined);
   }, [county, day, signedIn, profile]);
   const pair = catalog?.pairs.find((row) => row.id === selected) ?? catalog?.pairs.find((row) => (row.left.code === initialA && row.right.code === initialB) || (row.left.code === initialB && row.right.code === initialA)) ?? null;
