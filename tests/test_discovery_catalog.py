@@ -40,6 +40,8 @@ class DiscoveryCatalogTests(unittest.TestCase):
     def test_teaching_profiles_match_imported_release_exactly(self):
         release = json.loads(RELEASE.read_text())
         selected = {row["ebird_species_code"]: row for row in release["species"]}
+        for county in release["profiles"]:
+            self.assertEqual(self.catalog["counties"][county]["sample_sizes"], release["profiles"][county]["metadata"]["sample_sizes"])
         for row in self.catalog["species"]:
             if not row["teaching"]:
                 continue
