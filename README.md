@@ -24,11 +24,12 @@ npm run local --prefix app
 
 Open **http://127.0.0.1:8788** on this computer. Choose a county, outing date, learner and practice style. Here Now and Arriving Soon use separate rankings. The Phase 2.1 collection supports a 100-species teaching universe with an accepted-media field guide, coverage view and explicit gaps. Two learner profiles, uncertainty answers, directed confusions, simple spaced reinforcement and identification flags persist locally. Flagged media is hidden from both learners and excluded from progress; `uv run python -m tooling.flag_sync --apply` sends reports to the local curation workbench without consuming owner-review time. No live third-party API is needed during practice. Stop with Ctrl-C.
 
-The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Selective offline learning packs, hands-free Road Trip mode and the public comparison explorer are available. [Local use](docs/local-mvp.md), [offline learning](docs/offline.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
+The local app binds only to loopback for development. The deployed PWA is at **https://birdahead.com**. Guests can explore and practice immediately; Hank/Heather sign-in is optional for server-backed progress. Selective offline learning packs, hands-free Road Trip mode, the public comparison explorer and the 333-species annual discovery explorer are available. [Local use](docs/local-mvp.md), [offline learning](docs/offline.md), [production operations](docs/production.md), [analytics](docs/analytics.md).
 
 ## Current evidence
 
 - Seven exports, 737,866 original bytes, 48 native month-subdivision bins, 79,868 total checklist samples. The derived teaching universe has 100 species across 333 reconciled candidates (25 pilot retained); 81 unresolved source names remain excluded. Source taxonomy version is not embedded and remains unknown. Imported rows: 100 species × 48 bins × 7 counties.
+- Discovery now exposes 333 reconciled species across seven counties and 48 native bins. The 100 teaching species retain separate media/practice coverage flags; regional values use checklist-sample weighting and missing bins remain null.
 - Winter/spring/summer/fall priorities demonstrably change for the same county. A future migration rise is evaluated independently of current reporting frequency. Reporting frequency is **not** the probability of an encounter.
 - Authenticated Status and Trends file listing works using `EBIRD_ST_API_KEY`; no raster was downloaded. EBD/SED delivery and unattended refresh entitlement remain unverified. Recurring manual county downloads are rejected.
 - Python/DuckDB/partitioned Parquet are validated on the small imported bootstrap dataset and synthetic source-shaped checklist tests. Real bulk throughput and EBD-to-histogram parity are not claimed.
@@ -53,6 +54,9 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Road Trip](docs/roadtrip.md) | Hands-free audio sessions, narration, Media Session and device checklist |
 | [Road Trip evidence](experiments/phase-five-roadtrip.json) | Automated narration/timing/recovery checks |
 | [Phase Six delivery](docs/phase-six.md) | Narration remediation, comparison explorer, adaptive practice and verification |
+| [Phase Seven delivery](docs/phase-seven.md) | Discovery separation, explorer behavior and verification |
+| [Annual discovery](docs/discovery.md) | 333-species occurrence explorer, weighted regions, calendar bins and learning integration |
+| [Discovery evidence](experiments/phase-seven-discovery.json) | Automated browser/catalog validation evidence |
 | [Comparative learning](docs/comparison.md) | Public comparison explorer, cited catalog, adaptive practice and offline notes |
 | [Narration remediation](docs/narration-remediation.md) | Kokoro replacement provenance and historical exposure |
 | [Comparison evidence](experiments/phase-six-comparison.json) | Automated comparison/catalog/practice checks |

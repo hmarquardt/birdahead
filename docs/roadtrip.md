@@ -33,7 +33,7 @@ Install `espeak-ng` first if the platform does not provide Kokoro's English fall
 
 The current narration version is `kokoro-82m-af_heart-v1`. Pre-Kokoro `.m4a` narration is removed from current delivery and old downloaded packs are marked for refresh. See `docs/offline.md` and [narration remediation](narration-remediation.md).
 
-Road-trip packs reuse the Phase Four `birdahead-pack-assets-v1` cache. They include the selected recordings, name/instruction clips and only the silence interval needed by that session. Shared recordings are stored once. The download UI shows the actual size before download and the pack participates in interruption recovery, integrity validation, release-change marking and deletion/reclamation.
+Discovery selections can open a focused Road Trip session using only species with accepted recordings; if none are available, the discovery view keeps that as a media gap. Road-trip packs reuse the Phase Four `birdahead-pack-assets-v1` cache. They include the selected recordings, name/instruction clips and only the silence interval needed by that session. Shared recordings are stored once. The download UI shows the actual size before download and the pack participates in interruption recovery, integrity validation, release-change marking and deletion/reclamation.
 
 Playback is a continuous HTMLMediaElement segment chain driven by `ended` events, not background JavaScript timers. Media Session exposes play, pause, next, previous/replay, seek forward/back and stop to Bluetooth/lock-screen controls. Native media controls are shown in the driving view. Phone calls, navigation prompts and Bluetooth interruptions may pause playback; Resume and the native controls are available, but are not required for normal progression.
 

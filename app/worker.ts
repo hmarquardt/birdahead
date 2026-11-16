@@ -1,7 +1,7 @@
 /// <reference lib="webworker" />
 import { Hono } from "hono";
 import { HTTPException } from "hono/http-exception";
-import { escapeHtml, renderPrivacyPage, renderRegionPage, renderRobots, renderSitemap, renderSourcesPage, renderSpeciesPage } from "./public-pages";
+import { escapeHtml, renderMigrationPage, renderPrivacyPage, renderRegionPage, renderRobots, renderSitemap, renderSourcesPage, renderSpeciesPage } from "./public-pages";
 
 type Row = Record<string, any>;
 interface D1Prepared {
@@ -281,15 +281,18 @@ app.get("/api/public/practice", async (c) => {
   const location = c.req.query("location") ?? ""; const day = c.req.query("day") ?? new Date().toISOString().slice(0, 10); const kind = c.req.query("kind") === "audio" ? "audio" : "photo";
   const mode = c.req.query("mode") === "recall" ? "recall" : "choice"; const focus = ["now", "arriving", "weak"].includes(c.req.query("focus") ?? "") ? c.req.query("focus")! : "now";
   const release = await activeRelease(c.env); const visible = publicAssets(release, await hidden(c.env.DB)); const ranked = publicRanked(release, location, day, visible);
-  let candidates = ranked.filter((r) => kind === "photo" ? r.photo_ready : r.audio_ready);
+  const eligible = ranked.filter((r) => kind === "photo" ? r.photo_ready : r.audio_ready);
+  let candidates = eligible;
   if (focus === "now") candidates = candidates.filter((r) => (r.current_reporting_frequency ?? 0) > 0);
   if (focus === "arriving") candidates = candidates.filter((r) => (r.approaching_window_rise ?? 0) > 0);
-  if (candidates.length < 2) throw new HTTPException(400, { message: "Not enough public media for this practice mode." });
+  const requested = new Set((c.req.query("codes") ?? "").split(",").map((code) => code.trim()).filter(Boolean));
+  if (requested.size) candidates = candidates.filter((r) => requested.has(r.species_code));
+  if (candidates.length < 1) throw new HTTPException(400, { message: "No public media matches this discovery selection." });
   const questions: Row[] = []; const used = new Set<string>();
   for (let round = 0; round < 4 && questions.length < 10; round++) for (const candidate of candidates) {
     if (questions.length >= 10) break; const pool = visible.filter((a) => a.species_code === candidate.species_code && a.kind === kind && !used.has(a.id)); if (!pool.length) continue;
     const asset = pool[0]; used.add(asset.id); const qid = crypto.randomUUID();
-    const otherCodes = candidates.filter((r) => r.species_code !== candidate.species_code).slice(0, 8).map((r) => r.species_code);
+    const otherCodes = eligible.filter((r) => r.species_code !== candidate.species_code).slice(0, 8).map((r) => r.species_code);
     const options = mode === "choice" ? [candidate.species_code, ...otherCodes.slice(0, 3)] : [];
     const hashed = await Promise.all(options.map(async (code) => [code, await digest(qid + code)] as const)); hashed.sort((a, b) => String(a[1]).localeCompare(String(b[1])));
     questions.push({ id: qid, asset_id: asset.id, species_code: candidate.species_code, name: candidate.name, compare_with: candidate.confusion_pair?.ebird_species_code ? { code: candidate.confusion_pair.ebird_species_code, name: candidate.confusion_pair.common_name } : null, kind, mode, media_url: `/media/public/${asset.id}`,
@@ -404,8 +407,10 @@ app.post("/api/sessions", async (c) => {
   if(!location||!day||!["photo","audio"].includes(kind)||!["choice","recall"].includes(mode)||!["now","arriving","weak"].includes(focus)) throw new HTTPException(400,{message:"Invalid practice settings."});
   const release=await activeRelease(c.env); const ranked=priorities(release,location,day); const visible=visibleAssets(release,await hidden(c.env.DB)); const counts=mediaCounts(release,visible);
   const pool=release.species.filter((s)=>(counts.get(s.ebird_species_code)?.photos??0)>=2||false);
-  const poolForKind=release.species.filter((s)=>{const v=counts.get(s.ebird_species_code)??{photos:0,audio:0};return kind==="photo"?v.photos>=2:v.audio>=2;});
-  if(poolForKind.length<2) throw new HTTPException(400,{message:"Not enough accepted examples for this practice mode."});
+  const allForKind=release.species.filter((s)=>{const v=counts.get(s.ebird_species_code)??{photos:0,audio:0};return kind==="photo"?v.photos>=2:v.audio>=2;});
+  const requestedCodes=new Set(Array.isArray(body?.codes)?body.codes.map((code:unknown)=>String(code)).filter(Boolean):[]);
+  const poolForKind=requestedCodes.size?allForKind.filter((s)=>requestedCodes.has(s.ebird_species_code)):allForKind;
+  if(poolForKind.length<1) throw new HTTPException(400,{message:"No accepted examples match this discovery selection."});
   const past=await history(c.env.DB,profile); let nowms=Date.now();
   const score=(code:string)=>{const r=ranked.find((x)=>x.species_code===code)??{approaching_window_rise:0,learning_priority:0,current_reporting_frequency:0};const h=past.filter((a)=>a.species_code===code&&a.kind===kind&&a.mode===mode);const last=h.at(-1);let streak=0;for(const a of h.slice(-4).reverse()){if(a.outcome!=="correct")break;streak++;}const due=!last||last.outcome!=="correct"||nowms-Date.parse(last.at)>Math.pow(2,streak)*86400000;const weaknesses=h.slice(-5).filter((a)=>a.outcome!=="correct").length/Math.max(1,Math.min(h.length,5));return (focus==="arriving"?(r.approaching_window_rise??0):(r.learning_priority??0))+(due?.12:0)+weaknesses*(focus==="weak"?.7:.15);};
   const order=poolForKind.filter((s)=>{const r=ranked.find((x)=>x.species_code===s.ebird_species_code)??{approaching_window_rise:0,current_reporting_frequency:0};return focus==="weak"||(focus==="arriving"?(r.approaching_window_rise??0)>0:(r.current_reporting_frequency??0)>0);}).sort((a,b)=>score(b.ebird_species_code)-score(a.ebird_species_code)||a.ebird_species_code.localeCompare(b.ebird_species_code));
@@ -416,7 +421,7 @@ app.post("/api/sessions", async (c) => {
     candidates.sort((a,b)=>past.filter((h)=>h.asset_id===a.id).length-past.filter((h)=>h.asset_id===b.id).length||a.id.localeCompare(b.id));
     const asset=candidates[0]; if(!asset||questions.length>=10)continue; used.add(asset.id); const qid=crypto.randomUUID();
     const mistakes=past.filter((h)=>h.species_code===s.ebird_species_code&&h.outcome==="incorrect"&&h.mode==="choice").map((h)=>h.choice);
-    const others=[...new Set([...mistakes,...poolForKind.map((p)=>p.ebird_species_code)])].filter((code)=>code!==s.ebird_species_code&&poolForKind.some((p)=>p.ebird_species_code===code)).slice(0,3);
+    const others=[...new Set([...mistakes,...allForKind.map((p)=>p.ebird_species_code)])].filter((code)=>code!==s.ebird_species_code&&poolForKind.some((p)=>p.ebird_species_code===code)).slice(0,3);
     const optionCodes=[s.ebird_species_code,...others]; const hashed=await Promise.all(optionCodes.map(async(code)=>[code,await digest(qid+code)])); hashed.sort((a,b)=>String(a[1]).localeCompare(String(b[1])));
     questions.push({id:qid,asset_id:asset.id,correct:s.ebird_species_code,options:hashed.map((x)=>x[0])});
   }
@@ -576,6 +581,7 @@ app.get("/birds/:code", async (c) => {
     priority:{current_reporting_frequency:priority?.current_reporting_frequency??null,approaching_window_rise:priority?.approaching_window_rise??null,sample_size:priority?.sample_size??null,bin_start:priority?.bin_start??null,bin_end:priority?.bin_end??null},assets,bins: bins.map((b:Row)=>({start:b.start,end:b.end,frequency:b.frequency,sample_size:b.sample_size})),});
   c.header("Cache-Control","public, max-age=600, stale-while-revalidate=3600"); return c.html(html);
 });
+app.get("/migration", async (c) => { const response=await c.env.ASSETS.fetch(new Request(new URL("/discovery-page.json", c.req.url))); if(!response.ok) throw new HTTPException(503,{message:"Discovery summary unavailable."}); const summary=await response.json() as any; return c.html(renderMigrationPage(c.env.APP_ORIGIN,summary)); });
 app.get("/regions/:county", async (c) => {
   const release=await activeRelease(c.env); const code=c.req.param("county"); const name=release.counties[code]; if(!name) throw new HTTPException(404,{message:"Region not found."});
   const visible=publicAssets(release,await hidden(c.env.DB)); const ranked=publicRanked(release,code,new Date().toISOString().slice(0,10),visible).filter((r)=>r.photo_ready||r.audio_ready).slice(0,30);

@@ -4,10 +4,11 @@ import "./style.css";
 import { Downloads } from "./offline-ui";
 import { RoadTrip } from "./roadtrip-ui";
 import { Compare } from "./comparison-ui";
+import { MigrationExplorer } from "./migration-ui";
 import { removeLegacyNarrationCache, syncOfflineAttempts } from "./offline";
 
 type Row = Record<string, any>;
-type Tab = "explore" | "guide" | "practice" | "downloads" | "roadtrip" | "compare" | "progress" | "about";
+type Tab = "explore" | "migration" | "guide" | "practice" | "downloads" | "roadtrip" | "compare" | "progress" | "about";
 type Auth = "checking" | "guest" | "in";
 declare global { interface Window { cflabAnalytics?: { track?: (name: string, props?: Row) => void } } }
 const track = (name: string, props?: Row) => { try { window.cflabAnalytics?.track?.(name, props); } catch { /* optional */ } };
@@ -108,7 +109,7 @@ function Guide({ boot, county, day, signedIn, profile, focusCode, onPractice, on
 }
 
 
-function Practice({ signedIn, profile, county, day, initialKind, initialBird, onProgress, onCompare }: { signedIn: boolean; profile: string; county: string; day: string; initialKind: string; initialBird: string; onProgress: () => void; onCompare: (a: string, b: string) => void }) {
+function Practice({ signedIn, profile, county, day, initialKind, initialBird, initialCodes = [], onProgress, onCompare }: { signedIn: boolean; profile: string; county: string; day: string; initialKind: string; initialBird: string; initialCodes?: string[]; onProgress: () => void; onCompare: (a: string, b: string) => void }) {
   const [kind, setKind] = useState(initialKind === "audio" ? "audio" : "photo");
   const [mode, setMode] = useState("choice");
   const [focus, setFocus] = useState("now");
@@ -131,10 +132,11 @@ function Practice({ signedIn, profile, county, day, initialKind, initialBird, on
     await run(async () => {
       setReveal(null); setAnswers([]); setPending(null); setIndex(0);
       if (signedIn) {
-        const s = await api("sessions", { profile, location: county, day, kind, mode, focus });
+        const s = await api("sessions", { profile, location: county, day, kind, mode, focus, codes: initialCodes });
         setSession(s); setGuest(null); track("practice_start", { mode, kind, guest: false });
       } else {
-        const g = await api(`public/practice?location=${encodeURIComponent(county)}&day=${day}&kind=${kind}&mode=${mode}&focus=${focus}`);
+        const codes = initialCodes.length ? `&codes=${encodeURIComponent(initialCodes.join(","))}` : "";
+        const g = await api(`public/practice?location=${encodeURIComponent(county)}&day=${day}&kind=${kind}&mode=${mode}&focus=${focus}${codes}`);
         if (focus === "weak") {
           const weak = new Set(readGuest().filter((a) => a.outcome !== "correct").map((a) => a.species_code));
           g.questions = [...(g.questions ?? [])].sort((a: Row, b: Row) => Number(weak.has(b.species_code)) - Number(weak.has(a.species_code)));
@@ -166,7 +168,7 @@ function Practice({ signedIn, profile, county, day, initialKind, initialBird, on
   function next() { if (guest) { setIndex((i) => i + 1); setReveal(null); } else if (pending) { setSession(pending); setPending(null); setReveal(null); } }
   function reset() { setGuest(null); setSession(null); setReveal(null); setAnswers([]); setPending(null); setIndex(0); }
 
-  if (!started) return <section className="public-panel"><span className="eyebrow">PUBLIC PRACTICE · NO ACCOUNT REQUIRED</span><h1>Build recognition,<br /><em>one example at a time.</em></h1><p>Choose a county, date, modality and focus. Guest attempts stay in this browser. {signedIn ? "Your household progress is saved to the private D1 profile." : "Household sign-in is optional and adds server-backed progress across devices."}</p><div className="public-controls"><label>Modality<select value={kind} onChange={(e) => setKind(e.target.value)}><option value="photo">Photographs</option><option value="audio">Recordings</option></select></label><label>Mode<select value={mode} onChange={(e) => setMode(e.target.value)}><option value="choice">Choose the species</option><option value="recall">Recall and self-rate</option></select></label><label>Focus<select value={focus} onChange={(e) => setFocus(e.target.value)}><option value="now">Here now</option><option value="arriving">Arriving soon</option><option value="weak">Mixed / revisit</option></select></label></div>{error && <p className="error">{error}</p>}<button className="primary" onClick={start} disabled={busy}>{busy ? "Preparing…" : `Start ${kind} practice`} <Icon type="arrow" /></button><p className="fine">Public practice uses only eligible media. Historical ranking is a preparation signal, not a forecast. No access key is needed for this exercise.{initialBird ? ` Selected bird: ${initialBird}.` : ""}</p></section>;
+  if (!started) return <section className="public-panel"><span className="eyebrow">PUBLIC PRACTICE · NO ACCOUNT REQUIRED</span><h1>Build recognition,<br /><em>one example at a time.</em></h1><p>Choose a county, date, modality and focus. Guest attempts stay in this browser. {signedIn ? "Your household progress is saved to the private D1 profile." : "Household sign-in is optional and adds server-backed progress across devices."}</p><div className="public-controls"><label>Modality<select value={kind} onChange={(e) => setKind(e.target.value)}><option value="photo">Photographs</option><option value="audio">Recordings</option></select></label><label>Mode<select value={mode} onChange={(e) => setMode(e.target.value)}><option value="choice">Choose the species</option><option value="recall">Recall and self-rate</option></select></label><label>Focus<select value={focus} onChange={(e) => setFocus(e.target.value)}><option value="now">Here now</option><option value="arriving">Arriving soon</option><option value="weak">Mixed / revisit</option></select></label></div>{error && <p className="error">{error}</p>}<button className="primary" onClick={start} disabled={busy}>{busy ? "Preparing…" : `Start ${kind} practice`} <Icon type="arrow" /></button><p className="fine">Public practice uses only eligible media. Historical ranking is a preparation signal, not a forecast. No access key is needed for this exercise.{initialCodes.length ? ` Discovery selection: ${initialCodes.length} species.` : initialBird ? ` Selected bird: ${initialBird}.` : ""}</p></section>;
   if (done) {
     const summary = guest ? { recognized: answers.filter((a) => a.outcome === "correct").length, practice: answers.filter((a) => a.outcome === "incorrect").length, uncertain: answers.filter((a) => a.outcome === "uncertain").length, distinct_examples: new Set(answers.map((a) => a.asset_id)).size, missed: answers.filter((a) => a.outcome === "incorrect") } : session!.summary;
     return <section className="practice-shell"><span className="eyebrow">SESSION COMPLETE</span><h1>Take that familiarity<br /><em>into the field.</em></h1><p>{guest ? "This summary is stored only in this browser. Sign in later to use private server-backed progress." : `Saved to ${profile === "heather" ? "Heather" : "Hank"}'s private household profile.`}</p><div className="stats"><div><b>{summary.recognized}</b><span>Recognized</span></div><div><b>{summary.uncertain}</b><span>Uncertain</span></div><div><b>{summary.practice}</b><span>To revisit</span></div><div><b>{summary.distinct_examples}</b><span>Different examples</span></div></div>{summary.missed?.length > 0 && <div className="summary-list"><h2>Worth another look</h2>{summary.missed.map((row: Row, i: number) => <p key={i}><strong>{row.name || row.species_code}</strong>{row.kind ? ` · ${row.kind}` : ""}</p>)}</div>}<p className="fine">Practice results are not a mastery claim. Missing examples stay explicit; unknown media traits remain unknown.</p><div className="public-actions"><button className="primary" onClick={reset}>Start another session <Icon type="arrow" /></button><a className="secondary" href="/sources">Media credits</a></div></section>;
@@ -198,7 +200,7 @@ function About() {
 function App() {
   const initial = useMemo(() => new URLSearchParams(window.location.search), []);
   const initialTab = (initial.get("tab") ?? "explore") as Tab;
-  const [tab, setTab] = useState<Tab>(["explore", "guide", "practice", "downloads", "roadtrip", "compare", "progress", "about"].includes(initialTab) ? initialTab : "explore");
+  const [tab, setTab] = useState<Tab>(["explore", "migration", "guide", "practice", "downloads", "roadtrip", "compare", "progress", "about"].includes(initialTab) ? initialTab : "explore");
   const [auth, setAuth] = useState<Auth>("checking");
   const [profile, setProfile] = useState("hank");
   const [authName, setAuthName] = useState("");
@@ -213,6 +215,7 @@ function App() {
   const [practiceKind, setPracticeKind] = useState(initial.get("kind") ?? "photo");
   const [compareA, setCompareA] = useState(initial.get("a") ?? "");
   const [compareB, setCompareB] = useState(initial.get("b") ?? "");
+  const [discoveryCodes, setDiscoveryCodes] = useState<string[]>(() => (initial.get("codes") ?? "").split(",").map((code) => code.trim()).filter(Boolean));
   const [loginOpen, setLoginOpen] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
@@ -244,22 +247,26 @@ function App() {
     api(path).then((d) => { setRanked(d.priorities ?? []); setArriving(d.arriving_soon ?? (d.priorities ?? []).filter((r: Row) => (r.approaching_window_rise ?? 0) > 0).sort((a: Row, b: Row) => (b.approaching_window_rise ?? 0) - (a.approaching_window_rise ?? 0)).slice(0, 25)); localStorage.setItem("birdahead-county", county); localStorage.setItem(`birdahead-curriculum-v1:${county}:${day}:${auth === "in" ? profile : "guest"}`, JSON.stringify(d)); }).catch((e) => { try { const cached = localStorage.getItem(`birdahead-curriculum-v1:${county}:${day}:${auth === "in" ? profile : "guest"}`); if (cached) { const d = JSON.parse(cached); setRanked(d.priorities ?? []); setArriving(d.arriving_soon ?? []); return; } } catch { /* show the network error */ } setError(e.message); });
   }, [county, day, auth, profile]);
   useEffect(() => { if (auth !== "in") { setProgress(null); return; } api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => setProgress(null)); }, [auth, profile, county, day]);
-  useEffect(() => { const params = new URLSearchParams(); params.set("tab", tab); if (county) params.set("county", county); if (focusCode) params.set("bird", focusCode); if (compareA) params.set("a", compareA); if (compareB) params.set("b", compareB); window.history.replaceState(null, "", "/?" + params.toString()); }, [tab, county, focusCode, compareA, compareB]);
+  useEffect(() => { const params = new URLSearchParams(); params.set("tab", tab); if (county) params.set("county", county); if (focusCode) params.set("bird", focusCode); if (compareA) params.set("a", compareA); if (compareB) params.set("b", compareB); if (discoveryCodes.length) params.set("codes", [...new Set(discoveryCodes)].sort().join(",")); window.history.replaceState(null, "", "/?" + params.toString()); }, [tab, county, focusCode, compareA, compareB, discoveryCodes.join(",")]);
   function signOut() { api("logout", {}).catch(() => undefined).finally(() => { setAuth("guest"); setAuthName(""); setProfile("hank"); setProgress(null); setTab("explore"); }); }
-  function openBird(code: string) { setFocusCode(code); setTab("guide"); track("species_view", { code }); }
-  function startFromGuide(kind: string) { setPracticeKind(kind); setTab("practice"); }
-  function openCompare(a: string, b: string) { setCompareA(a); setCompareB(b); setTab("compare"); }
+  function openBird(code: string) { setDiscoveryCodes([]); setFocusCode(code); setTab("guide"); track("species_view", { code }); }
+  function startFromGuide(kind: string) { setDiscoveryCodes([]); setPracticeKind(kind); setTab("practice"); }
+  function openCompare(a: string, b: string) { setDiscoveryCodes([]); setCompareA(a); setCompareB(b); setTab("compare"); }
+  function startDiscoveryPractice(codes: string[], kind: "photo" | "audio") { setDiscoveryCodes(codes); setPracticeKind(kind); setTab("practice"); }
+  function openDiscoveryDownloads(codes: string[]) { setDiscoveryCodes(codes); setTab("downloads"); }
+  function openDiscoveryRoadTrip(codes: string[]) { setDiscoveryCodes(codes); setTab("roadtrip"); }
   if (!boot) return <main className="login-shell"><p className="loading">{error || "Opening the public field guide…"}</p>{error && <a className="secondary" href="/">Retry</a>}</main>;
 
   return <>
     <header className="topbar"><a className="brand" href="/" onClick={(e) => { e.preventDefault(); setTab("explore"); }}><span className="brandmark"><Icon type="bird" /></span><span>BirdAhead<small>LEARN WHAT’S NEXT</small></span></a><div className="profile"><span className="profile-guest">{auth === "in" ? `${authName || profile} · household` : "Public visitor"}</span>{auth === "in" ? <button className="text-button sign-out" onClick={signOut}>Sign out</button> : <button className="signin-trigger" onClick={() => setLoginOpen(true)}>Household sign in</button>}</div></header>
-    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["guide", "Field guide"], ["practice", "Practice"], ["downloads", "Downloads"], ["roadtrip", "Road trip"], ["compare", "Compare"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
+    <main><nav className="tabs" aria-label="Main navigation">{[["explore", "Explore"], ["migration", "Migration"], ["guide", "Field guide"], ["practice", "Practice"], ["downloads", "Downloads"], ["roadtrip", "Road trip"], ["compare", "Compare"], ["progress", "Progress"], ["about", "About"]].map(([value, label]) => <button key={value} className={tab === value ? "active" : ""} onClick={() => setTab(value as Tab)}>{label}</button>)}</nav>
       {error && <p className="error">{error}</p>}
-      {tab === "explore" && <Explore boot={boot} ranked={ranked} arriving={arriving} county={county} day={day} setCounty={setCounty} setDay={setDay} openBird={openBird} onPractice={() => setTab("practice")} />}
+      {tab === "migration" && <MigrationExplorer boot={boot} county={county} day={day} setCounty={setCounty} onPractice={startDiscoveryPractice} onDownload={openDiscoveryDownloads} onRoadTrip={openDiscoveryRoadTrip} onCompare={openCompare} onOpenBird={openBird} />}
+      {tab === "explore" && <Explore boot={boot} ranked={ranked} arriving={arriving} county={county} day={day} setCounty={setCounty} setDay={setDay} openBird={openBird} onPractice={() => { setDiscoveryCodes([]); setTab("practice"); }} />}
       {tab === "guide" && <Guide boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} focusCode={focusCode} onPractice={startFromGuide} onCompare={openCompare} />}
-      {tab === "practice" && <Practice signedIn={auth === "in"} profile={profile} county={county} day={day} initialKind={practiceKind} initialBird={focusCode} onProgress={() => { if (auth === "in") api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => undefined); }} onCompare={openCompare} />}
-      {tab === "downloads" && <Downloads boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} />}
-      {tab === "roadtrip" && <RoadTrip boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} progress={progress} setCounty={setCounty} setDay={setDay} />}
+      {tab === "practice" && <Practice signedIn={auth === "in"} profile={profile} county={county} day={day} initialKind={practiceKind} initialBird={focusCode} initialCodes={discoveryCodes} onProgress={() => { if (auth === "in") api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => undefined); }} onCompare={openCompare} />}
+      {tab === "downloads" && <Downloads boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} focusCodes={discoveryCodes} />}
+      {tab === "roadtrip" && <RoadTrip boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} progress={progress} setCounty={setCounty} setDay={setDay} focusCodes={discoveryCodes} />}
       {tab === "compare" && <Compare boot={boot} county={county} day={day} signedIn={auth === "in"} profile={profile} progress={progress} attempts={auth === "guest" ? readGuest().map((row) => ({ species_code: String(row.species_code ?? ""), outcome: String(row.outcome ?? "") })) : []} initialA={compareA} initialB={compareB} />}
       {tab === "progress" && <ProgressView signedIn={auth === "in"} progress={progress} profile={profile} />}
       {tab === "about" && <About />}

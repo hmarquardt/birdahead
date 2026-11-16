@@ -10,7 +10,7 @@
     "build": "tsc --noEmit && vite build",
     "start": "tsx server.ts",
     "local": "npm run build && npm start",
-    "test": "tsx --test server.test.ts src/offline.test.ts src/comparisons.test.ts",
+    "test": "tsx --test server.test.ts src/offline.test.ts src/comparisons.test.ts src/discovery.test.ts",
     "worker:dry": "wrangler deploy --dry-run --config ../wrangler.production.jsonc --no-x-provision --no-x-auto-create",
     "worker:dev": "wrangler dev --config ../wrangler.local.jsonc --ip 127.0.0.1 --port 8788",
     "db:migrate:local": "wrangler d1 migrations apply DB --local --config ../wrangler.local.jsonc"

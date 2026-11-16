@@ -1,0 +1,71 @@
+{
+  "schema": "birdahead-phase-seven-verification-v1",
+  "at": "2026-11-16T21:44:00.490204+00:00",
+  "catalog": {
+    "schema": "birdahead-discovery-v1",
+    "version": "2026-11-16.1",
+    "species": 333,
+    "teaching": 100,
+    "practice_ready": 93,
+    "counties": 7,
+    "bins": 48,
+    "bytes": 1083482,
+    "unresolved_source_names": 81,
+    "source_scope": "owner-supplied 2016\u20132025 eBird county histograms"
+  },
+  "checks": [
+    {
+      "name": "mobile migration explorer",
+      "passed": true,
+      "detail": "390\u00d7844 viewport rendered 60 rows / 2,880 heatmap cells with no page errors"
+    },
+    {
+      "name": "date slider and calendar boundaries",
+      "passed": true,
+      "detail": "Nov 15\u2013Nov 21 advanced to Aug 15\u2013Aug 21; native 48-bin boundaries retained"
+    },
+    {
+      "name": "missing data remains distinct",
+      "passed": true,
+      "detail": "Five visible missing/unsupported cells in the rendered sample; nulls never coerced to zero"
+    },
+    {
+      "name": "sample support and weighted regional comparison",
+      "passed": true,
+      "detail": "Selected bin showed 306 county-bin checklist samples; regional overlay rendered 48 bins"
+    },
+    {
+      "name": "discovery-to-practice",
+      "passed": true,
+      "detail": "Selected Great Blue Heron opened /?tab=practice&codes=grbher3; the question set used that species"
+    },
+    {
+      "name": "discovery-to-offline pack",
+      "passed": true,
+      "detail": "Offline selection produced a Discovery selection card alongside standard packs"
+    },
+    {
+      "name": "discovery-to-Road-Trip",
+      "passed": true,
+      "detail": "Road Trip selection opened /?tab=roadtrip&codes=grbher3"
+    },
+    {
+      "name": "crawlable discovery page",
+      "passed": true,
+      "detail": "/migration returned HTML with featured peaks, county richness, method caveats and sitemap entry"
+    }
+  ],
+  "tests": {
+    "python": 61,
+    "app": 23,
+    "build": "passed",
+    "wrangler_local_dry_run": "passed"
+  },
+  "limitations": [
+    "No physical-device, Bluetooth, lock-screen or storage-eviction test was run.",
+    "Classifications and discovery presentation have not received owner/expert biological review.",
+    "Annual profiles are aggregated 2016\u20132025 reporting frequencies; no year-over-year population trend or arrival/departure inference is made.",
+    "Regional support is county-bin checklist sample weighting, not a count of independent birding events.",
+    "No production deployment is claimed by this local evidence file."
+  ]
+}

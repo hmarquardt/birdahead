@@ -28,4 +28,4 @@ Phase 3.1 authorizes the public, noncommercial educational release at birdahead.
 
 ## Review handoff
 
-README.md indexes deliverables. docs/phase-three.md and docs/production.md record the deployed private release. docs/feasibility.md contains measured results and gates. docs/decisions records proposals and accepted boundaries. Selective offline packs, Road Trip mode and the cited comparative-learning explorer are implemented; physical-device refinements, additional geography/media and commercial use remain explicitly deferred.
+README.md indexes deliverables. docs/phase-three.md and docs/production.md record the deployed private release. docs/feasibility.md contains measured results and gates. docs/decisions records proposals and accepted boundaries. Selective offline packs, Road Trip mode, the cited comparative-learning explorer and the separate 333-species annual discovery explorer are implemented; physical-device refinements, additional geography/media and commercial use remain explicitly deferred.

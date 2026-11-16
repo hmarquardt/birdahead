@@ -1,0 +1,271 @@
+{
+  "schema": "birdahead-discovery-page-v1",
+  "version": "2026-11-16.1",
+  "counts": {
+    "species": 333,
+    "teaching": 100,
+    "with_field_guide_media": 100,
+    "practice_ready": 93
+  },
+  "featured": [
+    {
+      "code": "blujay",
+      "name": "Blue Jay",
+      "peak": [
+        {
+          "index": 37,
+          "start": "2001-10-08",
+          "end": "2001-10-15",
+          "month": 10,
+          "period": 2,
+          "frequency": 0.6372332
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "norcar",
+      "name": "Northern Cardinal",
+      "peak": [
+        {
+          "index": 35,
+          "start": "2001-09-22",
+          "end": "2001-10-01",
+          "month": 9,
+          "period": 4,
+          "frequency": 0.6348733
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "rewbla",
+      "name": "Red-winged Blackbird",
+      "peak": [
+        {
+          "index": 19,
+          "start": "2001-05-22",
+          "end": "2001-06-01",
+          "month": 5,
+          "period": 4,
+          "frequency": 0.6130825
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "indbun",
+      "name": "Indigo Bunting",
+      "peak": [
+        {
+          "index": 28,
+          "start": "2001-08-01",
+          "end": "2001-08-08",
+          "month": 8,
+          "period": 1,
+          "frequency": 0.5728848
+        }
+      ],
+      "classification": "strongly_seasonal"
+    },
+    {
+      "code": "amegfi",
+      "name": "American Goldfinch",
+      "peak": [
+        {
+          "index": 32,
+          "start": "2001-09-01",
+          "end": "2001-09-08",
+          "month": 9,
+          "period": 1,
+          "frequency": 0.5625452
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "moudov",
+      "name": "Mourning Dove",
+      "peak": [
+        {
+          "index": 22,
+          "start": "2001-06-15",
+          "end": "2001-06-22",
+          "month": 6,
+          "period": 3,
+          "frequency": 0.54269
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "carwre",
+      "name": "Carolina Wren",
+      "peak": [
+        {
+          "index": 34,
+          "start": "2001-09-15",
+          "end": "2001-09-22",
+          "month": 9,
+          "period": 3,
+          "frequency": 0.5375774
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "cangoo",
+      "name": "Canada Goose",
+      "peak": [
+        {
+          "index": 10,
+          "start": "2001-03-15",
+          "end": "2001-03-22",
+          "month": 3,
+          "period": 3,
+          "frequency": 0.5350824
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "carchi",
+      "name": "Carolina Chickadee",
+      "peak": [
+        {
+          "index": 35,
+          "start": "2001-09-22",
+          "end": "2001-10-01",
+          "month": 9,
+          "period": 4,
+          "frequency": 0.5305514
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "amecro",
+      "name": "American Crow",
+      "peak": [
+        {
+          "index": 37,
+          "start": "2001-10-08",
+          "end": "2001-10-15",
+          "month": 10,
+          "period": 2,
+          "frequency": 0.5128771
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "rebwoo",
+      "name": "Red-bellied Woodpecker",
+      "peak": [
+        {
+          "index": 35,
+          "start": "2001-09-22",
+          "end": "2001-10-01",
+          "month": 9,
+          "period": 4,
+          "frequency": 0.5067064
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "sonspa",
+      "name": "Song Sparrow",
+      "peak": [
+        {
+          "index": 9,
+          "start": "2001-03-08",
+          "end": "2001-03-15",
+          "month": 3,
+          "period": 2,
+          "frequency": 0.5002749
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "killde",
+      "name": "Killdeer",
+      "peak": [
+        {
+          "index": 30,
+          "start": "2001-08-15",
+          "end": "2001-08-22",
+          "month": 8,
+          "period": 3,
+          "frequency": 0.494863
+        }
+      ],
+      "classification": "strongly_seasonal"
+    },
+    {
+      "code": "amerob",
+      "name": "American Robin",
+      "peak": [
+        {
+          "index": 20,
+          "start": "2001-06-01",
+          "end": "2001-06-08",
+          "month": 6,
+          "period": 1,
+          "frequency": 0.4914089
+        }
+      ],
+      "classification": "year_round"
+    },
+    {
+      "code": "comyel",
+      "name": "Common Yellowthroat",
+      "peak": [
+        {
+          "index": 26,
+          "start": "2001-07-15",
+          "end": "2001-07-22",
+          "month": 7,
+          "period": 3,
+          "frequency": 0.4857143
+        }
+      ],
+      "classification": "strongly_seasonal"
+    },
+    {
+      "code": "grbher3",
+      "name": "Great Blue Heron",
+      "peak": [
+        {
+          "index": 30,
+          "start": "2001-08-15",
+          "end": "2001-08-22",
+          "month": 8,
+          "period": 3,
+          "frequency": 0.4811644
+        }
+      ],
+      "classification": "year_round"
+    }
+  ],
+  "richness": {
+    "counties": {
+      "US-IN-051": 235,
+      "US-IN-125": 183,
+      "US-IN-055": 234,
+      "US-IN-129": 174,
+      "US-IN-083": 159,
+      "US-IN-163": 197,
+      "US-IN-173": 202
+    },
+    "regional_max": 267
+  },
+  "method": {
+    "method": "checklist-sample weighted mean of available county-bin frequencies",
+    "formula": "sum(frequency_county_bin * sample_size_county_bin) / sum(sample_size_county_bin)",
+    "support_meaning": "sum of county-bin checklist samples; not a count of independent birding events",
+    "missing_policy": "null frequencies and zero-support bins are excluded from the weighted mean; null is not absence",
+    "calendar": "48 native eBird calendar bins, retained exactly; 2001 is a non-leap display template"
+  }
+}

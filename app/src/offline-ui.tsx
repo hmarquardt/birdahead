@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   deletePack, downloadPack, formatBytes, listOfflineAttempts, listPacks, listQueue,
-  newBytesForPack, offlineQuestions, planOfflinePacks, recordOfflineAttempt,
+  newBytesForPack, offlineQuestions, planOfflinePacks, planSelectionPack, recordOfflineAttempt,
   requestPersistentStorage, sharedAssetCount, storageEstimate, syncOfflineAttempts,
   type OfflineAsset, type OfflineAttempt, type OfflinePackDefinition,
   type OfflineProgress, type OfflineQuestion, type StoredPack,
@@ -61,7 +61,7 @@ function PackCard({ pack, stored, existing, progress, onDownload, onDelete, onPa
   </article>;
 }
 
-export function Downloads({ boot, county, day, signedIn, profile }: { boot: Row; county: string; day: string; signedIn: boolean; profile: string }) {
+export function Downloads({ boot, county, day, signedIn, profile, focusCodes = [] }: { boot: Row; county: string; day: string; signedIn: boolean; profile: string; focusCodes?: string[] }) {
   const [library, setLibrary] = useState<Row | null>(null);
   const [packs, setPacks] = useState<OfflinePackDefinition[]>([]);
   const [stored, setStored] = useState<StoredPack[]>([]);
@@ -73,17 +73,18 @@ export function Downloads({ boot, county, day, signedIn, profile }: { boot: Row;
   const [online, setOnline] = useState(typeof navigator === "undefined" ? true : navigator.onLine);
   const controller = useRef<AbortController | null>(null);
   async function refresh() { setStored(await listPacks()); setEstimate(await storageEstimate()); }
+  function packsFor(data: Row) { const catalog = catalogFrom(data, county, day); const standard = planOfflinePacks(catalog); return focusCodes.length ? [planSelectionPack(catalog, focusCodes), ...standard] : standard; }
   useEffect(() => {
     publicGet(`library?location=${encodeURIComponent(county)}&day=${encodeURIComponent(day)}`)
-      .then((data) => { localStorage.setItem("birdahead-offline-library-v1", JSON.stringify({ county, day, data })); setLibrary(data); setPacks(planOfflinePacks(catalogFrom(data, county, day))); })
+      .then((data) => { localStorage.setItem("birdahead-offline-library-v1", JSON.stringify({ county, day, data })); setLibrary(data); setPacks(packsFor(data)); })
       .catch((error) => {
         try {
           const cached = JSON.parse(localStorage.getItem("birdahead-offline-library-v1") ?? "null");
-          if (cached?.data && cached.county === county && cached.day === day) { setLibrary(cached.data); setPacks(planOfflinePacks(catalogFrom(cached.data, county, day))); return; }
+          if (cached?.data && cached.county === county && cached.day === day) { setLibrary(cached.data); setPacks(packsFor(cached.data)); return; }
         } catch { /* show the network error below */ }
         setMessage((error as Error).message);
       });
-  }, [county, day]);
+  }, [county, day, focusCodes.join("|")]);
   useEffect(() => { refresh().catch((error) => setMessage((error as Error).message)); }, []);
   useEffect(() => {
     const on = () => setOnline(true); const off = () => setOnline(false);

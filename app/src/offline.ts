@@ -128,6 +128,15 @@ function definition(kind: OfflinePackKind, catalog: OfflineCatalog, species: Off
 
 /** Plan the six reviewed packs from one public catalog snapshot. Shared media
  * is counted once inside each pack and is stored once on the device. */
+export function planSelectionPack(catalog: OfflineCatalog, codes: string[], title = "Discovery selection"): OfflinePackDefinition {
+  const chosen = catalog.species.filter((row) => codes.includes(row.code));
+  const assets = uniqAssets(chosen);
+  return { id: `discovery:${[...new Set(codes)].sort().join("-")}:${catalog.release_id}`, title,
+    description: `${chosen.length} discovery species with accepted public media; shared assets are stored once.`,
+    release_id: catalog.release_id, county: catalog.county, day: catalog.day, created_at: new Date().toISOString(),
+    assetIds: assets.map((asset) => asset.id), assets, species: speciesFor(chosen, assets), bytes: assetBytes(assets) };
+}
+
 export function planOfflinePacks(catalog: OfflineCatalog): OfflinePackDefinition[] {
   const all = catalog.species.filter((row) => (row.assets ?? []).length > 0);
   const here = catalog.species.filter((row) => (row.current_reporting_frequency ?? 0) > 0 && (row.assets ?? []).length > 0);

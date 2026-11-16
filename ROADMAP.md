@@ -51,6 +51,7 @@ Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evide
 - Added Phase Four selective offline packs, local guest practice and profile-bound offline sync; physical-device checks and hands-free mode remain deferred.
 - Added Phase Five Road Trip mode with 10/20/30/60-minute audio sessions, pre-generated narration, Media Session controls, offline session packs and separate listening records; physical Bluetooth/background checks remain owner work.
 - Added Phase Six comparative learning: public four-pair explorer, cited/versioned catalog with explicit gaps, local anonymous/profile-bound comparative practice, practice/guide/species-page navigation and Kokoro narration remediation. Narration redistribution is documented; historical Git exposure is identified but not rewritten.
+- Added Phase Seven annual discovery: 333 reconciled species × seven counties × 48 native bins, public heatmaps/charts/date filtering, seasonal richness, county comparison, sample-weighted regional summaries and discovery-to-practice/offline/Road-Trip actions.
 
 ## Next local usability and reliability pass
 

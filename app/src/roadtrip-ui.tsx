@@ -27,9 +27,9 @@ function weakCodesFrom(progress: Row | null, attempts: OfflineAttempt[]): string
   for (const row of attempts) if (row.outcome !== "correct") codes.add(row.species_code);
   return [...codes];
 }
-export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCounty, setDay }: {
+export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCounty, setDay, focusCodes = [] }: {
   boot: Row; county: string; day: string; signedIn: boolean; profile: string; progress: Row | null;
-  setCounty: (value: string) => void; setDay: (value: string) => void;
+  setCounty: (value: string) => void; setDay: (value: string) => void; focusCodes?: string[];
 }) {
   const [library, setLibrary] = useState<Row | null>(null);
   const [manifest, setManifest] = useState<NarrationManifest | null>(null);
@@ -80,9 +80,9 @@ export function RoadTrip({ boot, county, day, signedIn, profile, progress, setCo
   const config: RoadTripConfig = { minutes, county, day, focus, interval_seconds: intervalSeconds, order, mode };
   const planResult = useMemo(() => {
     if (!library || !manifest) return { plan: null as OfflinePackDefinition | null, error: "" };
-    try { return { plan: planRoadTrip(catalogFrom(library, county, day), manifest, config, weak), error: "" }; }
+    try { const selectedLibrary = focusCodes.length ? { ...library, species: (library.species ?? []).filter((row: Row) => focusCodes.includes(String(row.code))) } : library; return { plan: planRoadTrip(catalogFrom(selectedLibrary, county, day), manifest, config, weak), error: "" }; }
     catch (reason) { return { plan: null as OfflinePackDefinition | null, error: (reason as Error).message }; }
-  }, [library, manifest, county, day, minutes, focus, intervalSeconds, order, mode, weak.join("|")]);
+  }, [library, manifest, county, day, minutes, focus, intervalSeconds, order, mode, weak.join("|"), focusCodes.join("|")]);
   const plan = planResult.plan; const planError = planResult.error;
   const downloaded = stored.filter((row) => row.roadTrip);
   const narrationVersion = manifest?.narration_version ?? "";

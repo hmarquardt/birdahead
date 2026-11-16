@@ -37,7 +37,7 @@ function shell(origin: string, title: string, description: string, canonical: st
 <meta name="theme-color" content="#183e34"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="${FAVICON}">
 <link rel="stylesheet" href="/public-pages.css"><script defer src="${ANALYTICS_SCRIPT}" data-site="${ANALYTICS_SITE}"></script>
 ${structured ? `<script type="application/ld+json">${jsonLd(structured)}</script>` : ""}</head><body>
-<header class="site-header"><a class="site-brand" href="/"><span class="birdmark">◆</span> BirdAhead</a><nav><a href="/?tab=explore">Explore</a><a href="/?tab=guide">Field guide</a><a href="/?tab=practice">Practice</a><a href="/?tab=compare">Compare</a><a href="/sources">Sources &amp; privacy</a></nav></header>
+<header class="site-header"><a class="site-brand" href="/"><span class="birdmark">◆</span> BirdAhead</a><nav><a href="/?tab=explore">Explore</a><a href="/migration">Migration</a><a href="/?tab=guide">Field guide</a><a href="/?tab=practice">Practice</a><a href="/?tab=compare">Compare</a><a href="/sources">Sources &amp; privacy</a></nav></header>
 ${body}
 <footer class="site-footer"><p><strong>BirdAhead</strong> · Learn the birds you're about to meet. Public seasonal exploration and practice; household sign-in is optional.</p><p>${escapeHtml(PUBLIC_SCOPE)} <a href="/sources">Data and media credits</a> · <a href="/privacy">Privacy</a></p></footer></body></html>`;
 }
@@ -87,7 +87,7 @@ export function renderRobots(origin: string) {
 }
 
 export function renderSitemap(origin: string, species: Array<{ code: string }>, counties: Record<string, string>, lastmod: string) {
-  const urls = ["/", "/sources", "/privacy", ...species.map((s) => `/birds/${s.code}`), ...Object.keys(counties).map((c) => `/regions/${c}`)];
+  const urls = ["/", "/migration", "/sources", "/privacy", ...species.map((s) => `/birds/${s.code}`), ...Object.keys(counties).map((c) => `/regions/${c}`)];
   return `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((path) => `<url><loc>${escapeHtml(origin + path)}</loc><lastmod>${escapeHtml(lastmod)}</lastmod></url>`).join("")}</urlset>`;
 }
 
@@ -96,3 +96,31 @@ export function renderSourcesPage(origin: string) {
   const body = `<main class="page prose"><p class="eyebrow">SOURCES, RIGHTS AND LIMITS</p><h1>Where BirdAhead comes from.</h1><p>BirdAhead is a free, noncommercial educational project. It does not sell access, show advertising or claim expert or scientific certification. Every public media object is delivered with its creator, original record, exact license and attribution.</p><h2>Seasonal occurrence</h2><p>Derived seasonal summaries use owner-supplied 2016–2025 eBird county histograms. Raw histogram exports are not published. Historical reporting frequency is the fraction of complete checklists reporting a species in a period; it is not an encounter probability, abundance estimate or forecast for a particular outing.</p><p>${escapeHtml(EBIRD_CITATION)}</p><p><a class="button secondary" href="${EBIRD_TERMS}" rel="noreferrer">Read the eBird Data Access Terms</a></p><p class="fine">eBird data are supplied for applied and basic research and education. Reproduction of eBird data or derived products for commercial purposes requires prior written permission. Derived products are supplied with the same terms; raw eBird data are not redistributed. A derived-product notification is prepared for owner review; sending it remains an owner action.</p><h2>Photographs and recordings</h2><p>Public media comes from iNaturalist photographs and Xeno-canto recordings under CC0, CC BY, CC BY-SA, CC BY-NC or CC BY-NC-SA licenses. NC and SA objects are public only in this noncommercial context; share-alike and attribution obligations remain. A source license does not imply endorsement by the creator or provider.</p><ul><li>CC0: public-domain dedication; credit retained as a courtesy.</li><li>CC BY: attribution required.</li><li>CC BY-SA: attribution required; adaptations carry the same license.</li><li>CC BY-NC: attribution required; public noncommercial use only.</li><li>CC BY-NC-SA: attribution and share-alike required; public noncommercial use only.</li></ul><h2>What we do not publish</h2><p>No raw eBird exports, precise observation coordinates, restricted Cornell media, rejected media, household keys, private learning histories, model weights or administrative data are public. Public media remains behind the BirdAhead Worker and private R2 binding; the bucket itself is not public.</p><h2>Corrections</h2><p>Biological acceptance is automated source/model corroboration, not expert verification. If a source record or license changes, an asset can be removed from public delivery without affecting unrelated public functionality. See the <a href="/privacy">privacy notice</a>.</p></main>`;
   return shell(origin, "Sources, rights and limits · BirdAhead", "BirdAhead data sources, eBird terms, media licenses, attribution and public-use limitations.", canonical, body);
 }
+export interface DiscoveryPageSummary {
+  counts: { species: number; teaching: number; with_field_guide_media: number; practice_ready: number };
+  featured: Array<{ code: string; name: string; classification: string; peak: Array<{ start: string; end: string; frequency: number }> }>;
+  richness: { counties: Record<string, number>; regional_max: number };
+  method: { support_meaning: string; missing_policy: string };
+}
+
+export function renderMigrationPage(origin: string, summary: DiscoveryPageSummary) {
+  const canonical = `${origin}/migration`;
+  const description = "Annual bird migration and occurrence explorer for seven southwestern Indiana counties: historical reporting heatmaps, seasonal peaks, richness and county comparisons.";
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const period = (value: string) => value === "2002-01-01" ? "Dec 31" : `${months[Number(value.slice(5, 7)) - 1]} ${Number(value.slice(8, 10))}`;
+  const featured = summary.featured.map((row) => `<li><a href="/birds/${encodeURIComponent(row.code)}">${escapeHtml(row.name)}</a> <span>${row.peak[0] ? `${escapeHtml(period(row.peak[0].start))}–${escapeHtml(period(row.peak[0].end))} · ${pct(row.peak[0].frequency)}` : "peak unavailable"}</span> <small>${escapeHtml(row.classification.replaceAll("_", " "))}</small></li>`).join("");
+  const counties = Object.entries(summary.richness.counties).map(([code, count]) => `<li><a href="/regions/${encodeURIComponent(code)}">${escapeHtml(code)}</a><span>${count} species at peak richness</span></li>`).join("");
+  const body = `<main class="page"><p class="eyebrow">ANNUAL DISCOVERY · SOUTHWESTERN INDIANA</p><h1>Follow the year,<br /><em>not just the checklist.</em></h1><p class="lede">Explore historical reporting across seven counties and the same 48 native annual bins used by the field guide. Discovery includes reconciled species with seasonal data even when BirdAhead has no accepted photograph or recording for them.</p>
+<section class="actions"><a class="button" href="/?tab=migration">Open the interactive explorer</a><a class="button secondary" href="/?tab=guide">Field guide</a><a class="button secondary" href="/sources">Sources and limits</a></section>
+<section class="panel"><h2>What is in the discovery catalog</h2><div class="signal"><div><b>${summary.counts.species}</b><span>reconciled species</span></div><div><b>${summary.counts.teaching}</b><span>teaching/media species</span></div><div><b>${summary.counts.practice_ready}</b><span>practice-ready</span></div><div><b>${summary.richness.regional_max}</b><span>peak regional richness</span></div></div><p>Seasonal data is available for all seven counties. Field-guide media and practice coverage are shown separately and are not required to view a species' annual occurrence profile.</p></section>
+<section class="panel"><h2>Featured seasonal peaks</h2><ul class="credits">${featured}</ul></section>
+<section class="panel"><h2>County richness</h2><ul class="credits">${counties}</ul></section>
+<section class="panel"><h2>Read the signal carefully</h2><p>Reporting frequency is the fraction of complete checklists reporting a species in a historical period. It is not abundance, encounter probability or a recent sighting. Missing values and zero-support cells are not absences. The 2016–2025 profiles are aggregated annual records; they do not establish year-over-year population trends or confirmed individual arrivals and departures. The regional series uses checklist-sample weighting where supported, never an unweighted average of county percentages.</p><p>${escapeHtml(summary.method.support_meaning)} ${escapeHtml(summary.method.missing_policy)}</p></section>
+<p class="fine">${escapeHtml(EBIRD_CITATION)} <a href="${EBIRD_TERMS}">eBird Data Access Terms</a>. ${escapeHtml(PUBLIC_SCOPE)}</p></main>`;
+  return shell(origin, "Annual migration explorer · BirdAhead", description, canonical, body, undefined, {
+    "@context": "https://schema.org", "@type": "Dataset", name: "BirdAhead annual occurrence discovery",
+    description, isAccessibleForFree: true, spatialCoverage: "Seven counties in southwestern Indiana",
+    temporalCoverage: "2016/2025", publisher: { "@type": "Organization", name: "BirdAhead" }, citation: EBIRD_CITATION,
+  });
+}
+

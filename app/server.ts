@@ -8,7 +8,7 @@ import { readFileSync, realpathSync, statSync, mkdirSync } from "node:fs";
 import { dirname, extname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Asset, Kind, Priority, Release } from "./types";
-import { renderPrivacyPage, renderRobots, renderSitemap, renderSourcesPage } from "./public-pages";
+import { renderMigrationPage, renderPrivacyPage, renderRobots, renderSitemap, renderSourcesPage } from "./public-pages";
 
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const privateRoot = resolve(root, "experiments/private");
@@ -299,11 +299,12 @@ export function createApp(
     return c.json({code,location,name:s.common_name,scientific_name:s.scientific_name,bins:profile.rows.filter((r)=>r.species_code===code).map((r)=>({start:r.start,end:r.end,frequency:r.frequency,sample_size:r.sample_size,value_status:r.value_status??null})),metadata:{start_year:profile.metadata.start_year,end_year:profile.metadata.end_year,bin_definition:profile.metadata.bin_definition,units:profile.metadata.units,taxonomy_version:profile.metadata.taxonomy_version,source_taxonomy_version:profile.metadata.source_taxonomy_version??null,source_note:profile.metadata.source_note??null},data_vintage:release.data_vintage??null}); });
   app.get("/api/public/practice", async (c) => {
     const location=c.req.query('location')??''; const day=c.req.query('day')??isoDay(); const kind:Kind=c.req.query('kind')==='audio'?'audio':'photo'; const mode=c.req.query('mode')==='recall'?'recall':'choice'; const focus=c.req.query('focus')??'now';
-    const visible=publicAssets(); let candidates=publicRanked(location,day).filter((r)=>kind==='photo'?r.photo_ready:r.audio_ready);
+    const visible=publicAssets(); const eligible=publicRanked(location,day).filter((r)=>kind==='photo'?r.photo_ready:r.audio_ready); let candidates=eligible;
     if(focus==='now')candidates=candidates.filter((r)=>(r.current_reporting_frequency??0)>0); if(focus==='arriving')candidates=candidates.filter((r)=>(r.approaching_window_rise??0)>0);
-    if(candidates.length<2)throw Error('Not enough public media for this practice mode'); const questions:DbRow[]=[]; const used=new Set<string>();
+    const requested=new Set((c.req.query('codes')??'').split(',').map((code)=>code.trim()).filter(Boolean)); if(requested.size)candidates=candidates.filter((r)=>requested.has(r.species_code));
+    if(candidates.length<1)throw Error('No public media matches this discovery selection'); const questions:DbRow[]=[]; const used=new Set<string>();
     for(let round=0;round<4&&questions.length<10;round++)for(const candidate of candidates){if(questions.length>=10)break;const pool=visible.filter((a)=>a.species_code===candidate.species_code&&a.kind===kind&&!used.has(a.id));if(!pool.length)continue;const asset=pool[0];used.add(asset.id);const id=randomUUID();
-      const options=mode==='choice'?[candidate.species_code,...candidates.filter((r)=>r.species_code!==candidate.species_code).slice(0,3).map((r)=>r.species_code)]:[];
+      const options=mode==='choice'?[candidate.species_code,...eligible.filter((r)=>r.species_code!==candidate.species_code).slice(0,3).map((r)=>r.species_code)]:[];
       questions.push({id,asset_id:asset.id,species_code:candidate.species_code,name:candidate.name,compare_with:candidate.confusion_pair?.ebird_species_code?{code:candidate.confusion_pair.ebird_species_code,name:candidate.confusion_pair.common_name}:null,kind,mode,media_url:`/media/public/${asset.id}`,options:options.map((code)=>({code,name:species(code).common_name})),answer_code:candidate.species_code,credit:publicCredit(asset),bbox:asset.target_bbox_xyxy??null});}
     if(!questions.length)throw Error('No public practice questions are available'); return c.json({schema:'birdahead-public-practice-v1',guest:true,location,day,kind,mode,focus,questions});
   });
@@ -630,9 +631,11 @@ export function createApp(
       throw Error("Invalid practice settings");
     const ranked = priorities(release, location, day),
       visible = assets(),
-      pool = eligible(kind, visible);
-    if (pool.length < 2)
-      throw Error("Not enough accepted examples for this practice mode");
+      allPool = eligible(kind, visible);
+    const requestedCodes = new Set(Array.isArray(body.codes) ? body.codes.map((code: unknown) => String(code)).filter(Boolean) : []);
+    const pool = requestedCodes.size ? allPool.filter((row) => requestedCodes.has(row.ebird_species_code)) : allPool;
+    if (pool.length < 1)
+      throw Error("No accepted examples match this discovery selection");
     const past = history(profile),
       now = Date.now();
     const score = (code: string) => {
@@ -715,12 +718,12 @@ export function createApp(
           )
           .map((h) => h.choice);
         const others = [
-          ...new Set([...mistakes, ...pool.map((p) => p.ebird_species_code)]),
+          ...new Set([...mistakes, ...allPool.map((p) => p.ebird_species_code)]),
         ]
           .filter(
             (code) =>
               code !== s.ebird_species_code &&
-              pool.some((p) => p.ebird_species_code === code),
+              allPool.some((p) => p.ebird_species_code === code),
           )
           .slice(0, 3);
         const options = [s.ebird_species_code, ...others].sort((a, b) =>
@@ -1060,6 +1063,7 @@ export function createApp(
   app.get("/privacy", (c) => c.html(renderPrivacyPage(new URL(c.req.url).origin)));
   app.get("/robots.txt", (c) => { c.header("Content-Type","text/plain"); return c.body(renderRobots(new URL(c.req.url).origin)); });
   app.get("/sitemap.xml", (c) => { c.header("Content-Type","application/xml"); return c.body(renderSitemap(new URL(c.req.url).origin,release.species.map((s)=>({code:s.ebird_species_code})),release.counties,isoDay())); });
+  app.get("/migration", (c) => c.html(renderMigrationPage(new URL(c.req.url).origin, JSON.parse(readFileSync(resolve(root, "app/dist/discovery-page.json"), "utf8")))));
   app.get("/regions/:county", (c) => c.redirect(`/?tab=explore&county=${encodeURIComponent(c.req.param("county"))}`, 302));
   app.get("/compare", (c) => c.redirect("/?tab=compare", 302));
   app.get("/birds/:code", (c) => c.redirect(`/?tab=guide&bird=${encodeURIComponent(c.req.param("code"))}`, 302));
@@ -1068,6 +1072,8 @@ export function createApp(
   app.use("/narration/*", async (c, next) => { await next(); c.res.headers.set("Content-Type", c.req.path.endsWith(".json") ? "application/json" : "audio/wav"); });
   app.get("/narration/*", serveStatic({ root: resolve(root, "app/dist") }));
   app.get("/comparisons.json", serveStatic({ path: resolve(root, "app/dist/comparisons.json") }));
+  app.get("/discovery.json", serveStatic({ path: resolve(root, "app/dist/discovery.json") }));
+  app.get("/discovery-page.json", serveStatic({ path: resolve(root, "app/dist/discovery-page.json") }));
   for (const asset of ["/sw.js", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"]) {
     app.get(asset, serveStatic({ path: resolve(root, "app/dist", asset.slice(1)) }));
   }
