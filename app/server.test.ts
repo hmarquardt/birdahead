@@ -138,15 +138,19 @@ function fixture() {
 }
 test("public branding is consistent and every public page declares the inline SVG favicon", async () => {
   const f = fixture();
+  const assertFavicon = (html: string) => {
+    const href = html.match(/<link rel="icon" href="(data:image\/svg\+xml,[^"]+)"/)?.[1];
+    assert.ok(href, "missing inline SVG favicon");
+    assert.equal(href.match(/%3Csvg/g)?.length, 1);
+    assert.ok(href.endsWith("%3C/svg%3E"));
+    assert.match(html, /Learn the birds you're about to meet\./);
+  };
   try {
-    const homepage = readFileSync(new URL("./index.html", import.meta.url), "utf8");
-    assert.match(homepage, /<link rel="icon" href="data:image\/svg\+xml,/);
-    assert.match(homepage, /Learn the birds you're about to meet\./);
+    assertFavicon(readFileSync(new URL("./index.html", import.meta.url), "utf8"));
     for (const path of ["/sources", "/privacy"]) {
       const page = await f.get(path);
       assert.equal(page.status, 200);
-      assert.match(page.data, /<link rel="icon" href="data:image\/svg\+xml,/);
-      assert.match(page.data, /Learn the birds you're about to meet\./);
+      assertFavicon(page.data);
     }
   } finally { f.cleanup(); }
 });
