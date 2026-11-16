@@ -20,6 +20,15 @@ An asset can carry several evidence labels. Never relabel an automated decision 
 
 Phase 3.1 separates biological acceptance from public delivery. Every object retains its own source license, creator, source URL, exact license URL and attribution. CC0, CC BY, CC BY-SA, CC BY-NC and CC BY-NC-SA media passed the public-noncommercial allowlist, with NC/SA notices retained. CC BY-NC and CC BY-NC-SA do not prohibit public noncommercial distribution; they prohibit commercial use. BirdAhead is free, has no advertising or paid access, and does not imply commercial clearance. R2 itself remains private and every public byte flows through an eligibility-checked Worker route. eBird-derived seasonal summaries follow the eBird Data Access Terms; raw histogram exports are never public.
 
+
+### Provider terms checked for Phase 3.1
+
+- **eBird:** the [Data Access Terms](https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/) were fetched and reviewed on 2026-11-16. Noncommercial research/education use, citation, no original-format redistribution and same-terms derived products are required. The owner-review draft notification is in [the eBird notice](ebird-public-notice.md); it has not been sent.
+- **iNaturalist:** per-photo license metadata remains authoritative. The public terms page returned HTTP 403 to this environment; no provider API is used at runtime, exact coordinates are excluded, and per-asset creator/license/source attribution is retained. This is not a claim of API permission.
+- **Xeno-canto:** the terms page was protected by an Anubis challenge in this environment, so no successful provider-term fetch is claimed. Per-recording CC license, recordist, recording ID and attribution are retained; the runtime uses stored derivatives only, never the Xeno-canto API. Re-check provider terms before any new acquisition or bulk use.
+
+Public eligibility is therefore explicit and license-first, not a blanket provider grant.
+
 ## Automated gates
 
 1. **Credible source identification.** For iNaturalist, retain Research Grade, current community taxon, disagreements/flags and concordant identifiers other than the owner. For Xeno-canto, retain identified status, quality, recordist, bird-seen assertion, method and background species. A source filename, Research Grade or model result alone is insufficient.

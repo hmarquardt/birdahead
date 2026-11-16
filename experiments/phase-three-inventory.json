@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "public-noncommercial-release-verified",
-  "generated_at": "2026-11-16T15:16:30Z",
+  "generated_at": "2026-11-16T15:21:30Z",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "301fc2f4a901dd14c1fe63034131ed35e638891f",
+    "revision": "0b7a45223aff20a945f8e08606820fd12ee459d9",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "02a15f65-69b8-42bf-8cd5-52d5e8fd4cf5",
-    "deployed_revision": "301fc2f4a901dd14c1fe63034131ed35e638891f",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43894070552",
+    "version_id": "16c9e0e3-19f6-4568-803b-0770842c08c6",
+    "deployed_revision": "0b7a45223aff20a945f8e08606820fd12ee459d9",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43895123788",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
@@ -150,7 +150,8 @@
       "www.birdahead.com"
     ],
     "evidence": "experiments/phase-three-analytics.json",
-    "search_console": "blocked pending owner verification"
+    "search_console": "blocked pending owner verification",
+    "event_delivery": "HTTP 204 collector probe and browser pageview rows observed for Site 10"
   },
   "scope": "Public, noncommercial educational exploration and guest practice; optional private household profiles; no public registration, advertising, monetization or paid infrastructure.",
   "known_limitations": [

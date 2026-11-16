@@ -131,6 +131,10 @@ function Practice({ signedIn, profile, county, day, initialKind, initialBird, on
         setSession(s); setGuest(null); track("practice_start", { mode, kind, guest: false });
       } else {
         const g = await api(`public/practice?location=${encodeURIComponent(county)}&day=${day}&kind=${kind}&mode=${mode}&focus=${focus}`);
+        if (focus === "weak") {
+          const weak = new Set(readGuest().filter((a) => a.outcome !== "correct").map((a) => a.species_code));
+          g.questions = [...(g.questions ?? [])].sort((a: Row, b: Row) => Number(weak.has(b.species_code)) - Number(weak.has(a.species_code)));
+        }
         setGuest(g); setSession(null); track("practice_start", { mode, kind, guest: true });
       }
     });

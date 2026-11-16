@@ -1,6 +1,6 @@
 {
   "schema": "birdahead-public-smoke-v1",
-  "at": "2026-11-16T15:16:08.546352+00:00",
+  "at": "2026-11-16T15:21:37.626395+00:00",
   "base": "https://birdahead.com",
   "browser": true,
   "checks": [
