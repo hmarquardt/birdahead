@@ -37,6 +37,6 @@ profiles against the imported release. `tests/test_discovery_catalog.py` also
 recomputes a sample-weighted regional value independently. Evidence is in
 [`experiments/phase-seven-discovery.json`](../experiments/phase-seven-discovery.json).
 
-Physical-device and owner/expert review remain outstanding. No additional
+Production `6ee6d12` passed the public/private smoke suites (28/28 and 23/23), and the deployed migration explorer rendered on a mobile viewport. Physical-device and owner/expert review remain outstanding. No additional
 county downloads, EBD/SED data, paid infrastructure or geographic expansion was
 introduced.

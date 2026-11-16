@@ -65,7 +65,15 @@
     "No physical-device, Bluetooth, lock-screen or storage-eviction test was run.",
     "Classifications and discovery presentation have not received owner/expert biological review.",
     "Annual profiles are aggregated 2016\u20132025 reporting frequencies; no year-over-year population trend or arrival/departure inference is made.",
-    "Regional support is county-bin checklist sample weighting, not a count of independent birding events.",
-    "No production deployment is claimed by this local evidence file."
-  ]
+    "Regional support is county-bin checklist sample weighting, not a count of independent birding events."
+  ],
+  "production": {
+    "url": "https://birdahead.com",
+    "revision": "6ee6d122e44445f138a2045e7083c4937758b7a4",
+    "deployment_run": 43963755638,
+    "public_smoke": "PASS 28/28",
+    "private_smoke": "PASS 23/23",
+    "migration_browser": "production 390\u00d7844 viewport; 333 catalog, heatmap, detail and actions; no page errors",
+    "health": true
+  }
 }
