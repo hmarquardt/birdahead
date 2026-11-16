@@ -67,6 +67,11 @@ def main():
     status, _, body = request(base, '/sw.js')
     sw = body.decode('utf-8', 'replace')
     check('offline shell preserves pack cache', status == 200 and 'birdahead-pack-assets-v1' in sw and "key.startsWith('birdahead-shell-')" in sw)
+    status, _, body = request(base, '/narration/manifest.json')
+    narration = json.loads(body)
+    check('road-trip narration manifest', status == 200 and len(narration.get('files', {})) >= 100)
+    status, mh, mb = request(base, '/narration/names/mallar3.m4a')
+    check('road-trip narration audio', status == 200 and mh.get('Content-Type', '').startswith('audio/') and len(mb) > 1000)
     photo = next((a for a in assets if a.get('kind') == 'photo'), None)
     if photo:
         ms, mh, mb = request(base, photo['media_url'])
