@@ -15,7 +15,7 @@ November 15, 2026. BirdAhead is deployed at **https://birdahead.com** for two au
 
 ## Production verification
 
-See [production operations](production.md) and the [smoke evidence](../experiments/phase-three-production.json). The live health endpoint reports the exact deployed revision and active release. HTTPS serves the canonical apex; `www` returns 308; `workers_dev` and preview URLs are disabled in the production config; the Worker rejects non-canonical hosts. Unauthenticated API and media requests return 401. Both profiles have independent D1 progress namespaces. Real photograph bytes and ranges were fetched through the authenticated endpoint, and the mobile browser decoded the actual media.
+See [production operations](production.md), the [resource inventory](../experiments/phase-three-inventory.json) and the [smoke evidence](../experiments/phase-three-production.json). The live health endpoint reports the exact deployed revision and active release. HTTPS serves the canonical apex; `www` returns 308; `workers_dev` and preview URLs are disabled in the production config; the Worker rejects non-canonical hosts. Unauthenticated API and media requests return 401. Both profiles have independent D1 progress namespaces. Real photograph bytes and ranges were fetched through the authenticated endpoint, and the mobile browser decoded the actual media. A same-release rollback pointer was exercised successfully; a local D1 export was exercised, while a production restore drill remains deferred.
 
 ## Resource and cost summary
 

@@ -1,0 +1,118 @@
+{
+  "schema": "birdahead-production-inventory-v1",
+  "status": "private-production-release-verified",
+  "generated_at": "2026-11-16T02:16:30Z",
+  "canonical_url": "https://birdahead.com",
+  "health": {
+    "status": 200,
+    "ok": true,
+    "app": "birdahead",
+    "revision": "9fa5c069339688b2606912a1fb563ba9be90d745",
+    "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
+    "auth": "session"
+  },
+  "worker": {
+    "name": "birdahead",
+    "version_id": "c9fb805e-d21a-49dc-addb-0beac382942b",
+    "deployed_revision": "9fa5c069339688b2606912a1fb563ba9be90d745",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43790748776",
+    "custom_domains": [
+      "birdahead.com",
+      "www.birdahead.com"
+    ],
+    "canonical_redirect": "www -> https://birdahead.com (308)",
+    "workers_dev": false,
+    "preview_urls": false,
+    "push_deploy_enabled": true
+  },
+  "d1": {
+    "name": "birdahead",
+    "uuid": "ce2302c9-988b-490c-9ad3-3035d0a57c8b",
+    "migration": "migrations/0001_initial.sql",
+    "seeded_profiles": [
+      "Hank",
+      "Heather"
+    ],
+    "learner_state": "attempts, flags, sessions and active release pointer; owner progress import path tested with an empty export"
+  },
+  "r2": {
+    "name": "birdahead-private",
+    "public_access": false,
+    "r2_dev": false,
+    "objects": 589,
+    "bytes": 436400934,
+    "catalog_key": "releases/5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a/catalog.json",
+    "catalog_sha256": "adbda8c56c9dc180664e414a87a974a02d0b9aec124f6d56ec1eef02ef4a7e75"
+  },
+  "release": {
+    "id": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
+    "active": true,
+    "objects": 589,
+    "bytes": 436400934,
+    "scope": "Private household noncommercial; authenticated media only"
+  },
+  "verification": {
+    "smoke_evidence": "experiments/phase-three-production.json",
+    "checks_passed": 23,
+    "checks_total": 23,
+    "browser": true,
+    "https": true,
+    "unauthorized_api_rejected": true,
+    "unauthorized_media_rejected": true,
+    "csrf_origin_checks": true,
+    "both_profiles_independent": true,
+    "seasonal_curriculum_present": true,
+    "real_media_and_range": true,
+    "pwa_manifest_and_service_worker": true,
+    "mobile_no_horizontal_overflow": true,
+    "health_revision_matches_deployed_commit": true,
+    "rollback_same_release_exercised": true,
+    "deployment_workflow": "success",
+    "same_release_rollback": {
+      "passed": true,
+      "evidence": "experiments/phase-three-rollback.json"
+    }
+  },
+  "costs": {
+    "currency": "USD",
+    "incremental_monthly_estimate": 0,
+    "worker": "free dynamic/static allowance for two household users; no paid plan change",
+    "d1": "free tier; no paid plan change",
+    "r2": "0.406 GB stored under the 10 GB-month free allowance; raw storage would be about $0.006/month if billed",
+    "domain": "birdahead.com already registered through 2027-11-15 at $11.17; auto-renew off",
+    "note": "Operations/egress beyond free allowances are not claimed as zero; no paid subscription or unrelated resource was created."
+  },
+  "security": {
+    "auth": "Worker-enforced household access keys; opaque SHA-256-hashed session tokens",
+    "cookies": "host-only __Host- cookie, Secure, HttpOnly, SameSite=Strict, 30 days",
+    "csrf": "same-origin Origin/Sec-Fetch-Site and X-BirdAhead-Request checks",
+    "rate_limits": [
+      "login 10/minute/IP",
+      "publish 600/minute"
+    ],
+    "secrets": "Worker secrets and GitHub Actions secrets; owner-only local file; never in client assets or commits",
+    "media": "private R2 binding only; authenticated Worker delivery with ranges",
+    "token_scope": "existing repository Cloudflare token is account-scoped; least-privilege narrowing remains a follow-up"
+  },
+  "backups": {
+    "d1_time_travel": true,
+    "d1_export": "documented; restore drill not yet performed",
+    "r2": "immutable release media plus versioned catalogs; private source/manifest backup still required",
+    "content_rollback": "D1 active-release pointer exercised with a same-release rollback (HTTP 200, active true); previous releases remain eligible after separate upload.",
+    "local_d1_export_exercised": true,
+    "production_restore_drill": "not performed"
+  },
+  "owner_review": {
+    "cap_seconds": 7200,
+    "recorded_seconds": 0,
+    "audit_queue_assets": 117,
+    "status": "not a prerequisite for this private release; no human/expert approval claimed"
+  },
+  "deferred": [
+    "full offline media packs and hands-free road-trip mode",
+    "additional geography/media acquisition",
+    "scheduled D1 export and restore drill",
+    "least-privilege Cloudflare token rotation",
+    "commercial licensing"
+  ]
+}

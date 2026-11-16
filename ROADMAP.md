@@ -31,6 +31,14 @@ Acceptance evidence: Python tests, Hono tests and TypeScript/build checks pass; 
 
 Acceptance evidence: [Phase 2.1 report](docs/phase-two-1.md), [acquisition evidence](experiments/phase-two-acquisition.json), [delivery manifest](experiments/phase-two-delivery-manifest.json) and [audit queue](experiments/phase-two-audit-queue.json).
 
+## Delivered Phase Three private production release
+
+- Deployed the accepted 589-asset collection at **https://birdahead.com** on a dedicated Cloudflare Worker, D1 database and private R2 bucket, with canonical apex HTTPS and a `www` 308 redirect.
+- Added two independent authenticated household profiles (Hank/Heather), opaque revocable sessions, host-only Secure HttpOnly SameSite=Strict cookies, origin/header checks, login/publish rate limits and server-enforced private APIs/media.
+- Published 436,400,934 bytes across 589 private R2 objects through the authenticated Worker publisher with checksum validation, resumable ledger, upload verification, versioned catalogs and atomic activation/rollback.
+- Added installable PWA manifest/icons/service worker, mobile-first login/status UI, authenticated audio ranges and D1-backed learning persistence/migration export.
+- Added GitHub Actions validation and a manually gated provisioning/release workflow. Resource inventory, auth, publishing, backup and rollback are in [production operations](docs/production.md); deployment evidence is in [Phase Three](docs/phase-three.md).
+
 ## Next local usability and reliability pass
 
 The owners can use this local collection immediately; their field/use feedback will determine the next improvement. No access negotiation blocks use.

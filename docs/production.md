@@ -46,11 +46,11 @@ The publisher validates local SHA-256/size, skips unchanged ledger objects, resu
 
 ## Backups and rollback
 
-- **D1:** use Cloudflare D1 Time Travel plus a private export (`npx wrangler d1 export DB --remote --config <generated-config> --output <private-file>`). Do not commit exports. Test restore in a separate database before treating it as disaster recovery.
+- **D1:** use Cloudflare D1 Time Travel plus a private export (`npx wrangler d1 export DB --remote --config <generated-config> --output <private-file>`). The export command was exercised against the local D1; a production export/restore drill remains deferred. Do not commit exports. Test restore in a separate database before treating it as disaster recovery.
 - **Learning progress:** `uv run python -m tooling.learner_export` writes idempotent `INSERT OR IGNORE` SQL for attempts/flags to ignored private storage. Apply it only to the dedicated BirdAhead D1. Profiles are seeded by migration; active local sessions are intentionally not resumed.
 - **R2:** catalogs are versioned; media keys are immutable. Keep a private backup of source media/manifests outside the repository. Do not enable public R2 access.
 - **Worker:** retain prior Worker versions and roll back through the Cloudflare Workers dashboard/API after operator authorization. A Worker rollback does not undo D1 or R2 changes.
-- **Content rollback:** activate a previous release id through the publisher/Worker admin endpoint. No application redeploy is required.
+- **Content rollback:** activate a previous release id through the publisher/Worker admin endpoint. The same-release rollback pointer was exercised successfully; a future distinct release will exercise a true version switch. No application redeploy is required.
 
 ## Deployment gate and checks
 

@@ -140,7 +140,8 @@ def main():
             page.get_by_role('button', name='Sign out').click()
             expect(page.get_by_role('heading', name='Welcome to BirdAhead.')).to_be_visible()
             browser.close()
-    report = {'schema':'birdahead-production-smoke-v1','base':base,'health':health,'checks':checks,'passed':all(c['passed'] for c in checks)}
+    from datetime import datetime, timezone
+    report = {'schema':'birdahead-production-smoke-v1','at':datetime.now(timezone.utc).isoformat(),'base':base,'health':health,'browser':args.browser,'checks':checks,'passed':all(c['passed'] for c in checks)}
     save(args.evidence, report)
     print(json.dumps({c['name']:c['passed'] for c in checks}, indent=2)); print('PASS')
 

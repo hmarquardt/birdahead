@@ -1,0 +1,8 @@
+{
+  "schema": "birdahead-rollback-check-v1",
+  "at": "2026-11-16T02:16:00Z",
+  "release_id": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
+  "http_status": 200,
+  "active": true,
+  "note": "Same-release D1 pointer rollback exercised through the authenticated publisher. No Worker redeploy or media rewrite occurred."
+}
