@@ -1,21 +1,21 @@
 {
   "schema": "birdahead-production-inventory-v1",
   "status": "private-production-release-verified",
-  "generated_at": "2026-11-16T02:16:30Z",
+  "generated_at": "2026-11-16T02:19:30Z",
   "canonical_url": "https://birdahead.com",
   "health": {
     "status": 200,
     "ok": true,
     "app": "birdahead",
-    "revision": "9fa5c069339688b2606912a1fb563ba9be90d745",
+    "revision": "b17f906ad3fa48994016fb0e20e925f0058d5648",
     "active_release": "5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a",
     "auth": "session"
   },
   "worker": {
     "name": "birdahead",
-    "version_id": "c9fb805e-d21a-49dc-addb-0beac382942b",
-    "deployed_revision": "9fa5c069339688b2606912a1fb563ba9be90d745",
-    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43790748776",
+    "version_id": "a8909674-bfcf-45ff-ba50-6be076499467",
+    "deployed_revision": "b17f906ad3fa48994016fb0e20e925f0058d5648",
+    "deploy_run": "https://github.com/hmarquardt/birdahead/actions/runs/43791278009",
     "custom_domains": [
       "birdahead.com",
       "www.birdahead.com"
