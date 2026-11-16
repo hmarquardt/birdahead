@@ -102,7 +102,15 @@ def main():
             expect(page.get_by_text('LOOK CLOSELY')).to_be_visible(timeout=20000)
             page.locator('.choice-grid button').first.click()
             expect(page.get_by_text('Next example')).to_be_visible(timeout=10000)
-            check('guest browser practice flow', True)
+            guest_attempts = page.evaluate("JSON.parse(localStorage.getItem('birdahead-guest-history-v1') || '[]').length")
+            check('guest browser practice flow', guest_attempts > 0, guest_attempts)
+            page.get_by_role('button', name='Progress', exact=True).click()
+            expect(page.get_by_text('GUEST NOTEBOOK · THIS BROWSER ONLY')).to_be_visible()
+            page.reload()
+            page.get_by_role('button', name='Progress', exact=True).click()
+            expect(page.get_by_text('GUEST NOTEBOOK · THIS BROWSER ONLY')).to_be_visible()
+            persisted = page.evaluate("JSON.parse(localStorage.getItem('birdahead-guest-history-v1') || '[]').length")
+            check('guest local history persists', persisted > 0, persisted)
             browser.close()
     from datetime import datetime, timezone
     report = {'schema': 'birdahead-public-smoke-v1', 'at': datetime.now(timezone.utc).isoformat(), 'base': base, 'browser': args.browser, 'checks': checks, 'passed': all(c['passed'] for c in checks)}
