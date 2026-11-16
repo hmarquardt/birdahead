@@ -237,7 +237,7 @@ function App() {
       {tab === "practice" && <Practice signedIn={auth === "in"} profile={profile} county={county} day={day} initialKind={practiceKind} initialBird={focusCode} onProgress={() => { if (auth === "in") api(`progress?profile=${encodeURIComponent(profile)}`).then(setProgress).catch(() => undefined); }} />}
       {tab === "progress" && <ProgressView signedIn={auth === "in"} progress={progress} profile={profile} />}
       {tab === "about" && <About />}
-      <footer><div className="brand"><Icon type="bird" />BirdAhead</div><p>Learn the birds you’re about to meet.</p><span>Public noncommercial educational project · eBird-derived seasonal summaries and licensed media<br />Household sign-in optional · <a href="/sources">Sources</a> · <a href="/privacy">Privacy</a> · <a href="/robots.txt">Robots</a></span></footer>
+      <footer><div className="brand"><Icon type="bird" />BirdAhead</div><p>Learn the birds you're about to meet.</p><span>Public noncommercial educational project · eBird-derived seasonal summaries and licensed media<br />Household sign-in optional · <a href="/sources">Sources</a> · <a href="/privacy">Privacy</a> · <a href="/robots.txt">Robots</a></span></footer>
     </main>
     {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} onLogin={(id, name) => { setProfile(id); setAuthName(name); setAuth("in"); setLoginOpen(false); setTab("explore"); }} />}
   </>;

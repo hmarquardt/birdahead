@@ -4,14 +4,11 @@ BirdAhead publishes an indexable homepage, public species and county landing pag
 
 ## Current status
 
-The existing CFLab Search Console collector has seven reviewed properties and does **not** include `sc-domain:birdahead.com`. The existing service account has no verified BirdAhead property, and no verification credential for BirdAhead is available in this workspace. Therefore the site has not been registered or submitted to Google Search Console, and no owner-reviewable verification token has been invented.
+The owner verified `sc-domain:birdahead.com` as a Domain property and granted the existing CFLab Search Console service account read access. The adjacent CFLab project now includes the reviewed mapping `sc-domain:birdahead.com` → `birdahead` (commit `2a6d74c`), and the Analytics Worker was released at that revision with all 10 read-only production checks passing. The production collector runs in the existing hourly cron; its first BirdAhead result is recorded in [production evidence](../experiments/phase-three-production.json). No second collector, service account or credential was created.
 
-## Owner actions
+## Remaining owner actions
 
-1. Add `birdahead.com` as a **Domain property** in Google Search Console using a DNS TXT verification record. Domain verification is preferable because it covers apex and `www`.
-2. Grant the existing CFLab Search Console service account at least `siteRestrictedUser` read access to the property.
-3. In the adjacent CFLab project, add `sc-domain:birdahead.com` to the reviewed `GSC_PROPERTIES` list with `siteSlug: 'birdahead'`; redeploy CFLab Analytics through its existing gated pipeline.
-4. Submit `https://birdahead.com/sitemap.xml` with an account holding Full/Owner permission. The current read-only service account previously received `403` for sitemap writes.
-5. Verify Search Console reports indexed public pages and no private API/media URLs.
+1. Submit `https://birdahead.com/sitemap.xml` with an account holding Full/Owner permission. The read-only service account previously received `403` for sitemap writes.
+2. Verify Search Console reports indexed public pages and no private API/media URLs.
 
-These are tracked as owner actions, not completed work. BirdAhead itself does not claim Search Console registration.
+These are tracked as owner actions, not completed work. BirdAhead itself does not substitute first-party analytics for Search Console.

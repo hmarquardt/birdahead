@@ -3,6 +3,7 @@ export const ANALYTICS_SCRIPT = "https://analytics.aismallbizguru.com/script.js"
 export const ANALYTICS_SITE = "as_Bq4kGnf2EkSW3dS0HZAddF";
 export const EBIRD_TERMS = "https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/";
 export const EBIRD_CITATION = "eBird. 2016–2025. eBird observation data; derived seasonal summaries. Cornell Lab of Ornithology, Ithaca, New York. https://ebird.org.";
+export const FAVICON = 'data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2232%22%20fill=%22%23183e34%22/%3E%3Cpath%20d=%22M11%2041c15%200%2015-19%2032-19l8-10%205%2010-8%208c3%2016-11%2024-27%2019l-10%205%205-10z%22%20fill=%22%23dce9b5%22/%3E%3Cpath%20d=%22M25%2036c5%201%2010-1%2014-5%22%20fill=%22none%22%20stroke=%22%23183e34%22%20stroke-width=%224%22%20stroke-linecap=%22round%22/%3E%3C/svg%3E xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Ccircle cx=%2232%22 cy=%2232%22 r=%2232%22 fill=%22%23183e34%22/%3E%3Cpath d=%22M11 41c15 0 15-19 32-19l8-10 5 10-8 8c3 16-11 24-27 19l-10 5 5-10z%22 fill=%22%23dce9b5%22/%3E%3Cpath d=%22M25 36c5 1 10-1 14-5%22 fill=%22none%22 stroke=%22%23183e34%22 stroke-width=%224%22 stroke-linecap=%22round%22/%3E%3C/svg%3E';
 export const PUBLIC_SCOPE = "Public noncommercial educational use. No advertising, monetization, paid access or commercial clearance.";
 
 export function escapeHtml(value: unknown): string {
@@ -32,12 +33,12 @@ function shell(origin: string, title: string, description: string, canonical: st
 <meta property="og:type" content="website"><meta property="og:site_name" content="BirdAhead"><meta property="og:title" content="${escapeHtml(title)}">
 <meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:image" content="${escapeHtml(imageUrl)}">
 <meta property="og:image:alt" content="BirdAhead regional bird learning"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#183e34"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon-192.png">
+<meta name="theme-color" content="#183e34"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="${FAVICON}">
 <link rel="stylesheet" href="/public-pages.css"><script defer src="${ANALYTICS_SCRIPT}" data-site="${ANALYTICS_SITE}"></script>
 ${structured ? `<script type="application/ld+json">${jsonLd(structured)}</script>` : ""}</head><body>
 <header class="site-header"><a class="site-brand" href="/"><span class="birdmark">◆</span> BirdAhead</a><nav><a href="/?tab=explore">Explore</a><a href="/?tab=guide">Field guide</a><a href="/?tab=practice">Practice</a><a href="/sources">Sources &amp; privacy</a></nav></header>
 ${body}
-<footer class="site-footer"><p><strong>BirdAhead</strong> · Learn what’s next. Public seasonal exploration and practice; household sign-in is optional.</p><p>${escapeHtml(PUBLIC_SCOPE)} <a href="/sources">Data and media credits</a> · <a href="/privacy">Privacy</a></p></footer></body></html>`;
+<footer class="site-footer"><p><strong>BirdAhead</strong> · Learn the birds you're about to meet. Public seasonal exploration and practice; household sign-in is optional.</p><p>${escapeHtml(PUBLIC_SCOPE)} <a href="/sources">Data and media credits</a> · <a href="/privacy">Privacy</a></p></footer></body></html>`;
 }
 
 

@@ -70,7 +70,7 @@ The production smoke checks HTTPS health/revision, unauthorized private API/medi
 
 BirdAhead is registered in the existing CFLab analytics Site model as `as_Bq4kGnf2EkSW3dS0HZAddF` with apex/`www` domains. Aggregate public pageviews and feature events are verified; the client honors DNT/GPC, stores no cookies or persistent visitor ID, and never receives household identities, access keys, individual quiz responses, precise locations or private progress. See [analytics](analytics.md).
 
-Google Search Console registration is not complete: `sc-domain:birdahead.com` is not verified or in the existing CFLab reviewed property list. Sitemap submission and verification are documented owner actions in [Search Console](search-console.md).
+Google Search Console registration is now integrated with the existing CFLab collector. The reviewed property list includes `sc-domain:birdahead.com` mapped to the `birdahead` Site; the Analytics Worker was released at CFLab revision `2a6d74c` and passed its read-only production checks. Sitemap submission still requires an account with Full/Owner permission; the collector itself only needs read access. See [Search Console](search-console.md).
 
 ## Backup evidence
 

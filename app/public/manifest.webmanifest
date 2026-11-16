@@ -1,7 +1,7 @@
 {
-  "name": "BirdAhead — Learn what’s next",
+  "name": "BirdAhead — Learn the birds you're about to meet.",
   "short_name": "BirdAhead",
-  "description": "Private household bird identification practice for southwestern Indiana.",
+  "description": "Learn the birds you're about to meet. Free public seasonal exploration, field guide and sight/sound practice for southwestern Indiana.",
   "id": "/",
   "start_url": "/",
   "scope": "/",

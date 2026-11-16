@@ -12,6 +12,9 @@ November 16, 2026. BirdAhead is deployed at **https://birdahead.com** as a free,
 - Versioned release catalogs in R2, atomic D1 release activation/rollback, resumable publishing and checksum verification.
 - Optional two independent learner identities, Hank and Heather, using separately generated household access keys, opaque revocable sessions and server-backed progress.
 - Public species/county landing pages, canonical/OG metadata, JSON-LD, sitemap, robots, privacy/source pages and selective noindex.
+- Inline, data-URI SVG favicon on the homepage and every public page, with the existing PNG PWA icons and manifest preserved; no new raster or ICO assets.
+- Standardized public tagline: **Learn the birds you're about to meet.**
+- Existing CFLab Search Console collector mapping prepared for the verified `sc-domain:birdahead.com` Domain property; the collector remains server-to-server and read-only.
 - CFLab analytics registration and verified aggregate event ingestion.
 - GitHub Actions validation and a manually gated provisioning/release workflow using the established Cloudflare secret names.
 

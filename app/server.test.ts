@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { DatabaseSync } from "node:sqlite";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
@@ -136,6 +136,21 @@ function fixture() {
     },
   };
 }
+test("public branding is consistent and every public page declares the inline SVG favicon", async () => {
+  const f = fixture();
+  try {
+    const homepage = readFileSync(new URL("./index.html", import.meta.url), "utf8");
+    assert.match(homepage, /<link rel="icon" href="data:image\/svg\+xml,/);
+    assert.match(homepage, /Learn the birds you're about to meet\./);
+    for (const path of ["/sources", "/privacy"]) {
+      const page = await f.get(path);
+      assert.equal(page.status, 200);
+      assert.match(page.data, /<link rel="icon" href="data:image\/svg\+xml,/);
+      assert.match(page.data, /Learn the birds you're about to meet\./);
+    }
+  } finally { f.cleanup(); }
+});
+
 test("approaching signal includes absent migrants and validates dates", () => {
   const f = fixture();
   try {

@@ -27,4 +27,4 @@ BirdAhead may send aggregate pageviews and public feature events such as `practi
 
 A production-origin collection probe to `/collect` returned HTTP 204 and the corresponding row was observed in `analytics_events` for the BirdAhead Site. Evidence is in [the analytics verification](../experiments/phase-three-analytics.json). The browser script remains subject to CFLab bot filtering and DNT/GPC; local development origins are not registered and are intentionally not counted.
 
-Google Search Console is separate. See [Search Console](search-console.md); verification and sitemap submission remain owner actions where existing credentials do not permit them.
+Google Search Console is integrated through the existing CFLab collector: `sc-domain:birdahead.com` is in the reviewed property list and maps to the `birdahead` Site (site id 10). The Analytics Worker uses the existing service account; no second collector or credential was created. See [Search Console](search-console.md); sitemap submission remains an owner action because the read-only service account does not have Full/Owner permission.
