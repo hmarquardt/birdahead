@@ -1074,7 +1074,7 @@ export function createApp(
   app.get("/comparisons.json", serveStatic({ path: resolve(root, "app/dist/comparisons.json") }));
   app.get("/discovery.json", serveStatic({ path: resolve(root, "app/dist/discovery.json") }));
   app.get("/discovery-page.json", serveStatic({ path: resolve(root, "app/dist/discovery-page.json") }));
-  for (const asset of ["/sw.js", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"]) {
+  for (const asset of ["/sw.js", "/manifest.webmanifest", "/public-pages.css", "/og-birdahead.png", "/icon-192.png", "/icon-512.png", "/icon-maskable-512.png", "/apple-touch-icon.png"]) {
     app.get(asset, serveStatic({ path: resolve(root, "app/dist", asset.slice(1)) }));
   }
   app.get("/", serveStatic({ path: resolve(root, "app/dist/index.html") }));

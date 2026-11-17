@@ -16,3 +16,4 @@
 Records distinguish owner requirements from recommendations. A proposed architecture does not authorize a deployment.
 
 - [0011 — public educational utility with private personalization](0011-public-utility.md)
+- [0012 — shared visual tokens and an accessibility floor](0012-ui-quality-baseline.md)

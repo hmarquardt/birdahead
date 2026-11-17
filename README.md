@@ -48,6 +48,7 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [AGENTS.md](AGENTS.md) | Operating boundary and credential convention |
 | [ROADMAP.md](ROADMAP.md) | Delivered local scope and next acceptance gates |
 | [Phase Three report](docs/phase-three.md) | Public/private release, auth, verification and deferred work |
+| [UI quality audit](docs/ui-audit.md) | Rendered contrast, target, layout and accessibility audit across all views and widths |
 | [Analytics](docs/analytics.md) | CFLab registration, events, privacy and verification |
 | [Offline learning](docs/offline.md) | Packs, storage, resume/integrity, offline practice and profile-bound sync |
 | [Offline evidence](experiments/phase-four-offline.json) | Automated browser offline/reload/resume/reclamation checks |

@@ -45,7 +45,7 @@ function PackCard({ pack, stored, existing, progress, onDownload, onDelete, onPa
   const shared = sharedAssetCount(pack, existing.filter((row) => row.id !== pack.id));
   const done = progress?.pack_id === pack.id ? progress : stored ? { completed: stored.completed_assets.length, total: pack.assets.length, bytes_done: 0, bytes_total: pack.bytes } : null;
   return <article className="download-card">
-    <div className="download-head"><div><span className="eyebrow">{pack.assets.length} files · {formatBytes(pack.bytes)}</span><h3>{pack.title}</h3></div>{complete && <span className="download-status">Downloaded</span>}</div>
+    <div className="download-head"><div><span className="eyebrow">{pack.assets.length} files · {formatBytes(pack.bytes)}</span><h2>{pack.title}</h2></div>{complete && <span className="download-status">Downloaded</span>}</div>
     <p>{pack.description}</p>
     <dl className="download-facts"><div><dt>New data</dt><dd>{formatBytes(incremental)}</dd></div><div><dt>Shared</dt><dd>{shared} file{shared === 1 ? "" : "s"}</dd></div><div><dt>Release</dt><dd>{pack.release_id.slice(0, 12)}…</dd></div></dl>
     {!pack.assets.length && <p className="fine">No eligible media for this pack in the current selection.</p>}
