@@ -99,6 +99,8 @@ small {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 16px;
   max-width: 1180px;
   margin: auto;
   padding: 30px 42px;
@@ -1364,19 +1366,32 @@ footer > span {
 .login-form label { display: grid; gap: 7px; font-size: 10px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .login-form input { min-height: 50px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; font-size: 16px; background: #fff; }
 .login-form .primary { min-height: 52px; }
-.profile { align-items: center; }
-.profile-name { font-size: 13px; }
-.sign-out { font-size: 11px; color: var(--muted); }
+/* Header identity/status and the adjacent auth control sit on one centered
+   flex row in both authenticated and anonymous states. Alignment comes from
+   flexbox; there are no positional offsets or fixed vertical margins. */
+.topbar .profile { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-width: 0; margin-left: auto; }
+.topbar .brand { flex: 0 0 auto; }
+.topbar .profile-guest { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; line-height: 1.2; color: var(--muted); }
+.topbar .profile .sign-out,
+.topbar .profile .signin-trigger { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; min-height: 36px; margin: 0; line-height: 1.2; font-size: 11px; }
+.topbar .profile .sign-out { padding: 0; color: var(--muted); }
+.topbar .profile .signin-trigger { padding: 8px 12px; }
 .connection { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .connection::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #9aa79b; }
 .connection.online::before { background: #6f9d55; }
 .connection.offline::before { background: #b47e2a; }
+@media (max-width: 480px) {
+  /* Keep the identity/status row predictable across both auth states: a
+     full-basis flex row instead of label-dependent wrapping. */
+  .topbar .profile { flex: 1 1 100%; }
+}
 @media (max-width: 750px) {
   .login-shell { padding: max(16px, env(safe-area-inset-top)) 14px max(16px, env(safe-area-inset-bottom)); }
   .login-card { border-radius: 18px; }
-  .profile { gap: 8px; }
-  .profile-name { max-width: 80px; overflow: hidden; text-overflow: ellipsis; }
-  .sign-out { min-height: 44px; }
+  .topbar .profile { gap: 10px; }
+  .topbar .profile .sign-out,
+  .topbar .profile .signin-trigger { min-height: 44px; }
+  .topbar .profile .signin-trigger { padding: 8px 14px; }
 }
 
 /* Phase 3.1 public-first shell */
