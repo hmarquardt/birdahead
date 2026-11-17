@@ -58,6 +58,11 @@ Anonymous 390 px, same checks before and after the pass:
 
 Final matrix: **165 renders, 0 contrast failures, 0 target-size failures, 0 accessibility findings, 0 text below 10 px, 0 unintended horizontal overflow.** The only audit notes are the expected absence of a sign-in trigger while signed in (the dialog is anonymous-only) and data-dense chart cells discussed below.
 
+### Production verification
+
+Release run `43998303489` deployed commit `66e662a`. The live asset is `index-DSz50zYS.css` with `--muted: #5b655d` and `--eyebrow: #586649`. Measured in production: Photos/Sounds render `rgb(36,76,63)` on `rgb(255,253,248)` with `aria-pressed="false"` while the selected filter is `rgb(247,247,237)` on `rgb(36,76,63)`; document overflow is 0 px at 360/390/768 px for Migration, Road Trip, Downloads and Compare; the crawlable Sources page is styled with a 3 px focus ring; header brand/profile centres coincide at 768 and 1440 px (the profile wraps to its own row at ≤480 px by design); production smoke passed 25/25. `CLOUDFLARE_DEPLOY_ENABLED` remained `false`, the manual gated dispatch carried the code release, and the active content release remained `5604f569…`.
+
+
 ## Regression checks
 
 - `tests/test_ui_tokens.py` (runs in `uv run python -m unittest discover -s tests`): shared token parity between the app and public stylesheets, no undefined custom properties, 10 px text floor, contrast thresholds for the muted/eyebrow/status/button pairs, the segmented-control light/dark split and the header sign-out alignment contract.
