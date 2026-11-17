@@ -2,6 +2,8 @@
 
 Status: public noncommercial educational release with optional private household profiles, November 16, 2026. Canonical URL: **https://birdahead.com**. `www.birdahead.com` redirects with HTTP 308. Public exploration, field guide, eligible media and guest practice require no account; private progress, identities and administration remain authenticated.
 
+**Header layout revision, November 16, 2026:** revision `a24e8dd044879ea02128b3661e67e2cb8e637ced` corrects only the header authentication layout so the household identity/status and the Sign out control share one vertically centered flex row; the anonymous `Household sign in` control keeps the same behavior. Verified in the local Worker at 1280×900, 390×844 and 320×700 for both states (0px vertical center delta, no header overflow, long identity truncates without moving the control) and in production at 1280×900 and 390×844 for both states. Production smoke passed 25/25 including the browser check. Deployment used the manual gated dispatch; `CLOUDFLARE_DEPLOY_ENABLED` remained `false`, the active content release stayed `5604f5690467b2d362cfb75da1aa8a1536902dc15db77f9c42afe08b8950834a`, and no catalog, media or geographic publication changed.
+
 **Phase Eight gate, November 16, 2026:** `CLOUDFLARE_DEPLOY_ENABLED` was observed enabled and reset to `false` before pushing the geographic architecture. No geographic code/content deployment was performed. The live accepted release remains in place. [Geographic release prerequisites, staging and rollback strategy](phase-eight.md). No backup, rollback or token-scope change occurred.
 
 ## Resource inventory
@@ -56,7 +58,7 @@ The publisher validates local SHA-256/size, skips unchanged ledger objects, resu
 
 ## Deployment gate and checks
 
-GitHub Actions uses repository secret names `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` and variable `CLOUDFLARE_DEPLOY_ENABLED`; app-specific secrets are `BIRDAHEAD_HANK_KEY`, `BIRDAHEAD_HEATHER_KEY` and `BIRDAHEAD_PUBLISH_TOKEN`. The manual `provision=true` dispatch is the authorized first-release path. Set `CLOUDFLARE_DEPLOY_ENABLED=true` only after a verified release to enable push-to-main deployment.
+GitHub Actions uses repository secret names `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` and variable `CLOUDFLARE_DEPLOY_ENABLED`; app-specific secrets are `BIRDAHEAD_HANK_KEY`, `BIRDAHEAD_HEATHER_KEY` and `BIRDAHEAD_PUBLISH_TOKEN`. The manual `provision=true` dispatch is the authorized first-release path and also carries later authorized code-only releases without touching content catalogs. Set `CLOUDFLARE_DEPLOY_ENABLED=true` only after a verified release to enable push-to-main deployment.
 
 ```sh
 uv run python -m unittest discover -s tests
