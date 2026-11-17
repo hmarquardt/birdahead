@@ -273,7 +273,10 @@ NARROW_VIEWS = {"guide-open", "practice-feedback", "practice-summary", "login-mo
 def run(base_url: str, widths, label: str, guest_only: bool) -> list[dict]:
     results = []
     with sync_playwright() as p:
-        browser = p.chromium.launch(channel="chrome", headless=True)
+        try:
+            browser = p.chromium.launch(channel="chrome", headless=True)
+        except Exception:  # fall back to Playwright's bundled Chromium
+            browser = p.chromium.launch(headless=True)
         for width, height in widths:
             for view, query, action in VIEWS:
                 if width not in (360, 390, 1440) and view in NARROW_VIEWS:
