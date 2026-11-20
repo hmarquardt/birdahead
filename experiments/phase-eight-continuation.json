@@ -1,0 +1,316 @@
+{
+  "schema": "birdahead-phase-eight-continuation-v1",
+  "at": "2026-11-20T23:16:10.040692+00:00",
+  "evidence": "observed experiment; owner-reported approval not independently established",
+  "resources": {
+    "schema": "birdahead-geographic-preflight-v1",
+    "at": "2026-11-20T23:16:09.968385+00:00",
+    "evidence": "observed experiment",
+    "credentials": {
+      "EBIRD_API_KEY": true,
+      "EBIRD_ST_API_KEY": true
+    },
+    "credential_policy": "environment overrides ~/.config/secrets/shared.env; values omitted",
+    "disk": {
+      "total": 494384795648,
+      "used": 361515433984,
+      "free": 132869361664
+    },
+    "physical_memory_bytes": 17179869184,
+    "logical_cpus": 8,
+    "limits": {
+      "max_download_bytes": 64000000,
+      "max_input_bytes": 500000000,
+      "disk_reserve_bytes": 20000000000,
+      "memory_mb": 2048,
+      "threads": 2,
+      "max_spill_bytes": 4000000000
+    },
+    "artifacts": [
+      {
+        "kind": "private_geography_artifact",
+        "filename": "band-dates.csv",
+        "bytes": 729,
+        "sha256": "71420e19f71d321e3f1001494f5dd0ceb40c7cc1aef57f9f05712bfd42cafe35"
+      },
+      {
+        "kind": "private_geography_artifact",
+        "filename": "bkpwar_abundance_median_27km_2023.tif",
+        "bytes": 1078039,
+        "sha256": "d578d32bf2b76629434ce210c5424e5f3349bdf906cf03bb7cdb94abb0f3eb9c"
+      },
+      {
+        "kind": "private_geography_artifact",
+        "filename": "bkpwar_occurrence_median_27km_2023.tif",
+        "bytes": 1076095,
+        "sha256": "1ba4917db5b04eff12967501ff395dae535a4d7508a722da099030466c12d095"
+      },
+      {
+        "kind": "private_geography_artifact",
+        "filename": "band-dates.csv",
+        "bytes": 729,
+        "sha256": "71420e19f71d321e3f1001494f5dd0ceb40c7cc1aef57f9f05712bfd42cafe35"
+      },
+      {
+        "kind": "private_geography_artifact",
+        "filename": "norcar_abundance_median_27km_2023.tif",
+        "bytes": 1774926,
+        "sha256": "cb051436e33f6272c657ad036f5c0c8f5f7978c54549e61932db3a15da6eb54f"
+      },
+      {
+        "kind": "private_geography_artifact",
+        "filename": "norcar_occurrence_median_27km_2023.tif",
+        "bytes": 1756445,
+        "sha256": "def0c6c42c18d81a8405937c479c2481c2f74189d02e64d99a5e918cf626acfe"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-051__2016_2025_1_12_barchart.txt",
+        "bytes": 124730,
+        "sha256": "b506126223926a85b94d67fb91a0c45bf6ca02bf146e2dbdf1b81ae1cd89b764"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-055__2016_2025_1_12_barchart.txt",
+        "bytes": 122233,
+        "sha256": "7f2a8931394f4fa6c43a176f1ef02eb54ec65fe0155f4d6edc0f49d20d6dd7c1"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-083__2016_2025_1_12_barchart.txt",
+        "bytes": 87133,
+        "sha256": "883302cc83909d812070bc7654fb44c81d9549374cf122bd7d5a0a166069c104"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-125__2016_2025_1_12_barchart.txt",
+        "bytes": 95319,
+        "sha256": "7563cbbd78a67cc4b840d68ec149ad0da7a61b5ece96e5ba2e90e85e57159831"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-129__2016_2025_1_12_barchart.txt",
+        "bytes": 91529,
+        "sha256": "0eb537dcc61ceed2342d5c9c5a8dd06020ea44997c0263cc87b09be79af09aca"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-163__2016_2025_1_12_barchart.txt",
+        "bytes": 108205,
+        "sha256": "c358ffb4db70567fcb4f959b2e79064fb855906a9fe542b563f6a5b1230a90a4"
+      },
+      {
+        "kind": "histogram_reference",
+        "filename": "ebird_US-IN-173__2016_2025_1_12_barchart.txt",
+        "bytes": 108717,
+        "sha256": "d5a2e8b4d3e9ed78673a63e056b0bcd4501fe712277f40568ae2cffdde3c8ddd"
+      }
+    ],
+    "ebd_approval": "unverified: API keys are independent grants; authenticated portal not inspected",
+    "public_intended_use": "BirdAhead is a public, noncommercial educational bird-learning application at birdahead.com. Raw EBD/SED, exact coordinates and authenticated responses remain private. Only eligible compact attributed derived geographic summaries are distributed; optional household progress remains private."
+  },
+  "reference_validation": {
+    "schema": "birdahead-geographic-validation-v1",
+    "reference_count": 7,
+    "reference_samples": 79868,
+    "historical_validation": "blocked_source_unavailable",
+    "evidence": "real_histogram_reference_inventory_only",
+    "build_identity": null,
+    "counties": [],
+    "investigation_axes": [
+      "snapshot vintage",
+      "complete/effort/provisional filters",
+      "taxonomy split/lump and crosswalk",
+      "shared-event deduplication and conflicts",
+      "source rounding and presence markers"
+    ],
+    "frequency_comparison": "not performed: no matching approved EBD/SED snapshot",
+    "synthetic_tests": "separate integration tests; no real EBD denominator/frequency parity claim"
+  },
+  "reference_inventory": [
+    {
+      "location": "US-IN-051",
+      "profile_sha256": "5347a850ec4ccb45016ab7f914592aecd715770f7602fa6d54a7aeb3913a230a",
+      "source_sha256": "b506126223926a85b94d67fb91a0c45bf6ca02bf146e2dbdf1b81ae1cd89b764",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 14238,
+      "species": 100
+    },
+    {
+      "location": "US-IN-055",
+      "profile_sha256": "d062b5b9ac5a4ee0acb27c24c1e97e5746268df1b2c564331b13e1eb19bdfa80",
+      "source_sha256": "7f2a8931394f4fa6c43a176f1ef02eb54ec65fe0155f4d6edc0f49d20d6dd7c1",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 21947,
+      "species": 100
+    },
+    {
+      "location": "US-IN-083",
+      "profile_sha256": "d520446f9fc1130ace838c4e88ac746f186a70db3a6f89920290a1c4d0302eaa",
+      "source_sha256": "883302cc83909d812070bc7654fb44c81d9549374cf122bd7d5a0a166069c104",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 3074,
+      "species": 100
+    },
+    {
+      "location": "US-IN-125",
+      "profile_sha256": "c3fc5d1c9a650c30cf9337ed763b49ca78ffd3c24c2bcaa0e121ad52e232fbf4",
+      "source_sha256": "7563cbbd78a67cc4b840d68ec149ad0da7a61b5ece96e5ba2e90e85e57159831",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 2584,
+      "species": 100
+    },
+    {
+      "location": "US-IN-129",
+      "profile_sha256": "8f9ac60901b0c7aca90aaa3d1fc6cf463e505ce9992da1e00aeb4c491986571b",
+      "source_sha256": "0eb537dcc61ceed2342d5c9c5a8dd06020ea44997c0263cc87b09be79af09aca",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 2842,
+      "species": 100
+    },
+    {
+      "location": "US-IN-163",
+      "profile_sha256": "e18270ebb3a21f8d2d4dd0d5c1884b212aabb8c93d7afbfcebeb63ea217f02e1",
+      "source_sha256": "c358ffb4db70567fcb4f959b2e79064fb855906a9fe542b563f6a5b1230a90a4",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 22222,
+      "species": 100
+    },
+    {
+      "location": "US-IN-173",
+      "profile_sha256": "fd2ee6ed9b511884178ea562d585c841d2c0dfedf7da90814b5b134fff409b51",
+      "source_sha256": "d5a2e8b4d3e9ed78673a63e056b0bcd4501fe712277f40568ae2cffdde3c8ddd",
+      "start_year": 2016,
+      "end_year": 2025,
+      "native_bins": 48,
+      "sample_sum": 12961,
+      "species": 100
+    }
+  ],
+  "baseline": {
+    "requested_commit": "1d45aab",
+    "inspected_main": "c542a482b72f169729a8b848c61f1c8356168225",
+    "subsequent_commits": 6,
+    "remote_agreed_before_work": true
+  },
+  "local_search": {
+    "method": "recursive filename and metadata inventory; no authenticated portal inspection",
+    "project_geography": {
+      "files_scanned": 31,
+      "approval_found": false,
+      "ebd_sed_pair_found": false
+    },
+    "downloads": {
+      "files_scanned": 4721,
+      "relevant_approval_or_pair_found": false
+    },
+    "documents": {
+      "status": "unavailable_permission_denied",
+      "files_scanned": 0
+    },
+    "limitation": "Cannot exclude an email, an unrecognized filename or another storage location."
+  },
+  "approval_scope": {
+    "ebd_regional_access": "unverified_no_approval_document_or_submitted_description",
+    "matching_sed": "unverified_no_approval_document_or_submitted_description",
+    "dates": "unverified_no_approval_document_or_submitted_description",
+    "geography": "unverified_no_approval_document_or_submitted_description",
+    "public_noncommercial_historical_derivatives": "unverified_no_approval_document_or_submitted_description",
+    "grant_conditions_and_attribution": "unverified_no_approval_document_or_submitted_description",
+    "status_and_trends_web_pwa": "separate_written_consent_unavailable"
+  },
+  "sources": [
+    {
+      "url": "https://support.ebird.org/en/support/solutions/articles/48000838205-download-ebird-data",
+      "retrieved_on": "2026-11-20",
+      "evidence": "verified documentation",
+      "status": "readable"
+    },
+    {
+      "url": "https://www.birds.cornell.edu/home/ebird-data-access-terms-of-use/",
+      "retrieved_on": "2026-11-20",
+      "terms_updated": "2020-11-09",
+      "evidence": "verified documentation",
+      "status": "readable"
+    },
+    {
+      "url": "https://science.ebird.org/en/status-and-trends/products-access-terms-of-use",
+      "retrieved_on": "2026-11-20",
+      "evidence": "blocked/unavailable",
+      "status": "research_browser_fetch_failed"
+    },
+    {
+      "url": "https://is-ebird-wordpress-prod-s3.s3.amazonaws.com/wp-content/uploads/sites/55/2021/07/eBird-Status-Trends-Terms-of-Use-2023-Updates_20231115_FINAL.pdf",
+      "retrieved_on": "2026-11-20",
+      "terms_dated": "2023-11-15",
+      "evidence": "verified documentation",
+      "status": "readable_not_proof_of_current_grant_terms"
+    }
+  ],
+  "source_operations": {
+    "ebd_sed_requests": 0,
+    "ebd_sed_bytes_transferred": 0,
+    "status_and_trends_data_requests": 0,
+    "acquisition_failures": 0,
+    "ingestion": "not_run_source_unavailable",
+    "aggregation": "not_run_source_unavailable",
+    "actual_source_manifest": null,
+    "denominator_parity": null,
+    "frequency_parity": null,
+    "discrepancies": null
+  },
+  "checks": {
+    "python_unittest": {
+      "command": "uv run python -m unittest discover -s tests",
+      "passed": 87,
+      "exit_code": 0
+    },
+    "app_tests": {
+      "command": "npm test --prefix app",
+      "passed": 28,
+      "exit_code": 0
+    },
+    "client_build": {
+      "command": "npm run build --prefix app",
+      "exit_code": 0,
+      "warnings": [
+        "Two existing CSS minifier warnings: unexpected @media. Runtime source unchanged."
+      ]
+    },
+    "reference_inventory": {
+      "command": "uv run python -m tooling.geographic_validation --output experiments/private/geography/continuation-validation.json",
+      "exit_code": 0,
+      "scope": "inventory only; no source build"
+    }
+  },
+  "publication_candidate": {
+    "build_identity": null,
+    "geographic_coverage": null,
+    "species_coverage": null,
+    "dataset_bytes": null,
+    "processing_seconds": null,
+    "peak_memory_bytes": null,
+    "additional_paid_services_used": false,
+    "public_eligibility": "unverified",
+    "indiana_ready_for_authorization": false
+  },
+  "deployment": {
+    "performed": false,
+    "CLOUDFLARE_DEPLOY_ENABLED_before": "false",
+    "CLOUDFLARE_DEPLOY_ENABLED_after": "false",
+    "variable_command": "gh variable get CLOUDFLARE_DEPLOY_ENABLED --repo hmarquardt/birdahead",
+    "runtime_or_active_catalog_changes": false
+  }
+}

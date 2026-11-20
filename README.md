@@ -80,6 +80,7 @@ See the [Phase Three report](docs/phase-three.md), [production operations](docs/
 | [Delivery manifest](experiments/phase-two-delivery-manifest.json) | R2 object keys, rights, attribution and projected storage |
 | [Audit queue](experiments/phase-two-audit-queue.json) | Concise risk-stratified sampled owner-audit queue |
 | [Phase Eight report](docs/phase-eight.md) | Measured source/resource access, reproducible pipeline, destinations and publication runbook |
+| [Phase Eight continuation](docs/phase-eight-continuation.md) | Owner-reported approval, missing grant/delivery evidence, fresh resource/reference inventory and Indiana release blockers |
 | [Regional source request](docs/phase-eight-owner-request.md) | One consolidated EBD/SED access, refresh and public S&T permission action |
 | [Geographic expansion manifest](config/geography/expansion.json) | Indiana → Illinois → Kentucky order, source schemas and release gates |
 | [Historical processing engine](tooling/geographic_engine.py) | Private typed ingestion, shared denominators, native profiles and content-addressed Parquet |

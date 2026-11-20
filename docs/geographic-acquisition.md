@@ -1,5 +1,7 @@
 # Scalable geographic acquisition
 
+**Continuation, November 20, 2026:** eBird approval is owner-reported; actual scope and EBD/SED delivery remain unavailable in the inspected local locations. Obtain the [existing approval and delivery records](phase-eight-owner-request.md#approval-handoff--november-20-2026) before acquisition; do not repeat the original request. [Current measurements and publication gate](phase-eight-continuation.md).
+
 **Phase Eight update, November 16, 2026:** the regional pipeline, bounded source adapters, real two-species S&T raster extraction and selective publication interfaces are implemented. EBD/SED availability and historical parity remain unverified. The public noncommercial intended use, measured resources, release gates and single owner request are in [the Phase Eight report](phase-eight.md) and [provider request](phase-eight-owner-request.md). The sections below retain the original dated investigation; the new report supersedes their planned/unmeasured implementation status.
 
 November 15, 2026. **Decision: use the seven supplied histograms immediately for the local MVP; grow through a configuration-driven EBD + Sampling Event Data pipeline, with Status and Trends and recent observations kept separate.** Manual per-county downloads are bootstrap/reference work only. They are not a refresh mechanism or a prerequisite for delivering the local learner.

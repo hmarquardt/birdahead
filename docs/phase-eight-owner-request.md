@@ -1,5 +1,21 @@
 # One regional data/access request
 
+## Approval handoff — November 20, 2026
+
+**Owner-reported approval; scope not yet verified.** The owner reports the request was approved. Do not submit the original request again. The continuation found no approval documentation or EBD/SED delivery in the project private cache or Downloads; Documents could not be inspected because macOS denied access. The original November 16 request below is historical, not evidence of what was submitted or approved.
+
+Supply the following existing records under ignored `experiments/private/geography/ebd/`, or provide their local paths:
+
+1. The complete approval email/letter or saved project approval record, including date, project/request identifier, conditions and attachments, **plus the project description actually submitted**. This establishes whether approval is for EBD access, regional extracts, matching SED and BirdAhead's public noncommercial use.
+2. The approved delivery's date/geographic scope: all species and all months, whether it includes January 1, 2016–December 31, 2025, the seven reference counties, and whether complete Indiana coverage is permitted. Include applied quality/provisional filters and confirmation that SED covers the same release/population, including complete checklists without target-species detections.
+3. The provider's delivery email/instructions or already downloaded EBD **and matching SED** archives, with release/snapshot date, source taxonomy version, README/schema, compressed and expanded sizes and checksums where supplied. Provider-supported direct links belong only in a private acquisition plan. If approval grants portal access but no extract has been delivered, use the official request workflow once for the smallest coherent regional pair; no authenticated-page automation or worldwide download.
+4. The applicable terms and any grant-specific conditions for compact public noncommercial historical profiles, selective offline distribution, attribution/citation, propagation of terms, submission of published products, expiry or refresh limits. The submitted description and actual grant must be read alongside the general terms; a new blanket permission letter is not assumed necessary if those already cover this use.
+5. **Separately**, any written S&T consent covering derived modeled occurrence/abundance in the public website/PWA, offline packs and destination tools, including permitted products/species/vintages, citation/DOI, disclaimer and redistribution conditions. If no such consent exists, say so; the historical EBD lane can proceed independently when its own evidence is sufficient.
+
+Do not supply account passwords, API key values or signed links through Git or public comments. Unknown provider metadata must remain unknown; a locally calculated checksum can record received bytes but does not establish provider authenticity. These are source/access records, not a new owner media audit. [Continuation findings and release status](phase-eight-continuation.md).
+
+## Original request — November 16, 2026
+
 Prepared November 16, 2026. **Owner action; no request has been sent.** No approved regional EBD/SED extract was found in BirdAhead's private cache, Downloads or Documents. Account/project approval and portal deliveries could not be inspected with the available authenticated API credentials. Those keys authorize different services; their presence establishes no EBD grant. Do not send login credentials or signed links through Git or public issue comments.
 
 At [eBird Download Data](https://ebird.org/data/download), check the existing BirdAhead project for an approved matching pair first. If an existing extract matches the scope below, reuse it with its release/grant documentation. Otherwise update the intended-use description and submit **one regional request** using this text (or use it in one support message for capabilities the request form cannot express):

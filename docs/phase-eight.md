@@ -1,5 +1,7 @@
 # Phase Eight — Scalable geographic intelligence
 
+**Continuation, November 20, 2026:** the owner reports eBird approval, but its documentation and a matching regional EBD/SED delivery were unavailable locally. Scope, public eligibility and real-source validation remain unverified. See the [continuation measurements and release gate](phase-eight-continuation.md) and [approval handoff checklist](phase-eight-owner-request.md#approval-handoff--november-20-2026). The original November 16 findings below remain dated evidence.
+
 November 16, 2026. **Implemented and tested architecture; historical expansion and geographic deployment remain blocked on the approved regional EBD/SED pair and public-use evidence.** Phase Seven `b9e848a` is the accepted baseline. No new media, geography claims in the live learner, infrastructure or paid services were introduced. See the [expansion manifest](../config/geography/expansion.json) and [one consolidated owner request](phase-eight-owner-request.md).
 
 ## Access and resource findings
